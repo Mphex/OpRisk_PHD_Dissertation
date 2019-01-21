@@ -1,0 +1,12 @@
+---
+output: pdf_document
+---
+
+Several individuals deserve recognition for their help in this work. First, I am greatly indebted to Dr. Ginger Lockhart for giving me the opportunity to find where my research passions are---especially quantitatively. She provided guidance in my budding career with the right amount of understanding and pressure to push me to be a more productive and capable researcher. I also owe a great deal to Dr. Jamison Fargo, for many, many reasons including helping me get into the program when my application was delayed. He has also proven to be an important mentor and friend. Relatedly, I am grateful to Dr. Karl White in allowing me to become his first student in many years, providing opportunities to develop as a researcher in an important field. 
+
+My friends and colleagues in the program also deserve serious recognition for their help and support. Specifically, Dr. Emily Brignone played an invaluable role as a leader and friend as I pursued my goals in the program. She provided timely and important help throughout the process. I appreciate her loyal, honest, genuine friendship. Another good friend that deserved mentioning is Sara Doutré, who also provided support and laughs when I needed it (and sometimes when I did not need it but still welcomed it!). My friends in the Prevention Science Lab continually offered support and collaboration that made my job easier and more enjoyable.
+
+I also want to acknowledge my committee, in providing feedback, guidance, and support throughout my graduate student career. The department's and college's administrative staff and heads, although working in the background, were a huge help in getting me to where I am today. Finally, Utah State University as a school has proven to be a fantastic place to grow academically and to mature into a researcher.
+
+
+

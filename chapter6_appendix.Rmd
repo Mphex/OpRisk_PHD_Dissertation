@@ -1,0 +1,108 @@
+---
+output: pdf_document
+---
+
+```{r setup2, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\doublespacing
+
+# Appendix B: R Code for Chapter 6 {-}
+
+\singlespace
+
+Required: R Packages from CRAN
+
+\small
+```{r, echo=TRUE, eval=FALSE}
+if (!require(tidyverse)){
+  install.packages("tidyverse")
+  library(tidyverse)
+}
+if (!require(furniture)){
+  install.packages("furniture")
+  library(furniture)
+}
+if (!require(here)){
+  install.packages("here")
+  library(here)
+}
+if (!require(devtools)){
+  install.packages("devtools")
+  library(devtools)
+}
+if (!require(survey)){
+  install.packages("survey")
+  library(survey)
+}
+```
+\normalsize
+
+Required: R Packages from GitHub
+
+\small
+```{r, echo=TRUE, eval=FALSE}
+if (!require(MarginalMediation)){
+  devtools::install_github("tysonstanley/MarginalMediation")
+  library(MarginalMediation)
+}
+```
+\normalsize
+
+\clearpage
+
+## Data Preparation {-}
+
+Data preparation using the 2014 National Survey on Drug Use and Health, as described in Chapter 4.
+
+\small
+```{r app_data, eval=FALSE}
+```
+\normalsize
+
+\clearpage
+
+## Models {-}
+
+\small
+```{r app_models, eval=FALSE}
+```
+```{r app_data2, eval=FALSE}
+```
+```{r app_odds, eval=FALSE}
+```
+\normalsize
+
+\clearpage
+
+## Tables and Figures {-}
+
+Table \ref{tab:table1} on page \pageref{tab:table1}
+
+\small
+```{r app_table1, eval=FALSE}
+```
+\normalsize
+
+Table \ref{tab:perc} on page \pageref{tab:perc}
+
+\small
+```{r app_tab_perc, eval=FALSE}
+```
+\normalsize
+
+Table \ref{tab:oldperc} on page \pageref{tab:oldperc}
+
+\small
+```{r old_perc, eval=FALSE}
+```
+\normalsize
+
+Figure \ref{fig:app} on page \pageref{fig:app}
+
+\small
+```{r app_fig, eval=FALSE}
+```
+
+\normalsize

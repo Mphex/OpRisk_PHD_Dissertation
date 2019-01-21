@@ -1,0 +1,19 @@
+---
+output: pdf_document
+---
+
+\doublespacing
+\begin{center}
+Towards a Framework for Operational Risk \\ 
+in the Banking Sector \\
+Mphekeleli Hoohlo
+\end{center}
+
+\vspace{12pt}
+
+Mediation analysis is built to answer not only *if* one variable affects another, but *how* the effect takes place. However, it lacks interpretable effect size estimates in situations where the mediator (an intermediate variable) and/or the outcome is categorical or otherwise non-normally distributed. By integrating a powerful approach known as average marginal effects within mediation analysis---termed *Marginal Mediation Analysis* (MMA)---the issues regarding categorical mediators and/or outcomes are, in large part, resolved. This new approach allows the estimation of the indirect effects (those effects of the predictor that affect the outcome through the mediator) that are interpreted in the same way as mediation analysis with continuous, normally-distributed mediators and outcomes. This also, in turn, resolves the troubling situation wherein the indirect plus the direct effect does not equal the total effect (i.e., the total effect does not equal the total effect). By offering this information in mediation, interventionists and lawmakers can better understand where efforts and resources can make the greatest impact.
+
+This project presents the development and the software of MMA, describes the evaluation of its performance, and reports an application of MMA to health data. The approach is successful in several aspects: 1) the software works across a wide variety of situations as the `MarginalMediation` R package; 2) MMA performed well and was statistically powered much like other mediation analysis approaches; and 3) the application demonstrated the increased amount of interpretable information that is provided in contrast to other approaches. 
+
+
+\singlespacing

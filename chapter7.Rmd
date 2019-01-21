@@ -1,0 +1,72 @@
+---
+output: pdf_document
+---
+
+\begin{quote}
+\emph{A model is a simplification or approximation of reality and hence will not reflect all of reality. ... While a model can never be ``truth," a model might be ranked from very useful, to useful, to somewhat useful, to, finally, essentially useless.}
+--- Burnham and Anderson, 2002
+\end{quote}
+
+
+\doublespacing
+
+# General Discussion
+
+Models are simply representations of reality. This is also true of mediation models even though they are used to model more complex relations. The value in using such models is generally seen in their ability to provide opportunities for intervention or prevention.\footnote{Although not a major aspect of this project, it is important to note the predictive power a specific model has. For example, a model may show a significant effect in a logistic regression but it may not predict the outcome above chance. In this case, the question turns from ``does X have an effect on Y?" to ``does it predict Y?" This distinction has important implications when it comes to intervention and prevention but involves a number of important concepts that cannot be covered herein (e.g., model specification including penalty parameters, modeling approach such as tree based approaches). This general idea---that of the importance of predictive accuracy---is discussed in Hastie, Tibshirani, and Friedman (2009).}
+
+As has been discussed throughout this project, mediation models are most useful when the model communicates both the significance (e.g., p-values) and meaningfulness (e.g., effect sizes). One without the other can be misleading, potentially resulting in faulty interventions and policies. Together, significance and meaning tell a more complete story of the data The significance helps researchers understand uncertainty; effect sizes communicate the potential for intervention to actually make meaningful changes in important outcomes.
+
+However, some situations wherein mediation analysis is applied can provide a lack of interpretable information, particularly in terms of the effect sizes. This limits the usefulness of the model, whether or not it is an accurate representation of reality. It is for this purpose that Marginal Mediation Analysis (MMA) was developed. It provides mediation analysis with the tools to communicate both significance and meaning. This is coming forth at an opportune time, as the American Psychological Association, among others, have called for more focus on effect sizes and less attention on p-values [@Cumming2014].
+
+## Findings from the Three Phases
+
+This project has presented the development of the approach and its software, the evaluation of its performance in possible real-world scenarios, and the application of it to health data regarding adolescent substance use. In its first phase, this project produced MMA with its accompanying software---the `MarginalMediation` R package. The software is freely available and allows for researchers to quickly apply it. The main function, `mma()`, is relatively quick even with the bootstrapping, and produces thorough output.
+
+The next phase used Monte Carlo simulations to evaluate MMA and ways that it can possibly be improved. For example, given the results regarding the confidence interval coverage, it may be of benefit to try alternative approaches, either adaptations of bootstrapping (e.g., Bias-Corrected Bootstrap) or others. @MacKinnon2004 found that Monte Carlo confidence intervals performed well and, therefore, may also be a valuable addition to MMA.
+
+These simulations further demonstrated a trade-off regarding sample sizes and effect sizes: large effect sizes can be found in small samples but those same conditions provide much more variability in estimating the total effect accurately. Overall, these findings demonstrate the ability for the sample size, as it increases, to reduce bias and solidify relationships that should hold in mediation models (e.g., $a \times b + c' = c$).
+
+The Monte Carlo simulations also allowed for the testing of the software. Some situations, once simulated, demonstrated a need for change, often regarding the speed of the software, its accuracy, and necessary checks to avoid more serious problems. Ultimately, there was a natural feedback loop between the simulations and the software that were developed interactively. Once a stable version of the software was achieved, the reported simulations were all run based on that version (v0.5.0).
+
+In the final phase, the application study highlighted important information regarding the MMA approach and adolescent health. The application study replicated work by Ford and Hill (2012), which was chosen to replicate for three major reasons:
+
+1. the application study used a large sample with a mix of binary and continuous mediators and outcomes (common in the literature),
+2. the statistical approach is one of the better approaches (also common in the literature), and
+3. the data were open and a more recent release was available to investigate.
+
+Although MMA can benefit the researcher in many situations, the benefits of using MMA are particularly clear within the context of this application study. Most importantly, MMA provided more information, in the form of effect size estimates, that help instruct on the meaningfulness of the results [@Cumming2014]. As @Preacher2011 state: "it is important to develop a way to gauge the effect size of the product term $ab$ itself," (pg. 95). That is, not only does the effect size of the individual paths need to be meaningful but the product of $a \times b$ must be as well. Although nearly all effects were significant, with such a large sample size significance tests alone can be misleading. For this study, the addition of the effect sizes are helpful to understand that each estimated effect was small. This provides a more complete view of the relationships tested herein.
+
+Second, in terms of the substantive findings, there is strong evidence across many studies that adolescent religiosity is related to substance use. This is shown here as well. Consistently, religiosity was negatively related to the four substance use outcomes. About half of the total effect of religiosity on substance use was mediated by personal and peer attitudes about substance use. Depression also mediated the relationship, but to a much lesser degree. 
+
+Although not definitive, this study in conjunction with Ford and Hill (2012) presents evidence that religiosity may impact substance use outcomes through attitudes towards substance use. More research, particularly research with longitudinal data, are needed to further test and understand these relationships and their ability to inform intervention or policy.
+
+
+# Limitations
+
+The MMA approach has two notable limitations. First, mediation analysis assumes no measurement error in the mediators. Although latent variable methods can help with this [@Lockhart2011; @Iacobucci2008book], the data necessary are not always available and the integration of average marginal effects within SEM is not clearly defined as of yet. Ultimately, the estimates are only as good as the measurements. Second, it may also be difficult for researchers to accept given the novelty of average marginal effects in the field. This is being alleviated through the use of various introductions to average marginal effects and its use in other fields (Barrett & Lockhart, in preparation).
+
+Of course, the Monte Carlo simulation did not test for all conditions present in real-world modeling. Although it accounted for the main influences, there are other possible important influences that may impact the performance of the method, including missing values and model mis-specification. These are important influences to assess in future projects. Finally, the application study used cross-sectional data. This makes it difficult to demonstrate causality and puts additional pressure on the ability to control for confounding.
+
+
+# Future Research
+
+Several foreseeable areas of investigation can prove useful for understanding and extending MMA. First, the application highlighted an important area for future inquiry---MMA with survey weighted data. The application study used data that were collected via a complex survey design and were therefore weighted. Further research is needed to understand MMAs behavior in these situations. 
+
+Second, this project specifically assessed binary and count mediators. Another important type of variable that could play an important role in mediation is "time-to-event" or survival data. Future research is needed to understand how this type of data with its accompanying statistical approaches can fit into MMA.
+
+Third, MMA relies on the *sequential ignorability* assumption as described by @Imai2010a. A sensitivity analysis is available to assess how important deviations from this assumption are on the estimates and conclusions [@Imai2010a; @Imai2010b]. Integrating this sensitivity analysis would be a valuable addition to the approach. It likely would be a natural integration but this integration would need to be tested.
+
+Relatedly, it could also be useful to look at using instrumental variables to help appease sequential ignorability. Although generally not applied in conjunction with mediation analysis, the approach could prove useful for MMA specifically and mediation analysis as a whole.
+
+Lastly, the integration of latent variable approaches, including latent class analysis, is an important step in making this approach more broadly applicable. Work regarding average marginal effects, categorical data, and structural equation models would be an important contribution as well.
+
+
+# Conclusions
+
+The results of the development, simulations, and application all show that MMA holds much promise in extending mediation analysis more fully to situations where the mediators and/or outcomes are categorical or non-normally distributed. Although further work is necessary to understand MMAs performance across more situations, the results of this project demonstrates its utility for common health and prevention research.
+
+
+
+
+
+\singlespacing

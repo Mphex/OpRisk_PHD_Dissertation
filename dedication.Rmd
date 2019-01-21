@@ -1,0 +1,10 @@
+---
+output: html_document
+---
+
+This work---the dissertation and all work associated with it---is dedicated to \ldots. I will always be grateful to her and for her. I also dedicate this work to my child, who patiently loved a father who was often busy working, even when at home. Finally, I dedicate this work to my parents and siblings, who kept me level-headed throughout the process, providing wise and thoughtful advice.
+
+This work is truly evidence of the love I am surrounded by.
+
+\hspace{10.5 cm} \emph{Mphekeleli Hoohlo}
+

@@ -1,0 +1,668 @@
+---
+output: pdf_document
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
+
+\begin{quote}
+\emph{The power of intuitive understanding will protect you from harm until the end of your days.}
+--- Lao Tzu
+\end{quote}
+
+
+\doublespacing
+
+# Introduction
+
+In 2012, Ford and Hill published an article that used some of the most common approaches to mediation when a mediator and/or outcome is categorical. Specifically, they used:
+
+1. the difference method [@mackinnon2008intro],
+2. the "categorical data method outlined by MacKinnon (2008)" (pg. 5) to assess the significance of the difference method, and
+3. the percent of the total effect that was mediated.
+
+These three approaches are not only common but likely some of the best approaches in this situation. However, as stated in Chapter 4, these have some notable shortcomings. First, the standard errors can be inefficient and biased if there is a high degree of multi-collinearity (or the degree to which there is perfect separability) in any of the models.\footnote{Perfect separability is where a predictor can perfectly predict the outcome in logistic regression.} The significance of the difference method depends on these standard error estimates. Second, it does not provide the effect size measures that would be most useful [e.g., the effect of increasing the predictor on the outcome through the mediator(s)]. Third, the difference method is consistently too conservative with binary outcomes [@Jiang2015].
+
+To build on the important findings from Ford and Hill (2012), this study replicates their work using more recent data from 2014 while using MMA to obtain effect sizes and confidence intervals for the indirect and direct effects. 
+
+# Results
+
+```{r app_data}
+library(tidyverse)
+library(furniture)
+
+## Load data
+load("Data/NSDUH_2014_Results.rda")
+d = da36361.0001
+names(d) = tolower(names(d))
+rm(da36361.0001)
+
+## Variables
+d1 = d %>%
+  select(
+    ## ----------------------------------- ##
+    ##  Outcomes                           ##
+    ##    (1,2,8,11,12 = within last year) ##
+    ## ----------------------------------- ##
+    ## Tobacco Outcome
+    cigrec,    ## cig 
+    chewrec,   ## chew 
+    cigarrec,  ## cigar 
+    #pipe30dy,  ## pipe (30 days here instead)
+    
+    ## Heavy Drinking Outcome
+    dr5day,  ## 1+ is within last 30 days
+    
+    ## Rx Outcome
+    analrec, ## pain relievers
+    tranrec, ## tranquilizers
+    stimrec, ## stimulants
+    sedrec,  ## sedatives
+    
+    ## Marijuana Outcome
+    mjrec,   ## marijuana 
+    
+    ## Other Illicit Outcome
+    cocrec,  ## cocaine 
+    crakrec, ## crack 
+    herrec,  ## heroin 
+    hallrec, ## hallucinogens
+    lsdrec,  ## LSD
+    pcprec,  ## PCP
+    ecsrec,  ## ecstacy
+    inhrec,  ## inhalants
+    methrec, ## meth
+    
+    ## ------------------------------------ ##
+    ## Mediators                            ##
+    ##   Mean response (higher = more cons) ##
+    ## ------------------------------------ ##
+    ## Self Views Mediator
+    yegpkcig, ## someone your age cig
+    yegmjevr, ## someone your age mj
+    yegmjmo,  ## someone your age mj monthly
+    yegaldly, ## someone your age drinking daily
+    
+    ## Peer Views Mediator
+    yefpkcig, ## you cig
+    yefmjevr, ## you mj
+    yefmjmo,  ## you mj monthly
+    yefaldly, ## you drinking daily
+    
+    ## Psychological Well-being (Major Depression)
+    ymdeyr,  ## past year major depressive epidosde (MDE)
+    
+    ## ----------------------------------- ##
+    ## Predictor                           ##
+    ##   Cronbach's Alpha                  ##
+    ##   Standardized mean level           ##
+    ## ----------------------------------- ##
+    ## Religiosity
+    yerlgsvc, ## past 12, times at church (1-6
+    yerlgimp, ## religious beliefs are important (1-4 strong dis to strong agree)
+    yerldcsn, ## religious belief influence decisions (1-4)
+    yefaiact, ## religious activities
+    
+    ## ----------------------------------- ##
+    ## Control Variables                   ##
+    ## ----------------------------------- ##
+    ## Parental Attitudes
+    yeppkcig, ## parents feel about cig
+    yepmjevr, ## parents feel about mj
+    yepmjmo,  ## parents feel about mj monthly
+    yepaldly, ## parents feel about drinking daily
+    
+    ## Demographics
+    age2,    ## age
+    catage,  ## age category (1 = 12-17 year old)
+    irsex,   ## gender (1 = male)
+    newrace2, ## race (1 = White, 2-7 non-white)
+    irfamin3, ## total family income (6 = 50,000 - 74,999)
+    poverty2, ## not used in the study but could be for ours 
+              ##  (1 = poverty, 2 = low middle, 3 = middle class or more)
+    
+    ## ----------------------------------- ##
+    ## Sampling Variables                  ##
+    ## ----------------------------------- ##
+    analwt_c,  ## sample weight
+    vestr,     ## analysis stratum
+    verep      ## analysis replicate
+    ) %>%
+  filter(catage == "(1) 12-17 Years Old")
+
+## Data Cleaning
+dich = function(x){
+  x = ifelse(grepl("(01)|(02)|(08)|(11)", x), 1, 0)
+  x
+}
+map_to = function(x){
+  lbls = sort(levels(x))
+  lbls = (sub("^\\([0-9]+\\) +(.+$)", "\\1", lbls))
+  x = as.numeric(gsub("^\\(0*([0-9]+)\\).+$", "\\1", x))
+  x
+}
+d1[, c(1:18)]  = map_df(d1[, c(1:18)], ~dich(.x))
+d1[, c(19:36)] = map_if(d1[, c(19:36)], is.factor, ~map_to(.x))
+
+## Creating final modeling variables
+d1 = d1 %>%
+  mutate(tobacco = ifelse(rowSums(cbind(cigrec, chewrec, 
+                                        cigarrec)) > 0, 1, 0),
+         drink   = dr5day,
+         rx      = ifelse(rowSums(cbind(analrec, tranrec, 
+                                        stimrec, sedrec)) > 0, 1, 0),
+         mari    = ifelse(mjrec == 1, 1, 0),
+         illicit = ifelse(rowSums(cbind(cocrec, crakrec, 
+                                        herrec, hallrec,
+                                        lsdrec, pcprec, 
+                                        ecsrec, inhrec, 
+                                        methrec)) > 0, 1, 0)) %>%
+  mutate(self = rowMeans(cbind(yegpkcig, yegmjevr, yegmjmo, yegaldly)),
+         peer = rowMeans(cbind(yefpkcig, yefmjevr, yefmjmo, yefaldly))) %>%
+  mutate(dep = washer(ymdeyr, 2, value = 0)) %>%
+  mutate(religious = rowMeans(cbind(scale(yerlgsvc),
+                                    scale(yerlgimp),
+                                    scale(yerldcsn), 
+                                    scale(yefaiact)))) %>%
+  mutate(parent = rowMeans(cbind(yeppkcig, yepmjevr, 
+                                 yepmjmo, yepaldly)))
+```
+
+```{r app_models, eval=FALSE}
+## Sampling Design
+library(survey)
+design = svydesign(ids = ~1, 
+                   strata = ~vestr, 
+                   weights = ~analwt_c,
+                   data = d1)
+
+## All a Path Models
+## Unadjusted
+svy_a1 = svyglm(self ~ religious, design = design)
+svy_a2 = svyglm(peer ~ religious, design = design)
+svy_a3 = svyglm(dep ~ religious, design = design, 
+                family = 'quasibinomial')
+
+## Adjusted
+svy_a12 = svyglm(self ~ religious + age2 + 
+                   irsex + newrace2 + irfamin3 + parent, 
+                 design = design)
+svy_a22 = svyglm(peer ~ religious + age2 + 
+                   irsex + newrace2 + irfamin3 + parent, 
+                 design = design)
+svy_a32 = svyglm(dep ~ religious + age2 + 
+                   irsex + newrace2 + irfamin3 + parent, 
+                 design = design, 
+                 family = 'quasibinomial')
+
+## All b and c' Path Models (drink such low prevalence that it was not included)
+svy_bc = svy_bc2 = list()
+for (i in c("tobacco", "rx", "mari", "illicit")){
+  
+  ## Unadjusted Model
+  model = as.formula(paste0(i, "~ self + peer + dep + religious"))
+  svy_bc[[i]] = svyglm(model, design = design, family = "binomial")
+  
+  ## Adjusted Model
+  model2 = as.formula(paste0(i, "~ self + peer + dep + religious + age2 + 
+                             irsex + newrace2 + irfamin3 + parent"))
+  svy_bc2[[i]] = svyglm(model2, design = design, family = "binomial")
+  
+}
+
+library(MarginalMediation)
+## Tobacco
+fit_tob = mma(svy_bc[["tobacco"]],
+              svy_a1,
+              svy_a2,
+              svy_a3,
+              ind_effects = c("religious-self",
+                              "religious-peer",
+                              "religious-dep"),
+              boot = 500)
+fit_tob2 = mma(svy_bc2[["tobacco"]],
+               svy_a12,
+               svy_a22,
+               svy_a32,
+               ind_effects = c("religious-self",
+                               "religious-peer",
+                               "religious-dep"),
+               boot = 500)
+
+## Rx
+fit_rx = mma(svy_bc[["rx"]],
+              svy_a1,
+              svy_a2,
+              svy_a3,
+              ind_effects = c("religious-self",
+                              "religious-peer",
+                              "religious-dep"),
+              boot = 500)
+fit_rx2 = mma(svy_bc2[["rx"]],
+               svy_a12,
+               svy_a22,
+               svy_a32,
+               ind_effects = c("religious-self",
+                               "religious-peer",
+                               "religious-dep"),
+               boot = 500)
+
+## Marijuana
+fit_mar = mma(svy_bc[["mari"]],
+             svy_a1,
+             svy_a2,
+             svy_a3,
+             ind_effects = c("religious-self",
+                             "religious-peer",
+                             "religious-dep"),
+             boot = 500)
+fit_mar2 = mma(svy_bc2[["mari"]],
+              svy_a12,
+              svy_a22,
+              svy_a32,
+              ind_effects = c("religious-self",
+                              "religious-peer",
+                              "religious-dep"),
+              boot = 500)
+
+## Illicit
+fit_ill = mma(svy_bc[["illicit"]],
+              svy_a1,
+              svy_a2,
+              svy_a3,
+              ind_effects = c("religious-self",
+                              "religious-peer",
+                              "religious-dep"),
+              boot = 500)
+fit_ill2 = mma(svy_bc2[["illicit"]],
+               svy_a12,
+               svy_a22,
+               svy_a32,
+               ind_effects = c("religious-self",
+                               "religious-peer",
+                               "religious-dep"),
+               boot = 500)
+
+save(fit_tob, fit_tob2, 
+     fit_rx, fit_rx2, 
+     fit_mar, fit_mar2, 
+     fit_ill, fit_ill2,
+     file = here("Data/NSDUH_2014_Results.rda"))
+```
+
+```{r app_data2}
+library(MarginalMediation)
+library(tidyverse)
+library(here)
+
+load(file = here("Data/NSDUH_2014_Results.rda"))
+
+## Extract direct effects
+directs_fx = function(..., type){
+  list(...) %>%
+    map(~.x$dir_effects) %>%
+    do.call("rbind", .) %>%
+    data.frame(.) %>%
+    select(Direct, Lower, Upper) %>%
+    data.frame(., row.names = 
+                 gsub("religious", "Religiousity (Direct)", row.names(.))) %>%
+    rownames_to_column() %>%
+    mutate(Outcome = c(rep("Tobacco", 1), rep("Prescription", 1),
+                       rep("Marijuana", 1), rep("Illicit", 1))) %>%  
+    select(Outcome, rowname, Direct, Lower, Upper) %>%
+    set_names(c("Outcome", "Path", "Estimate", "Lower", "Upper")) %>%
+    mutate(CI = paste0("(", round(Lower,4), ", ", round(Upper,4), ")")) %>%
+    select(-CI) %>%
+    mutate(type = type)
+}
+directs_un = directs_fx(fit_tob, 
+                        fit_rx, 
+                        fit_mar, 
+                        fit_ill, 
+                        type = "Unadjusted")
+directs_adj = directs_fx(fit_tob2, 
+                         fit_rx2, 
+                         fit_mar2, 
+                         fit_ill2, 
+                         type = "Adjusted")
+
+## Extract indirect effects and bind to directs
+inds_fx = function(..., type){
+  list(...) %>%
+    map(~.x$ind_effects) %>%
+    do.call("rbind", .) %>%
+    data.frame(.) %>%
+    select(Indirect, Lower, Upper) %>%
+    data.frame(., row.names = gsub("religious-", "Religiousity Through", 
+                                   row.names(.))) %>%
+    data.frame(., row.names = gsub("dep", "\nDepression", 
+                                   row.names(.))) %>%
+    data.frame(., row.names = gsub("self", "\nRespondent Views", 
+                                   row.names(.))) %>%
+    data.frame(., row.names = gsub("peer", "\nPeer Views", 
+                                   row.names(.))) %>%
+    rownames_to_column() %>%
+    mutate(Outcome = c(rep("Tobacco", 3), 
+                       rep("Prescription", 3),
+                       rep("Marijuana", 3), 
+                       rep("Illicit", 3))) %>%
+    select(Outcome, rowname, Indirect, Lower, Upper) %>%
+    set_names(c("Outcome", "Path", "Estimate", 
+                "Lower", "Upper")) %>%
+    mutate(CI = paste0("(", round(Lower,4), ", ", 
+                       round(Upper,4), ")")) %>%
+    select(-CI) %>%
+    mutate(type = type)
+}
+unadjusted = inds_fx(fit_tob, 
+                     fit_rx, 
+                     fit_mar, 
+                     fit_ill, 
+                     type = "Unadjusted") %>%
+  rbind(directs_un)
+adjusted = inds_fx(fit_tob2, 
+                   fit_rx2, 
+                   fit_mar2, 
+                   fit_ill2, 
+                   type = "Adjusted") %>%
+  rbind(directs_adj)
+inds = rbind(unadjusted, adjusted) %>%
+  data.frame %>%
+  mutate(type = factor(type, 
+                       levels = c("Unadjusted", "Adjusted"))) %>%
+  mutate(Path = gsub("[0-9]","", Path)) %>%
+  mutate(Outcome = factor(Outcome, 
+                          levels = c("Tobacco", "Prescription",
+                                     "Marijuana", "Illicit")))
+```
+
+```{r app_odds}
+## Odds ratios and linear effects as done in Ford and Hill
+## Sampling Design
+library(survey)
+design = svydesign(ids = ~1, 
+                   strata = ~vestr, 
+                   weights = ~analwt_c,
+                   data = d1)
+
+## All a Path Models
+svy_a1 = svyglm(self ~ religious + age2 + 
+                  irsex + newrace2 + irfamin3 + parent, 
+                design = design)
+svy_a2 = svyglm(peer ~ religious + age2 + 
+                  irsex + newrace2 + irfamin3 + parent, 
+                design = design)
+svy_a3 = svyglm(dep ~ religious + age2 + 
+                  irsex + newrace2 + irfamin3 + parent, 
+                design = design, 
+                family = 'quasibinomial')
+
+## path a
+patha_fx = function(obj, row){
+  cbind(coef(obj)[row], 
+            confint(obj)[row,1], 
+            confint(obj)[row,2])
+}
+est1 = 
+  rbind(
+    patha_fx(svy_a1, "religious"),
+    patha_fx(svy_a2, "religious"),
+    patha_fx(svy_a3, "religious")
+)
+rownames(est1) = c("Respondent", "Peer", "Depression")
+est1 = data.frame(est1) %>%
+  set_names(c("Estimate", "Lower", "Upper"))
+
+## All c and c' Path Models
+svy_c = svy_c1 = list()
+for (i in c("tobacco", "rx", "mari", "illicit")){
+  
+  model = as.formula(paste0(i, "~ religious + age2 + 
+                            irsex + newrace2 + irfamin3 + parent"))
+  svy_c[[i]] = svyglm(model, design = design, family = "quasibinomial")
+  
+  model2 = as.formula(paste0(i, "~ self + peer + dep + religious + age2 + 
+                             irsex + newrace2 + irfamin3 + parent"))
+  svy_c1[[i]] = svyglm(model2, design = design, family = "quasibinomial")
+  
+}
+
+## Odds ratios of c and c' path models
+pathc_fx = function(obj, row, drug){
+  cbind(coef(obj[[drug]])[row], 
+            confint(obj[[drug]])[row,1], 
+            confint(obj[[drug]])[row,2])
+}
+est2 =
+  rbind(
+    cbind(pathc_fx(svy_c, "religious", "tobacco"),
+          pathc_fx(svy_c1, "religious", "tobacco")),
+    cbind(pathc_fx(svy_c, "religious", "rx"),
+          pathc_fx(svy_c1, "religious", "rx")),
+    cbind(pathc_fx(svy_c, "religious", "mari"),
+          pathc_fx(svy_c1, "religious", "mari")),
+    cbind(pathc_fx(svy_c, "religious", "illicit"),
+          pathc_fx(svy_c1, "religious", "illicit"))
+)
+rownames(est2) = c("Tobacco", "Rx",
+                   "Marijuana", "Illicit")
+est2 = data.frame(est2) %>%
+  set_names(c("c", "c_Lower", "c_Upper", "c1", "c1_Lower", "c1_Upper"))
+```
+
+```{r old_perc, eval=FALSE}
+est21 = est2 %>%
+  rownames_to_column() %>%
+  group_by(rowname) %>%
+  summarize(perc = ((c - c1)/c)*100)
+library(xtable)
+xtable(est21, digits = 1) %>%
+  print.xtable(include.rownames = FALSE)
+```
+
+```{r app_tab_perc, eval=FALSE}
+perc_fx = function(obj){
+  obj$ind_effects[,3]/(obj$dir_effects[,1] + 
+                         sum(obj$ind_effects[,3]))
+}
+
+percent_ind = cbind(perc_fx(fit_tob2), 
+                    perc_fx(fit_rx2), 
+                    perc_fx(fit_mar2), 
+                    perc_fx(fit_ill2)) %>%
+  data.frame %>%
+  set_names(c("Tobacco", "Prescription", "Marijuana", "Illicit")) %>%
+  map_df(~.x*100) %>%
+  mutate(Mediator = c("Respondent Views", "Peer Views", "Depression")) %>%
+  select(Mediator, Tobacco, Prescription, Marijuana, Illicit)
+percent_ind = percent_ind %>%
+  rbind(data.frame(
+    Mediator = "Total",
+    Tobacco  = sum(percent_ind$Tobacco),
+    Prescription = sum(percent_ind$Prescription),
+    Marijuana = sum(percent_ind$Marijuana),
+    Illicit = sum(percent_ind$Illicit)
+  ))
+
+library(xtable)
+xtable(percent_ind, digits = 1)
+```
+
+```{r app_table1, eval=FALSE}
+## overall table1 (not adjusted for survey weights)
+d1 %>%
+  table1(factor(rx), factor(tobacco), 
+         factor(drink), factor(mari), factor(illicit),
+         irsex, factor(ifelse(newrace2 == "(1) NonHisp White", 0, 1)), 
+         factor(
+           ifelse(poverty2 == "(3) Income > 2X Fed Pov Thresh (See comment above)", 
+                  1, 0)),
+         factor(dep), self, peer, parent, religious,
+         type = c("simple", "condense"),
+         var_names = c("Prescription", "Tobacco", 
+                       "Heavy Drinking", "Marijuana",
+                       "Other Illicit",  "Sex", 
+                       "Race (Non-White)",
+                       "Income (2x poverty)", 
+                       "Major Depression Episode", 
+                       "Respondent", "Peer", 
+                       "Parent", "Religiosity"),
+         output = "latex2")
+
+## Survey weighted
+library(survey)
+design = svydesign(ids = ~1, 
+                   strata = ~vestr, 
+                   weights = ~analwt_c,
+                   data = d1)
+svymean(~rx, design)
+svymean(~tobacco, design)
+svymean(~drink, design)
+svymean(~mari, design)
+svymean(~illicit, design)
+svymean(~irsex, design)
+svymean(~newrace2, design)
+svymean(~poverty2, design)
+svymean(~dep, design, na.rm=TRUE)
+svymean(~self, design, na.rm=TRUE)
+svymean(~peer, design, na.rm=TRUE)
+svymean(~parent, design, na.rm=TRUE)
+svymean(~religious, design, na.rm=TRUE)
+
+## alpha of religiosity
+with(d1, 
+  psych::alpha(cbind(scale(yerlgsvc),
+                     scale(yerlgimp),
+                     scale(yerldcsn), 
+                     scale(yefaiact))))
+
+## alpha of respondent
+with(d1, 
+  psych::alpha(cbind(yegpkcig, yegmjevr, 
+                     yegmjmo, yegaldly)))
+
+## alpha of peer
+with(d1, 
+  psych::alpha(cbind(yefpkcig, yefmjevr, 
+                     yefmjmo, yefaldly)))
+
+## alpha of parent
+with(d1, 
+  psych::alpha(cbind(yeppkcig, yepmjevr, 
+                     yepmjmo, yepaldly)))
+
+## number of heavy drinking responses
+sum(d1$drink)
+```
+
+The descriptive statistics are found in Table \ref{tab:table1} for the 13,600 adolescents in the sample. Overall, these sample statistics were very similar to the 2007 sample used by Ford and Hill. However, the prevalence of drug use across each category dropped since 2007, although marijuana use did not drop substantially (13.85\% in 2007 to 12.7\% in 2014). Heavy drinking (10.4\% in 2007) had only a single positive response in the entire sample of adolescents in 2014. Unfortunately, the number of major depressive episodes increased from 8.4\% in 2007 to 11.3\% in 2014. Attitudes regarding drug use were essentially identical as that in 2007 for the respondent, peer, and parent (and each had high reliabilities---all $\alpha \geq .80$---comparable to 2007). Finally, the attitudinal measures and the measure of religiosity had high reliabilities. 
+
+\begin{table}[ htb ] 
+\centering 
+\caption{Descriptive statistics of the sample.}
+\begin{tabular}{ lc }
+\toprule
+  & Mean/ Percent (SD) \\ 
+  & n = 13,600 \\ 
+\midrule
+Drug use & \\
+\hspace{6pt} Prescription drug misuse (past year) & 5.7\% \\ 
+\hspace{6pt} Tobacco use (past year)              & 11.8\% \\ 
+\hspace{6pt} Heavy drinking (past 30 days)        & 0\% \\ 
+\hspace{6pt} Marijuana use (past year)            & 12.7\% \\ 
+\hspace{6pt} Other illicit drug use (past year)   & 3.5\% \\ 
+Demographics & \\
+\hspace{6pt} Female                    & 49.0\% \\ 
+\hspace{6pt} Race (Non-White)          & 45.8\% \\ 
+\hspace{6pt} Income (2x poverty level) & 55.4\% \\ 
+Major Depression Episode               & 11.3\% \\ 
+Attitudinal measures & \\
+\hspace{6pt} Respondent (range 1-3) & 2.6 ($\alpha = .86$) \\ 
+\hspace{6pt} Peer (range 1-3)       & 2.5 ($\alpha = .88$) \\ 
+\hspace{6pt} Parent (range 1-3)     & 2.9 ($\alpha = .84$) \\ 
+Religiosity & $\alpha = .80$ \\ 
+\bottomrule
+\end{tabular}\label{tab:table1}
+\end{table} 
+
+Four MMA models were used to assess the pathways from adolescent religiosity to substance use, one for each outcome (any tobacco use, prescription drug misuse, marijuana use, and other illicit drug use). Each model controlled for parental conservative attitudes toward substance use, the adolescents' family income, and the adolescents' age, race, and sex. Figure \ref{fig:appresults} presents the individual paths in the model units. Therefore, the paths leading to the conservative attitudes (both respondent and peer attitudes) are in the attitude metric with a range from 1 - 3. The paths leading to depression and the substance outcomes are all in log-odds. As the figure highlights, most paths were statistically significant at p < .05. 
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width = \linewidth]{figures/fig_application_results.pdf}
+\caption{Results of the mediation models' individual paths regarding religiosity and substance use. Note: *** p < .001, ** p < .01, * p < .05}
+\label{fig:appresults}
+\end{figure}
+
+Because MMA provides information about each of the indirect effects naturally in the same units, it is possible to assess the amount mediated by each mediator while also controlling for the other mediators in a straightforward manner---without having to fit several other models and assess each $c - c'$. Table \ref{tab:perc} presents the amount of the total effect of religiosity on substance use that is mediated through respondent conservative attitudes, peer conservative attitudes, and depression. Overall, the effect of religiosity on substance use is heavily mediated by the hypothesized mediators, more so for tobacco use than the others.\footnote{Using the approach used in Ford and Hill, the total mediated effects are slightly different than those estimated via the indirect and direct effects. This may be due to the weighting of the sample; an important area for further research into MMAs performance.}
+
+\begin{table}[htb]
+\centering
+\caption{The percent of mediation (the percent of the total effect) by path for each outcome.}
+\begin{tabular}{lcccc}
+\toprule
+            & \multicolumn{4}{c}{Outcome} \\
+   Mediator & Tobacco & Prescription & Marijuana & Illicit \\ 
+\midrule
+Respondent Views  & 34.2  & 14.0  & 23.2 & 14.1 \\ 
+Peer Views        & 23.2  & 22.0  & 15.8 & 17.7 \\ 
+Depression        & 4.0   & 9.2   & 1.8  & 4.4 \\ 
+Total Mediation   & 61.4  & 45.2  & 40.8 & 36.1 \\ 
+\bottomrule
+\end{tabular}\label{tab:perc}
+\end{table}
+
+In addition to this information, MMA provides information regarding the indirect and direct effects in the same units. Figure \ref{fig:app} highlights the indirect and direct effects with their associated 95\% confidence intervals in the average marginal effects. All of the effects here are in risk (probability) units---i.e., risk of tobacco use, prescription misuse, marijuana use, or illicit drug use. Although all indirect effects and most direct effects are significant, the effect size estimates are particularly important here as the meaningfulness of these significant effects can be overlooked.
+
+These resulting effects are all small, with most effects less than 0.01 (i.e., less than a single risk unit). That is, most effects show changes in the risk of the outcome by less than a single unit. For example, if adolescent religiosity is increased by one unit, its effect on the risk of tobacco use, through respondent attitudes, is a decrease of 0.007; through peer attitudes a decrease of 0.005; through depression a decrease of 0.001; and directly a decrease of 0.008. The total effect, then, is approximately -0.021. Therefore, if an individual has a risk of using tobacco at 50\%, by increasing religiosity by one unit (holding the covariates constant), on average that individual's risk would decrease to 47.9\%. About 0.013 of the effect of religiosity on tobacco use is mediated while 0.008 is direct from religiosity. Ultimately, these findings highlight the fact that the effect sizes, especially the indirect and direct effect sizes, are valuable companions to the p-values. 
+
+```{r tab_modelest, eval=FALSE}
+rbind_auto = function(obj){
+  rbind(obj$ind_effects[, 3:5] %>%
+          set_names(c("Estimate", "Lower", "Upper")), 
+        fit_tob2$dir_effects %>%
+          set_names(c("Estimate", "Lower", "Upper")))
+}
+rbind(rbind_auto(fit_tob2),
+      rbind_auto(fit_rx2),
+      rbind_auto(fit_mar2),
+      rbind_auto(fit_ill2)) %>%
+  xtable::xtable(digits = 4) %>%
+  xtable::print.xtable()
+```
+
+```{r app_fig, fig.width=8, fig.height=6, fig.cap="\\label{fig:app}The effect sizes of the indirect and direct effects of the MMA models for each outcome controlling for demographics and parental attidudes toward substance use.", fig.pos="tbh"}
+p = position_dodge(width = .2)
+inds %>%
+  filter(type == "Adjusted") %>%
+  ggplot(aes(Path, Estimate, group = type, color = type)) +
+    geom_hline(yintercept = 0, color = "darkgrey") +
+    geom_point(position = p, alpha = .8) +
+    geom_errorbar(aes(ymin = Lower, ymax = Upper),
+                  position = p, alpha = .8,
+                  width = .3) +
+    facet_wrap(~Outcome) +
+    coord_flip() +
+    anteo::theme_anteo_wh() +
+    theme(legend.position = "bottom",
+          axis.line = element_line(color = "darkgrey"),
+          panel.spacing = unit(.3, "in")) +
+    scale_color_manual(values = c("chartreuse4", "coral2"),
+                       guide = FALSE) +
+    labs(x = "", y = "",
+         color = "")
+```
+
+
+
+# Conclusions
+
+The replication highlighted several important facets of the important work by Ford and Hill (2012). First, it simplifies the interpretation of the model by using average marginal effects. Second, it highlighted the effect sizes in terms of risk of substance use. This allowed the relatively small effects to be understood, not only in their significance, but in their meaning. Ultimately, MMA provided a more straightforward approach and substantially more information for each model than other mediation approaches.
+
+
+
+
+
+\singlespacing

@@ -1,0 +1,591 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{}
+    \pretitle{\vspace{\droptitle}}
+  \posttitle{}
+    \author{}
+    \preauthor{}\postauthor{}
+    \date{}
+    \predate{}\postdate{}
+  
+
+\begin{document}
+
+\%\textbackslash{}begin\{quote\}
+\%\emph{Relations between variables are often more complex than simple bivariate relations.}
+\%--- Fairchild and MacKinnon, 2009 \%\textbackslash{}end\{quote\}
+
+\doublespacing
+
+\section{Introduction}
+\label{sec:Introduction}\subsection{Introduction}
+
+\%\# The Problem The health and prevention sciences are increasingly
+interested in not only \emph{if} one variable affects another but
+\emph{how} that effect is transmitted. For example, research suggests
+that chronic illness in adolescence can lead to poor health and
+behavioral outcomes {[}@Pinquart2011{]}. But the question remains, how
+does this affect take place? Does chronic illness decrease mental health
+which in turn causes poor outcomes? Answering this question is not only
+intellectually interesting but it can provide more meaningful avenues of
+intervention. \emph{Mediation Analysis} is designed to help researchers
+statistically investigate these questions.
+
+Mediation analysis is a widely used technique that allows researchers to
+investigate \emph{how} one variable may affect another through an
+intermediate variable. Fields that seek malleable targets of
+intervention {[}e.g., the prevention sciences; @Coie1993{]} find
+mediation analysis to be an indispensable tool for it allows researchers
+to evaluate the processes or pathways of an effect---of interventions,
+risk-factors, and protective-factors alike {[}@Fairchild2009;
+@Hayes2009; @MacKinnon2007; @Iacobucci2008book; @mackinnon2008intro;
+@Shrout2002{]}. It uses predictors, mediators, and outcomes within a
+single conceptual model where ``the independent {[}predictor{]} variable
+influences the mediator, which in turn exerts an influence on the
+dependent {[}outcome{]} variable,'' {[}@Serang2017, pg. 1{]}.
+
+But, as it currently stands, mediation analysis is highly restricted to
+be used with certain types of data in certain situations. Specifically,
+when the hypothesized mediator and/or outcome is categorical or
+otherwise non-normal (e.g., binary, count, multinomial) current
+approaches are difficult to apply, are restricted to only a few useful
+cases, and are even more difficult to interpret. If the goal of the
+health and prevention sciences is to communicate important findings to
+impact policy, intervention, behavior, and future research, both
+\emph{utility} (the number of situations wherein it can be used) and
+\emph{interpretability} (how easily the results can be understood and
+applied) are key. Without these, results can be misunderstood and
+misconstrued, leading to false beliefs and ineffective interventions.
+
+Therefore, this project is designed to alleviate this issue through the
+synthesis of two established methods, in effect creating a new framework
+for mediation analysis that comfortably incorporates previous work.
+Establishing this framework requires several key aims that this project
+ultimately achieves: 1) the development of the general framework and its
+software, 2) the evaluation of its performance in situations common to
+health and prevention research, and 3) the application of it to
+prevention data to demonstrate its use and to better understand
+important relationships. Before establishing this new interpretable
+framework, mediation analysis is discussed, highlighting its strengths
+and current weaknesses.
+
+\section{Mediation Analysis}\label{mediation-analysis}
+
+Mediation analysis, as built on linear regression {[}@Hayes2009;
+@Edwards2007{]}, combines two or more regression models to estimate the
+full conceptual mediation model. It is sometimes referred to as
+\emph{Conditional Process Analysis} (or Moderated Mediation, Mediated
+Moderation) when combined with moderation {[}i.e., interaction effects;
+@Hayes2013book{]} and is often portrayed via path diagrams and directed
+acyclic graphs. Confirmatory analysis within mediation is well
+established for a variety of situations {[}e.g., @Lockhart2011{]} while
+exploratory analysis is beginning to take shape {[}@Serang2017{]}.
+Confirmatory mediation has been applied often in health behavior
+research---showing pathways leading to health-risk behavior such as drug
+use {[}@Lockhart2017; @Luk2010; @Shih2010; @Wang2009{]}, tobacco use
+{[}@Ennett2001{]}, and alcohol use {[}@Catanzaro2004{]}.
+
+Knowing the pathway of effect allows clinicians, interventionists and
+policymakers to target modifiable parts of the pathway. For example,
+there is evidence that bully victimization in adolescence increases
+depression, which subsequently increases drug use {[}@Luk2010{]}. In
+this example, assuming no confounding, there are at least two immediate
+targets of intervention: the victimization and the depression.
+Interventions based on a model without the mediator will be incomplete
+and may fail to alleviate the risk-factor(s). Further, without the
+mediating effect included in the model, we are at risk of confounding,
+causing our estimates to be misleading.
+
+In its simplest form, as shown in Figure \ref{fig:simplemed}, X is the
+predictor, M is the mediator (intermediate variable), and Y is the
+outcome. The paths labeled \(a\) and \(b\) make up the mediated effect
+(i.e., ``indirect'' effect) of X on Y whereas path \(c'\) is the direct
+effect of X on Y {[}@Hayes2009{]}. The total effect is equal to
+\(a \times b + c'\), which in linear models, should equal the \(c\)
+estimate in the simple regression of \(Y = c_0 + cX + error\). It is
+important to note that mediation analysis can become much more complex
+than that in the figure, potentially for a more causal interpretation
+{[}@Small2013; @Hayes2013book{]}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=100mm]{figures/Fig_SimpleMediation.jpg}
+  \caption{Path diagram of a simple mediation analysis model with a single predictor, a single mediator, and a single outcome.}
+  \label{fig:simplemed}
+\end{figure}
+
+\subsection{Definitions}\label{definitions}
+
+Before discussing mediation further, it is helpful to note some
+terminology that are often used in the field. In Figure
+\ref{fig:simplemed}, X is a predictor or an exogenous variable (i.e., a
+variable that is not predicted or influenced by something in the model;
+``independent variable'') while M and Y are mediators and outcomes,
+respectively. These are also known as endogenous variables (i.e.,
+variables that are, in part, predicted or influenced by other variables
+in the model). These distinctions are useful as the frameworks and
+assumptions of the models are discussed.
+
+\section{Frameworks}\label{frameworks}
+
+Two highly related frameworks exist to perform mediation analysis
+{[}@Iacobucci2008book{]}. First, as mentioned previously, mediation
+analysis can be built on linear regression including ordinary least
+squares (OLS) and generalized linear modeling {[}GLM; @Hayes2009;
+@Hayes2013book{]}. This requires separate models for the \(a\) paths and
+the \(b\) and \(c'\) paths, fit independently, to be combined into one
+mediation model. This approach is flexible in terms of the types of
+variables and model specifications as compared to the other---structural
+equation modeling (SEM). For example, performing moderated mediation is
+more straightforward in this framework {[}@Hayes2013book;
+@Edwards2007{]} than in SEM. Ultimately, the regression-based framework
+is what this project builds upon.
+
+Under the SEM paradigm, all the paths are simultaneously estimated,
+sometimes providing more statistical power
+{[}@Iacobucci2008book{]}.\footnote{The idea that SEM is "superior" to the regression paradigm was refuted by Hayes (2013) by noting that in most situations differences in the estimation is extremely minor and will not alter the conclusions. This can be seen in the small effect sizes presented in Iacobucci et al. (2007). Further, additional assumptions inherent in the SEM approach may not hold, although some are not easily tested (e.g., multivariate normality). With this said, SEM still provides a powerful framework for mediation analysis.}
+This approach notably allows more testing of the full model fit and can
+easily include latent variables but assumes, in general, that all
+variables are continuous with a multivariate normal distribution. This
+is a strict assumption that is difficult to assess. However, it has
+extensions allowing for categorical (generally ordinal) variables to be
+included, although this changes the estimation procedure. The issues
+relating to categorical mediators/outcomes are discussed in the
+``Analytic and Interpretation Issues with Mediation Analysis'' section.
+
+\section{Assumptions}\label{assumptions}
+
+In his 2008 book ``Introduction to Mediation Analysis,''
+@mackinnon2008intro discusses the
+assumptions\footnote{The assumptions described herein are for both the regression and SEM frameworks for mediation, although, as noted above, SEM has a few additional assumptions as well.}
+of the mediation modeling procedure. Of these primary assumptions, note
+that there are no major differences from the assumptions of regression
+analysis.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{Correct Functional Form}. In general, mediation assumes a linear
+  relationship between predictors and mediators/outcomes. This can be
+  adjusted using transformations or, more pertinently, generalized
+  linear models (e.g., logistic regression). @mackinnon2008intro also
+  points out that it is assumed the relationships are additive; if they
+  are not, then the correct interactions (moderators) need to be
+  included in the model specification. This, in many ways, needs to be
+  driven by theory and prior literature {[}@Lockhart2011{]}.
+\item
+  \emph{No Omitted Influences}. A key to any mediation analysis is that
+  variables that: 1) correlate with both the predictor and the mediator
+  (path \(a\)), 2) correlate with both the mediator and the outcome
+  (path \(b\)), or 3) correlate with both the predictor and the outcome
+  (path \(c'\)) are included in the model. A more general form of this
+  assumption has been termed ``sequential ignorability''
+  {[}@Imai2010a{]}. This more general form includes a sensitivity
+  analysis to assess how important deviations from this assumption are
+  on the conclusions {[}@Imai2010a; @Imai2010b{]}.
+\item
+  \emph{Accurate Measurement}. Random measurement error produces
+  attenuated paths (in large sample sizes) and random bias (in small
+  sample sizes) in regression {[}@Loken2017{]} and therefore can affect
+  the paths in various ways (e.g., attenuate the \(b\) path which can
+  inflate the \(c'\) path). When possible, reliable measures and/or
+  proper latent variable modeling should be used for this assumption to
+  be met.
+\item
+  \emph{Well-Behaved Residuals}. The residuals are assumed to be random,
+  ``have constant variance at each value of the predictor variable'' and
+  ``residual error terms are uncorrelated across equations'' (pg. 55).
+  The assumption about uncorrelated errors can stem from ``No Omitted
+  Influences'' for, if there are omitted variables in both equations,
+  the error terms will correlate. This is one of the few assumptions
+  that can be investigated in many situations.
+\end{enumerate}
+
+With the addition of \emph{temporal precedence} (predictor comes before
+mediator) and \emph{appropriate measurement timing} (the mediator is
+measured at the appropriate time when the effect of the predictor has
+occurred), the resulting estimates are asymptotically (i.e., with a
+large enough sample size) unbiased, allowing proper (causal) inference
+regarding the effects' magnitude and direction
+{[}@mackinnon2008intro{]}. This interpretation, to aid in
+reproducibility, needs to be highlighted with the associated uncertainty
+(e.g., confidence intervals) in a meaningful metric.
+
+\subsection{Other Considerations}\label{other-considerations}
+
+\subsubsection{Causality}\label{causality}
+
+To discuss causality in mediation analysis, one should be familiar with
+the \emph{counter-factual} framework {[}or sometimes referred to as the
+potential outcomes framework; @Hofler2005{]}. As @Imai2010a states:
+``the causal effect \ldots{} can be defined as the difference between
+two potential outcomes: one that would be realized {[}in the
+intervention{]} and the other that would be realized if {[}not in the
+intervention{]},'' (pg. 3). In other words, the causal effect is the
+difference in potential outcomes depending on the predictor (e.g., an
+intervention). In reality, only one such outcome is observed---if
+individual ``i'' is assigned to the treatment group, we only observe the
+outcome from the treatment group and not from the control group.
+@Imai2010a continues: ``Given this setup, the causal effect of the
+{[}intervention{]} can be defined as \(Y_i(1) - Y_i(0)\). Because only
+either \(Y_i(1)\) or \(Y_i(0)\) is observable \ldots{} researchers often
+focus on the identification and estimation of the average causal
+effect.'' If the conditions are randomly assigned, this is simply
+\(E(Y_i(1) - Y_i(0))\), or the expected value across multiple
+individuals and/or observations.
+
+The counter-factual framework helps clarify causality in mediation
+analysis by defining the necessary conditions. Using this framework,
+@Imai2010b demonstrated that \emph{sequential ignorability} (essentially
+the assumption that there are no omitted influences) is required for a
+causal interpretation in mediation analysis. However, this assumption is
+difficult to assess. Because of this difficulty, @Imai2010a developed a
+general mediation model that allows a researcher to assess how
+deviations from it, via sensitivity analysis, affect the estimates.
+
+As will be shown, the present project incorporates the counter-factual
+framework intuitively. Because of its importance, this will be discussed
+more in the next chapter.
+
+\subsubsection{Modeling}\label{modeling}
+
+@Shrout2002 highlight a number of other important considerations in
+mediation analysis. First, multi-collinearity can produce problems,
+especially when it occurs between predictors and mediators. It can
+distort the statistical power of the analysis, potentially producing
+misleading results. The second consideration is suppression:
+``Suppression occurs when the indirect effect \(a \times b\) has the
+opposite sign of the direct effect,'' (pg. 430). This can, if not
+interpreted correctly, produce confusing estimates (e.g., a positive
+indirect path and a negative direct path).
+
+@Shrout2002 also recommend using bootstrapping {[}also @Hayes2009;
+@Hayes2013book{]} to understand the variability in the estimates. This
+is due to the asymmetric distribution of indirect effects {[}see Figure
+6 in @Shrout2002{]} that boostrapping can handle naturally.
+Bootstrapping uses repeated random sampling of the data with replacement
+and estimates the model on that sampled data. Generally, between 500 and
+10,000 bootstrapped samples are used to get an accurate confidence
+interval. In regards to mediation analysis, bootstrapping produces as
+accurate (or more accurate) Type-I error rates than other methods in
+mediation analysis. Because of this, bootstrapping plays a major role in
+this project.
+
+Two other considerations should be made regarding mediation analysis.
+First, only the predictors can be randomized (i.e., the mediator cannot
+be randomized in most situations). That is, even when the \(a\) and
+\(c'\) paths can portray an experimental manipulation, the \(b\) path(s)
+cannot. Therefore, the need for proper covariates, interpretation,
+reporting, and replication is even more important in mediation analysis.
+David MacKinnon said it well: ``It is not likely that a true mechanism
+can be demonstrated in one statistical analysis. \ldots{} These analyses
+inform the next experiment that provides more information,''
+{[}@mackinnon2008intro, pg. 67{]}. Therefore, the conceptual model must
+be considered carefully in light of theory, prior literature, and proper
+covariates {[}@Lockhart2011{]}. @Iacobucci2008book also recommends to
+evaluate competing models and theories---thus presenting the effects and
+paths in light of alternative model specifications.
+
+Even when done properly, replication of mediated effects is important
+{[}@mackinnon2008intro{]}. To help make the replications most useful,
+the interpretation---comprising the magnitude and direction of the
+effect---needs to be reported with the proper uncertainty and include
+information on a) bivariate correlations, b) information on all relevant
+paths (even non-significant ones), c) must include information on the
+process of variable and covariate selection, d) report standardized and
+unstandardized results, and e) provide de-identified data and code {[}if
+possible{]}. It is important to note that much of this information can
+be included as supplemental material. In this way, results are reported
+that can be combined with others in order to provide ``convincing
+evidence of {[}or lack of{]} a mediating mechanism'',
+{[}@mackinnon2008intro, pg. 67{]}.
+
+Second, interpretation is built on combining multiple estimates, and
+often subsequently comparing those combinations with other estimates.
+For example, the indirect effect is a combination of the \(a\) and \(b\)
+paths and is often compared with the \(c'\) path. Therefore, if either
+of the \(a\) or \(b\) paths are in units that cannot be easily combined,
+the interpretation quickly becomes very difficult (see ``Analytic and
+Interpretation Issues with Mediation Analysis'' section). This is
+particularly true when the mediator(s) and/or outcome is non-normal.
+
+This second hurdle, that of interpretation, is particularly important in
+this project. Below, the general interpretation guidelines are
+discussed, followed by when these guidelines are not straightforward.
+
+\section{Interpretation}\label{interpretation}
+
+In linear models, the interpretation is simple, straightforward and
+intuitive. The \(a\) path coefficient means: ``for a one unit change in
+X there is an associated \(a\) units change in the mediator.'' Likewise,
+the \(b\) path coefficient means: ``for a one unit change in M there is
+an associated \(b\) units change in the outcome, controlling for the
+effect of X.'' Finally, the \(c'\) path is: ``for a one unit change in
+X, controlling for the effect of M, there is an associated change of
+\(c'\) units in the outcome.'' The indirect effect is \(a \times b\);
+the total effect is \(a \times b + c'\).
+
+Each element of the mediation (i.e., the indirect, the direct, and total
+effects and also the individual \(a\), \(b\), and \(c'\) paths) needs to
+be considered without only trying to answer: ``Is there a mediated
+effect?'' Otherwise, researchers can lose sight of the complete story.
+For example, the various \(a\) paths may be important on their own
+(e.g., if the \(a\) path effect size is small then maybe the predictor
+is not a beneficial place to focus an intervention even though the
+effect is significant). Therefore, understanding a mediated effect is
+best told through several avenues: the indirect, direct, and total
+effects; the individual paths; these effects and paths in light of
+covariates; among others. This approach is also best if those effects
+are in meaningful and intuitive metrics.
+
+However, once the analysis ventures into non-normal, non-linear
+relationships, the interpretation becomes more difficult---particularly
+when it comes to the indirect and total effects. For example, if the
+mediator is binary, often logistic regression is used to assess the
+\(a\) path. But that changes the \(a\) path interpretation to: ``for a
+one unit change in X, there is an associated \(a\) log odds units change
+in the mediator.'' This interpretation is anything but intuitive. In
+general, the log odds are transformed into odds ratios, which improve
+the interpretation. But these units do not mix well with other units.
+This is detrimental to understanding the indirect and total effects as
+will be discussed further in the sections below.
+
+\section{Analytic and Interpretation Issues with Mediation
+Analysis}\label{analytic-and-interpretation-issues-with-mediation-analysis}
+
+\subsection{Categorical and Non-Normal
+Mediators/Outcomes}\label{categorical-and-non-normal-mediatorsoutcomes}
+
+Mediation analysis is more difficult when the mediator and/or the
+outcome is not continuous, including binary variables (e.g., an
+individual either uses marijuana or not), ordinal variables (e.g., the
+self-reported confidence in social settings), other polytomous variables
+(e.g., sub-types of a disease), and count variables (e.g., number of
+hospital visits). These data situations are difficult because mediation
+analysis requires the mediators and/or outcomes to be continuous and
+approximately normal (to meet the assumption of well-behaved residuals).
+
+There are several strategies taken in the literature to address this
+problem. However, each makes its own set of assumptions and each
+contains limitations in interpretation. The variability in approaches
+and the subsequent interpretations make combining results across studies
+far more difficult---reducing the chance to concretely show
+relationships via meta-analyses and systematic reviews. The difficulty
+of these data situations are likely reducing reliability and
+interpretability for a number of reasons:
+
+\begin{itemize}
+\tightlist
+\item
+  It may be easier to ignore the assumptions that are violated when
+  using categorical mediators and/or outcomes. Results from these
+  analyses may not be valid.
+\item
+  Different approaches produce varying assumptions and interpretations.
+  This can be difficult for other researchers, clinicians, lawmakers,
+  and laypersons to keep in mind, possibly leading to misunderstandings
+  regarding results and their validity.
+\item
+  Analyses with categorical outcomes are not typically well-emphasized
+  in graduate training, even in more simple modeling techniques, not to
+  mention more complex techniques like mediation analysis. With fewer
+  individuals well-trained, more errors are likely in analyzing these
+  data.
+\item
+  The interpretation regarding analyses with categorical outcomes is
+  often far less intuitive than with continuous outcomes. This can
+  produce a higher cognitive load for both the researchers and those
+  utilizing the study.
+\end{itemize}
+
+With this in mind, the following subsection discusses the current
+approaches to mediation analysis with categorical mediators and/or
+outcomes and the assumptions these approaches make.
+
+\subsection{Current Approaches}\label{current-approaches}
+
+\begin{quote}
+``The quest for sound methods of incorporating categorical variables is
+perhaps the last dilemma in mediation analysis that lacks a strong
+solution---it's the `final frontier,'\,'' {[}@Iacobucci2012, pg. 583{]}.
+\end{quote}
+
+Although there are possibly other ``frontiers'' in mediation analysis,
+categorical mediators and/or outcomes certainly produce several
+challenges. @Iacobucci2008book {[}-@Iacobucci2012{]} thoroughly
+discusses the issues of assessing categorical variables within a
+mediation analysis and some of the current practices along with their
+associated
+problems\footnote{For the present, only situations when a mediator or outcome is categorical is under consideration since a categorical predictor poses very few problems (Iacobucci, 2012).}.
+Four approaches are of note here: 1) a series of logistic regression
+models, 2) polychoric correlation in SEM, 3) the method suggested by
+@Iacobucci2012 regarding standardization, and 4) interpreting each path
+separately. A fifth, but certainly least, is to ignore the distribution
+of the outcomes and purposefully misspecify the model. These are
+highlighted in Table \ref{tab_approaches}.
+
+\begin{table}[tb]
+\centering
+\caption{The various approaches to handling mediation with categorical mediators/outcomes.} 
+\label{tab_approaches}
+\begin{tabular}{p{40mm}p{45mm}p{55mm}}
+\toprule
+Approach & Pros & Cons \\ 
+\midrule
+1. Series of logistic regressions & Simple to apply in most software & Cannot obtain indirect effect size, only useful in few situations \\ 
+2. SEM's approach (polychoric correlation) & Powerful, well-designed, Easy to implement with proper software & Only works with ordinal variables, only standardized effect sizes \\ 
+3. Standardize the coefficients & Provides significance test of indirect effect & Assumptions regarding distributions, difficult to interpret beyond p-value \\ 
+4. Interpret each path separately & Simplest approach with proper models & Ignores some information, cannot obtain indirect effect size \\ 
+5. Pretend all variables are continuous & Simplest approach & Purposeful mis-specification, poor model fit \\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+Of these approaches, only the SEM approach allows any proper estimation
+of effect sizes. This approach was developed by @Muthen1984, which uses
+polychoric correlations (for ordered categorical variables) within the
+structural equation modeling framework. In this approach, @Muthen1984
+assumes that the ordered categorical manifest variable results from a
+continuous latent variable, ``with observed categorical data arising
+through a threshold step function,'' {[}@Iacobucci2012, pg. 583{]}. In
+many cases, a continuous latent variable is a reasonable assumption. For
+example, in a binary variable describing whether an adolescent has ever
+smoked marijuana, assuming a continuous latent variable comprised of the
+probability of smoking may adequately represent reality. This method
+relies on using a probit regression ``to model the relationship between
+the observed categorical variable and the latent \emph{normally
+distributed} variable,'' {[}@mackinnon2008intro, pg. 320, emphasis
+added{]} and requires large sample sizes {[}@Iacobucci2008book{]}. Using
+this latent-observed sub-model, the probit is used as the threshold
+value to estimate the full model. Notably, both the assumption of a
+normally distributed latent variable and the requirement of large sample
+sizes are limitations of this approach.
+
+The other approaches, including the series of logistic regression models
+and the interpretation of each path separately, do not allow any effect
+size estimation of indirect effects. Although there are some ways to
+discuss the proportion of mediation {[}@Ford2012{]}, this still does not
+provide any measures of effect size. The third approach, recommended by
+@Iacobucci2012, proposed using a new standardization solution using
+logistic regression output (for a categorical variable) that can combine
+linear and logistic models' estimates. It is built on the same idea as
+the Sobel test {[}@Sobel1982; @mackinnon2008intro{]} but is more
+flexible; for ``the mechanics of testing for mediation do not {[}need
+to{]} change whether the variables are continuous or categorical or some
+mix,'' {[}@Iacobucci2012, pg. 593{]}. However, @MacKinnon2012 criticized
+this approach. Ultimately, the most fatal flaw may be that a focus on
+the significance (relying on Null Hypothesis Significance Testing) of
+the effects without regard to their effect size in meaningful terms is
+less interpretable and impactful.
+
+In the end, none of these approaches can flexibly handle categorical
+variables of various kinds (e.g., binary, multinomial) or other
+non-normal distributions (e.g., costs, counts); none can produce
+intuitive and meaningful effect sizes and confidence intervals across
+these variable types; and none can consistently combine two differing
+types of estimates (e.g., binary mediator with continuous outcome, count
+mediator with binary outcome). Although the current approaches are
+useful in some situations---particularly the SEM approach---a more
+complete framework is needed.
+
+\section{Conclusions}\label{conclusions}
+
+Mediation analysis is a powerful framework for understanding the
+processes by which one variable influences another. The assumptions are
+not much more than that of regression analysis. The interpretation, in
+linear models, is straightforward and simple. However, once the analysis
+ventures into non-normal, non-linear relationships, the interpretation
+becomes more difficult---particularly when it comes to the indirect and
+total effects.
+
+In the end, @Iacobucci2012 is correct in saying this problem ``lacks a
+strong solution'' (pg. 583). Although important information can be
+obtained from the current methods, mediation analysis with categorical
+mediator(s) and/or outcome(s) still misses the mark on intuitive,
+meaningful effect sizes.
+
+This project aims to alleviate these issues by integrating a
+post-estimation approach known as \emph{Average Marginal Effects} (AMEs)
+within mediation analysis. This integration can allow simple and
+meaningful interpretation across variable types and combinations thus
+far shown to be problematic. The following chapter introduces AMEs,
+showing their benefit in interpretation and reporting when working with
+non-normal variables within generalized linear models.
+
+\singlespacing
+
+
+\end{document}
