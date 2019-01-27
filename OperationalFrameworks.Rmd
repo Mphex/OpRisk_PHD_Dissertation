@@ -21,7 +21,7 @@ nocite: |
 params:
   year: '2019'
   degree: 'Doctor of Philosophy'
-  field: 'Risk Theory'
+  field: 'Risk Theory (Finance)'
   chair: 'Eric Schaling, Ph.D.'
   committee1: 'Thanti Mthanti, Ph.D.'
   committee2: 'Odongo Kodongo, Ph.D.'

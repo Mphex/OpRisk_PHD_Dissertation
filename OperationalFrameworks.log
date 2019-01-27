@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6730) (preloaded format=xelatex 2019.1.15)  21 JAN 2019 14:05
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6730) (preloaded format=xelatex 2019.1.15)  27 JAN 2019 08:56
 entering extended mode
 **./OperationalFrameworks.tex
 (OperationalFrameworks.tex
@@ -1171,22 +1171,28 @@ Overfull \hbox (29.83226pt too wide) in paragraph at lines 147--147
 
 ] [6
 
-] (OperationalFrameworks.toc [7
+] (OperationalFrameworks.toc
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+ [][] []\TU/lmr/m/n/12 Theoretical investigations for the quantification of mod
+erm 
+ []
+
+[7
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 44--44
  [][] []\TU/lmr/m/n/12 Principle 1: The individual paths are interpreted based 
 on the corre- 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
+Underfull \hbox (badness 10000) in paragraph at lines 45--45
  [][] []\TU/lmr/m/n/12 Principle 2: The indirect effect, as a combination of th
 e $\OML/lmm/m/it/12 a$ \TU/lmr/m/n/12 and $\OML/lmm/m/it/12 b$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--39
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
  [][] []\TU/lmr/m/n/12 Principle 3: Both the direct and total effects are inter
 preted based 
  []
@@ -1196,37 +1202,31 @@ preted based
 \openout5 = `OperationalFrameworks.toc'.
 
 [9] (OperationalFrameworks.lot
-Underfull \hbox (badness 10000) in paragraph at lines 2--2
- [][] [][]\TU/lmr/m/n/12 The various approaches to handling mediation with cate
-gorical medi- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--4
+Underfull \hbox (badness 10000) in paragraph at lines 3--3
  [][] [][]\TU/lmr/m/n/12 The generalized linear model link functions with their
  associated 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--4
+Underfull \hbox (badness 10000) in paragraph at lines 3--3
  \TU/lmr/m/n/12 units of interpretation. Note: This list is not exhaustive and 
 there 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--7
+Underfull \hbox (badness 10000) in paragraph at lines 6--6
  [][] [][]\TU/lmr/m/n/12 The various experimental conditions of the Monte Carlo
  simulation 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--11
+Underfull \hbox (badness 10000) in paragraph at lines 10--10
  [][] [][]\TU/lmr/m/n/12 Average discrepancies between the decomposed total eff
 ect and the 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--14
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
  [][] [][]\TU/lmr/m/n/12 The percent of mediation (the percent of the total eff
 ect) by path for 
  []
@@ -1238,200 +1238,194 @@ ect) by path for
 [10
 
 ] (OperationalFrameworks.lof
-Underfull \hbox (badness 10000) in paragraph at lines 2--2
- [][] [][]\TU/lmr/m/n/12 Path diagram of a simple mediation analysis model with
- a single 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--4
+Underfull \hbox (badness 10000) in paragraph at lines 3--3
  [][] [][]\TU/lmr/m/n/12 a) Comparison of odds ratio and risk ratio with the av
 erage marginal 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--4
+Underfull \hbox (badness 10000) in paragraph at lines 3--3
  \TU/lmr/m/n/12 risk (probability). b) Same comparison as a) but the y-axis is 
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--4
+Underfull \hbox (badness 10000) in paragraph at lines 3--3
  \TU/lmr/m/n/12 rescaled ($\OML/lmm/m/it/12 log[]$\TU/lmr/m/n/12 ) to better sh
 ow the negative marginal risk compar- 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--4
+Underfull \hbox (badness 10000) in paragraph at lines 3--3
  \TU/lmr/m/n/12 isons. Both highlight the discrepancy between odds and risk rat
 ios 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--4
+Underfull \hbox (badness 10000) in paragraph at lines 3--3
  \TU/lmr/m/n/12 at various levels of marginal risk and that neither approximate
  the 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
  [][] [][]\TU/lmr/m/n/12 Demonstration of a non-linear relationship. a) The out
 come is an 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
  \TU/lmr/m/n/12 exponential function of the predictor. b) When log transforming
  the 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
  \TU/lmr/m/n/12 outcome, the relationship becomes fairly linear. So the interpr
 etation 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
  \TU/lmr/m/n/12 in the log transformed scale is additive, but once it is put ba
 ck into 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8--8
+Underfull \hbox (badness 10000) in paragraph at lines 7--7
  [][] [][]\TU/lmr/m/n/12 Path diagram of the replicated models from Ford and Hi
 ll (2012). 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--10
+Underfull \hbox (badness 10000) in paragraph at lines 9--9
  [][] [][]\TU/lmr/m/n/12 An example of moderated mediation, where the moderator
  (denoted 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--11
+Underfull \hbox (badness 10000) in paragraph at lines 10--10
  [][] [][]\TU/lmr/m/n/12 An example of a common approach to visualizing a moder
 ation 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--12
+Underfull \hbox (badness 10000) in paragraph at lines 11--11
  [][] [][]\TU/lmr/m/n/12 The structure of the \TU/lmtt/m/n/12 mma() \TU/lmr/m/n
 /12 function. From left to right: (1) inputs 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--12
+Underfull \hbox (badness 10000) in paragraph at lines 11--11
  \TU/lmr/m/n/12 inform the function of the model specifications, the indirect e
 ffects 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--12
+Underfull \hbox (badness 10000) in paragraph at lines 11--11
  \TU/lmr/m/n/12 to be reported, and other arguments; (2) internal processes inc
 luding 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--12
+Underfull \hbox (badness 10000) in paragraph at lines 11--11
  \TU/lmr/m/n/12 checks/formatting and internal calculations, (3) the output wit
 h 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--12
+Underfull \hbox (badness 10000) in paragraph at lines 11--11
  \TU/lmr/m/n/12 some truncated example output. Notably, the numbers along the 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--12
+Underfull \hbox (badness 10000) in paragraph at lines 11--11
  \TU/lmr/m/n/12 solid arrows pointing at the \TU/lmtt/m/n/12 mma() \TU/lmr/m/n/
 12 function show the order of the 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--12
+Underfull \hbox (badness 10000) in paragraph at lines 11--11
  \TU/lmr/m/n/12 operations, namely checks, AMEs, indirect and direct effects, b
 oot- 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--14
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
  [][] [][]\TU/lmr/m/n/12 The simulated differences between the decomposed total
  effect and 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--14
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
  \TU/lmr/m/n/12 the total effect. The discrepancies are higher for smaller samp
 le sizes 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--15
+Underfull \hbox (badness 10000) in paragraph at lines 14--14
  [][] [][]\TU/lmr/m/n/12 The simulated levels of power per tested sample size (
 x-axis) and 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--15
+Underfull \hbox (badness 10000) in paragraph at lines 14--14
  \TU/lmr/m/n/12 effect size of the indirect path (color; a combination of the a
  path by 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--15
+Underfull \hbox (badness 10000) in paragraph at lines 14--14
  \TU/lmr/m/n/12 the b path) stratified by the distribution of the mediator (bin
 ary or 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+ [][] [][]\TU/lmr/m/n/12 The simulated accuracy per tested sample size (x-axis)
+ and effect 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+ \TU/lmr/m/n/12 size of the indirect path (color; a combination of the a path b
+y the b 
  []
 
 [11
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 16--16
- [][] [][]\TU/lmr/m/n/12 The simulated accuracy per tested sample size (x-axis)
- and effect 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--16
- \TU/lmr/m/n/12 size of the indirect path (color; a combination of the a path b
-y the b 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
  [][] [][]\TU/lmr/m/n/12 The simulated confidence interval coverage per tested 
 sample size (x- 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
+Underfull \hbox (badness 10000) in paragraph at lines 16--16
  \TU/lmr/m/n/12 axis) and effect size of the indirect effect . The ”ideal” leve
 l is set at 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
+Underfull \hbox (badness 10000) in paragraph at lines 16--16
  \TU/lmr/m/n/12 0.95. Panel a) shows that the confidence intervals from a broad
  per- 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
+Underfull \hbox (badness 10000) in paragraph at lines 16--16
  \TU/lmr/m/n/12 spective. Panel b) provides a closer look at the individual pat
 terns of 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19--19
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
  [][] [][]\TU/lmr/m/n/12 Results of the mediation models’ individual paths rega
 rding reli- 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19--19
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
  \TU/lmr/m/n/12 giosity and substance use. Note: *** p < .001, ** p < .01, * p 
 < 
  []
@@ -1444,278 +1438,193 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--19
 Chapter 1.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 341.
+(hyperref)                be the same. Added a new anchor on input line 323.
 
 [1
 
 ] [2]
-File: figures/Fig_SimpleMediation.jpg Graphic file (type bmp)
-<figures/Fig_SimpleMediation.jpg>
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 493.
+(Font)              <10> on input line 474.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 493.
+(Font)              <7> on input line 474.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 493.
-
-Underfull \hbox (badness 10000) in paragraph at lines 493--493
-[][][]\TU/lmr/m/n/10 The idea that SEM is ”superior” to the regression paradigm
- was refuted by Hayes (2013) by
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 493--493
-\TU/lmr/m/n/10 noting that in most situations differences in the estimation is 
-extremely minor and will not alter
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 493--493
-\TU/lmr/m/n/10 the conclusions. This can be seen in the small effect sizes pres
-ented in Iacobucci et al. (2007).
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 493--493
-\TU/lmr/m/n/10 Further, additional assumptions inherent in the SEM approach may
- not hold, although some are
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 493--493
-\TU/lmr/m/n/10 not easily tested (e.g., multivariate normality). With this said
-, SEM still provides a powerful
- []
-
+(Font)              <5> on input line 474.
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 507--507
-[][][]\TU/lmr/m/n/10 The assumptions described herein are for both the regressi
-on and SEM frameworks for media-
- []
-
-[4]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 565.
+(hyperref)                be the same. Added a new anchor on input line 506.
 
-[5] [6]
+
+Underfull \hbox (badness 10000) in paragraph at lines 529--529
+[][][]\TU/lmr/m/n/10 The aggregate loss distribution is obtained by convoluting
+ a loss event frequency distribution
+ []
+
+[4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
+[][][]\TU/lmr/m/n/10 Meaning as of the publication [@risk2016supporting] the me
+thods brought forth in the consul-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
+\TU/lmr/m/n/10 tative document have not been approved for the public, the ideas
+ within an experimental (leased)
+ []
+
+[6]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 707.
+(hyperref)                be the same. Added a new anchor on input line 642.
 
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 768--768
-[][][]\TU/lmr/m/n/10 For the present, only situations when a mediator or outcom
-e is categorical is under considera-
+[7] [8]
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 738.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 743--743
+[][][]\TU/lmr/m/n/10 As recent evidence from human brain imaging has shown [@ku
+hnen2005neural] linking neural
  []
 
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 780; it cannot be
-(fontspec)                used with a font that wasn't selected by a fontspec
-(fontspec)                command.
-(fontspec)                 
-(fontspec)                 The current font is "\TU/lmr/m/n/10.95 ".
-(fontspec)                  The requested feature is "RawFeature=+tnum". 
+Underfull \hbox (badness 10000) in paragraph at lines 773--773
+[][][]\TU/lmr/m/n/10 Representing ability of FI’s financial market models to ch
+aracterise the repeated decision-
+ []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 784--784
-[]|\TU/lmr/m/n/12 1. Series of logistic
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
+[][][]\TU/lmr/m/n/10 OpRisk loss events in FI’s are largely due to human failin
+gs that are exploitable e.g., fraud-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 784--784
-[]|\TU/lmr/m/n/12 Simple to apply in most
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
+\TU/lmr/m/n/10 ulent trading activity, and PT is based on the same behavioural 
+element of how people make
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 784--785
-[]|\TU/lmr/m/n/12 Cannot obtain indirect ef-
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 828.
+
+[10]
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 874.
+
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 887.
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 925--925
+[][][]\TU/lmr/m/n/10 A typical approach taken in the literature is to use an un
+supervised learning algorithm to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 784--785
-\TU/lmr/m/n/12 fect size, only useful in few
+Underfull \hbox (badness 10000) in paragraph at lines 925--925
+\TU/lmr/m/n/10 train a model of the unlabeled data and then use the results to 
+extract interesting features from
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 785--785
-[]|\TU/lmr/m/n/12 2. SEM’s approach
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 785--785
-\TU/lmr/m/n/12 (polychoric correla-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 785--785
-[]|\TU/lmr/m/n/12 Powerful, well-designed,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 785--785
-\TU/lmr/m/n/12 Easy to implement with
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 785--786
-[]|\TU/lmr/m/n/12 Only works with ordinal vari-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 785--786
-\TU/lmr/m/n/12 ables, only standardized effect
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 786--786
-[]|\TU/lmr/m/n/12 3. Standardize the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 786--786
-[]|\TU/lmr/m/n/12 Provides significance
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 786--787
-[]|\TU/lmr/m/n/12 Assumptions regarding distri-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 786--787
-\TU/lmr/m/n/12 butions, difficult to interpret
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 787--787
-[]|\TU/lmr/m/n/12 4. Interpret each
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 787--787
-[]|\TU/lmr/m/n/12 Simplest approach with
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 787--788
-[]|\TU/lmr/m/n/12 Ignores some information,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 787--788
-\TU/lmr/m/n/12 cannot obtain indirect effect
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 788--788
-[]|\TU/lmr/m/n/12 5. Pretend all vari-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 788--789
-[]|\TU/lmr/m/n/12 Purposeful mis-specification,
- []
-
-
-Overfull \hbox (0.71855pt too wide) in paragraph at lines 780--791
- [][] 
- []
-
-[8] [9] [10]
+[12] [13] [14]
 Chapter 2.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 882.
+(hyperref)                be the same. Added a new anchor on input line 1010.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 888--888
+Underfull \hbox (badness 10000) in paragraph at lines 1016--1016
 [][][]\TU/lmr/m/n/10 Asymptotic consistency refers to the ability to, as the sa
 mple size increases, produce estimates
  []
 
-[11
+[15
 
 ]
 File: figures/OR_Prob.jpg Graphic file (type bmp)
 <figures/OR_Prob.jpg>
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 926.
-[12]
+(Font)              <10.95> on input line 1054.
+[16]
 File: figures/loglinear.jpg Graphic file (type bmp)
 <figures/loglinear.jpg>
-[13]
+[17]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 986.
+(hyperref)                be the same. Added a new anchor on input line 1114.
 
-[14] [15] [16]
+[18] [19] [20]
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 1105; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 1233; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
 (fontspec)                 The current font is "\TU/lmr/m/n/10.95 ".
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
-[17] [18] [19] [20]
+[21] [22] [23] [24]
 Chapter 3.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1170.
+(hyperref)                be the same. Added a new anchor on input line 1298.
 
-[21
+[25
 
-] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 1294--1294
+] [26]
+Underfull \hbox (badness 10000) in paragraph at lines 1422--1422
 |\TU/lmr/m/it/12 Principle 1: The individual paths are interpreted based on the
  corresponding endoge-
  []
 
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1294.
+(hyperref)                be the same. Added a new anchor on input line 1422.
 
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 1305--1305
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 1433--1433
 |\TU/lmr/m/it/12 Principle 2: The indirect effect, as a combination of the $\OM
 L/lmm/m/it/12 a$ \TU/lmr/m/it/12 and $\OML/lmm/m/it/12 b$ \TU/lmr/m/it/12 paths
 , are inter-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1325--1325
+Underfull \hbox (badness 10000) in paragraph at lines 1453--1453
 |\TU/lmr/m/it/12 Principle 3: Both the direct and total effects are interpreted
  based on the outcome’s
  []
 
-[24] [25] [26] [27]
+[28] [29] [30] [31]
 Chapter 4.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1427.
+(hyperref)                be the same. Added a new anchor on input line 1555.
 
-[28
+[32
 
 ]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1464.
+(hyperref)                be the same. Added a new anchor on input line 1592.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1482--1482
+Underfull \hbox (badness 10000) in paragraph at lines 1610--1610
 [][][]\TU/lmr/m/n/10 Reduced form refers to only having exogenous variables on 
 the right-hand side of a regression
  []
 
-[29] [30]
+[33] [34]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1537.
+(hyperref)                be the same. Added a new anchor on input line 1665.
 
-[31] [32]
+[35] [36]
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 1615; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 1743; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
@@ -1723,62 +1632,62 @@ Package fontspec Warning: \addfontfeature(s) ignored on line 1615; it cannot
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 1645; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 1773; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
 (fontspec)                 The current font is "\TU/lmr/m/n/10.95 ".
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
-[33]
+[37]
 File: figures/fig_application_model.jpg Graphic file (type bmp)
 <figures/fig_application_model.jpg>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1725--1725
+Underfull \hbox (badness 10000) in paragraph at lines 1853--1853
 [][][]\TU/lmr/m/n/10 Notably, this replication study omits the ”heavy drinking”
  outcome because positive responses
  []
 
-[34] [35] [36] [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1850--1850
+[38] [39] [40] [41]
+Underfull \hbox (badness 10000) in paragraph at lines 1978--1978
 [][][]\TU/lmr/m/n/10 All analysis code is available on the Open Science Framewo
 rk (osf.io/753kc) and in the Appen-
  []
 
-[38] [39]
+[42] [43]
 Chapter 5.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1876.
+(hyperref)                be the same. Added a new anchor on input line 2004.
 
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1890.
+(hyperref)                be the same. Added a new anchor on input line 2018.
 
 File: figures/fig_mod_med.pdf Graphic file (type pdf)
 <use figures/fig_mod_med.pdf>
-[40
+[44
 
-] [41]
+] [45]
 File: figures/fig_interaction_effect.pdf Graphic file (type pdf)
 <use figures/fig_interaction_effect.pdf>
-[42] [43]
-Underfull \hbox (badness 10000) in paragraph at lines 2047--2047
+[46] [47]
+Underfull \hbox (badness 10000) in paragraph at lines 2175--2175
 [][][]\TU/lmr/m/n/10 The researcher can standardize the continuous predictors a
 nd outcomes before performing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2047--2047
+Underfull \hbox (badness 10000) in paragraph at lines 2175--2175
 \TU/lmr/m/n/10 MMA, in which case they can obtain the partial correlation estim
 ates with the current version of
  []
 
-[44]
+[48]
 File: figures/fig_mma_structure.pdf Graphic file (type pdf)
 <use figures/fig_mma_structure.pdf>
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 2097; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 2225; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
@@ -1786,229 +1695,229 @@ Package fontspec Warning: \addfontfeature(s) ignored on line 2097; it cannot
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2102--2103
+Underfull \hbox (badness 10000) in paragraph at lines 2230--2231
 []|\TU/lmr/m/n/12 Computes the average
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2102--2103
+Underfull \hbox (badness 10000) in paragraph at lines 2230--2231
 \TU/lmr/m/n/12 marginal effects of a given
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2103--2103
+Underfull \hbox (badness 10000) in paragraph at lines 2231--2231
 []|\TU/lmr/m/n/12 Moderated Media-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2103--2104
+Underfull \hbox (badness 10000) in paragraph at lines 2231--2232
 []|\TU/lmr/m/n/12 Computes the marginal ef-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2103--2104
+Underfull \hbox (badness 10000) in paragraph at lines 2231--2232
 \TU/lmr/m/n/12 fects at various levels of a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2104--2104
+Underfull \hbox (badness 10000) in paragraph at lines 2232--2232
 []|\TU/lmr/m/n/12 Checks and format-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2104--2104
+Underfull \hbox (badness 10000) in paragraph at lines 2232--2232
 []|\TU/lmr/m/n/12 These functions perform
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2104--2105
+Underfull \hbox (badness 10000) in paragraph at lines 2232--2233
 []|\TU/lmr/m/n/12 Check model specification and
  []
 
 
-Overfull \hbox (1.7426pt too wide) in paragraph at lines 2105--2105
+Overfull \hbox (1.7426pt too wide) in paragraph at lines 2233--2233
 []|[]\TU/lmtt/m/n/12 mma_std_ind_effects()
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2105--2105
+Underfull \hbox (badness 10000) in paragraph at lines 2233--2233
 \TU/lmr/m/n/12 and
  []
 
 
-Overfull \hbox (1.7426pt too wide) in paragraph at lines 2105--2105
+Overfull \hbox (1.7426pt too wide) in paragraph at lines 2233--2233
 []\TU/lmtt/m/n/12 mma_std_dir_effects()| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2105--2106
+Underfull \hbox (badness 10000) in paragraph at lines 2233--2234
 []|\TU/lmr/m/n/12 Obtain the standardized in-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2105--2106
+Underfull \hbox (badness 10000) in paragraph at lines 2233--2234
 \TU/lmr/m/n/12 direct and direct effects from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2106--2106
+Underfull \hbox (badness 10000) in paragraph at lines 2234--2234
 []|[]\TU/lmtt/m/n/12 mma_ind_effects() \TU/lmr/m/n/12 and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2106--2107
+Underfull \hbox (badness 10000) in paragraph at lines 2234--2235
 []|\TU/lmr/m/n/12 Obtain the unstandardized
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2106--2107
+Underfull \hbox (badness 10000) in paragraph at lines 2234--2235
 \TU/lmr/m/n/12 indirect and direct effects
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2107--2108
+Underfull \hbox (badness 10000) in paragraph at lines 2235--2236
 []|\TU/lmr/m/n/12 Obtain the percent of media-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2107--2108
+Underfull \hbox (badness 10000) in paragraph at lines 2235--2236
 \TU/lmr/m/n/12 tion for each specified path in
  []
 
-[45] [46] [47] [48]
+[49] [50] [51] [52]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2191.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2319.
 File: figures/fig_mma_example.png Graphic file (type bmp)
 <figures/fig_mma_example.png>
-[49] [50]
+[53] [54]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 2278.
+(hyperref)                be the same. Added a new anchor on input line 2406.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2283--2283
+Underfull \hbox (badness 10000) in paragraph at lines 2411--2411
 [][][]\TU/lmr/m/n/10 The search terms included: ”mediation analysis” and [”logi
 stic” or ”generalized linear models”
  []
 
-[51]
+[55]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 2337.
+(hyperref)                be the same. Added a new anchor on input line 2465.
 
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 2352; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 2480; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
 (fontspec)                 The current font is "\TU/lmr/m/n/10.95 ".
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
-[52]
+[56]
 File: figures/fig_total_total.pdf Graphic file (type pdf)
 <use figures/fig_total_total.pdf>
-[53] [54]
+[57] [58]
 File: figures/sim_fig_power.pdf Graphic file (type pdf)
 <use figures/sim_fig_power.pdf>
-[55]
+[59]
 File: figures/sim_fig_acc.pdf Graphic file (type pdf)
 <use figures/sim_fig_acc.pdf>
 File: figures/sim_fig_ci.pdf Graphic file (type pdf)
 <use figures/sim_fig_ci.pdf>
-[56] [57] [58] [59]
+[60] [61] [62] [63]
 Chapter 6.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 2535.
+(hyperref)                be the same. Added a new anchor on input line 2663.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2558--2558
+Underfull \hbox (badness 10000) in paragraph at lines 2686--2686
 [][][]\TU/lmr/m/n/10 Perfect separability is where a predictor can perfectly pr
 edict the outcome in logistic regres-
  []
 
-[60
+[64
 
 ]
-Overfull \hbox (54.59993pt too wide) in paragraph at lines 2602--2602
+Overfull \hbox (54.59993pt too wide) in paragraph at lines 2730--2730
 []\TU/lmtt/m/n/12 ## Error in here("Data/NSDUH_2014_Results.rda"): could not fi
 nd function "here" 
  []
 
 
-Overfull \hbox (289.4398pt too wide) in paragraph at lines 2610--2610
+Overfull \hbox (289.4398pt too wide) in paragraph at lines 2738--2738
 []\TU/lmtt/m/n/12 ## Error in svydesign(ids = ~1, strata = ~vestr, weights = ~a
 nalwt_c, data = d1): could not find function "svydesign" 
  []
 
 
-Overfull \hbox (239.9998pt too wide) in paragraph at lines 2614--2614
+Overfull \hbox (239.9998pt too wide) in paragraph at lines 2742--2742
 []\TU/lmtt/m/n/12 ## Error in svyglm(self ~ religious + age2 + irsex + newrace2
  + irfamin3 + : could not find function "svyglm" 
  []
 
 
-Overfull \hbox (239.9998pt too wide) in paragraph at lines 2618--2618
+Overfull \hbox (239.9998pt too wide) in paragraph at lines 2746--2746
 []\TU/lmtt/m/n/12 ## Error in svyglm(peer ~ religious + age2 + irsex + newrace2
  + irfamin3 + : could not find function "svyglm" 
  []
 
 
-Overfull \hbox (233.8198pt too wide) in paragraph at lines 2622--2622
+Overfull \hbox (233.8198pt too wide) in paragraph at lines 2750--2750
 []\TU/lmtt/m/n/12 ## Error in svyglm(dep ~ religious + age2 + irsex + newrace2 
 + irfamin3 + : could not find function "svyglm" 
  []
 
 
-Overfull \hbox (128.75989pt too wide) in paragraph at lines 2630--2630
+Overfull \hbox (128.75989pt too wide) in paragraph at lines 2758--2758
 []\TU/lmtt/m/n/12 ## Error in rownames(est1) = c("Respondent", "Peer", "Depress
 ion"): object []est1[] not found 
  []
 
 
-Overfull \hbox (196.73987pt too wide) in paragraph at lines 2638--2638
+Overfull \hbox (196.73987pt too wide) in paragraph at lines 2766--2766
 []\TU/lmtt/m/n/12 ## Error in svyglm(model, design = design, family = "quasibin
 omial"): could not find function "svyglm" 
  []
 
 
-Overfull \hbox (178.19987pt too wide) in paragraph at lines 2642--2642
+Overfull \hbox (178.19987pt too wide) in paragraph at lines 2770--2770
 []\TU/lmtt/m/n/12 ## Error in UseMethod("vcov"): no applicable method for []vco
 v[] applied to an object of class "NULL" 
  []
 
 
-Overfull \hbox (159.6599pt too wide) in paragraph at lines 2646--2646
+Overfull \hbox (159.6599pt too wide) in paragraph at lines 2774--2774
 []\TU/lmtt/m/n/12 ## Error in rownames(est2) = c("Tobacco", "Rx", "Marijuana", 
 "Illicit"): object []est2[] not found 
  []
 
-[61]
+[65]
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 2670; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 2798; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
 (fontspec)                 The current font is "\TU/lmr/m/n/10.95 ".
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
-[62]
+[66]
 File: figures/fig_application_results.pdf Graphic file (type pdf)
 <use figures/fig_application_results.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 2724--2724
+Underfull \hbox (badness 10000) in paragraph at lines 2852--2852
 [][][]\TU/lmr/m/n/10 Using the approach used in Ford and Hill, the total mediat
 ed effects are slightly different
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2724--2724
+Underfull \hbox (badness 10000) in paragraph at lines 2852--2852
 \TU/lmr/m/n/10 than those estimated via the indirect and direct effects. This m
 ay be due to the weighting of the
  []
 
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 2729; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 2857; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
@@ -2016,289 +1925,271 @@ Package fontspec Warning: \addfontfeature(s) ignored on line 2729; it cannot
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
 
-LaTeX Warning: Reference `fig:app' on page 63 undefined on input line 2743.
+LaTeX Warning: Reference `fig:app' on page 67 undefined on input line 2871.
 
-[63] [64] [65]
+[67] [68] [69]
 Chapter 7.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 2800.
+(hyperref)                be the same. Added a new anchor on input line 2928.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2806--2806
+Underfull \hbox (badness 10000) in paragraph at lines 2934--2934
 [][][]\TU/lmr/m/n/10 Although not a major aspect of this project, it is importa
 nt to note the predictive power a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2806--2806
+Underfull \hbox (badness 10000) in paragraph at lines 2934--2934
 \TU/lmr/m/n/10 specific model has. For example, a model may show a significant 
 effect in a logistic regression
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2806--2806
+Underfull \hbox (badness 10000) in paragraph at lines 2934--2934
 \TU/lmr/m/n/10 but it may not predict the outcome above chance. In this case, t
 he question turns from “does X
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2806--2806
+Underfull \hbox (badness 10000) in paragraph at lines 2934--2934
 \TU/lmr/m/n/10 have an effect on Y?” to “does it predict Y?” This distinction h
 as important implications when
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2806--2806
+Underfull \hbox (badness 10000) in paragraph at lines 2934--2934
 \TU/lmr/m/n/10 it comes to intervention and prevention but involves a number of
  important concepts that cannot
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2806--2806
+Underfull \hbox (badness 10000) in paragraph at lines 2934--2934
 \TU/lmr/m/n/10 be covered herein (e.g., model specification including penalty p
 arameters, modeling approach such
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2806--2806
+Underfull \hbox (badness 10000) in paragraph at lines 2934--2934
 \TU/lmr/m/n/10 as tree based approaches). This general idea—that of the importa
 nce of predictive accuracy—is
  []
 
-[66
+[70
 
-] [67] [68] [69] [70] [71]
-Underfull \hbox (badness 1769) in paragraph at lines 3055--3059
+] [71] [72] [73] [74] [75] [76
+
+]
+Underfull \hbox (badness 1769) in paragraph at lines 3201--3205
  []\TU/lmr/m/n/12 Graham, J. W., Olchowski, A. E., and Gilreath, T. D. (2007). 
 How many 
  []
 
 
-Underfull \hbox (badness 1454) in paragraph at lines 3055--3059
+Underfull \hbox (badness 1454) in paragraph at lines 3201--3205
  \TU/lmr/m/n/12 imputations are really needed? Some practical clarifications of
  mul- 
  []
 
 
-Underfull \hbox (badness 2035) in paragraph at lines 3055--3059
+Underfull \hbox (badness 2035) in paragraph at lines 3201--3205
  \TU/lmr/m/n/12 tiple imputation theory. \TU/lmr/m/it/12 Prevention Science\TU/
 lmr/m/n/12 , \TU/lmr/m/it/12 8\TU/lmr/m/n/12 (3), 206–213. []$[][][][][] [] 
  []
 
-[72
 
-]
-Underfull \hbox (badness 1769) in paragraph at lines 3100--3104
+Underfull \hbox (badness 1769) in paragraph at lines 3250--3254
  []\TU/lmr/m/n/12 Iacobucci, D., Saldanha, N., and Deng, X. (2007). A mediation
  on media- 
  []
 
 
-Underfull \hbox (badness 1253) in paragraph at lines 3100--3104
+Underfull \hbox (badness 1253) in paragraph at lines 3250--3254
  \TU/lmr/m/n/12 tion: Evidence that structural equation models perform better t
 han 
  []
 
-
-Underfull \hbox (badness 2080) in paragraph at lines 3133--3138
- []\TU/lmr/m/n/12 Lockhart, G., Phillips, S., Bolland, A., Delgado, M., Tietjen
-, J., and Bol- 
- []
-
-
-Underfull \hbox (badness 1902) in paragraph at lines 3133--3138
- \TU/lmr/m/n/12 land, J. (2017). Prospective Relations among Low-Income African
- 
- []
-
-
-Underfull \hbox (badness 1975) in paragraph at lines 3133--3138
- \TU/lmr/m/n/12 American Adolescents’ Maternal Attachment Security, Self-Worth,
- 
- []
-
-[73]
-Underfull \hbox (badness 1454) in paragraph at lines 3167--3171
+[77]
+Underfull \hbox (badness 1454) in paragraph at lines 3304--3308
  []\TU/lmr/m/n/12 MacKinnon, D. P., Lockwood, C. M., and Williams, J. (2004). C
 onfidence 
  []
 
 
-Underfull \hbox (badness 1810) in paragraph at lines 3167--3171
+Underfull \hbox (badness 1810) in paragraph at lines 3304--3308
  \TU/lmr/m/n/12 Limits for the Indirect Effect: Distribution of the Product and
  Re- 
  []
 
 
-Underfull \hbox (badness 1616) in paragraph at lines 3167--3171
+Underfull \hbox (badness 1616) in paragraph at lines 3304--3308
  \TU/lmr/m/n/12 sampling Methods. \TU/lmr/m/it/12 Multivariate Behavioral Resea
 rch\TU/lmr/m/n/12 , \TU/lmr/m/it/12 39\TU/lmr/m/n/12 (1). []$[][][][][] [] 
  []
 
-
-Underfull \hbox (badness 2027) in paragraph at lines 3197--3201
+[78]
+Underfull \hbox (badness 2027) in paragraph at lines 3339--3343
  \TU/lmr/m/n/12 Carlo Experiments: Design and Implementation. \TU/lmr/m/it/12 S
 tructural Equa- 
  []
 
 
-Underfull \hbox (badness 2418) in paragraph at lines 3197--3201
+Underfull \hbox (badness 2418) in paragraph at lines 3339--3343
  \TU/lmr/m/it/12 tion Modeling: A Multidisciplinary Journal\TU/lmr/m/n/12 , \TU
 /lmr/m/it/12 8\TU/lmr/m/n/12 (2), 287–312. []$[][][][][] [] 
  []
 
-[74] [75] [76
+[79] [80
 
 ]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 3287.
+(hyperref)                be the same. Added a new anchor on input line 3410.
 
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3297.
-[77
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3420.
+[81
 
-] [78
+] [82
 
 ]
-Underfull \vbox (badness 1199) detected at line 3482
+Underfull \vbox (badness 1199) detected at line 3605
  []
 
 
-Overfull \vbox (0.12747pt too high) detected at line 3482
- []
-
-[79
-
-] [80]
-Underfull \vbox (badness 10000) detected at line 3571
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3571
- []
-
-[81] [82]
-Underfull \vbox (badness 10000) detected at line 3687
+Overfull \vbox (0.12747pt too high) detected at line 3605
  []
 
 [83
 
+] [84]
+Underfull \vbox (badness 10000) detected at line 3694
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3694
+ []
+
+[85] [86]
+Underfull \vbox (badness 10000) detected at line 3810
+ []
+
+[87
+
 ]
-Underfull \vbox (badness 10000) detected at line 3687
+Underfull \vbox (badness 10000) detected at line 3810
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3687
+Underfull \vbox (badness 10000) detected at line 3810
  []
 
-[84]
-Underfull \vbox (badness 10000) detected at line 3769
- []
-
-
-Overfull \vbox (1.26564pt too high) detected at line 3769
- []
-
-[85]
-Underfull \vbox (badness 10000) detected at line 3887
- []
-
-[86]
-Underfull \vbox (badness 10000) detected at line 3887
+[88]
+Underfull \vbox (badness 10000) detected at line 3892
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3887
+Overfull \vbox (1.26564pt too high) detected at line 3892
  []
 
-[87] [88] [89
+[89]
+Underfull \vbox (badness 10000) detected at line 4010
+ []
+
+[90]
+Underfull \vbox (badness 10000) detected at line 4010
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4010
+ []
+
+[91] [92] [93
 
 ]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 3950.
+(hyperref)                be the same. Added a new anchor on input line 4073.
 
 
-Underfull \vbox (badness 10000) detected at line 4098
- []
-
-[90
-
-]
-Underfull \vbox (badness 10000) detected at line 4098
- []
-
-
-Underfull \vbox (badness 10000) detected at line 4098
- []
-
-[91]
-Underfull \vbox (badness 10000) detected at line 4098
- []
-
-
-Underfull \vbox (badness 10000) detected at line 4098
- []
-
-[92] [93]
-Underfull \vbox (badness 10000) detected at line 4231
+Underfull \vbox (badness 10000) detected at line 4221
  []
 
 [94
 
 ]
-Underfull \vbox (badness 10000) detected at line 4231
+Underfull \vbox (badness 10000) detected at line 4221
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4231
+Underfull \vbox (badness 10000) detected at line 4221
  []
 
 [95]
-Underfull \vbox (badness 10000) detected at line 4319
- []
-
-[96]
-Underfull \vbox (badness 10000) detected at line 4319
+Underfull \vbox (badness 10000) detected at line 4221
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4319
+Underfull \vbox (badness 10000) detected at line 4221
  []
 
-[97]
-Underfull \vbox (badness 10000) detected at line 4395
+[96] [97]
+Underfull \vbox (badness 10000) detected at line 4354
  []
 
-[98] [99]
-Underfull \vbox (badness 10000) detected at line 4475
- []
-
-[100
+[98
 
 ]
+Underfull \vbox (badness 10000) detected at line 4354
+ []
 
-LaTeX Warning: Reference `tab:oldperc' on page 101 undefined on input line 4515
-.
+
+Underfull \vbox (badness 10000) detected at line 4354
+ []
+
+[99]
+Underfull \vbox (badness 10000) detected at line 4442
+ []
+
+[100]
+Underfull \vbox (badness 10000) detected at line 4442
+ []
 
 
-LaTeX Warning: Reference `tab:oldperc' on page 101 undefined on input line 4515
-.
+Underfull \vbox (badness 10000) detected at line 4442
+ []
 
 [101]
+Underfull \vbox (badness 10000) detected at line 4518
+ []
 
-LaTeX Warning: Reference `fig:app' on page 102 undefined on input line 4533.
+[102] [103]
+Underfull \vbox (badness 10000) detected at line 4598
+ []
 
-
-LaTeX Warning: Reference `fig:app' on page 102 undefined on input line 4533.
-
-[102] [103
+[104
 
 ]
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 4580; it cannot
+LaTeX Warning: Reference `tab:oldperc' on page 105 undefined on input line 4638
+.
+
+
+LaTeX Warning: Reference `tab:oldperc' on page 105 undefined on input line 4638
+.
+
+[105]
+
+LaTeX Warning: Reference `fig:app' on page 106 undefined on input line 4656.
+
+
+LaTeX Warning: Reference `fig:app' on page 106 undefined on input line 4656.
+
+[106] [107
+
+]
+
+Package fontspec Warning: \addfontfeature(s) ignored on line 4703; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
@@ -2306,7 +2197,7 @@ Package fontspec Warning: \addfontfeature(s) ignored on line 4580; it cannot
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 4589; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 4712; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
@@ -2314,46 +2205,46 @@ Package fontspec Warning: \addfontfeature(s) ignored on line 4589; it cannot
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4592--4593
+Underfull \hbox (badness 10000) in paragraph at lines 4715--4716
 []|\TU/lmr/m/it/10 Marginal Mediation Analysis: A New Frame-
  []
 
-[104
+[108
 
 ]
-Underfull \hbox (badness 1281) in paragraph at lines 4666--4671
+Underfull \hbox (badness 1281) in paragraph at lines 4789--4794
  \TU/lmr/m/n/12 reading achievement. \TU/lmr/m/it/12 Journal of Educational Res
 earch. \TU/lmr/m/n/12 doi: 
  []
 
-[105]
-Underfull \hbox (badness 1033) in paragraph at lines 4734--4741
+[109]
+Underfull \hbox (badness 1033) in paragraph at lines 4857--4864
  \TU/lmtt/m/n/12 table1() \TU/lmr/m/n/12 and \TU/lmtt/m/n/12 tableC()\TU/lmr/m/
 n/12 —produce descriptive statistics and 
  []
 
-[106] [107] [108] [109] 
+[110] [111] [112] [113] 
 AED: lastpage setting LastPage
-[110]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5005.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 5005.
+[114]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5128.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 5128.
 (OperationalFrameworks.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 5005.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5005.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 5128.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5128.
 
 Package rerunfilecheck Info: File `OperationalFrameworks.out' has not changed.
-(rerunfilecheck)             Checksum: EEEBEEE423DADD8793F11DFFC0059052.
+(rerunfilecheck)             Checksum: FA2635EF015B421C67EDDF0CB7B28A2A.
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 26999 strings out of 427798
- 482285 string characters out of 3148017
- 653183 words of memory out of 3000000
- 30670 multiletter control sequences out of 15000+200000
- 561162 words of font info for 81 fonts, out of 3000000 for 9000
+ 26993 strings out of 427798
+ 482109 string characters out of 3148017
+ 653540 words of memory out of 3000000
+ 30664 multiletter control sequences out of 15000+200000
+ 561170 words of font info for 82 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  60i,12n,94p,1212b,477s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on OperationalFrameworks.pdf (123 pages).
+Output written on OperationalFrameworks.pdf (127 pages).
