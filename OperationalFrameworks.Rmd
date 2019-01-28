@@ -1,6 +1,6 @@
 ---
 documentclass: DissertateUSU
-title: 'Towards a Framework for Operational Risk in the Banking Sector  '
+title: 'Towards a Framework for Operational Risk in the Banking Sector'
 author: Mphekeleli Hoohlo
 output:
   pdf_document:
@@ -124,11 +124,11 @@ dissertateUSU::preamble_for_title()
 
 <!-- Chapter 2 -->
 \newpage
-\fancyhead[L]{Average Marginal Effects}
+\fancyhead[L]{Literature Review}
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 
-\chapter{AVERAGE MARGINAL EFFECTS}
+\chapter{LITERATURE REVIEW}
 ```{r child = 'chapter2.Rmd'}
 ```
 

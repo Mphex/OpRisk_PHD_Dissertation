@@ -320,19 +320,38 @@ fantastic place to grow academically and to mature into a researcher.
 
 \chapter{INTRODUCTION}
 
+\doublespacing
+
 \textbf{\section{Purpose of the study}} \label{sec:Purpose of the study}
 
-The aim of this research is to apply a generalised linear model (GLM)
-that is suitable for exposure-based operational risk (EBOR) treatments
-within the operational risk management framework (ORMF), which
-effectively replaces historical loss severity curves obtained from
-historical loss counts, by forward-looking measures using event
-frequencies based on actual operational risk (OpRisk) exposures.
-Preliminary work on EBOR models was undertaken by (Einemann, Fritscher,
-and Kalkbrener, 2018). Secondly, the study provides comprehensive
-computational comparisons of various data-intensive techniques, versus
-classical statistical estimation methods for classification and
-regression performances between the two.\medskip
+The purpose of this research is to apply a generalised linear model
+(GLM) suitable for exposure-based operational risk (EBOR) treatments
+within the operational risk management framework (ORMF), effectively
+replacing historical loss severity curves obtained from historical loss
+counts, by forward-looking measures using event frequencies based on
+actual operational risk (OpRisk) exposures. Preliminary work on EBOR
+models was undertaken by (Einemann, Fritscher, and Kalkbrener, 2018).
+Secondly, this study provides a comprehensive computational comparison
+of various data-intensive techniques amongst each other, and versus
+\emph{classical} statistical estimation methods for classification and
+regression performances.\medskip
+
+Our understanding of existing ORMF to date is limited to the assumption
+that financial institutions (FI's) are risk-neutral. Thirdly, in lieu of
+the afore-mentioned, this study finally seeks to invalidate the
+risk-neutral assumption, by means of various unsupervised learning
+techniques, by proposing that FI's are more risk-averse; this can be
+measured by analysing subtle patterns between data features and trends
+in the allocated risk capital estimates. In theory, a risk manager who
+experiences persistent/excessive losses due to particular risk events,
+would over-compensate cover for these particular risk types, and this
+would show in reduced losses in these types over time.\medskip
+
+\subsubsection{Definition of OpRisk}
+
+OpRisk is defined as:
+\lq\lq \textbf{The risk of loss resulting from inadequate or failed internal processes, people and systems, and from external events. This definition includes legal risk, but excludes strategic and reputational risk.}\rq\rq~(Risk,
+2001).\medskip
 
 Cruz (2002) postulated that OpRisk, which focuses on the human side of
 risk management is difficult to manage with the reduced ability to
@@ -340,21 +359,7 @@ measure it. The process of OpRisk, that is, the how manifests in
 conscious and/or unconscious states of the risk manager/s (Hemrit and
 Arab, 2012), and encompasses approaches and theories that focus on how
 one will choose when faced with a decision, based on how comfortable
-they are with the situation and the variables that are present. OpRisk
-is defined as:
-\lq\lq \textbf{The risk of loss resulting from inadequate or failed internal processes, people and systems, and from external events. This definition includes legal risk, but excludes strategic and reputational risk.}\rq\rq~(Risk,
-2001).\medskip
-
-Our understanding of existing ORMF to date is limited to the assumption
-that financial institutions (FI's) are risk-neutral. In lieu of the
-afore-mentioned, this study finally seeks to invalidate the risk-neutral
-assumption, by means of various unsupervised learning techniques, by
-proposing that FI's are more risk-averse; this can be measured by
-analysing subtle patterns between data features and trends in the
-allocated risk capital estimates. In theory, a risk manager who
-experiences persistent/excessive losses due to particular risk events,
-would over-compensate cover for these particular risk types, and this
-would show in reduced losses in these types over time.\medskip 
+they are with the situation and the variables that are present.
 
 \subsection{The theoretical foundation of OpRisk}
 
@@ -375,13 +380,13 @@ place.\medskip
 
 A (rogue) trader (Nick Leeson), who risked the banks' survival rather
 than expose his trading losses, by consciously deceiving senior
-management to hide his unethical acts. He was found to have been
+management to hide his unethical acts, was found to have been
 responsible for unethical trading practices when he created illegal
 trades in his account, then used his position in the front and back
 offices of the bank to hide his trading losses. Worse still, he incurred
-a greater risk by lying in order to give a false impression of his
-profits. It was later discovered that he was placing illegal bets in the
-Asian-markets, and kept these contracts out of sight from senior
+a greater risk to the bank by lying in order to give a false impression
+of his profits. It was later discovered that he was placing illegal bets
+in the Asian-markets, and kept these contracts out of sight from senior
 management to cover up his illegal activity. When his fraudulent
 behaviour was discovered (after an earthquake hit at Kobe in Japan, that
 collapsed the Osaka Securities Exchange) he succumbed to unrecoverable
@@ -392,7 +397,7 @@ collapse.\medskip
 Since then, there have been a series of destructive events that have
 threatened the stability of the financial system due to OpRisk. Large
 fines have been imposed on the culprits and regulatory scrutiny has been
-heightened as a result of a number of operational events e.g., the
+heightened as a result of a number of operational events, e.g.~the
 January 2016 \lq\lq Dark Pool\rq\rq~trading penalties suffered by
 Barclays (\$70mn) and Credit Suisse (\$85mn), imposed by the United
 States (US) based securities exchange commision (SEC). These OpRisk loss
@@ -450,7 +455,7 @@ FI's over potential foreign competitors, by opening up global
 competition so that these banks could buffer against international
 solvency. In 2001, the Risk (2001) consultative package provided an
 overview of the proposed framework for regulatory capital (RC) charge
-for operational risk (OpRisk). An FI has an OpRisk component, which
+for OpRisk. A fiancial institution (FI) has an OpRisk component, which
 constitutes a substantial risk component other than credit and market
 risk. There are two types of OpRisk's viz., potential high severity risk
 where the probability of an extreme loss is very small but costly, and
@@ -481,7 +486,7 @@ percentile left tail confidence interval to measure OpRisk value-at-risk
 
 Basel III establishes tougher capital standards through more restrictive
 capital definitions, higher RWA's, additional capital buffers, and
-higher requirements for minimum capital ratios (Mysis, 2013). Through
+higher requirements for minimum capital ratios (Dorval, 2013). Through
 Basel III, the BCBS is introducing a number of fundamental reforms
 grouped under three main headings (Committee and others, 2010): 1{]} A
 future of more capital through incremental trading book risk (credit
@@ -513,7 +518,7 @@ of the annual gross income of the firm as a whole to determine the
 annual capital charge. The SA is similar to the BIA except the firm is
 split into eight business lines and assigned a different percentage of a
 three year average gross income per business line, the summation of
-which is the capital charge Hoohlo (2015). In the IMA, the bank uses
+which is the capital charge (Hoohlo, 2015). In the IMA, the bank uses
 it's own internal models to calculate OpRisk loss.\medskip
 
 The advanced measurement approach (AMA) is an IMA method which applies
@@ -521,11 +526,10 @@ estimation techniques of OpRisk capital charge derived from a bank's
 internal risk measurement system Cruz (2002). Basel II proposed
 measurement of OpRisk to define capital requirements against unexpected
 bank losses whereas the unexpected loss (UL) is the quantile for the
-level \(\alpha\) minus the mean. According to the advanced measurement
-approach (AMA), thought to outperform the simpler standardised (SA)
-approach and (BIA), RC requirements are defined according to the UL
-limit in one year and the loss distribution at a 99.9\% confidence level
-(\(\alpha = 0.01\%\)) aggegate loss
+level \(\alpha\) minus the mean. According to the AMA, which is thought
+to outperform the simpler SA approach and the BIA, RC requirements are
+defined according to the UL limit in one year and the loss distribution
+at a 99.9\% confidence level (\(\alpha = 0.01\%\)) aggegate loss
 distribution\footnote{The aggregate loss distribution is obtained by convoluting a loss event frequency distribution and a loss severity distribution by means of the random sums method.}
 used as a measure of RC. The BCBS proposes to define RC as \$ RC = UL
 \$. This involves simulations based on historical data to establish
@@ -564,12 +568,14 @@ March 2016, the BCBS published for consultation a standardised
 measurement approach (SMA) for OpRisk RC; that proposes to abandon the
 freedom of internal modelling (thus ending the AMA) approaches for
 OpRisk RC, in exchange for being able to use a simple formula to
-facilitate comparability across the industry. Under the SMA, RC will be
-determined using a simple method comprising of two components: A
-stylised systemic risk model (business indicator component), and an
-idiosyncratic risk model (loss component), which are combined via an
-internal loss multiplier (ILM), whose function is to link capital to a
-FI's operational loss experience to determine SMA capital.\medskip
+facilitate comparability across the industry.\medskip
+
+Under the SMA, RC will be determined using a simple method comprising of
+two components: A stylised systemic risk model (business indicator
+component), and an idiosyncratic risk model (loss component), which are
+combined via an internal loss multiplier (ILM), whose function is to
+link capital to a FI's operational loss experience to determine SMA
+capital.\medskip
 
 The SMA formula is thought to be consistent with regulators' intent for
 simplification and increased comparability across most banks. However,
@@ -684,9 +690,9 @@ undesirable market conditions. The OpRisk management function should be
 able to assist the firms' ability to mitigate risks by acquiring and/or
 refining risk management solutions which deliver reliable and consistent
 benefits of improved control and management of the risks inherent in
-banking operations (Mysis, 2013). This proposal attempts to fill the gap
-in the current system where there is a risk management information lag
-or an obstruction from the eyes of the risk practitioner.
+banking operations (Dorval, 2013). This proposal attempts to fill the
+gap in the current system where there is a risk management information
+lag or an obstruction from the eyes of the risk practitioner.
 
 \subsection{Analysis and interpretation issues with behavioral finance theory}
 
@@ -754,13 +760,13 @@ experimental results compiled by cognitive psycologists on how people
 make decisions given their beliefs.\medskip 
 
 Kahneman and Tversky (2013) maintains, preferences between prospects
-which violate rational behaviour demonstrates that outcomes which are
+which violate rational behaviour demonstrate that outcomes which are
 obtained with certainty are overweighted relative to uncertain outcomes.
 This will contribute to a risk-averse preference for a sure gain over a
 larger gain that is merely probable or a risk-seeking preference for a
 loss that is merely probable over a smaller loss that it certain. As a
 psycological principle, overweighting of certainty favours risk-aversion
-in the domain of gains and risk-seeking in the domain of losses.
+in the domain of gains and risk-seeking in the domain of losses.\medskip
 
 The present discussion replicates the common behavioral pattern of risk
 aversion, where people weigh losses more than equivalent gains.
@@ -871,15 +877,14 @@ idea in a way that is falsifyable.
 
 \textbf{\section{Problem statement}} \label{sec:Problem statement}
 
-\subsection{main problem}
+\subsection{Main problem}
 
 The existing models of OpRisk VaR measurement frameworks assume FI's are
-risk neutral, and do not learn from past losses/mistakes:
-
-\begin{list}{*}{}
-\item We address weaknesses in current OpRisk VaR measurement frameworks by assuming that FI's are more risk averse.
-\item Furthermore, we gain an understanding of how past losses affect risk attitudes using machine learning techniques. The calculated future losses are estimated via learning.
-\end{list}
+risk neutral, and do not learn from past losses/mistakes: We address
+weaknesses in current OpRisk VaR measurement frameworks by assuming that
+FI's are more risk averse. Furthermore, we gain an understanding of how
+past losses affect risk attitudes using machine learning techniques. The
+calculated future losses are estimated via learning.
 
 \textbf{\section{Objectives of the study}}
 \label{sec:Objectives of the study}
@@ -967,7 +972,8 @@ potential losses, culminating in structural and operational changes in
 the FI, hence releasing human capital to focus on dilemmas that require
 human judgement.
 
-\textbf{\section{Conclusion}} \label{sec:Conclusion}
+\textbf{\section{Organisation of the study}}
+\label{sec:Organisation of the study}
 
 Mediation analysis is a powerful framework for understanding the
 processes by which one variable influences another. The assumptions are
@@ -995,228 +1001,342 @@ non-normal variables within generalized linear models.
 
 \newpage
 
-\fancyhead[L]{Average Marginal Effects} \fancyhead[R]{\thepage}
-\fancyfoot[C]{}
+\fancyhead[L]{Literature Review} \fancyhead[R]{\thepage} \fancyfoot[C]{}
 
-\chapter{AVERAGE MARGINAL EFFECTS}
-
-\begin{quote}
-\emph{Any fool can know. The point is to understand.}
---- Albert Einstein
-\end{quote}
+\chapter{LITERATURE REVIEW}
 
 \doublespacing
 
-\section{Introduction}\label{introduction-1}
+\textbf{\section{Introduction}} \label{sec:Introduction}
 
-When the outcome variable is not continuous and/or has a distribution
-far from normal, researchers in prevention science often rely on
-generalized linear models (GLMs). The power of GLMs is clear when you
-consider the broad range of situations it estimates with asymptotic
-consistency.\footnote{Asymptotic consistency refers to the ability to, as the sample size increases, produce estimates that converge to the proper value.}
-However, the problem with GLMs is that the estimates are not in an
-easily interpretable form. For example, in logistic regression (one type
-of GLM), the results are in ``log-odds''. To overcome this lack of
-interpretability, a simple exponentiation of the coefficient produces
-what is known as an odds ratio. Similarly, Poisson regression (another
-form of GLM), with an exponentiation, produces the risk ratio. Although
-some fields have adopted odds ratios (or relative risk, risk ratios, and
-other related metrics), these metrics have notable shortcomings.
+A look into literary sources for OpRisk indicates (Acharyya, 2012) that
+there is insufficient academic literature that looks to characterize its
+theoretical roots, as it is a relatively new discipline, choosing
+instead to focus on proposing a solution to the quantification of
+OpRisk. This chapter seeks to provide an overview of some of the
+antecedents of OpRisk measurement and management in the banking
+industry. As such, this chapter provides a discussion on why OpRisk is
+not trivial to quantify and attempts to understand its properties in the
+context of risk aversion with the thinking of practitioners and
+academics in this field.\medskip
 
-\begin{enumerate}
-\item Most of these metrics can be difficult to understand (i.e., many are not intuitive).
-\item They cannot be combined with other metrics in a meaningful manner.
-\end{enumerate}
+According to Cruz (2002), FI's wish to measure the impact of operational
+events upon profit and loss (P\&L), these events depict the idea of
+explaining the \emph{volatility of earnings} due to OpRisk data points
+which are directly observed and recorded. By seeking to incorporate data
+intensive statistical approaches to help understand the data, the
+framework analyses response variables that are decidedly non-normal
+(including categorical outcomes and discrete counts) which can shed
+further light on the understanding of firm-level OpRisk RC. Lastly, a
+synopsis of gaps in the literature is presented.
 
-First, data have suggested that individuals, although with some
-variability, are able to intuitively grasp the meaning of phrases such
-as ``highly probable'' or ``not likely'' (Heuer Jr., 1999). Yet, this
-same intuition is not found in odds or odds ratios. For example,
-Montreuil, Bendavid, and Brophy (2005) found, of 84 articles in several
-epidemiology journals that used odds ratios, only 7 (8.3\%) accurately
-interpreted the odds ratio and 22 (26\%) interpreted odds as though they
-were probabilities (``risk''). Figure \ref{fig:orprob} highlights the
-large discrepancy between the odds ratio, the risk ratio, and the
-average marginal risk. Ultimately, reporting odds and interpreting them
-as risk is common.
+\section{The theoretical foundation of OpRisk}
+\label{sec:The theoretical foundation of OpRisk}
 
-The second is particularly important in the case of mediation analysis
-given the importance of the indirect effect (the combination of the
-\(a\) and \(b\) paths). If \(a\) is not in a unit that can be combined
-with \(b\), then obtaining a meaningful indirect effect is not generally
-possible. Given its commonality and the limitation that it cannot be
-combined with other metrics, it is time to consider other
-strategies---at least in some situations.
+Hemrit and Arab (2012) argue that common and systematic operational
+errors in hypothetical situations poses presumtive evidence that OpRisk
+events, assuming that the subjects have no reason to disguise their
+preferences, are created sub-consciously. This study purports, supported
+by experimental evidence, behavioural finance theories should take some
+of this behaviour into account in trying to explain, in the context of a
+model, how investors maximise a specific utility/value function.
+Furthermore its argued by integrating OpRisk management into behavioral
+finance
+theory,\footnote{In behavioral finance, we investigate whether certain financial phenomena are the result of less than fully rational thinking [@barberis2003survey]},
+that it may be possible to improve our understanding of firm level RC by
+refining the resulting OpRisk models to account for these behavioral
+traits - implying that people's economic preferences described in the
+model, have an economic incentive to improve the OpRisk RC measure.
+\medskip
 
-\begin{figure}[tb]
-  \centering
-  \includegraphics[width=\linewidth]{figures/OR_Prob.jpg}
-  \caption{a) Comparison of odds ratio and risk ratio with the average marginal risk (probability). b) Same comparison as a) but the y-axis is rescaled ($log_{10}$) to better show the negative marginal risk comparisons. Both highlight the discrepancy between odds and risk ratios at various levels of marginal risk and that neither approximate the marginal risk.}
-  \label{fig:orprob}
-\end{figure}
+There is cognitive pressure which seeks to remove information which we
+are largely unaware of, because they are undetectable to human senses
+that no one could ever see them. We seek to remove this pressure,
+effectively lowering uncertainty and allowing us to position ourselves
+to develop a defense against our cognitive biases. It is through
+patterns in that information that we are largely unaware of that
+predictions could arise; or that, OpRisk management incorporates rather
+than dismiss the many alternatives that were not imagined, the
+possibility of market inefficiencies or finding value in unusual places.
+\medskip
 
-\section{Additive vs.~Multiplicative
-Interpretations}\label{additive-vs.multiplicative-interpretations}
+In a theoretical paper, Wiseman and Catanach Jr (1997) discussed several
+organizational and behavioural theories, such as PT, which influence
+managerial risk-taking attitudes. Their findings demonstrate that
+behavioural views, such as PT and the behavioural theory of the firm
+explain risk seeking and risk averse behaviour in the context of OpRisk
+even after agency based influences are controlled for. Furthermore, they
+challenge arguments that behavioral influences are masking underlying
+root causes due to agency effects. Instead they argue for mixing
+behavioral models with agency based views to obtain more complete
+explanations of risk preferences and risk taking behavior (Wiseman and
+Catanach Jr, 1997). \medskip 
 
-The distinction between additive and multiplicative estimates is
-generally important but is particularly so in mediation analysis. In
-most quantitative research designs, the investigators are seeking
-information on the average effect in a population, whether this refers
-to an average difference across groups or an average change in the
-outcome for a given change in the predictor. Generally speaking, the
-average effect is referring to the marginal effect (i.e., the effect of
-a small change in the predictor in the outcome's units). In the linear
-regression framework, the average effect is the estimated coefficient
-and is interpreted \emph{additively}---a one unit change in the
-predictor is associated with an X unit change in the outcome.
-Conversely, outcomes such as OR are \emph{multiplicative}. Being
-multiplicative changes the interpretation to: a one unit change in the
-predictor is associated with an X times change in the outcome. Although
-subtle, the difference is important, especially for multi-part models
-(e.g., mediation analysis).
+\begin{quote}
+ \lq\lq An analysis of literature suggests that the theoretical foundation of operational risk has evolved from the field of strategic management research. Although there is in-sufficient academic literature that explicitly gives theoretical foundation of operational risk, there are considerable works of strategists that can be utilised to establish a conceptual framework of operational risk for financial firms \rq\rq\ [@acharyya2012current, pg.8].
+\end{quote}
 
-Being multiplicative indicates that the effect of the predictor changes
-based on the level of the predictor. For example, if the predictor is
-high, a small change in the predictor may have a big effect while if the
-predictor is low, a small change in the predictor has little effect.
-Figure \ref{fig:loglinear} shows this phenomenon, where, in the outcomes
-original units there is an exponential function. In part a) of the
-figure, it is clear that a change from 2 to 3 in the predictor has a
-much larger effect than a change from 0 to 1. A regression would not
-work well here. If a log transformation is used, the relationship would
-be linear (and a regression can be used) but the interpretation becomes
-multiplicative (in this case a one unit increase in the predictor is
-associated with an \(X*100\) percent increase in the outcome).
+\section{Overview of operational risk management}
+\label{sec:Overview of operational risk management}
 
-\begin{figure}[tb]
-  \centering
-  \includegraphics[width=\linewidth]{figures/loglinear.jpg}
-  \caption{Demonstration of a non-linear relationship. a) The outcome is an exponential function of the predictor. b) When log transforming the outcome, the relationship becomes fairly linear. So the interpretation in the log transformed scale is additive, but once it is put back into the original units, it is multiplicative.}
-  \label{fig:loglinear}
-\end{figure}
+It is important to note how OpRisk manifests itself; King (2001)
+establishes the causes and sources of operational events are observed
+phenomena associated with operational errors and are wide ranging. As
+such, P\&L volatitlity is not only related to the way firms finance
+their business, but also in the way they \emph{operate}, these
+operational events are almost always initiated at the dealing phase of a
+trading process. OpRisk management undertakes a broad view of P\&L
+attribution carried out from deal origination to settlement within the
+perspective of strategic management and detects the interrelationships
+between operational risk factors with others to conceptualise the
+potential overall consequences (Acharyya, 2012).\medskip
 
-Additive interpretations are generally the most intuitive and require
-less cognitive resources to understand the pattern being portrayed. In a
-multiplicative framework, simplicity in understanding the effect
-intuitively is somewhat lost (Iacobucci, 2008). Among others, this is
-one reason why Stata provides the \texttt{margins} command when dealing
-with two-part hurdle
-models.\footnote{These models are often used for zero-inflated count outcomes.}
-These models break up the modeling into two parts: one for the binary
-part and one for the count part. In order to combine the two parts,
-Stata allows a transformation known as the \emph{average marginal
-effect} (AME) that makes the two parts both additive, and therefore
-easily combined (as is also desired in mediation analysis).
+we assume that looking at or on hearing an instruction we are
+consciously analysing and accurately executing it based on the
+information that our senses reveal. However, this isn't entirely true in
+OpRisk because operational events that occur indicate that they were
+experienced before one is consciously aware of them e.g., during the
+trading process in cases where OpRisk events occur as a result of a
+mismatch between the trade booked (booking in trade feed) and the
+details agreed by the trader; human error (a sub-conscious phenomenon)
+is usually quoted as the source of error, and the trade is fixed by
+\lq\lq amending\rq\rq~or manually changing the trade details. \medskip
 
-\section{Average Marginal Effect}\label{average-marginal-effect}
+Furthermore, Acharyya (2012) recognised that organizations may hold
+OpRisk due to external causes, such as failure of third parties or
+vendors (either intentionally or unintentionally), in maintaining
+promises or contracts. The criticism in the literature is that no amount
+of capital is realistically reliable for the determination of RC as a
+buffer to OpRisk, particularly the effectiveness of the approach of
+capital adequacy from external events, as there is effectively no
+control over them.\medskip
 
-\subsection{Why Consider Average Marginal
-Effects?}\label{why-consider-average-marginal-effects}
+Despite the reality that OpRisk does not lend itself to scientific
+analysis in the way that market risk and credit risk do, someone must do
+the analysis, value the RC measurement and hope the market reflects
+this. Besides, financial markets are not objectively scientific, a large
+percentage of successful people have been lucky in their forecasts, it
+is not an area which lends itself to scientific analysis.\medskip
 
-When using GLMs, the model is fit with a link function (e.g., ``logit'',
-``probit'', ``log''). This change causes the marginal effect of a
-variable to rely on the values of the covariates in the model. This is
-well illustrated through an example. Say a logistic regression model was
-fit to the data, as shown in Equations \ref{logisticmodel} -
-\ref{logisticmodel4}, for \(p\) predictors.
+\section{Operational risk measurement}
+\label{sec:Operational risk measurement}\subsection{Loss Distribution Approach}
 
-\begin{equation}\label{logisticmodel}
-logit(Y_i) = \beta_0 + \sum_{j=1}^p \beta_{j} X_{ij} + \epsilon_i
-\end{equation}\begin{equation}\label{logisticmodel2}
-log(\frac{Prob(Y_i = 1)}{1 - Prob(Y_i = 1)}) = \beta_0 + \sum_{j=1}^p \beta_{j} X_{ij} + \epsilon_i
-\end{equation}\begin{equation}\label{logisticmodel3}
-\frac{Prob(Y_i = 1)}{1 - Prob(Y_i = 1)} = e^{\beta_0 + \sum_{j=1}^p \beta_{j} X_{ij} + \epsilon_i}
-\end{equation}\begin{equation}\label{logisticmodel4}
-Prob(Y_i = 1) = \frac{e^{\beta_0 + \sum_{j=1}^p \beta_{j} X_{ij} + \epsilon_i}}{1 + e^{\beta_0 + \sum_{j=1}^p \beta_{j} X_i + \epsilon_i}}
+The Loss Distribution Approach (LDA) is an AMA method whose main
+objective is to provide realistic estimates to calculate VaR for OpRisk
+RC in the banking sector and it's business units based on loss
+distributions that accurately reflect the frequency and severity loss
+distributions of the underlying data. Having calculated separately the
+frequency and severity distributions, we need to combine them into one
+aggregate loss distribution that allows us to produce a value for the
+OpRisk VaR. There is no simple way of aggregating the frequency and
+severity distribution. Numerical approximation techniques (computer
+algorithms) successfully bridge the divide between theory and
+implementation for the problems of mathematical analysis. \medskip
+
+The aggregated losses at time \(t\) are given by
+\(\vartheta(t) = \sum_{n=1}^{N(t)} X_{n}\) (where X represents
+individual operational losses). Frequency and severity distributions are
+estimated, e.g., the poisson distribution is a representation of a
+discrete variable commonly used to model operational event frequency
+(counts), and a selection from continuous distributions which can be
+linear (e.g.~gamma distribution) or non-linear (e.g.~lognormal
+distribution) for operational loss severity amounts. The compound loss
+distribution \(\mathbf{G}(t)\) can now be derived. Taking the aggregated
+losses we obtain:
+
+\begin{equation}\label{eqn1}
+\mathbf{G}_{\vartheta(t)}(x)=Pr[\vartheta(t)\leq x]=Pr\left(\sum_{n=1}^{N(t)}X_{n} \leq x\right)
 \end{equation}
 
-\noindent This implies that the marginal effect of, say, \(X_{i1}\) is:
+For most choices of \(N(t)\) and \(X_{n}\), the derivation of an
+explicit formula for
 
-\begin{equation}\label{marginallogistic}
-\frac{\delta Y}{\delta X_1} = \frac{e^{\beta_0 + \sum_{j=1}^p \beta_{j} X_{ij} + \epsilon_i}}{(1 + e^{\beta_0 + \sum_{j=1}^p \beta_{j} X_{ij} + \epsilon_i})^2}
-\end{equation}
+\begin{math}\mathbf{G}_{\vartheta(t)}(x) \end{math}
 
-\noindent That is, the marginal effect of the predictor \(X_1\)
-\emph{depends} on the level of each covariate for each individual (all
-\(X_{ij}\)'s) and each estimate (all \(\beta_j\)'s). This,
-understandably, complicates the interpretation.
+is, in most cases impossible.
 
-Importantly, this example makes it clear that each observational unit
-(e.g., individual) has a unique marginal effect given her observed
-levels of each variable. For example, if variable \(X\) is increased by
-one from wherever it was observed, each individual will have different
-effects (i.e., different marginal effects). One individual may have a
-large effect; another small. Each individual has a marginal effect of a
-given predictor associated with her set of characteristics (covariates).
-To understand the average effect in the population of interest, the mean
-of all such marginal effects can be calculated.
+\begin{math} \mathbf{G}(t)\end{math}
 
-The AME, then, is the \emph{averaged} marginal effect across all
-observational units in the data. In linear models, the AME is the same
-as the original model estimates. This is intuitive given the AME is the
-marginal effect in the outcome's original units---the exact
-interpretation of the estimates in a linear model. However, as stated
-previously, in GLMs the estimates are not in the original units and
-therefore must be estimated via a post-estimation calculation described
-below.
+can only be obtained numerically using the Monte Carlo method, Panjer's
+recursive approach, and the inverse of the characteristic function
+(Frachot, Georges, and Roncalli (2001)); Aue and Kalkbrener (2006));
+Panjer (2006); \& others). \medskip
 
-\subsection{Definition of the Average Marginal
-Effect}\label{definition-of-the-average-marginal-effect}
+After most complex banks adopted the LDA for accounting for RC,
+significant biases and delimitations in loss data remain when trying to
+attribute capital requirements to OpRisk losses (Frachot et al., 2001).
+OpRisk is related to the internal processes of the FI, hence the quality
+and quantity of internal data (optimally combined with external data)
+are of greater concern as the available data could be rare and/or of
+poor quality. Such expositions are unsatisfactory if OpRisk, as Cruz
+(2002) professes, represents the next frontier in reducing the riskiness
+associated with earnings.
 
-In an instructive paper about the (now defunct) routine called
-``margeff'' in Stata, Bartus (2005) highlights how the AME can be
-calculated---including the mathematical definition---and the benefits of
-AMEs compared to other related methods. The AME is a post-estimation
-calculation---it uses the model estimates and the data to provide the
-average effect. Bartus (2005) provided the definition of this
-post-estimation procedure of a continuous predictor as:
+\subsection{LDA model shortcomings}
+\label{ssec:LDA model shortcomings}
+
+Opdyke (2014) advanced studies intending on eliminating bias apparently
+due to heavy tailed distributions to further provide insight on new
+techniques to deal with the issues that arise in LDA modeling, keeping
+practitioners and academics at breadth with latest research in OpRisk
+\texttt{VaR} theory. Recent work in LDA modeling has been found wanting
+(Badescu, Lan, Lin, and Tang, 2015), due to the very complex
+characteristics of data sets in OpRisk \texttt{VaR} modeling, and even
+when studies used quality data and adequate historical data points, as
+pointed out in a recent paper by Hoohlo (2015), there is a qualitative
+aspect in OpRisk modeling that is often ignored, but whose validity
+should not be overlooked. \medskip
+
+Opdyke (2014), Agostini et al. (2010), Jongh, De Wet, Raubenheimer, and
+Venter (2015), Galloppo and Previati (2014), and others explicate how
+greater accuracy, precision and robustness uphold a valid and reliable
+estimate for OpRisk capital as defined by Basel II/III. Transforming
+this basic knowledge into \lq\lq risk culture\rq\rq~or firm-wide
+knowledge for the effective management of OpRisk, serves as a starting
+point for a control function providing attribution and accounting
+support within a framework, methodology and theory for understanding
+OpRisk measurement. FI's are beginning to implement sophisticated risk
+management systems similar to those for market and credit risk, linking
+theories which govern how these risk types are controlled to theories
+that govern financial losses resulting from OpRisk events. \medskip
+
+Jongh et al. (2015) and Galloppo and Previati (2014) sought to address
+the shortcomings of Frachot et al. (2001) by finding possible ways to
+improve the problems of bias and data delimitation in operational risk
+management. They follow the recent literature in finding a
+statistical-based model for integrating internal data and external data
+as well as scenario assessments in on endeavor to improve on accuracy of
+the capital estimate.
+
+\subsection{A new class of models capturing forward-looking aspects}
+\label{ssec:A new class of models capturing forward-looking aspects}
+
+Agostini et al. (2010) also argued that banks should adopt an integrated
+model by combining a forward-looking component (scenario analysis) to
+the historical operational \texttt{VaR}, further adding to the
+literature through their integration model which is based on the idea of
+estimating the parameters of the historical and subjective distributions
+and then combining them by using the advanced CT. \medskip
+
+The idea at the basis of CT is that a better estimation of the OpRisk
+measure can be obtained by combining the two sources of information: The
+historical loss data and expert's judgements, advocating for the
+combined use of both experiences. Agostini et al. (2010) seek to explain
+through a weight called the credibility, the amount of credence given to
+two components (historical and subjective) determined by statistical
+uncertainty of information sources, as opposed to a weighted average
+approach chosen on the basis of qualitative judgements.\medskip
+
+Thus generating a more predictable and forward looking capital estimate.
+He deemed the integration method as advantageous as it is self contained
+and independent of any arbitrary choice in the weight of the historical
+or subjective components of the model.
+
+\section{Applicability of EBOR methodology for capturing forward-looking aspects of ORM}
+\label{sec:Applicability of EBOR methodology for capturing forward-looking aspects of ORM}
+
+Einemann et al. (2018), in a theoretical paper, construct a mathematical
+framework for an EBOR model to quantify OpRisk for a portfolio of
+pending litigations. Their work unearths an invaluable contribution to
+the literature, discussing a strategy on how to integrate EBOR and LDA
+models by building hybrid frameworks which facilitate the migration of
+OpRisk types from a classical to an exposure-based treatment through a
+quantitative framework, capturing forward looking aspects of BEICF's
+(Einemann et al., 2018).
+
+The fundamental premise of the tricky nature behind ORMF, is to provide
+an exposure-based treatment of OpRisk losses which caters to modeling
+capital estimates for forward-looking aspects of ORM due to the lag in
+the loss data. By the very nature of OpRisk, there is usually a
+significant lag between the moment the OpRisk event is conceived to the
+moment the event is observed and accounted.i.e., there is a gap in time
+between the moment the risk is conceived and the realised losses. This
+timing paradox often results in questionable capital estimates,
+especially for those near misses, pending and realised losses that need
+to be captured in the model.\medskip
+
+\subsubsection{Definition of exposure}
+
+Exposure is residual risk, or the risk that remains after risk
+treatments have been applied. In the ORMF context, it is defined as:
+\textbf{The risk exposure of risk type $i$, $d_{i}$ is the time interval, expressed in units of time, from the initial moment when the event happened, until the occurrence of a risk correction.}
+
+The measure of exposure we need to use depends specifically on
+projecting the number of Oprisk event types (frequency of losses) and is
+different to the measure if the target variable were the severity of the
+losses. We need historical exposure for experience rating because we
+need to be able to compare the loss experience of different years on a
+like-for-like basis and to adjust it to current exposure levels(Parodi,
+2014).
+
+\section{Intepretation}
+\label{sec:Intepretation}
+
+In turn, with reference to
+\ref{sec:Applicability of EBOR methodology for capturing forward-looking aspects of ORM},
+the fundamental premise behind the LDA is that each firm's OpRisk losses
+are a reflection of it's underlying Oprisk exposure. In particular, the
+assumption behind the use of the poisson model to estimate the frequency
+of losses, is that both the the intensity (or rate) of occurrence and
+the opportunity (or exposure) for counting are constant for all
+available observations.
+
+\subsubsection{Definition of rate}
+
+\lq\lq Rate\rq\rq~is defined as mean count per unit exposure. i.e.
 
 \begin{equation}
-AME_{k} = \beta_k \frac{1}{n} \sum_{i=1}^n f(\beta X)
+R = \frac{\mu}{\tau} \qquad \mbox{where} \qquad \mbox{$R = $rate,} \quad \mbox{$\tau = $exposure} \quad \mbox{and} \quad \mbox{$\mu = $mean count over an exposure duration of $\tau$} \nonumber
 \end{equation}
 
-\noindent where \(f\) refers to the probability density function of
-\(F\), \(\beta X\) is the linear combination of the predictors (i.e.,
-the model predicted values for each observation), and \(AME_k\) is the
-average marginal effect for the \(kth\) variable. This definition
-provides the average change in the outcome for a one unit change in the
-continuous variable \(x_k\) across all \(n\) observations.
+When observed counts all have the same exposure, modeling the mean count
+\(\mu\) as a function of explanatory variables
+\$x\_\{1\},\ldots,x\_\{p\} \$ is the same as modeling the rate.
 
-Relatedly, the AME of a dummy coded variable is:
+\section{Benefits and Limitations}
+\label{sec:Benefits and Limitations}
 
-\begin{equation}
-AME_{k} = \frac{1}{n} \sum_{i=1}^{n} \big[ F(\beta X | x_{ki} = 1) - F(\beta X | x_{ki} = 0) \big]
-\end{equation}
+These approaches in \ref{sec:Operational risk measurement}, were found
+to have significant advantages over conventional LDA methods, proposing
+that an optimal mix of the two modeling elements could more accurately
+predict OpRisk \texttt{VaR} over traditional methods. Particularly
+Agostini et al. (2010), whose integration model represents a benchmark
+in OpRisk measurement by including a component in the AMA model that is
+not obtained by a direct average of historical and subjective
+VaR.\medskip
 
-\noindent where \(F(\beta X | x_{ki} = 1)\) is the predicted value of
-the \(ith\) observation when the dummy variable \(x_k\) equals one and
-\(F(\beta X | x_{ki} = 0)\) is the predicted value when the dummy value
-of \(x_k\) equals zero holding all other variables constant. This, in
-effect, shows the discrete difference between the levels of the
-categorical variable in the outcome's original units.
+Instead, the basic idea of the integration methodology in
+\ref{ssec:A new class of models capturing forward-looking aspects} is to
+estimate the parameters of the frequency and severity distributions
+based on the historical losses and correct them; via a statistical
+theory, to include information coming from the scenario analysis. The
+method has the advantage of being completely self contained and
+independent of any arbitrary choice in the weight of the historical or
+subjective component of the model, made by the analyst. The components
+weights are derived in an objective and robust way, based on the
+statistical uncertainty of information sources, rather than through risk
+managers choices based on qualitative motivations. \medskip
 
-\subsection{Confidence Intervals}\label{confidence-intervals}
+However, they could not explain the prerequisite coherence between the
+historical and subjective distribution function needed in order for the
+model to work; particularly when a number of papers (Chau, 2014),
+propose using mixtures of (heavy tailed) distributions commonly used in
+the setting of OpRisk capital estimation (Opdyke, 2014).\medskip
 
-In general, two approaches are taken to estimate the confidence
-intervals of AMEs. The first approach is the delta method, which
-provides standard errors (StataCorp, 2015). Although beneficial, the
-second---bootstrapped confidence intervals---have proven accurate for
-understanding the variability in both the AME and mediation analysis.
-Therefore, this project uses bootstrapped confidence intervals.
+In
+\ref{sec:Applicability of EBOR methodology for capturing forward-looking aspects of ORM},
+their model (Einemann et al., 2018) is particularly well-suited to the
+specific risk type dealt with in their paper i.e., the portfolio of
+litigation events, due to better usage of existing information and more
+plausible model behavior over the litigation life cycle, but is bound to
+under-perform for many other OpRisk event types, since these EBOR models
+are typically designed to quantify specific aspects of OpRisk -
+litigation risk have rather concentrated risk profiles. However, EBOR
+models are important due to wide applicability beyond capital
+calculation and its potential to evolve into an important tool for
+auditing process and early detection of potential losses.\medskip
 
-\subsection{The Counter-Factual
-Framework}\label{the-counter-factual-framework}
-
-As mentioned previously, this project---including the use of average
-marginal effects---fits within the counter-factual framework. Indeed,
-the definition of a dummy coded variable demonstrates this
-well---\(\big[ F(\beta X | x_i = 1) - F(\beta X | x_i = 0) \big]\). In
-essence, this answers the question: ``What is the difference in the
-outcome when all observations of \(x_k\) are equal to one vs.~when all
-observations of \(x_k\) are equal to zero?'' The counter-factual
-framework strives to answer the same class of questions. When all
-assumptions are met, the AME is a direct, statistical answer to the
-causality conditions proposed by this framework.
+\section{Gaps in the Literature}
 
 \section{Interpretation}\label{interpretation}
 
@@ -1245,39 +1365,21 @@ Identity & Original Continuous Unit \\
 \end{tabular}
 \end{table}
 
-\subsection{Benefits and Limitations}\label{benefits-and-limitations}
+\textbf{\section{Conclusion}}
 
-There are several benefits to using average marginal effects with GLMs.
-
-\begin{itemize}
-\item \emph{Intuitive Interpretation and Few Assumptions}. The first, and most obvious, benefit to using AMEs is the simplicity of the interpretation. The effect is in the units used in the modeling; it is additive (i.e., the effect is the added increase or subtracted decrease in the outcome). It provides an interpretation that imitates that of ordinary least squares regression. Relatedly, there are no difficult modeling assumptions directly tied to AMEs. Instead, the underlying models' assumptions that are used to get the AME is what is important. The only additional assumption with AME is that the effect, for each individual, is linear enough to be represented by an additive value and that the average adequately reports this.
-\item \emph{More Generalizable and Robust}. There is evidence suggesting that AMEs are more robust to problems associated with GLMs (including logistic regression) such as unobserved heterogeneity and model mis-specification (Mood, 2010; Norton, 2012). This allows the estimates to be more generalizable to individuals outside of the sample.
-\item \emph{Low Computational Burden}. Given AMEs are a post-estimation calculation, no new models need to be fit. Instead, using the estimates of the models, the average marginal effects can be calculated. The most computationally expensive aspect of the calculation is the bootstrapped confidence intervals. 
-\item \emph{Broadly Applicable}. The AME applies to any of the generalized linear models including logistic, Poisson, gamma, beta, negative binomial, and two-part hurdle models. This provides extensive flexibility in modeling, and, once applied to mediation, will allow flexibility in modeling based on the correct functional form.
-\item \emph{Two-Part Models}. Particularly pertinent to this project is that the calculation of AMEs have been applied to two-part models, generally of the hurdle model types, as stated earlier. In fact, this is a common routine in the Stata statistical software. This provides valuable support for the proposed approach of using AMEs in mediation analysis.
-\end{itemize}
-
-Notably, the interpretation of AMEs hold to the assumption (as found in
-all regressions) that it is reasonable to adjust a single covariate
-while holding all others constant. This may not hold in reality,
-although it may be necessary to gain an understanding of the individual
-effect of a single variable. In data that are not representative of the
-population (e.g., non-random sample), AMEs may be biased because an
-over-representation of certain covariate values may be present. This is
-an overall modeling problem, since GLMs also assume a random sample. In
-this way, this problem is not specific to AMEs.
-
-\section{Conclusions}\label{conclusions}
-
-The Average Marginal Effect produces intuitive, interpretable, and
-additive estimates of an effect. They have been applied to two-part
-models, similar to mediation analysis, demonstrating their utility in
-difficult modeling situations. The following chapter discusses the
-integration of AME with mediation analysis---termed \emph{Marginal
-Mediation Analysis}--- with its interpretation and assumptions, its
-benefits and limitations, and the basic procedures for its use.
-
-\singlespacing
+A substantial body of evidence suggests that loss aversion, the tendency
+to be more sensitive to losses than to gains plays an important role in
+determining how people evaluate risky gambles. In this paper we evidence
+that human choice behavoir can substantially deviate from neoclassical
+norms. PT takes into account the loss avoidance agents and common
+attitudes toward risk or chance that cannot be captured by EUT; which is
+not testing for that inherent bias, so as to expect the probability of
+making the same operational error in future to be overcompensated for
+i.e., If an institution suffers from an OpRisk event and survives, it's
+highly unlikely to suffer the same loss in the future because they will
+over-provide for particular operational loss due to their natural risk
+aversion. This is a testable proposition which fits normal behavioral
+patterns and is consistent with risk averse behaviour.
 
 \FloatBarrier
 
@@ -1295,7 +1397,7 @@ benefits and limitations, and the basic procedures for its use.
 
 \doublespacing
 
-\section{Introduction}\label{introduction-2}
+\section{Introduction}\label{introduction-1}
 
 The proposed integration of average marginal effects and mediation
 analysis is designed to resolve two major obstacles currently found in
@@ -1552,7 +1654,7 @@ the findings.
 
 \doublespacing
 
-\section{Introduction}\label{introduction-3}
+\section{Introduction}\label{introduction-2}
 
 As presented in the previous chapter, Marginal Mediation Analysis (MMA)
 has the ability to simplify the interpretation of mediated effects in a
@@ -1662,7 +1764,7 @@ prevention work highlighted the appropriateness of the population
 parameters chosen. The results of the simulation helped in the
 development of the guidelines for using MMA in practice.
 
-\subsection{Literature Review}\label{literature-review}
+\subsection{Literature Review}\label{literature-review-1}
 
 Before performing the Monte Carlo simulations, a review of the
 literature is recommended (Paxton et al., 2001). This review focused on
@@ -1977,7 +2079,7 @@ total effect that was mediated was calculated using the following: \[
 was also compared to that produced in the original
 paper.\footnote{All analysis code is available on the Open Science Framework (osf.io/753kc) and in the Appendices of this document.}
 
-\section{Conclusions}\label{conclusions-1}
+\section{Conclusions}\label{conclusions}
 
 Ultimately, the goal of this project is to develop, evaluate and apply a
 method that can provide meaningful interpretation in mediation when the
@@ -2001,7 +2103,7 @@ and evaluation of MMA.
 
 \doublespacing
 
-\section{Introduction}\label{introduction-4}
+\section{Introduction}\label{introduction-3}
 
 The results of both Phase I (the development of the method and its
 software) and Phase II (the Monte Carlo simulations) regarding Marginal
@@ -2392,7 +2494,7 @@ objects.
 \end{Shaded}
 
 \noindent This informs the researcher that the indirect effect accounts
-for approximately 55\% of the total effect from X to Y in \texttt{fit2}.
+for approximately 61\% of the total effect from X to Y in \texttt{fit2}.
 
 \section{Monte Carlo Simulation
 Study}\label{monte-carlo-simulation-study}
@@ -2403,7 +2505,7 @@ framework's ability to estimate the underlying effects accurately.
 First, to assess the appropriateness of the experimental conditions, a
 literature review was conducted.
 
-\subsection{Literature Review}\label{literature-review-1}
+\subsection{Literature Review}\label{literature-review-2}
 
 Studies were sought that saliently reported results wherein both
 mediation analysis and generalized linear models were used. Since 2012,
@@ -2660,7 +2762,7 @@ difficult mediation situations.
 
 \doublespacing
 
-\section{Introduction}\label{introduction-5}
+\section{Introduction}\label{introduction-4}
 
 In 2012, Ford and Hill published an article that used some of the most
 common approaches to mediation when a mediator and/or outcome is
@@ -2897,7 +2999,7 @@ p-values.
 ## Error in loadNamespace(name): there is no package called 'anteo'
 \end{verbatim}
 
-\section{Conclusions}\label{conclusions-2}
+\section{Conclusions}\label{conclusions-1}
 
 The replication highlighted several important facets of the important
 work by Ford and Hill (2012). First, it simplifies the interpretation of
@@ -3095,7 +3197,7 @@ broadly applicable. Work regarding average marginal effects, categorical
 data, and structural equation models would be an important contribution
 as well.
 
-\section{Conclusions}\label{conclusions-3}
+\section{Conclusions}\label{conclusions-2}
 
 The results of the development, simulations, and application all show
 that MMA holds much promise in extending mediation analysis more fully
@@ -3119,6 +3221,11 @@ research.
 \setlength{\parskip}{6pt} \noindent
 
 \hypertarget{refs}{}
+\hypertarget{ref-acharyya2012current}{}
+Acharyya, M. (2012). Why the current practice of operational risk
+management in insurance is fundamentally flawed: Evidence from the
+field. In \emph{ERM symposium, april} (pp. 18--20).
+
 \hypertarget{ref-agostini2010combining}{}
 Agostini, A., Talamo, P., and Vecchione, V. (2010). Combining
 operational loss data with expert opinions through advanced credibility
@@ -3127,6 +3234,15 @@ theory. \emph{The Journal of Operational Risk}, \emph{5}(1), 3.
 \hypertarget{ref-altman2008behavioral}{}
 Altman, M. (2008). Behavioral economics, economic theory and public
 policy.
+
+\hypertarget{ref-aue2006lda}{}
+Aue, F., and Kalkbrener, M. (2006). LDA at work: Deutsche bank's
+approach to quantifying operational risk. \emph{Journal of Operational
+Risk}, \emph{1}(4), 49--93.
+
+\hypertarget{ref-badescu2015modeling}{}
+Badescu, A. L., Lan, G., Lin, X. S., and Tang, D. (2015). Modeling
+correlated frequencies with application in operational risk management.
 
 \hypertarget{ref-barberis2003survey}{}
 Barberis, N., and Thaler, R. (2003). A survey of behavioral finance.
@@ -3145,6 +3261,10 @@ Springer-Verlag.
 \hypertarget{ref-Carsey2013}{}
 Carsey, T. M., and Harden, J. J. (2013). \emph{Monte carlo simulation
 and resampling methods for social science}. SAGE.
+
+\hypertarget{ref-chau2014robust}{}
+Chau, V. (2014). \emph{Robust estimation in operational risk modeling}
+(Master's thesis).
 
 \hypertarget{ref-chavez2016extreme}{}
 Chavez-Demoulin, V., Embrechts, P., and Hofert, M. (2016). An extreme
@@ -3171,6 +3291,11 @@ Cumming. (2014). The new statistics: Why and how. \emph{Psychological
 Science}, \emph{25}(1), 7--29.
 \url{https://doi.org/10.1177/0956797613504966}
 
+\hypertarget{ref-mysis2013}{}
+Dorval, M. (2013). \emph{Achieving Basel III compliance: how to tackle
+it and business issues} (pp. 1--12). Retrieved from
+\url{http://www.risktech-forum.com/research/achieving-basel-iii-compliance-how-to-tackle-it-and-business-issues}
+
 \hypertarget{ref-Edwards2007}{}
 Edwards, J. R., and Lambert, L. S. (2007). Methods for integrating
 moderation and mediation: a general analytical framework using moderated
@@ -3191,6 +3316,14 @@ Ford, J. A., and Hill, T. D. (2012). Religiosity and Adolescent
 Substance Use: Evidence From the National Survey on Drug Use and Health.
 \emph{Substance Use \& Misuse}, \emph{47}(7), 787--798.
 \url{https://doi.org/10.3109/10826084.2012.667489}
+
+\hypertarget{ref-frachot2001loss}{}
+Frachot, A., Georges, P., and Roncalli, T. (2001). Loss distribution
+approach for operational risk.
+
+\hypertarget{ref-galloppo2014review}{}
+Galloppo, G., and Previati, D. (2014). A review of methods for combining
+internal and external data.
 
 \hypertarget{ref-gigerenzer2009homo}{}
 Gigerenzer, G., and Brighton, H. (2009). Homo heuristicus: Why biased
@@ -3222,10 +3355,6 @@ Press.
 Hemrit, W., and Arab, M. B. (2012). The major sources of operational
 risk and the potential benefits of its management. \emph{The Journal of
 Operational Risk}, \emph{7}(3), 71--92.
-
-\hypertarget{ref-intelbook1999}{}
-Heuer Jr., R. J. (1999). \emph{Psychology of intelligence analysis}.
-Center for the Study of Intelligence.
 
 \hypertarget{ref-Hoeppner2017}{}
 Hoeppner, B., Hoeppner, S., and Abroms, L. (2017). How do text-messaging
@@ -3268,6 +3397,12 @@ conservative for assessing mediation? \emph{American Journal of
 Epidemiology}, \emph{182}(2), 105--108.
 \url{https://doi.org/10.1093/aje/kwv059}
 
+\hypertarget{ref-de2015combining}{}
+Jongh, R. de, De Wet, T., Raubenheimer, H., and Venter, J. H. (2015).
+Combining scenario and historical data in the loss distribution
+approach: A new procedure that incorporates measures of agreement
+between scenarios and historical data.
+
 \hypertarget{ref-kahneman2003perspective}{}
 Kahneman, D. (2003). A perspective on judgment and choice: Mapping
 bounded rationality. \emph{American Psychologist}, \emph{58}(9), 697.
@@ -3276,6 +3411,10 @@ bounded rationality. \emph{American Psychologist}, \emph{58}(9), 697.
 Kahneman, D., and Tversky, A. (2013). Prospect theory: An analysis of
 decision under risk. In \emph{Handbook of the fundamentals of financial
 decision making: Part i} (pp. 99--127). World Scientific.
+
+\hypertarget{ref-king2001operational}{}
+King, J. L. (2001). Operational risk: Measurement and modelling (the
+wiley finance series).
 
 \hypertarget{ref-kuhnen2005neural}{}
 Kuhnen, C. M., and Knutson, B. (2005). The neural basis of financial
@@ -3311,19 +3450,10 @@ Mignola, G., Ugoccioni, R., and Cope, E. (2016). Comments on the basel
 committee on banking supervision proposal for a new standardized
 approach for operational risk.
 
-\hypertarget{ref-Montreuil2005}{}
-Montreuil, B., Bendavid, Y., and Brophy, J. (2005). What is so odd about
-odds? \emph{J Can Chir}, \emph{48}(5), 400--408.
-
 \hypertarget{ref-Mood2010}{}
 Mood, C. (2010). Logistic regression: Why we cannot do what We think we
 can do, and what we can do about it. \emph{European Sociological
 Review}, \emph{26}(1), 67--82. \url{https://doi.org/10.1093/esr/jcp006}
-
-\hypertarget{ref-mysis2013}{}
-Mysis. (2013). \emph{Achieving Basel III compliance: how to tackle it
-and business issues mysis}. Retrieved from
-\url{http://www.risktech-forum.com/research/achieving-basel-iii-compliance-how-to-tackle-it-and-business-issues}
 
 \hypertarget{ref-Norton2012}{}
 Norton, E. C. (2012). \emph{Log Odds and Ends}. National Bureau of
@@ -3334,6 +3464,18 @@ Nylund, K. L., Asparouhov, T., and Muthen, B. O. (2007). Deciding on the
 number of classes in latent class analysis and growth mixture modeling:
 A Monte Carlo simulation study. \emph{Structural Equation Modeling},
 \emph{15}(1), 182. \url{https://doi.org/10.1080/10705510701575396}
+
+\hypertarget{ref-opdyke2014estimating}{}
+Opdyke, J. D. (2014). Estimating operational risk capital with greater
+accuracy, precision, and robustness. \emph{arXiv Preprint
+arXiv:1406.0389}.
+
+\hypertarget{ref-panjer2006operational}{}
+Panjer, H. H. (2006). \emph{Operational risk: Modeling analytics} (Vol.
+620). John Wiley \& Sons.
+
+\hypertarget{ref-parodi2014pricing}{}
+Parodi, P. (2014). \emph{Pricing in general insurance}. CRC Press.
 
 \hypertarget{ref-Paxton2001}{}
 Paxton, P., Curran, P. J., Bollen, K. a., Kirby, J., and Chen, F.
@@ -3381,6 +3523,12 @@ Share Your Code} (1st ed.). O'Reilly Media.
 Winship, C., and Mare, R. (1983). Structural Equations and Path Analysis
 for Discrete Data. \emph{The American Journal of Sociology},
 \emph{89}(1), 54--110.
+
+\hypertarget{ref-wiseman1997longitudinal}{}
+Wiseman, R. M., and Catanach Jr, C. (1997). A longitudinal
+disaggregation of operational risk under changing regulations: Evidence
+from the savings and loan industry. \emph{Academy of Management
+Journal}, \emph{40}(4), 799--830.
 
 \hypertarget{ref-Wong2013}{}
 Wong, M. M., and Brower, K. J. (2013). The prospective relationship
