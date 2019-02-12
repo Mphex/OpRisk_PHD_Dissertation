@@ -17,19 +17,11 @@ knitr::opts_chunk$set(error = TRUE)
 
 # Introduction
 
-In 2012, Ford and Hill published an article that used some of the most common approaches to mediation when a mediator and/or outcome is categorical. Specifically, they used:
 
-1. the difference method [@mackinnon2008intro],
-2. the "categorical data method outlined by MacKinnon (2008)" (pg. 5) to assess the significance of the difference method, and
-3. the percent of the total effect that was mediated.
-
-These three approaches are not only common but likely some of the best approaches in this situation. However, as stated in Chapter 4, these have some notable shortcomings. First, the standard errors can be inefficient and biased if there is a high degree of multi-collinearity (or the degree to which there is perfect separability) in any of the models.\footnote{Perfect separability is where a predictor can perfectly predict the outcome in logistic regression.} The significance of the difference method depends on these standard error estimates. Second, it does not provide the effect size measures that would be most useful [e.g., the effect of increasing the predictor on the outcome through the mediator(s)]. Third, the difference method is consistently too conservative with binary outcomes [@Jiang2015].
-
-To build on the important findings from Ford and Hill (2012), this study replicates their work using more recent data from 2014 while using MMA to obtain effect sizes and confidence intervals for the indirect and direct effects. 
 
 # Results
 
-```{r app_data}
+```{r app_data, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 library(tidyverse)
 library(furniture)
 
@@ -292,7 +284,7 @@ save(fit_tob, fit_tob2,
      file = here("Data/NSDUH_2014_Results.rda"))
 ```
 
-```{r app_data2}
+```{r app_data2, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 library(MarginalMediation)
 library(tidyverse)
 library(here)
@@ -378,7 +370,7 @@ inds = rbind(unadjusted, adjusted) %>%
                                      "Marijuana", "Illicit")))
 ```
 
-```{r app_odds}
+```{r app_odds, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 ## Odds ratios and linear effects as done in Ford and Hill
 ## Sampling Design
 library(survey)
@@ -452,7 +444,7 @@ est2 = data.frame(est2) %>%
   set_names(c("c", "c_Lower", "c_Upper", "c1", "c1_Lower", "c1_Upper"))
 ```
 
-```{r old_perc, eval=FALSE}
+```{r old_perc, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 est21 = est2 %>%
   rownames_to_column() %>%
   group_by(rowname) %>%
@@ -462,7 +454,7 @@ xtable(est21, digits = 1) %>%
   print.xtable(include.rownames = FALSE)
 ```
 
-```{r app_tab_perc, eval=FALSE}
+```{r app_tab_perc, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 perc_fx = function(obj){
   obj$ind_effects[,3]/(obj$dir_effects[,1] + 
                          sum(obj$ind_effects[,3]))
@@ -490,7 +482,7 @@ library(xtable)
 xtable(percent_ind, digits = 1)
 ```
 
-```{r app_table1, eval=FALSE}
+```{r app_table1, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 ## overall table1 (not adjusted for survey weights)
 d1 %>%
   table1(factor(rx), factor(tobacco), 
@@ -557,68 +549,9 @@ with(d1,
 sum(d1$drink)
 ```
 
-The descriptive statistics are found in Table \ref{tab:table1} for the 13,600 adolescents in the sample. Overall, these sample statistics were very similar to the 2007 sample used by Ford and Hill. However, the prevalence of drug use across each category dropped since 2007, although marijuana use did not drop substantially (13.85\% in 2007 to 12.7\% in 2014). Heavy drinking (10.4\% in 2007) had only a single positive response in the entire sample of adolescents in 2014. Unfortunately, the number of major depressive episodes increased from 8.4\% in 2007 to 11.3\% in 2014. Attitudes regarding drug use were essentially identical as that in 2007 for the respondent, peer, and parent (and each had high reliabilities---all $\alpha \geq .80$---comparable to 2007). Finally, the attitudinal measures and the measure of religiosity had high reliabilities. 
 
-\begin{table}[ htb ] 
-\centering 
-\caption{Descriptive statistics of the sample.}
-\begin{tabular}{ lc }
-\toprule
-  & Mean/ Percent (SD) \\ 
-  & n = 13,600 \\ 
-\midrule
-Drug use & \\
-\hspace{6pt} Prescription drug misuse (past year) & 5.7\% \\ 
-\hspace{6pt} Tobacco use (past year)              & 11.8\% \\ 
-\hspace{6pt} Heavy drinking (past 30 days)        & 0\% \\ 
-\hspace{6pt} Marijuana use (past year)            & 12.7\% \\ 
-\hspace{6pt} Other illicit drug use (past year)   & 3.5\% \\ 
-Demographics & \\
-\hspace{6pt} Female                    & 49.0\% \\ 
-\hspace{6pt} Race (Non-White)          & 45.8\% \\ 
-\hspace{6pt} Income (2x poverty level) & 55.4\% \\ 
-Major Depression Episode               & 11.3\% \\ 
-Attitudinal measures & \\
-\hspace{6pt} Respondent (range 1-3) & 2.6 ($\alpha = .86$) \\ 
-\hspace{6pt} Peer (range 1-3)       & 2.5 ($\alpha = .88$) \\ 
-\hspace{6pt} Parent (range 1-3)     & 2.9 ($\alpha = .84$) \\ 
-Religiosity & $\alpha = .80$ \\ 
-\bottomrule
-\end{tabular}\label{tab:table1}
-\end{table} 
 
-Four MMA models were used to assess the pathways from adolescent religiosity to substance use, one for each outcome (any tobacco use, prescription drug misuse, marijuana use, and other illicit drug use). Each model controlled for parental conservative attitudes toward substance use, the adolescents' family income, and the adolescents' age, race, and sex. Figure \ref{fig:appresults} presents the individual paths in the model units. Therefore, the paths leading to the conservative attitudes (both respondent and peer attitudes) are in the attitude metric with a range from 1 - 3. The paths leading to depression and the substance outcomes are all in log-odds. As the figure highlights, most paths were statistically significant at p < .05. 
-
-\begin{figure}[tb]
-\centering
-\includegraphics[width = \linewidth]{figures/fig_application_results.pdf}
-\caption{Results of the mediation models' individual paths regarding religiosity and substance use. Note: *** p < .001, ** p < .01, * p < .05}
-\label{fig:appresults}
-\end{figure}
-
-Because MMA provides information about each of the indirect effects naturally in the same units, it is possible to assess the amount mediated by each mediator while also controlling for the other mediators in a straightforward manner---without having to fit several other models and assess each $c - c'$. Table \ref{tab:perc} presents the amount of the total effect of religiosity on substance use that is mediated through respondent conservative attitudes, peer conservative attitudes, and depression. Overall, the effect of religiosity on substance use is heavily mediated by the hypothesized mediators, more so for tobacco use than the others.\footnote{Using the approach used in Ford and Hill, the total mediated effects are slightly different than those estimated via the indirect and direct effects. This may be due to the weighting of the sample; an important area for further research into MMAs performance.}
-
-\begin{table}[htb]
-\centering
-\caption{The percent of mediation (the percent of the total effect) by path for each outcome.}
-\begin{tabular}{lcccc}
-\toprule
-            & \multicolumn{4}{c}{Outcome} \\
-   Mediator & Tobacco & Prescription & Marijuana & Illicit \\ 
-\midrule
-Respondent Views  & 34.2  & 14.0  & 23.2 & 14.1 \\ 
-Peer Views        & 23.2  & 22.0  & 15.8 & 17.7 \\ 
-Depression        & 4.0   & 9.2   & 1.8  & 4.4 \\ 
-Total Mediation   & 61.4  & 45.2  & 40.8 & 36.1 \\ 
-\bottomrule
-\end{tabular}\label{tab:perc}
-\end{table}
-
-In addition to this information, MMA provides information regarding the indirect and direct effects in the same units. Figure \ref{fig:app} highlights the indirect and direct effects with their associated 95\% confidence intervals in the average marginal effects. All of the effects here are in risk (probability) units---i.e., risk of tobacco use, prescription misuse, marijuana use, or illicit drug use. Although all indirect effects and most direct effects are significant, the effect size estimates are particularly important here as the meaningfulness of these significant effects can be overlooked.
-
-These resulting effects are all small, with most effects less than 0.01 (i.e., less than a single risk unit). That is, most effects show changes in the risk of the outcome by less than a single unit. For example, if adolescent religiosity is increased by one unit, its effect on the risk of tobacco use, through respondent attitudes, is a decrease of 0.007; through peer attitudes a decrease of 0.005; through depression a decrease of 0.001; and directly a decrease of 0.008. The total effect, then, is approximately -0.021. Therefore, if an individual has a risk of using tobacco at 50\%, by increasing religiosity by one unit (holding the covariates constant), on average that individual's risk would decrease to 47.9\%. About 0.013 of the effect of religiosity on tobacco use is mediated while 0.008 is direct from religiosity. Ultimately, these findings highlight the fact that the effect sizes, especially the indirect and direct effect sizes, are valuable companions to the p-values. 
-
-```{r tab_modelest, eval=FALSE}
+```{r tab_modelest, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 rbind_auto = function(obj){
   rbind(obj$ind_effects[, 3:5] %>%
           set_names(c("Estimate", "Lower", "Upper")), 
@@ -633,7 +566,7 @@ rbind(rbind_auto(fit_tob2),
   xtable::print.xtable()
 ```
 
-```{r app_fig, fig.width=8, fig.height=6, fig.cap="\\label{fig:app}The effect sizes of the indirect and direct effects of the MMA models for each outcome controlling for demographics and parental attidudes toward substance use.", fig.pos="tbh"}
+```{r app_fig, fig.width=8, fig.height=6, fig.cap="\\label{fig:app}The effect sizes of the indirect and direct effects of the MMA models for each outcome controlling for demographics and parental attidudes toward substance use.", fig.pos="tbh", results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 p = position_dodge(width = .2)
 inds %>%
   filter(type == "Adjusted") %>%
@@ -659,7 +592,7 @@ inds %>%
 
 # Conclusions
 
-The replication highlighted several important facets of the important work by Ford and Hill (2012). First, it simplifies the interpretation of the model by using average marginal effects. Second, it highlighted the effect sizes in terms of risk of substance use. This allowed the relatively small effects to be understood, not only in their significance, but in their meaning. Ultimately, MMA provided a more straightforward approach and substantially more information for each model than other mediation approaches.
+
 
 
 

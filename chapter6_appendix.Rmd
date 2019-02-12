@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Required: R Packages from CRAN
 
 \small
-```{r, echo=TRUE, eval=FALSE}
+```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 if (!require(tidyverse)){
   install.packages("tidyverse")
   library(tidyverse)
@@ -42,7 +42,7 @@ if (!require(survey)){
 Required: R Packages from GitHub
 
 \small
-```{r, echo=TRUE, eval=FALSE}
+```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 if (!require(MarginalMediation)){
   devtools::install_github("tysonstanley/MarginalMediation")
   library(MarginalMediation)

@@ -14,7 +14,7 @@
 \ProvidesClass{DissertateUSU}[2017/07/01 v1.0 DissertateUSU Class]
 \LoadClass[12pt, oneside, letterpaper]{book}
 
-
+\usepackage{caption,subcaption}
 
 %%%%%%%%%%%%%%%%%
 %%   Options   %%
@@ -217,7 +217,8 @@
 \captionsetup{justification=centering}                  
 \setlength{\textfloatsep}{30pt plus 1.0pt minus 2.0pt}  
 \setlength{\intextsep}{30pt plus 1.0pt minus 2.0pt}     
-\setlength{\floatsep }{30pt plus 1.0pt minus 2.0pt}     
+\setlength{\floatsep }{30pt plus 1.0pt minus 2.0pt} 
+  
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

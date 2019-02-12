@@ -5,47 +5,63 @@ output: pdf_document
 \doublespacing
 
 \textbf{\section{Introduction}}
-\label{sec:Introduction}
+\label{sec2:Introduction}
 
 A look into literary sources for OpRisk indicates [@acharyya2012current] that there is insufficient academic literature that looks to characterize its theoretical roots, as it is a relatively new discipline, choosing instead to focus on proposing a solution to the quantification of OpRisk. This chapter seeks to provide an overview of some of the antecedents of OpRisk measurement and management in the banking industry. As such, this chapter provides a discussion on why OpRisk is not trivial to quantify and attempts to understand its properties in the context of risk aversion with the thinking of practitioners and academics in this field.\medskip
 
 According to @cruz2002modeling, FI's wish to measure the impact of operational events upon profit and loss (P\&L), these events depict the idea of explaining the *volatility of earnings* due to OpRisk data points which are directly observed and recorded. By seeking to incorporate data intensive statistical approaches to help understand the data, the framework analyses response variables that are decidedly non-normal (including categorical outcomes and discrete counts) which can shed further light on the understanding of firm-level OpRisk RC. Lastly, a synopsis of gaps in the literature is presented.
 
-\section{The theoretical foundation of OpRisk}
+\textbf{\section{The theoretical foundation of OpRisk}}
 \label{sec:The theoretical foundation of OpRisk}
 
-@hemrit2012major argue that common and systematic operational errors in hypothetical situations poses presumtive evidence that OpRisk events, assuming that the subjects have no reason to disguise their preferences, are created sub-consciously. This study purports, supported by experimental evidence, behavioural finance theories should take some of this behaviour into account in trying to explain, in the context of a model, how investors maximise a specific utility/value function. Furthermore its argued by integrating OpRisk management into behavioral finance theory,\footnote{In behavioral finance, we investigate whether certain financial phenomena are the result of less than fully rational thinking [@barberis2003survey]}, that it may be possible to improve our understanding of firm level RC by refining the resulting OpRisk models to account for these behavioral traits - implying that people's economic preferences described in the model, have an economic incentive to improve the OpRisk RC measure. \medskip
+@hemrit2012major argue that common and systematic operational errors in hypothetical situations poses presumtive evidence that OpRisk events, assuming that the subjects have no reason to disguise their preferences, are created sub-consciously. This study purports, supported by experimental evidence, behavioural finance theories should take some of this behaviour into account in trying to explain, in the context of a model, how investors maximise a specific utility/value function.\medskip
 
-There is cognitive pressure which seeks to remove information which we are largely unaware of, because they are undetectable to human senses that no one could ever see them. We seek to remove this pressure, effectively lowering uncertainty and allowing us to position ourselves to develop a defense against our cognitive biases. It is through patterns in that information that we are largely unaware of that predictions could arise; or that, OpRisk management incorporates rather than dismiss the many alternatives that were not imagined, the possibility of market inefficiencies or finding value in unusual places. \medskip
+Furthermore its argued by integrating OpRisk management into behavioral finance theory,\footnote{In behavioral finance, we investigate whether certain financial phenomena are the result of less than fully rational thinking [@barberis2003survey]}, that it may be possible to improve our understanding of firm level RC by refining the resulting OpRisk models to account for these behavioral traits - implying that people's economic preferences described in the model, have an economic incentive to improve the OpRisk RC measure. \medskip
+
+@wiseman1997longitudinal suggest that managerial risk-taking attitudes are influenced by the decision (performance) context in which they are taken. In essence, managerial risk-taking attitude is considered as a proxy for measuring OpRisk  [@acharyya2012current]. In so doing, @wiseman1997longitudinal investigate more comprehensive economic theories, viz.  prospect theory and the behavioural theory of the firm, that prove relevant to complex organizations who present a more fitting measure for OpRisk.\medskip 
 
 In a theoretical paper, @wiseman1997longitudinal discussed several organizational and behavioural theories, such as PT, which influence managerial risk-taking attitudes. Their findings demonstrate that behavioural views, such as PT and the behavioural theory of the firm explain risk seeking and risk averse behaviour in the context of OpRisk even after agency based influences are controlled for. Furthermore, they challenge arguments that behavioral influences are masking underlying root causes due to agency effects. Instead they argue for mixing behavioral models with agency based views to obtain more complete explanations of risk preferences and risk taking behavior [@wiseman1997longitudinal]. \medskip 
 
 \begin{quote}
- \lq\lq An analysis of literature suggests that the theoretical foundation of operational risk has evolved from the field of strategic management research. Although there is in-sufficient academic literature that explicitly gives theoretical foundation of operational risk, there are considerable works of strategists that can be utilised to establish a conceptual framework of operational risk for financial firms \rq\rq\ [@acharyya2012current, pg.8].
+  \emph{An analysis of literature suggests that the theoretical foundation of operational risk has evolved from the field of strategic management research. Although there is in-sufficient academic literature that explicitly gives theoretical foundation of operational risk, there are considerable works of strategists that can be utilised to establish a conceptual framework of operational risk for financial firms}[@acharyya2012current, pg. 8].
 \end{quote}
 
-\section{Overview of operational risk management}
+\textbf{\section{Overview of operational risk management}}
 \label{sec:Overview of operational risk management}
 
-It is important to note how OpRisk manifests itself; @king2001operational establishes the causes and sources of operational events are observed phenomena associated with operational errors and are wide ranging. As such, P\&L volatitlity is not only related to the way firms finance their business, but also in the way they \emph{operate}, these operational events are almost always initiated at the dealing phase of a trading process. OpRisk management undertakes a broad view of P\&L attribution carried out from deal origination to settlement within the perspective of strategic management and detects the interrelationships between operational risk factors with others to conceptualise the potential overall consequences [@acharyya2012current].\medskip
+It is important to note how OpRisk manifests itself; @king2001operational establishes the causes and sources of operational events are observed phenomena associated with operational errors and are wide ranging. As such, P\&L volatitlity is not only related to the way firms finance their business, but also in the way they \emph{operate}. These operational events are almost always initiated at the dealing phase of a trading process. OpRisk management undertakes a broad view of P\&L attribution carried out from deal origination to settlement within the perspective of strategic management and detects the interrelationships between operational risk factors with others to conceptualise the potential overall consequences [@acharyya2012current].\medskip
 
 we assume that looking at or on hearing an instruction we are consciously analysing and accurately executing it based on the information that our senses reveal. However, this isn't entirely true in OpRisk because operational events that occur indicate that they were experienced before one is consciously aware of them e.g., during the trading process in cases where OpRisk events occur as a result of a mismatch between the trade booked (booking in trade feed) and the details agreed by the trader; human error (a sub-conscious phenomenon) is usually quoted as the source of error, and the trade is fixed by \lq\lq amending\rq\rq\ or manually changing the trade details. \medskip
 
 Furthermore, @acharyya2012current recognised that organizations may hold OpRisk due to external causes, such as failure of third parties or vendors (either intentionally or unintentionally), in maintaining promises or contracts. The criticism in the literature is that no amount of capital is realistically reliable for the determination of RC as a buffer to OpRisk, particularly the effectiveness of the approach of capital adequacy from external events, as there is effectively no control over them.\medskip
 
-Despite the reality that OpRisk does not lend itself to scientific analysis in the way that market risk and credit risk do, someone must do the analysis, value the RC measurement and hope the market reflects this. Besides, financial markets are not objectively scientific, a large percentage of successful people have been lucky in their forecasts, it is not an area which lends itself to scientific analysis.\medskip
+Despite the reality that OpRisk does not lend itself to scientific analysis in the way that market risk and credit risk do, someone must do the analysis, value the RC measurement and hope the market reflects this. Besides, financial markets are not objectively scientific, a large percentage of successful people have been lucky in their forecasts, it is not an area which lends itself to scientific analysis.
 
-\section{Operational risk measurement}
-\label{sec:Operational risk measurement}
-\subsection{Loss Distribution Approach}
+\subsection{The loss collection data exercise (LCDE)}
+\label{ssec:The loss collection data exercise (LCDE)}
+
+The main challenge in OpRisk modeling is in poor loss data quantities, and low data quality. There are usually very few data points and are often characterised by high frequency low severity (HFLS) and low frequency high severity (LFHS) losses. It is common knowledge that HFLS losses at the lower end of the spectrum tend to be ignored and are therefore less likely to be reported, whereas low frequency high severity losses (LFHS) are well guarded, and therefore not very likely to be made public.\medskip
+
+In this study, a new dataset with unique feature characteristics is developed using the official loss data collection exercise (LDCE), as defined by @basel2011operational for internal data. The dataset in question is at the level of individual loss events, it is fundamental as part of the study to know when they happened, and be able to identify the root causes of losses arising from which OpRisk loss events.\medskip
+
+The LCDE is carried out drawing statistics directly from the trade generation and settlement system, which consists of a tractable set of documented trade detail extracted at the most granular level i.e., on a trade-by-trade basis [as per number of events (frequencies) and associated losses (severities)], and then aggregated daily. The dataset is split into proportions and trained, validated and tested. The afore-mentioned LDCE, is an improved reflection of the risk factors by singling out the value-adding processes associated with individual losses, on a trade-by-trade level.
+
+\textbf{\section{Current operational risk measurement modeling framework}}
+\label{sec:Current operational risk measurement modeling framework}
+
+\subsection{Loss Distribution Approach (LDA)}
 
 The Loss Distribution Approach (LDA) is an AMA method whose main objective is to provide realistic estimates to calculate VaR for OpRisk RC in the banking sector and it's business units based on loss distributions that accurately reflect the frequency and severity loss distributions of the underlying data. Having calculated separately the frequency and severity distributions, we need to combine them into one aggregate loss distribution that allows us to produce a value for the OpRisk VaR. There is no simple way of aggregating the frequency and severity distribution. Numerical approximation techniques (computer algorithms) successfully bridge the divide between theory and implementation for the problems of mathematical analysis. \medskip
 
 The aggregated losses at time $t$ are given by $\vartheta(t) = \sum_{n=1}^{N(t)} X_{n}$ (where X represents individual operational losses). Frequency and severity distributions are estimated, e.g., the poisson distribution is a representation of a discrete variable commonly used to model operational event frequency (counts), and a selection from continuous distributions which can be linear (e.g. gamma distribution) or non-linear (e.g. lognormal distribution) for operational loss severity amounts. The compound loss distribution $\mathbf{G}(t)$ can now be derived.  Taking the aggregated losses we obtain:
-\begin{equation}\label{eqn1}
+
+\singlespacing
+\begin{equation}\label{Compound_losses}
 \mathbf{G}_{\vartheta(t)}(x)=Pr[\vartheta(t)\leq x]=Pr\left(\sum_{n=1}^{N(t)}X_{n} \leq x\right)
 \end{equation}
-For most choices of $N(t)$ and $X_{n}$, the derivation of an explicit formula for \begin{math}\mathbf{G}_{\vartheta(t)}(x) \end{math} is, in most cases impossible. \begin{math} \mathbf{G}(t)\end{math} can only be obtained numerically using the Monte Carlo method, Panjer's recursive approach, and the inverse of the characteristic function (@frachot2001loss); @aue2006lda); @panjer2006operational; \& others). \medskip
+\doublespacing
+
+For most choices of $N(t)$ and $X_{n}$, the derivation of an explicit formula for $\mathbf{G}_{\vartheta(t)}(x)$ is, in most cases impossible. $\mathbf{G}(t)$ can only be obtained numerically using the Monte Carlo method, Panjer's recursive approach, and the inverse of the characteristic function [@frachot2001loss; @aue2006lda; @panjer2006operational; \& others]. \medskip
 
 After most complex banks adopted the LDA for accounting for RC, significant biases and delimitations in loss data remain when trying to attribute capital requirements to OpRisk losses [@frachot2001loss]. OpRisk is related to the internal processes of the FI, hence the quality and quantity of internal data (optimally combined with external data) are of greater concern as the available data could be rare and/or of poor quality. Such expositions are unsatisfactory if OpRisk, as @cruz2002modeling professes, represents the next frontier in reducing the riskiness associated with earnings.
 
@@ -58,8 +74,8 @@ After most complex banks adopted the LDA for accounting for RC, significant bias
 
 @de2015combining and @galloppo2014review sought to address the shortcomings of @frachot2001loss by finding possible ways to improve the problems of bias and data delimitation in operational risk management. They follow the recent literature in finding a statistical-based model for integrating internal data and external data as well as scenario assessments in on endeavor to improve on accuracy of the capital estimate. 
 
-\subsection{A new class of models capturing forward-looking aspects}
-\label{ssec:A new class of models capturing forward-looking aspects}
+\textbf{\section{A new class of models capturing forward-looking aspects}}
+\label{sec:A new class of models capturing forward-looking aspects}
 
 @agostini2010combining also argued that banks should adopt an integrated model by combining a forward-looking component (scenario analysis) to the historical operational \texttt{VaR}, further adding to the literature through their integration model which is based on the idea of estimating the parameters of the historical and subjective distributions and then combining them by using the advanced CT. \medskip
 
@@ -67,91 +83,64 @@ The idea at the basis of CT is that a better estimation of the OpRisk measure ca
 
 Thus generating a more predictable and forward looking capital estimate. He deemed the integration method as advantageous as it is self contained and independent of any arbitrary choice in the weight of the historical or subjective components of the model. 
 
-\section{Applicability of EBOR methodology for capturing forward-looking aspects of ORM}
-\label{sec:Applicability of EBOR methodology for capturing forward-looking aspects of ORM}
+\subsection{Applicability of EBOR methodology for capturing forward-looking aspects of ORM}
+\label{ssec:Applicability of EBOR methodology for capturing forward-looking aspects of ORM}
 
-@einemann2018operational, in a theoretical paper, construct a mathematical framework for an EBOR model to quantify OpRisk for a portfolio of pending litigations. Their work unearths an invaluable contribution to the literature, discussing a strategy on how to integrate EBOR and LDA models by building hybrid frameworks which facilitate the migration of OpRisk types from a classical to an exposure-based treatment through a quantitative framework, capturing forward looking aspects of BEICF's [@einemann2018operational].
+@einemann2018operational, in a theoretical paper, construct a mathematical framework for an EBOR model to quantify OpRisk for a portfolio of pending litigations. Their work unearths an invaluable contribution to the literature, discussing a strategy on how to integrate EBOR and LDA models by building hybrid frameworks which facilitate the migration of OpRisk types from a classical to an exposure-based treatment through a quantitative framework, capturing forward looking aspects of BEICF's [@einemann2018operational].\medskip
 
 The fundamental premise of the tricky nature behind ORMF, is to provide an exposure-based treatment of OpRisk losses which caters to modeling capital estimates for forward-looking aspects of ORM due to the lag in the loss data. By the very nature of OpRisk, there is usually a significant lag between the moment the OpRisk event is conceived to the moment the event is observed and accounted.i.e., there is a gap in time between the moment the risk is conceived and the realised losses. This timing paradox often results in questionable capital estimates, especially for those near misses, pending and realised losses that need to be captured in the model.\medskip
 
-\subsubsection{Definition of exposure}
-
 Exposure is residual risk, or the risk that remains after risk treatments have been applied. In the ORMF context, it is defined as:
-\textbf{The risk exposure of risk type $i$, $d_{i}$ is the time interval, expressed in units of time, from the initial moment when the event happened, until the occurrence of a risk correction.} 
 
-The measure of exposure we need to use depends specifically on projecting the number of Oprisk event types (frequency of losses) and is different to the measure if the target variable were the severity of the losses. We need historical exposure for experience rating because we need to be able to compare the loss experience of different years on a like-for-like basis and to adjust it to current exposure levels[@parodi2014pricing]. 
+\subsection{Definition of exposure}
+\label{ssec:Definition of exposure}
 
-\section{Intepretation}
+
+The  \textbf{exposure} of risk type $i$, $d_{i}$ is the time interval, expressed in units of time, from the initial moment when the event happened, until the occurrence of a risk correction.\medskip 
+
+\subsection{Definition of rate}
+\label{ssec:Definition of rate}
+
+The \textbf{rate} is defined as mean count per unit exposure, i.e.
+
+\singlespacing
+\begin{eqnarray}
+R &=& \frac{\mu}{\tau} \qquad \mbox{where} \qquad R = \mbox{rate,} \quad \tau = \mbox{exposure}, \mbox{and} \\
+\mu &=& \mbox{mean count over an exposure duration of} \tau \nonumber
+\end{eqnarray}
+\doublespacing
+
+\textbf{\section{Intepretation}}
 \label{sec:Intepretation}
 
-In turn, with reference to \ref{sec:Applicability of EBOR methodology for capturing forward-looking aspects of ORM}, the fundamental premise behind the LDA is that each firm's OpRisk losses are a reflection of it's underlying Oprisk exposure. In particular, the assumption behind the use of the poisson model to estimate the frequency of losses, is that both the the intensity (or rate) of occurrence and the opportunity (or exposure) for counting are constant for all available observations. 
+In turn, with reference to \ref{ssec:Applicability of EBOR methodology for capturing forward-looking aspects of ORM}, the fundamental premise behind the LDA is that each firm's OpRisk losses are a reflection of it's underlying Oprisk exposure. In particular, the assumption behind the use of the poisson model to estimate the frequency of losses, is that both the the intensity (or rate) of occurrence and the opportunity (or exposure) for counting are constant for all available observations.\medskip
 
-\subsubsection{Definition of rate}
+The measure of exposure we need to use depends specifically on projecting the number of Oprisk event types (frequency of losses) and is different to the measure if the target variable were the severity of the losses. We need historical exposure for experience rating because we need to be able to compare the loss experience of different years on a like-for-like basis and to adjust it to current exposure levels[@parodi2014pricing].\medskip 
 
-\lq\lq Rate\rq\rq\ is defined as mean count per unit exposure. i.e.
-\begin{equation}
-R = \frac{\mu}{\tau} \qquad \mbox{where} \qquad \mbox{$R = $rate,} \quad \mbox{$\tau = $exposure} \quad \mbox{and} \quad \mbox{$\mu = $mean count over an exposure duration of $\tau$} \nonumber
-\end{equation}
+When observed counts all have the same exposure, modeling the mean count $\mu$ as a function of explanatory variables $x_{1},\ldots,x_{p}$ is the same as modeling the rate $R$. 
 
-When observed counts all have the same exposure, modeling the mean count $\mu$ as a function of explanatory variables $x_{1},\ldots,x_{p} $ is the same as modeling the rate.   
-
-\section{Benefits and Limitations}
+\textbf{\section{Benefits and Limitations}}
 \label{sec:Benefits and Limitations}
 
-These approaches in \ref{sec:Operational risk measurement}, were found to have significant advantages over conventional LDA methods, proposing that an optimal mix of the two modeling elements could more accurately predict OpRisk \texttt{VaR} over traditional methods. Particularly @agostini2010combining, whose integration model represents a benchmark in OpRisk measurement by including a component in the AMA model that is not obtained by a direct average of historical and subjective VaR.\medskip
+These approaches in \ref{sec:Current operational risk measurement modeling framework}, were found to have significant advantages over conventional LDA methods, proposing that an optimal mix of the two modeling elements could more accurately predict OpRisk \texttt{VaR} over traditional methods. Particularly @agostini2010combining, whose integration model represents a benchmark in OpRisk measurement by including a component in the AMA model that is not obtained by a direct average of historical and subjective VaR.\medskip
 
-Instead, the basic idea of the integration methodology in \ref{ssec:A new class of models capturing forward-looking aspects} is to estimate the parameters of the frequency and severity distributions based on the historical losses and correct them; via a statistical theory, to include information coming from the scenario analysis. The method has the advantage of being completely self contained and independent of any arbitrary choice in the weight of the historical or subjective component of the model, made by the analyst. The components weights are derived in an objective and robust way, based on the statistical uncertainty of information sources, rather than through risk managers choices based on qualitative motivations. \medskip
+Instead, the basic idea of the integration methodology in \ref{sec:A new class of models capturing forward-looking aspects} is to estimate the parameters of the frequency and severity distributions based on the historical losses and correct them; via a statistical theory, to include information coming from the scenario analysis. The method has the advantage of being completely self contained and independent of any arbitrary choice in the weight of the historical or subjective component of the model, made by the analyst. The components weights are derived in an objective and robust way, based on the statistical uncertainty of information sources, rather than through risk managers choices based on qualitative motivations. \medskip
 
 However, they could not explain the prerequisite coherence between the historical and subjective distribution function needed in order for the model to work; particularly when a number of papers [@chau2014robust], propose using mixtures of (heavy tailed) distributions commonly used in the setting of OpRisk capital estimation [@opdyke2014estimating].\medskip
 
-In \ref{sec:Applicability of EBOR methodology for capturing forward-looking aspects of ORM}, their model [@einemann2018operational] is particularly well-suited to the specific risk type dealt with in their paper i.e., the portfolio of litigation events, due to better usage of existing information and more plausible model behavior over the litigation life cycle, but is bound to under-perform for many other OpRisk event types, since these EBOR models are typically designed to quantify specific aspects of OpRisk -   litigation risk have rather concentrated risk profiles.  However, EBOR models are important due to wide applicability beyond capital calculation and its potential to evolve into an important tool for auditing process and early detection of potential losses.\medskip
+In \ref{ssec:Applicability of EBOR methodology for capturing forward-looking aspects of ORM}, their model [@einemann2018operational] is particularly well-suited to the specific risk type dealt with in their paper i.e., the portfolio of litigation events, due to better usage of existing information and more plausible model behavior over the litigation life cycle, but is bound to under-perform for many other OpRisk event types, since these EBOR models are typically designed to quantify specific aspects of OpRisk -   litigation risk have rather concentrated risk profiles.  However, EBOR models are important due to wide applicability beyond capital calculation and its potential to evolve into an important tool for auditing process and early detection of potential losses.\medskip
 
-\section{Gaps in the Literature}
+\textbf{\section{Gap in the Literature}}
+\label{sec:Gap in the Literature}
 
-
-
-
-# Interpretation
-
-Table \ref{tab_int} presents the various units that the AME will produce for the various GLM links. It is important to note that AMEs are in the outcome's original metrics whether they are probabilities, counts, or something else. The interpretation, then, is "for a one unit change in the predictor there is an associated [AME] change in the outcome."
-
-```{r, results="hide"}
-tab <- data.frame("Link Function"=c("Identity", "Log", "Logit", "Probit", "Poisson", "Gamma", "Negative Binomial"),
-                  "Average Marginal Effect"=c("Original Continuous Unit", "Original Continuous Unit", "Risk", "Risk", "Count", "Count", "Count"))
-names(tab) = c("Link Function", "Average Marginal Effect")
-options(xtable.comment = FALSE)
-library(xtable)
-tabx = xtable(tab, 
-       label = "tab_int", 
-       caption = "The generalized linear model link functions with their associated units of interpretation. Note: This list is not exhaustive and there are likely more GLMs that are used within prevention research.",
-       align = c("l", "|l", "|c|"))
-print.xtable(tabx, include.rownames = FALSE, caption.placement = "top",
-             table.placement = "tb")
-```
-
-\begin{table}[tb]
-\centering
-\caption{The generalized linear model link functions with their associated units of interpretation. Note: This list is not exhaustive and there are likely more GLMs that are used within prevention research.} 
-\label{tab_int}
-\begin{tabular}{lc}
-\toprule
-Link Function & Average Marginal Effect \\ 
-\midrule
-Identity & Original Continuous Unit \\ 
-  Log & Original Continuous Unit \\ 
-  Logit & Risk \\ 
-  Probit & Risk \\ 
-  Poisson & Count \\ 
-  Gamma & Count \\ 
-  Negative Binomial & Count \\ 
-\bottomrule
-\end{tabular}
-\end{table}
-
+There is cognitive pressure which seeks to remove information which we are largely unaware of, because they are undetectable to human senses that no one could ever see them. We seek to remove this pressure, effectively lowering uncertainty and allowing us to position ourselves to develop a defense against our cognitive biases. It is through patterns in that information that we are largely unaware of that predictions could arise; or that, OpRisk management incorporates rather than dismiss the many alternatives that were not imagined, the possibility of market inefficiencies or finding value in unusual places. 
 
 \textbf{\section{Conclusion}}
+\label{sec:Conclusion}
 
-A substantial body of evidence suggests that loss aversion, the tendency to be more sensitive to losses than to gains plays an important role in determining how people evaluate risky gambles. In this paper we evidence that human choice behavoir can substantially deviate from neoclassical norms. PT takes into account the loss avoidance agents and common attitudes toward risk or chance that cannot be captured by EUT; which is not testing for that inherent bias, so as to expect the probability of making the same operational error in future to be overcompensated for i.e., If an institution suffers from an OpRisk event and survives, it's highly unlikely to suffer the same loss in the future because they will over-provide for particular operational loss due to their natural risk aversion. This is a testable proposition which fits normal behavioral patterns and is consistent with risk averse behaviour. 
+A substantial body of evidence suggests that loss aversion, the tendency to be more sensitive to losses than to gains plays an important role in determining how people evaluate risky gambles. In this paper we evidence that human choice behavoir can substantially deviate from neoclassical norms.\medskip
 
+PT takes into account the loss avoidance agents and common attitudes toward risk or chance that cannot be captured by EUT; which is not testing for that inherent bias, so as to expect the probability of making the same operational error in future to be overcompensated for i.e., If an institution suffers from an OpRisk event and survives, it's highly unlikely to suffer the same loss in the future because they will over-provide for particular operational loss due to their natural risk aversion. This is a testable proposition which fits normal behavioral patterns and is consistent with risk averse behaviour. 
 
+\singlespacing
 

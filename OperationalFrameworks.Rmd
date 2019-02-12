@@ -1,16 +1,19 @@
 ---
-documentclass: DissertateUSU
-title: 'Towards a Framework for Operational Risk in the Banking Sector'
-author: Mphekeleli Hoohlo
+title: "Towards a Framework for Operational Risk in the Banking Sector"
+author: "Mphekeleli Hoohlo"
+csl: ref_format.csl
 output:
   pdf_document:
-    latex_engine: xelatex
     includes:
       in_header: preamble.tex
     keep_tex: yes
-bibliography: Diss.bib
-csl: ref_format.csl
-geometry: [top=1in, bottom=1in, right=1in, left=1.5in]
+    latex_engine: xelatex
+  word_document: default
+geometry:
+- top=1in
+- bottom=1in
+- right=1in
+- left=1.5in
 nocite: |
   @Burnham2002
   @Iacobucci2007
@@ -18,16 +21,18 @@ nocite: |
   @Norton2012
   @Edwards2007
   @Hastie2009
+documentclass: DissertateUSU
 params:
+  chair: Eric Schaling, Ph.D.
+  committee1: Thanti Mthanti, Ph.D.
+  committee2: Odongo Kodongo, Ph.D.
+  committee3: Thabang Mokoaleli-Mokoteli, Ph.D.
+  committee4: Christopher Malikane, Ph.D.
+  degree: Doctor of Philosophy
+  field: Risk Theory (Finance)
+  gradschool: Paul Alagidede, Ph.D.
   year: '2019'
-  degree: 'Doctor of Philosophy'
-  field: 'Risk Theory (Finance)'
-  chair: 'Eric Schaling, Ph.D.'
-  committee1: 'Thanti Mthanti, Ph.D.'
-  committee2: 'Odongo Kodongo, Ph.D.'
-  committee3: 'Thabang Mokoaleli-Mokoteli, Ph.D.'
-  committee4: 'Christopher Malikane, Ph.D.'
-  gradschool: 'Paul Alagidede, Ph.D.'
+bibliography: Diss.bib
 ---
 
 
@@ -136,44 +141,44 @@ dissertateUSU::preamble_for_title()
 
 <!-- Chapter 3 -->
 \newpage
-\fancyhead[L]{Marginal Mediation Analysis}
+\fancyhead[L]{Exposure-based Operational Risk Analysis}
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 
-\chapter{MARGINAL MEDIATION ANALYSIS}
+\chapter{EXPOSURE-BASED OPERATIONAL RISK ANALYSIS}
 ```{r child = 'chapter3.Rmd'}
 ```
 
 
 \FloatBarrier
 \newpage
-\fancyhead[L]{Methods}
+\fancyhead[L]{Methods for modeling OpRisk depending on covariates}
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 
-\chapter{METHODS}
+\chapter{METHODS FOR MODELING OPRISK DEPENDING ON COVARIATES}
 ```{r child = 'chapter4.Rmd'}
 ```
 
 
 \FloatBarrier
 \newpage
-\fancyhead[L]{Phase I \& II}
+\fancyhead[L]{Theoretical investigations for the quantification of modern ORMF's}
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 
-\chapter{PHASES I \& II: DEVELOPMENT AND TESTING OF MMA}
+\chapter{THEORETICAL INVESTIGATIONS INTO THE QUANTIFICATION OF MODERN ORMF'S}
 ```{r child = 'chapter5.Rmd'}
 ```
 
 \FloatBarrier
 
 \newpage
-\fancyhead[L]{Phase III}
+\fancyhead[L]{Results}
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 
-\chapter{PHASE III: APPLICATION OF MMA}
+\chapter{RESULTS}
 ```{r child = 'chapter6.Rmd'}
 ```
 

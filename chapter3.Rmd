@@ -1,108 +1,805 @@
 ---
 output: pdf_document
 ---
-
-\begin{quote}
-\emph{Without an interpretable scale, it is difficult to use effect size to communicate results in a meaningful and useful way.}
---- Preacher and Hayes, 2011
-\end{quote}
-
 \doublespacing
 
-# Introduction
+\textbf{\section{Introduction}}
+\label{sec3:Introduction}
 
-The proposed integration of average marginal effects and mediation analysis is designed to resolve two major obstacles currently found in mediation analysis:
+The fundamental premise in the nature behind ORMFs, is to provide an exposure-based treatment of OpRisk losses which caters to modeling capital estimates for forward-looking aspects of ORM. This proves tricky due to the lag between the time the loss event occurs and the actual realised loss, i.e. by the very nature of OpRisk, there is a significant lag between the moment the OpRisk event is conceived to the moment the event is observed and accounted for. There is a gap in time between $\tau$ the moment the risk is conceived and the time $\tau+1$ when impact of the loss is realised. This timing paradox often results in questionable capital estimates, especially for those near misses, pending and realised losses that need to be captured in the model
 
-1. The difficulty of performing mediation analysis with categorical mediators and/or outcomes, and
-2. The lack of reliable and flexible effect size estimates in mediation analysis---particularly with categorical mediators and/or outcomes.
+\section{EBOR methodology for capturing forward-looking aspects of ORM}
+\label{sec:EBOR methodology for capturing forward-looking aspects of ORM}
 
-\noindent These issues are relatively common in prevention work [e.g., @Ford2012; @Hoeppner2017; @Wong2013] and the current approaches are not adequate---as was discussed at length in the previous chapters. In this chapter, the integration of Average Marginal Effects (AMEs) and mediation analysis---*Marginal Mediation Analysis* (MMA)---is discussed, including its interpretation and assumptions as well as its benefits and limitations. It is expected that this adjustment to both the modeling and the interpretation will help researchers in the health and prevention sciences to be able to model their data in the most properly-specified way and be able to communicate their findings clearly.
+@einemann2018operational, in a theoretical paper, construct a mathematical framework for an EBOR model to quantify OpRisk for a portfolio of pending litigations. Their work unearths an invaluable contribution to the literature, discussing a strategy on how to integrate EBOR and LDA models by building hybrid frameworks which facilitate the migration of OpRisk types from a *classical* to an exposure-based treatment through a quantitative framework, capturing forward looking aspects of BEICF's [@einemann2018operational], a key source of the OpRisk data.
 
-# Definition of Marginal Mediation Analysis
+The measure of exposure we need to use depends specifically on projecting the number of Oprisk event types (frequency of losses) and is different to the measure if the target variable were the severity of the losses. We need historical exposure for experience rating because we need to be able to compare the loss experience of different years on a like-for-like basis and to adjust it to current exposure levels [@parodi2014pricing].\medskip 
 
-The form of the general marginal mediation model, including the post-estimation step, are demonstrated in the following equations, where Equations \ref{equation_a} and \ref{equation_b} demonstrate the mediation estimation while Equations \ref{equation_AMEa} and \ref{equation_AMEb} show the post-estimation procedures. 
-\begin{equation}\label{equation_a}
-M_{ij} = a_0 + \sum_{k=1}^p a_k x_{ki} + \epsilon_i \text{ }\text{ }\text{ for j = 1, ..., m mediators}
-\end{equation}
-\begin{equation}\label{equation_b}
-Y_{i} = \beta_0 + \sum_{j = 1}^m b_j M_{ij} + \sum_{k=1}^p c_k^{'} x_{ki} + \epsilon_i
-\end{equation}
-\noindent for the $ith$ individual, for $k = 1, ..., p$ predictors, and $j = 1, ..., m$ mediators. The paths are all labeled with their common term (e.g., path $a$ is labeled $a$). Combining these two equations provides the full mediation model. Using these models, we apply the post-estimation of the average marginal effects as presented by @Bartus2005. For a continuous $x_k$ variable, the average marginal effect of path $a$ is:
-\begin{equation}\label{equation_AMEa}
-AME^a_k = a_k \frac{1}{n} \sum_{i=1}^n f(a X)
-\end{equation}
-\noindent where $f$ refers to the probability density function, $a X$ is the linear combination of the predictors (i.e., the model predicted values for each observation), and $AME_k^a$ is the average marginal effect of the $a$ path for the $kth$ variable. Ultimately, Equation \ref{equation_AMEa} is identical to that of the following:
-\begin{equation}\label{equation_AMEa1}
-AME^a_k = \frac{1}{n} \sum_{i=1}^n \frac{f(aX_1) - f(aX_2)}{2h}
-\end{equation}
-\noindent where 
-\begin{equation}\label{equation_AMEa2}
-aX_1 = \begin{bmatrix}
-ax_{11} & ax_{12} & \dots & ax_{1k} + h & \dots & ax_{1p} \\
-ax_{21} & ax_{22} & \dots & ax_{2k} + h & \dots & ax_{2p} \\
-\vdots  & \vdots  & \ddots & \vdots     & \ddots  & \vdots \\
-ax_{n1} & ax_{n2} & \dots & ax_{nk} + h & \dots & ax_{np}
-\end{bmatrix}
-\end{equation}
-\noindent and
-\begin{equation}\label{equation_AMEa3}
-aX_2 = \begin{bmatrix}
-ax_{11} & ax_{12} & \dots & ax_{1k} - h & \dots & ax_{1p} \\
-ax_{21} & ax_{22} & \dots & ax_{2k} - h & \dots & ax_{2p} \\
-\vdots  & \vdots  & \ddots & \vdots     & \ddots  & \vdots \\
-ax_{n1} & ax_{n2} & \dots & ax_{nk} - h & \dots & ax_{np}
-\end{bmatrix}
-\end{equation}
-\noindent Both $f(aX_1)$ and $f(aX_2)$ are the model predicted value for the outcome given the small change due to $h$. Equations \ref{equation_AMEa1}, \ref{equation_AMEa2}, and \ref{equation_AMEa3} use a very small $h$ value (default is $1 \times 10^{-7}$). This provides the change in the average predicted value for a very small increase and a very small decrease in in the $x_k$ variable. This is also described in depth by @Leeper2017 since it is the strategy employed by `margins`. This approach is flexible---especially in the R statistical environment with the improvement of derivative computation that Leeper provided. 
+With reference to section \ref{sec:EBOR methodology for capturing forward-looking aspects of ORM}, the fundamental premise behind the LDA is that each firm's OpRisk losses are a reflection of it's underlying Oprisk exposure. In particular, the assumption behind the use of the poisson model to estimate the frequency of losses, is that both the the intensity (or rate) of occurrence and the opportunity (or exposure) for counting are constant for all available observations.\medskip
 
-Similarly, the AME of a dummy coded variable in the $a$ path is:
-\begin{equation}\label{equation_AMEb}
-AME_{k}^a = \frac{1}{n} \sum_{i=1}^{n} \big[ F(a X | x_{ki} = 1) - F(a X | x_{ki} = 0) \big]
-\end{equation}
-\noindent where $F(a X | x_{ki} = 1)$ is the predicted value of the $ith$ observation when the dummy variable equals one and $F(a X | x_{ki} = 0)$ is the predicted value when the dummy value equals zero. This is the same approach used by `margins`.
+\subsection{Limitations of the EBOR model}
 
-Notably, these same post-estimation equations (\ref{equation_AMEa} and \ref{equation_AMEb}) can be used for the $b$ and $c'$ paths as well. 
+In their model [@einemann2018operational], definition \ref{ssec:Definition of exposure} is particularly well-suited to the specific risk type dealt with in their paper i.e., the portfolio of litigation events, due to better usage of existing information and more plausible model behavior over the litigation life cycle, but is bound to under-perform for many other OpRisk event types, since these EBOR models are typically designed to quantify specific aspects of OpRisk - litigation risk have rather concentrated risk profiles. Furthermore, EBOR models are important due to wide applicability beyond capital calculation and its potential to evolve into an important tool for auditing process and early detection of potential losses.
 
-# Interpretation
+\textbf{\section{Generalised Linear Models (GLM's)}}
+\label{sec:Generalised Linear Models}
 
-The interpretation of Marginal Mediation is based on the original units of the mediator(s) and outcome(s). Because there are so many possible combinations of GLM types within mediation analysis, instead of outlining every combination, the basic principles are presented that apply to all situations.
+Operational riskiness in FIs grows as trading transactions grow in complexity, i.e. the more complex and numerous activity builds the higher the rate of which new cases occur at. Therefore, the rate of the hazard increases exponentialy over time. The scientifically interesting question is whether the data provides any evidence that the increase in the underlying hazard generation is slowing.\medskip
 
-## Principle 1: The individual paths are interpreted based on the corresponding endogenous variable's original metric.
-The individual paths have interpretations identical to those of AMEs, as discussed in Chapter 2. Therefore, the $a$ path depends on the type of mediator and modeling approach chosen. For example, for a binary mediator, the $a$ path is a probability (risk); a mediator representing a count has an $a$ path that is in the same count units.
+Hence if $\mu$ is the (rate) number of expected new events on day $\tau_i$, then
+\singlespacing
+\begin{eqnarray}
+\mu = \gamma \mbox{exp}({\delta\tau_i}) \nonumber
+\end{eqnarray}
+\doublespacing
+can be used as a model, where $\gamma$ and $\delta$ are unknown parameters. Taking a log link turns the model into Generalised Linear Model (GLM) form so that:
+\singlespacing
+\begin{eqnarray}
+\mbox{log}(\mu) = \mbox{log}(\gamma) + \delta\tau_i = \beta_0 + \tau_i\beta_1
+\end{eqnarray}
+\doublespacing
 
+Where the LHS is the rate of hazard over time $\tau$ and $\tau+1$, and the RHS is a linear in the parameters $\beta_0 = \mbox{log}(\gamma)$ and $\beta_1 = \delta$.\medskip
 
-## Principle 2: The indirect effect, as a combination of the $a$ and $b$ paths, are interpreted based on the outcome's original metric.
-The indirect effect is joining two paths, possibly of different metrics. However, the interpretation is still straightforward: the entire effect will be in the outcome's original metric. An example may be beneficial to highlight this principle.
+Since the poisson means are low; LossIndicator values are $1$ for realised losses and $0$ for pending losses, or near misses. Amending the model so other situations other than unrestricted spread of  "rogue" events are represented, adapted to the poisson case yields:
 
-Suppose there are data with a hypothesized binary mediator (depression or no depression) and a continuous outcome (quality of life). A logistic regression is used to model path $a$ and a linear regression is used for the $b$ and $c'$ paths. After calculating the AME of the paths, path $a$ is in units of risk (of depression) while path $b$ is the difference in the quality of life between depressed and not depressed individuals. By combining paths $a$ and $b$ through multiplication, we get the effect of the predictor on depression risk then what that depression risk does to quality of life; that is, the effect of the predictor on quality of life through depression.
+\singlespacing
+\begin{eqnarray}\label{eqn:adaptedpoisson}
+\mu = d_i\mbox{exp}(\beta_0 + \beta_1\tau_i + \beta_2{\tau_i}^2) 
+\end{eqnarray}
+\doublespacing
 
+\subsection{GLM for count data}
 
-## Principle 3: Both the direct and total effects are interpreted based on the outcome's original metric.
-Similar to Principle 2, the direct and total effects are in the outcome's original units. This is intuitive given that the AME of the direct effect is in the outcome's units, and it is not combined with any other path. For the total effect, the indirect and direct effect (which are both in the same units) are added together to get the complete effect. It was expected that, as in linear regression (but that is lacking in other situations), $a \times b + c'= c$. That is, the indirect and direct effects together equals the total effect. This expectation was tested, as is described in the next chapter.
+The LHS of a GLM formula is the model's random component which shows the number of events per trading transaction over FI's portfolio; of which it is an observation given by the independent random variable $Y$, not i.i.d [@wood2006generalized and @covrig2015using]. $Y$ takes a (exponential) family argument, depending on parameters $\lambda$ who represents the average frequency of operational events. It is worth distinguishing between the response data $y$ which is an observation of $Y$.\medskip
 
-## Effect Sizes
+\textbf{\section{A poisson regression operational hazard model}}
+\label{sec:A poisson regression operational hazard model}
 
-A major advantage of this framework is the way effect sizes can be used intuitively.
+The target variable (LossIndicator) is a count, therefore the poisson distribution is a reasonable distribution to use for modeling. It's probability mass function (pdf) is:
+\singlespacing
+\begin{eqnarray}\label{eqn:Poisson}
+Y &\sim& \mbox{poisson}(\lambda), \quad f(y;\lambda) = \frac{\lambda^y}{y!}\dot\exp{-y}\\
+ &\mbox{where}& \quad y \in  \mathbb{N}, \mbox{and} \quad \lambda > 0 \nonumber
+\end{eqnarray}
+\doublespacing
+the expectation and variance $E[Y] = \mbox{VaR}[Y] = \lambda$\footnotemark{If you were to guess an independent $Y_i$ from a random sample, the best guess is given by this expression} are equal to parameter $\lambda$.\medskip
 
-> "First, virtually all effect size indices should be scaled appropriately, given the measurement and the question of interest. Without an *interpretable scale*, it is difficult to use effect size to communicate results in a meaningful and useful way.... Second, it should be emphasized that effect size estimates are themselves sample statistics and thus will almost certainly differ from their corresponding population values. Therefore, it is important to report confidence intervals for effect sizes..." [@Preacher2011, pg. 95, emphasis added].
+The RHS is the model's systematic component, and specifies the linear predictor. It builds on equation \ref{eqn:adaptedpoisson} with $p+1$ parameters $\beta = (\beta_0\ldots,\beta_p)^t$ with $p$ explanatory variables:
+\singlespacing
+\begin{eqnarray}
+\nu = \beta_0 + \sum_{j=1}^{p}\beta_jx_{ij}, \qquad \mbox{where} \quad i = 1,\ldots,n
+\end{eqnarray}
+\doublespacing
 
-The interpretation of MMA makes it clear that both of these aspects of proper effect size estimation and reporting are adequately represented. Of particular note, unlike many effect sizes that are only useful in certain research questions, the effect sizes produced by AMEs---and thus found in Marginal Mediation Analysis---are flexibly oriented to "be scaled appropriately" to best "communicate results in a meaningful and useful way" for a wide variety of situations. 
+If sample variables $Y_i \sim \mbox{Poisson}(\lambda_i)$, then $\mu = E[Y_i] = \lambda_i$; the link function between the random and systematic components, viz. a tranformation by the model by some function $g()$, which does not change features essential to to fitting, but rather a scaling in magnitude so that:
 
-Additionally, @Preacher2011 continue: "it is important to develop a way to gauge the effect size of the product term $ab$ itself," (pg. 95). That is, not only does the effect size of the individual paths need to be meaningful but the product of $a \times b$ must be as well. Marginal Mediation Analysis provides this comparability as the indirect effect can be compared without problems with the direct and total effects (they are all in the same units). 
+\singlespacing
+\begin{eqnarray}\label{eqn:linkfcn }
+\nu_i &=& g(\lambda_i) = \mbox{ln}\lambda_i, \qquad \mbox{that is} \nonumber \\
+\nu &=& \beta_0 + \sum_{j=1}^{p}\beta_jx_{ij}
+\end{eqnarray}
+\doublespacing
 
+so the mean frequency or otherwise the rate $R$, will be predicted by the model\ldots
 
-# Assumptions
+\singlespacing
+\begin{eqnarray}\label{eqn:multmodel}
+\lambda_i &=& d_i\mbox{exp}(\beta_0 + \sum_{j=1}^{p}\beta_jx_{ij}) \quad \mbox{or} \nonumber \\
+\lambda_i &=& d_i\cdot e^{\beta_0}\cdot e^{\beta_1x_{i1}}\cdot e^{\beta_2x_{i2}} \ldots e^{\beta_px_{ip}}
+\end{eqnarray}
+\doublespacing
 
-The assumptions inherent in MMA are the same as those presented in Chapter 1 regarding mediation analysis. The only additional assumption regards the ability of the effect to be represented additively (i.e., can the effect be represented linearly after accounting for the marginal effect for each observation?). In linear models, this is already included as an implicit assumption. For other models, although the relationship may not be linear in the outcome, taking the average of the effects across the observations is assumed to be representative of the relationship across the sample.
+Where $d_i$ represents the risk exposure for transaction $i$. Taking logs on both sides of equation \ref{eqn:multmodel}, the regression model for the estimation of loss frequency is:
 
-# Reproducibility and Interpretability
+\singlespacing
+\begin{eqnarray}
+\mbox{ln}\lambda_i =  \mbox{ln}d_i + \beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + \ldots + \beta_px_{ip}
+\end{eqnarray}
+\doublespacing
 
-As mentioned previously, categorical mediators/outcomes are generally not difficult to model using GLMs---only the interpretation is difficult. Generalized linear models, in conjunction with AMEs, allow researchers to use more correct functional forms, thereby reducing the justification to fit poorly specified models that have an easier interpretation. 
+where $\mbox{ln}d_i$ is the natural log of risk exposure, called the "offset variable".
 
-With this framework, MMA can be applied across the GLM spectrum and essentially any combination of GLM types. For example, a marginal mediation model is defined when the mediator is binary and the outcome is continuous; when the mediator is a count and the outcome is ordinal; when the mediator is continuous and the outcome is binary. Each has a straightforward, yet informative, interpretation as outlined by the principles above. This attribute alone can increase the reproducibility of research using mediation analysis. 
+\subsection{Interpretation}
 
-Finally, the interpretation across the paths and effects is straightforward and flexible. Other researchers, laypersons, lawmakers, and clinicians can assess the direction, magnitude, meaning, and utility of findings much easier---thus, increasing the reach and impact of research. In mediation analysis, this can prove largely beneficial given the already complex nature of the modeling scheme. By simplifying the interpretation, less cognitive resources are required to gain a basic understanding of the findings; instead, more resources can be used to understand how to apply it and assess future research questions based on the findings.
+Table \ref{tab_int} presents the various units produced for the various GLM links.
 
+```{r, results="hide"}
+tab <- data.frame("Link Function"=c("Identity", "Log", "Logit", "Probit", "Poisson", "Gamma", "Negative Binomial"),
+                  "Average Marginal Effect"=c("Original Continuous Unit", "Original Continuous Unit", "Risk", "Risk", "Count", "Count", "Count"))
+names(tab) = c("Link Function", "Average Marginal Effect")
+options(xtable.comment = FALSE)
+library(xtable)
+tabx = xtable(tab, 
+       label = "tab_int", 
+       caption = "The generalized linear model link functions with their associated units of interpretation. Note: This list is not exhaustive and there are likely more GLMs that are used within prevention research.",
+       align = c("l", "|l", "|c|"))
+print.xtable(tabx, include.rownames = FALSE, caption.placement = "top",
+             table.placement = "tb")
+```
 
+\begin{table}[tb]
+\centering
+\caption{The generalized linear model link functions with their associated units of interpretation.} 
+\label{tab_int}
+\begin{tabular}{lc}
+\toprule
+Link Function & Target variable Effect \\ 
+\midrule
+Identity & Original Continuous Unit \\ 
+  Log & Original Continuous Unit \\ 
+  Logit & Risk \\ 
+  Probit & Risk \\ 
+  Poisson & Count \\ 
+  Gamma & Count \\ 
+  Negative Binomial & Count \\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+The poisson distribution is restrictive due to the assumption made that the mean and variance of the number of events are equal. However, models for count data where means are low so that the number of zeros and ones in the data is exessive are well adapted to the poisson case [@wood2006generalized]. They characterise situations in OpRisk other than models when the unchecked spreading of negligent behaviour may result in an operational hazard. The negative binomial and/or quasipoisson regression models ascribe to data that exhibits *overdispersion*, wherein the variance is much larger than the mean for basic count data, therefore they have been eliminated in this paper. 
+
+\textbf{\section{Research Objective 1}}
+\label{sec:Research Objective 1}
+
+To introduce a generalised additive model for location, scale and shape (GAMLSS) framework for OpRisk management, that captures exposures to forward-looking aspects of the OpRisk loss prediction problem, due to deep hierarchies in the features of covariates in the investment banking (IB) business environment, and internal control risk factors (BEICF) thereof.
+
+\textbf{\section{Exploratory data analysis}}
+
+The main source of the analysis dataset is made up of internal losses for the period between 1 January 2013 and 31st March 2013 at a FI. The method of data generation and collection is at the level of the individual trade deal, wherein deal information is drawn directly from the trade generation and and settlement system (TGSS) and edit detail from attribution reports generated in middle office profit \& loss (MOPL). The raw source consists of two separate datasets on a trade-by-trade basis of daily frequencies (number of events) and associated loss severities.\medskip
+
+```{r, echo=FALSE, results='hide'}
+file_loc <- "C:/Users/User/Documents/OpRiskPHDGitHub/OpRisk_PHD_Dissertate/OpRisk_PHD_Dissertation"
+setwd(file_loc)
+list.files(file_loc)
+
+frequency <- openxlsx::read.xlsx("Raw_Formatted_Data.xlsx", check.names = TRUE, sheet = "Frequency")
+severity <- openxlsx::read.xlsx("Raw_Formatted_Data.xlsx", check.names = TRUE, sheet = "Severity")
+projdata <- openxlsx::read.xlsx("OPriskDataSet_exposure.xlsx", check.names = TRUE, sheet = "CleanedData")
+```
+
+```{r, echo=FALSE, results='hide'}
+### Contents of Raw Formatted Data columns 
+str(frequency)
+str(severity)
+str(projdata)
+
+### Number of unique trade entries in contents of Raw Formatted Data
+length(unique(frequency$Related.Trade))
+length(unique(severity$Trd.Nbr))
+
+### Number of intersecting trades in the frequency (from amendment tracker) and severity (from MOPL  attribution summary) data sets from Raw Formatted Data file
+length(intersect(frequency$Related.Trade, severity$Trd.Nbr))
+
+### Column labels in Raw Formatted Data (frequency & severity) and Cleaned Data
+names(frequency)
+names(severity)
+dput(names(projdata))
+
+### Renaming column entries in Cleaned Data  
+names(projdata)[names(projdata) %in% "EventTypeCategoryLevel1"] <- "EventTypeCategoryLevel"
+names(projdata)[names(projdata) %in% "BusinessLineLevel1"] <- "BusinessLineLevel"
+names(projdata) <- sub("\\.", "", names(projdata))
+dput(names(projdata))
+
+projdata[] <- lapply(projdata, function(x) if (is.character(x)) toupper(trimws(x)) else x)
+
+```
+
+The raw frequency data consists of 58,953 observations of 15 variables, within the dataset there are 50,437 unique trades. The raw severity data consists of 6,766 observations of 20 variables, within the severity dataset there are 2,537 unique trades. The intersection between the frequency and severity datasets consists of 2,330 individual transactions which represent realised losses, pending and/or near misses. This dataset is comprised of 3-month risk correction detail, in the interval between 01 January 2013 and 31 March 2013. \medskip
+
+```{r, echo=FALSE, results='hide'}
+# Load packages
+#============================================================
+# We begin most scripts by loading the required packages.
+# Here are some initial packages to load and others will be
+# identified as we proceed through the script.
+library(rattle, quietly = TRUE)    # Access OpRisk dataset and utilities.
+library(magrittr, quietly = TRUE)  # For the %>% and %<>% pipeline operators
+library(Hmisc, quietly = TRUE)
+library(chron, quietly = TRUE)
+library(dplyr, quietly = TRUE)
+
+#The logical variable 'building' 
+# is used to toggle between generating transformations, 
+# when building a model and using the transformations, 
+# when scoring a dataset.
+
+building <- TRUE
+scoring  <- ! building
+
+# A pre-defined value is used to reset the random seed 
+# so that results are repeatable.
+
+ crv$seed <- 42 
+
+# Load the dataset from file.
+
+fname <- "file:///C:/Users/User/Documents/OpRiskPHDGitHub/OpRisk_PHD_Dissertate/OpRisk_PHD_Dissertation/OPriskDataSet_exposure.csv" 
+crs$dataset <- read.csv(fname,
+                        sep=";",
+                        dec=",",
+                        na.strings=c(".", "NA", "", "?"),
+                        strip.white=TRUE, encoding="UTF-8")
+
+# Build the train/validate/test datasets.
+#============================================================
+# nobs=2330 train=1631 validate=349 test=350
+
+set.seed(crv$seed)
+
+crs$nobs     <- nrow(crs$dataset)
+crs$train    <- crs$sample <- sample(crs$nobs, 0.7*crs$nobs)
+crs$validate <- sample(setdiff(seq_len(crs$nobs), crs$train), 0.15*crs$nobs)
+crs$test     <- setdiff(setdiff(seq_len(crs$nobs), crs$train), crs$validate)
+
+# The following variable selections have been noted.
+
+crs$input     <- c("Trade", "UpdateTime", "UpdatedDay", "UpdatedTime",
+                   "TradeTime", "TradedDay", "TradedTime", "CapturedBy",
+                   "TradeStatus", "TraderId", "Instrument", "Reason",
+                   "Nominal", "FloatRef", "LastResetDate", "LastResetRate",
+                   "Theta", "Loss", "Unexplained", "EventTypeCategoryLevel1",
+                   "BusinessLineLevel1", "LossIndicator", "exposure")
+
+crs$numeric   <- c("Trade", "UpdatedDay", "UpdatedTime", "TradedDay",
+                   "TradedTime", "Nominal", "LastResetRate", "Theta", "Loss",
+                   "Unexplained", "LossIndicator", "exposure")
+
+crs$categoric <- c("UpdateTime", "TradeTime", "CapturedBy", "TradeStatus",
+                   "TraderId", "Instrument", "Reason", "FloatRef",
+                   "LastResetDate", "EventTypeCategoryLevel1",
+                   "BusinessLineLevel1")
+
+crs$target    <- "LossIndicator"
+crs$risk      <- NULL
+crs$ident     <- NULL
+crs$ignore    <- c("FloatRef", "LastResetDate", "LastResetRate", "Loss")
+crs$weights   <- NULL
+
+#Data summary
+summary(crs$dataset[crs$sample, c(crs$input, crs$risk, crs$target)])
+
+```
+
+```{r, echo=FALSE, results='hide'}
+contents(crs$dataset[crs$sample, c(crs$input, crs$risk, crs$target)])
+```
+
+\begin{table}[ht]
+\centering
+\caption{The contents of the traded transactions of the associated risk correction events.}
+\begin{tabular}{lcc}
+\toprule
+  & \multicolumn{2}{c}{Storage} \\
+Covariate     & Levels   & Type \\ 
+\midrule
+ Trade       &          & numeric \\
+ UpdateTime  &          & numeric \\
+ UpdatedDay  &          & numeric \\
+ UpdatedTime &          & numeric \\
+ TradeTime   &          & numeric \\
+ TradedDay   &          & numeric \\
+ TradedTime  &          & numeric \\
+ Desk        &  10      & categorical \\
+ CapturedBy  &  5       & categorical \\
+ TradeStatus &  4       & categorical \\
+ TraderId    &  7       & categorical \\
+ Instrument  &  23      & categorical \\
+ Reason      &  19      & categorical \\
+ Loss        &          & numeric \\
+ EventTypeCategoryLevel & 5  & categorical \\
+ BusinessLineLevel      & 8  & categorical \\
+ LossIndicator          & 2  & binary \\
+ exposure               &    & numeric \\
+ \bottomrule
+\end{tabular}\label{tab_contents}
+\end{table}
+
+Two new variables are derived from the data; a target variable (LossIndicator) is a binary variable whereupon, a $1$ signifies a realised loss, and $0$ for those pending losses, or near misses. The *exposure* variable is computed by deducting the time between the trade amendment (UpdateTime) and the time when the trade was booked. It is measure that is rougly proportional to the risk of the transaction or a group of transactions. The idea is that if the exposure (e.g. the duration of a trade, the number of allocation(trade splits), etc.) doubles whilst everything else (e.g. the rate, nominal of the splits, and others) remains the same, then the risk also doubles.
+
+In R, the GLM function works with two types of covariates/explanatory variables: numeric (continuous) and categorical (factor) variables as depicted in table \ref{tab_contents}. Multi-level categorical variables are recoded by building dummy variables corresponding to each level. This is achieved through an implemented algorithm in R, through a transformation as recommended for the estimation of the GLM, particularly in the estimation of the poisson regression model for count data.
+
+The model revolves around the fact that for each categorical variable (covariate), previously transformed into a dummy variable, one must specify a reference category from which the corresponding observations under the same covariate are estimated and assigned a weight against in the model [@covrig2015using]. By default in the GLM, the first level of the categorical variable is taken as the reference level. As best practice,  @de2008generalized, @frees2010household, @denuit2007actuarial, @cameron2013regression recommend that for each categorical variable one should specify the modal class as the reference level; as this variable corresponds to the level with the highes order of predictability, excluding the dummy variable corrresponding to (weight coefficient = $1$) the biggest absolute frequency.
+
+\textbf{\section{Description of the dataset}}
+\label{sec:Description of the dataset}
+
+In this section, section \ref{sec:Description of the dataset}, the dataset called *OpRiskDataSet_exposure*, provides data on the increase in the numbers of operational events over a three month period, beginning 01 January 2013 to end of 20 March 2013. For each transaction, there is information about: trading risk exposure, trading characteristics, causal factor characteristics and their cost.
+
+\begin{figure}
+\textbf{(a) Scatterplots showing the totals of the number loss corrections and the number of trades per month (b) Histograms showing the totals of the number loss corrections and the number of trades per month.}
+\begin{subfigure}[b]{0.55\textwidth}
+   \begin{frame}
+      \centering
+       \begin{tabular}{cc}
+        Intra-day trend of losses & Trends of Losses per trader \\
+        \includegraphics[width=7.5cm]{IntraDayUpdatedTime.eps}
+         &
+         \includegraphics[width=7cm]{TrendTraderId.eps}
+         \end{tabular}
+    \end{frame}
+   \label{Intra_Day_Trends} 
+\end{subfigure}
+
+\begin{subfigure}[b]{0.55\textwidth}
+   \begin{frame}
+      \centering
+       \begin{tabular}{cc}
+        Monthly trend of losses & Monthly trend of trading frequencies} \\
+        \includegraphics[width=7.5cm]{UpdatedDayFreq.eps}
+         &
+         \includegraphics[width=7cm]{TradedDayFreq.eps}
+         \end{tabular}
+    \end{frame}
+   \label{Hist_Loss_Freq}
+\end{subfigure}
+\caption[Numerical grid displaying (a) Scatterplots showing the totals of the number loss corrections and the number of trades per month (b) Histograms showing the totals of the number loss corrections and the number of trades per month.]{(a) Scatterplots of intra-day trend analysis for logs of severities of operational events and trends incident activity for identifying the role of the trader originating the incidents. (b) As for (a) but in the form of histograms showing the frequency distrbution of the number daily operational indicents and the number of trades over a monthly period.} 
+\end{figure}
+
+\subsection{Characteristics of exposure}
+
+The exposure of risk of type $i$, $d_i$ shows the daily duration, from when the trade was booked to the moment the operational risk event was observed and ended. This measure is defined this way when specifically applied to projecting the number of loss events (frequencies) and can be plotted as follows depicted in graphs \ref{Exploration_analysis_exposure}.\medskip
+
+```{r, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
+
+# Generate a cummulative distribution function (ECDF) plot of the variable 'exposure'.
+#============================================================
+# Generate just the data for an Ecdf 
+ds <- rbind(data.frame(dat=crs$dataset[crs$sample,][,"exposure"], grp="All"))
+
+# The 'Hmisc' package provides the 'Ecdf' function.
+library(Hmisc, quietly=TRUE)
+# Plot the data.
+#p05<-Ecdf(ds[ds$grp=="All",1], col="#E495A5", xlab="exposure", lwd=2, ylab=expression(Proportion <= x), subtitles=FALSE)
+
+## BaseR codes for plot p05b<-plot(p05$x,p05$y,type='l',col='red')
+
+# Benford's Law 
+#============================================================
+# The 'ggplot2' package provides the 'ggplot' function.
+library(ggplot2, quietly=TRUE)
+# The 'reshape' package provides the 'melt' function.
+library(reshape, quietly=TRUE)
+# Initialies the parameters.
+var    <- "exposure"
+digit  <- 1
+len    <- 1
+
+# Build the dataset
+ds <- merge(benfordDistr(digit, len),
+            digitDistr(crs$dataset[crs$sample,][var], digit, len, "All"))
+
+# Plot the digital distribution
+p <- plotDigitFreq(ds)
+#print(p)
+#============================================================
+# Generate the plot.
+
+p04 <- crs %>%
+  with(dataset[sample,]) %>%
+  dplyr::select(exposure) %>%
+  ggplot2::ggplot(ggplot2::aes(x=exposure)) +
+  ggplot2::geom_density(lty=3) +
+  ggplot2::xlab("exposure") +
+  ggplot2::ggtitle("Distribution of exposure") +
+  ggplot2::labs(y="Density")
+
+# Display the plots.
+
+gridExtra::grid.arrange(p04, nrow=1)
+
+```
+
+\begin{figure}
+\begin{frame}
+      \centering
+       \begin{tabular}{ccc}
+        \textbf{Distribution} & \textbf{Density} & \textbf{Digital Analysis} \\
+        \includegraphics[width=5cm]{Exposure_cdf.eps}
+         &
+         \includegraphics[width=5cm]{Dist_exposure.eps}
+         &
+         \includegraphics[width=5cm]{Benford.eps}
+         \end{tabular}
+    \end{frame}
+        \captionof{figure}{A simple comparison of the Sigmoidal like features of the fat-tailed, right skewed distribution for exposure, and first-digit frequency distribution from the exposure data with the expected distribution according to Benford's Law}
+    \label{Exploration_analysis_exposure}
+\end{figure}
+
+The variable follows a logistic trend on $[0,1]$, implying an FIs operational risk portfolio rises like a sigmoid function throughout the period of observation, typically starting from $0$, which then observes a plateau in growth. The average exposure is 389.99 or about 1 year.\medskip
+
+Grid plots \ref{Exploration_analysis_exposure} portray the logistic function, together with a  simple comparison of first-digit frequency distribution analysis, according to Benford's Law, with exposure data distribution. The close fitting nature implies the data are uniformly distributed across several orders of magnitude, especially within the 1 year period.\medskip
+
+\subsection{Characteristics of the covariates}
+
+The characteristics of the operational risk portfolio are given by the following covariates: *UpdatedDay*, *UpdatedTime* - the day of the month and time of day the OpRisk incident occurs respectively; *TradedDay*, *TradedTime* - the day in the month and time of day the deal was originated respectively; The *LossIndicator*, is a binary variable (two variables): $0$, which indicates pending or near misses, and $1$, if the incident results in a realised loss, meaning that there is significant p\&L impact due to the OpRisk incident.\medskip
+
+*Desk*, the location in the portfolio tree the incident originated, a factor variable with 10 categories; *CapturedBy*, the designated analyst who actions the incident, a factor variable with 5 categories; *TraderId*, the trader who originates the deal, a factor variable with 7 categories; *TradeStatus*, the live status of the deal, a factor variable with 4 categories; *Instrument*, the type of deal, a factor variable with 23 categories; *Reason*, a description of the cause of the OpRisk incident, a factor variable with 19 levels; *EventTypeCategoryLevel*, 7 OpRisk event types as per @risk2001supporting, a factor variable with 5 categories; *BusinessLineLevel*, 8 OpRisk business lines as per @risk2001supporting, a factor variable with 8 categories.\medskip
+
+The factor variables were transformed into dummy variables using the following commands:
+\singlespacing
+```{r, results="hide", fig.show="hide", fig.keep="none", echo=TRUE}
+# Remap factor variables and transform into numeric variables.
+crs$dataset[["TNM_Desk"]] <- as.numeric(crs$dataset[["Desk"]])
+crs$dataset[["TNM_CapturedBy"]] <- as.numeric(crs$dataset
+                                              [["CapturedBy"]])
+crs$dataset[["TNM_TraderId"]] <- as.numeric(crs$dataset[["TraderId"]])
+crs$dataset[["TNM_Instrument"]] <- as.numeric(crs$dataset
+                                              [["Instrument"]])
+crs$dataset[["TNM_Reason"]] <- as.numeric(crs$dataset[["Reason"]])
+crs$dataset[["TNM_EventTypeCategoryLevel1"]] <- as.numeric(crs$dataset
+                                        [["EventTypeCategoryLevel1"]])
+crs$dataset[["TNM_BusinessLineLevel1"]] <- as.numeric(crs$dataset
+                                             [["BusinessLineLevel1"]])
+```
+\doublespacing
+
+The continuous numerical variable *Loss*, shows the financial impact (severity) of the OpRisk incident in Rands, for the most part, (96.1\%) incidents result in pending losses and near misses, most realised losses (2.3\%) lie within [R$200,00$, R$300,000$] range, in the portfolio there are also 5 p\&L impacts higher than R$2.5$ million.\medskip
+
+\subsection{Characteristics of daily operational activity}
+
+The distribution of daily losses and/or pending/near misses by operational activities are represented in \ref{Exploratory_Time_Day_Frequency3plot}. Figure \ref{Exploratory_UpdateTime_Frequency3plot} shows that most operational events occur in times leading up to midday (i.e. 10:50AM to 11:50AM), the observed median is 11:39AM, and of these potential loss events, most realised losses occur closest to mid-day. The frequencies of the loss incidents in the analysed portfolio sharply decreases during the following period, i.e. from 12:10PM to 13:10PM, during which the least realised losses occur.\medskip
+
+Figure \ref{Exploratory_UpdateDay_Frequency3plot} shows that operational activity increases in intensity in the  days leading up to the middle of the month, i.e. $10^{th}$ - $15^{th}$; the observed mean is $14.49$ days, and of these potential loss events, realised losses especially impact on the portfolio during these days.  
+
+```{r, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
+# Exploratory data analysis
+#___________________________________________________________________________________________________
+# Update Time
+### summary statistics
+ summary(projdata$UpdatedTime)
+ ### Histograms
+ par(mfrow=c(1,3)) 
+ hist(projdata$UpdatedTime, col = "blue", main = "All losses", xlab = "Update Time", ylab = "Frequency")
+ hist(projdata$UpdatedTime[projdata$LossIndicator == 0], col = "red", main = "Near Misses", xlab = "Update Time", ylab = "Frequency")
+ hist(projdata$UpdatedTime[projdata$LossIndicator == 1], col = "green", main = "Realised losses", xlab = "Update Time", ylab = "Frequency")
+ par(mfrow=c(1,1))
+#___________________________________________________________________________________________________
+# # Update Day
+ summary(projdata$UpdatedDay)
+# # LossIndicator
+ par(mfrow=c(1,3)) 
+ hist(projdata$UpdatedDay, col = "#9999CC", main = "All losses", xlab = "Updated Day", ylab = "Frequency")
+ hist(projdata$UpdatedDay[projdata$LossIndicator == 0], col = "#CC6666", main = "Near Misses", xlab = "Updated Day", ylab = "Frequency")
+ hist(projdata$UpdatedDay[projdata$LossIndicator == 1], col = "#66CC99", main = "Realised losses", xlab = "Updated Day", ylab = "Frequency")
+ par(mfrow=c(1,1))
+ 
+```
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.55\textwidth}
+   \includegraphics[width=1\linewidth]{Exploratory_UpdateTime_Frequency3plot.eps}
+   \subcaption{Frequency distributions of operational incidents by the time in the day}
+   \label{Exploratory_UpdateTime_Frequency3plot} 
+\end{subfigure}
+
+\begin{subfigure}[b]{0.55\textwidth}
+   \includegraphics[width=1\linewidth]{Exploratory_UpdateDay_Frequency3plot.eps}
+   \subcaption{Frequency distributions of operational incidents by the day in the month}
+   \label{Exploratory_UpdateDay_Frequency3plot}
+\end{subfigure}
+
+\caption[Two numerical solutions: Histograms showing the distribution of UpdatedTime \& UpdatedDay by LossIndicator.]{The frequency distributions of All the losses, the realised losses, and pending/near misses of operational incidents by the day in the month when the indidents' occurred}
+\label{Exploratory_Time_Day_Frequency3plot}
+\end{figure}
+
+Similarly, the influence of trading desk's on the frequency of operational events can be analysed on the basis of the portfolio's bidimensional distribution by variables *Desk* and *LossIndicator*, which shows the proportions realised losses vs pending and/or near misses for each particular desk. The bidimensional distribution of *Desk* and *LossIndicator* is presented in a contingency table, Table \ref{tab_Desk_Prop}, in which it's considered useful to calculate proportions for each desk category. 
+
+```{r, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
+# Desk analysis using tables
+table(projdata$Desk, projdata$LossIndicator)
+addmargins(table(projdata$Desk, projdata$LossIndicator), 2)
+round(addmargins(prop.table(table(projdata$Desk, projdata$LossIndicator), 1), 2)*100, 1)
+# Statistcal analysis
+do.call("rbind", lapply(split(projdata$Loss, projdata$Desk), function(x) c(N = length(x), Mean = mean(x), SD = sd(x), Min = min(x), Max = max(x))))
+```
+
+\begin{table}[ht]
+\centering
+\caption{Occurence of realised losses: proportions on desk categories}
+\begin{tabular}{lccr}
+\toprule
+  & \multicolumn{3}{c}{No. of transactions} \\
+Desk   & no Loss   & Loss & Total\\ 
+\midrule
+  Africa            &  49 & 10 &  59 \\
+  Bonds/Repos       & 113 & 31 & 144 \\
+  Commodities       & 282 & 45 & 327 \\
+  Derivatives       & 205 & 24 & 229 \\
+  Equity            & 269 & 66 & 335 \\
+  Management/Other  &  41 &  2 &  43 \\
+  Money Market      & 169 & 52 & 221 \\
+  Prime Services    & 220 & 62 & 282 \\
+  Rates             & 336 & 53 & 389 \\
+  Structured Notes  & 275 & 26 & 301 \\
+ \bottomrule
+\end{tabular}\label{tab_Desk_Prop}
+\end{table}
+
+Thus, as illustratred in figure \ref{Desk_Proportions}, from 23,5\%; the highest proportion of realised losses per desk is the Money Market (MM) desk, the figures are decreasing, followed by Prime Services (22\%); Bonds/Repos (21,5\%); Equity (19,7\%); Africa (16,9\%); Commodities (13,8\%); Rates (13,6\%); Derivatives (10,5\%); Structured Notes (SND) (8.6\%), to the least proportion in the Management/Other, a category where only 4,7\% of operations activities were realised as losses.      
+
+```{r, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
+# Plot Desk category distribution
+p03 <- crs %>%
+  with(dataset[sample,]) %>%
+  dplyr::mutate(LossIndicator=as.factor(LossIndicator)) %>%
+  dplyr::select(Desk, LossIndicator) %>%
+  dplyr::group_by(Desk, LossIndicator) %>%
+  dplyr::summarise(n = n()) %>%
+  ggplot2::ggplot(ggplot2::aes(x=Desk, y=n, fill=LossIndicator)) +
+  ggplot2::geom_bar(stat="identity") +
+  ggplot2::ggtitle("Desk category distribution") +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+  ggplot2::ylab("Frequency")
+
+# Create new variable to proportion no. of realised losses
+T01 <- crs %>%
+  with(dataset[sample,]) %>%
+  dplyr::mutate(LossIndicator=as.factor(LossIndicator)) %>%
+  dplyr::select(Desk, LossIndicator) %>%
+  dplyr::group_by(Desk, LossIndicator) %>%
+  dplyr::summarise(n = n())
+
+T02 <- T01 %>%
+  group_by(Desk) %>%
+  summarise(N=sum(n))
+
+T03 <- inner_join(T01, T02)
+
+# plot Desk category by proportion
+T04 <- T03 %>%
+  mutate(Prob=n/N) %>%
+  filter(LossIndicator==1) %>%
+  select(Desk, Prob) %>%
+  arrange(desc(Prob)) %>%
+  ggplot2::ggplot(ggplot2::aes(x=Desk, y=Prob, fill=Desk), alpha=0.55) +
+  ggplot2::geom_bar(stat="identity", fill="grey", colour="black", show.legend = FALSE)+
+  ggplot2::ggtitle("Proportion of losses per Desk") +
+  ggplot2::theme_minimal()+
+  ggplot2::theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+  ggplot2::ylab("Loss Ratio (n/N)")+
+  ggplot2::xlab("Desk")
+
+#Display both plots in one row
+gridExtra::grid.arrange(p03, T04, nrow = 1)
+```
+
+\begin{figure}
+\centering
+\includegraphics[width=20cm,height=5cm]{Exploratory_Desk_Proportions.eps}
+\caption[Desk category by realised losses]{Histograms showing the proportions of realised losses vs all losses including pending and/or near misses by desk category}
+\label{Desk_Proportions}
+\end{figure}
+
+This behaviour can be extended beyond the trading desk, as represented in Figure \ref{Mosaic_Instr_Trd_Tec}, a mosaic plot grid presenting the structure of the OpRisk portfolio by Instrument, TraderId, CapturedBy \footnote{i.e. the type of financial instrument, the trader who originated the incident on the deal, and the role of the technical support personnel who is involved in the query resolution.} and the operational losses.
+
+```{r, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
+# Instrument
+unique(projdata$Instrument)
+table(projdata$LossIndicator, projdata$Instrument)
+plot(table(projdata$LossIndicator, projdata$Instrument), main="By Instrument", col=rainbow(20), las=1)
+
+# Trader
+unique(projdata$TraderId)
+table(projdata$TraderId, projdata$LossIndicator)
+round(addmargins(prop.table(table(projdata$TraderId, projdata$LossIndicator), 1), 2)*100, 1)
+plot(table(projdata$LossIndicator, projdata$TraderId), main="By Trader", col=rainbow(20), las=1)
+
+# Captured By
+table(projdata$CapturedBy, projdata$LossIndicator)
+round(addmargins(prop.table(table(projdata$CapturedBy, projdata$LossIndicator), 1), 2)*100, 1)
+plot(table(projdata$LossIndicator, projdata$CapturedBy), main="By Tech Support", col=rainbow(20), las=1)
+```
+
+<!-- \singlespacing -->
+<!-- \begin{figure} -->
+<!-- \centering -->
+<!-- Mosaic grid plots for the bidimensional distribution by traded instrument, the trader originating the operational event, and by the technical support personnel involved in query resolution, against the dummy variable showing if a realised loss was reported. -->
+<!-- \vspace{0.25cm} -->
+<!-- \begin{minipage}[c][11cm][t]{.5\textwidth} -->
+<!-- \vspace{1.0cm} -->
+<!--   \centering -->
+<!--   \includegraphics[width=\linewidth,height=9.0\linewidth]{Mosaic_Instrument.eps} -->
+<!--   \subcaption{Type of Instrument traded} -->
+<!--   \label{Mosaic_Instrument} -->
+<!-- \end{minipage}% -->
+<!-- \begin{minipage}[c][11cm][t]{.5\textwidth} -->
+<!--   \vspace*{\fill} -->
+<!--   \centering -->
+<!--   \includegraphics[width=\linewidth]{Mosaic_Trader.eps} -->
+<!--   \subcaption{Trading person identification} -->
+<!--   \label{Mosaic_Trader}\par\vfill -->
+<!--   \includegraphics[width=\linewidth]{Mosaic_Tech_Support.eps} -->
+<!--   \subcaption{Technical support staff function} -->
+<!--   \label{Mosaic_Tech_Support} -->
+<!-- \end{minipage} -->
+<!-- \label{Mosaic_Instr_Trd_Tec} -->
+<!-- \end{figure} -->
+<!-- \doublespacing -->
+
+\begin{center}
+\begin{figure}
+Mosaic grid plots for the bidimensional distribution by traded instrument, the trader originating the operational event, and by the technical support personnel involved in query resolution, against the dummy variable showing if a realised loss was reported.
+$$\begin{array}{cc}
+\multirow{2}{*}{
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\includegraphics[width=5cm,height=20cm]{Mosaic_Instrument.eps}
+\caption{Type of Instrument traded}
+\label{Mosaic_Instrument}
+\end{minipage}} 
+& 
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\includegraphics[width=5cm,height=7.5cm]{Mosaic_Trader.eps}
+\caption{Trading person identification}
+\label{Mosaic_Trader}
+\end{minipage}\\
+&
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\includegraphics[width=5cm,height=7.5cm]{Mosaic_Tech_Support.eps}
+\caption{Technical support staff function}
+\label{Mosaic_Tech_Support}
+\end{minipage}
+\end{array}$$
+\end{figure}
+\label{Mosaic_Instr_Trd_Tec}
+\end{center}
+
+One can notice that the width of the bars corresponding to the different categories, i.e. Instrument, TraderId, CapturedBy, is given by their proportion in the sample.  In particular, for the category 'at least one realised loss', Figure \ref{Mosaic_Trader} portrays a increase "riskiness" trending up from Associate to AMBA, Analyst, Vice Principal, Managing Director, Director, up to the risky ATS category, which are automated trading system generated trades.\medskip
+
+Figure \ref{Mosaic_Tech_Support} for the category 'at least one realised loss', portrays a decreasing trend, slowing in riskiness from Unauthorised users downward to Tech Support, Mid Office, Prod controller down to the least risky Prod Accountant. This intepretation makes sense given unauthorised users are more likely to make impactful operational errors, technical support personnel would also be accountable for large impacts albiet for contrasting reasons, they are mandated to perform these deal adjustments which have unavoidable impacts associated with them, whereas the former group are unauthorised to perform adjustments therefore may lack the skill, or may have more devious intentions in their actions.\medskip   
+
+In another mosaic plot, (\ref{Mosaic_Contingency}), the bidimensional distribution of transactions by trader and realised vs pending losses, conditional on the trade stautus in presented and analysed. Here, and in the contingency table, Table \ref{tab:Mosaic_Contingency}, we can clearly see the trends: in BO-BO confired status - an increasing realised losses from left (AMBA) to right, and the opposite for transaction performed in BO Confirmed status. Particularly, the biggest number of realised losses in both BO and BO-BO Confirmed statuses are for automated trading systems (ATS).\medskip
+
+Table \ref{tab:Mosaic_Contingency} and Figure \ref{Mosaic_Contingency} are obtained with the following commands:
+
+\singlespacing
+```{r, results="hide", fig.show="hide", fig.keep="none", echo=TRUE}
+library(vcd)
+STD <- structable(~TradeStatus + TraderId + LossIndicator
+                                        , data = projdata)
+MS01 <- mosaic(STD, condvars = 'TradeStatus', col=rainbow(20),
+                  split_horizontal = c(TRUE, FALSE, TRUE))
+```
+
+\singlespacing
+\begin{figure}
+\centering
+\textbf{Mosasic plot for trader identification and loss indicator, by trade status}
+\includegraphics[width=\linewidth,height=0.75\linewidth]{Mosaic_Contingency.eps}
+\caption[Portfolio structure by trader, trade status and number of realised losses]{A mosaic plot representing the structure of the operational risk portfolio by trader identification (TraderId), the status ofthe trade (TradeStatus) and the number of realised losses vs pending or near misses}
+\label{Mosaic_Contingency}
+\end{figure}
+\doublespacing
+
+Table \ref{tab:Crosstab_covariate} presents the most frequent category in the operational risk dataset for each possible covariate.
+
+\begin{table}[htbp]
+        \centering
+        \textbf{Crosstab of trader identification and loss indicator, by trade status}
+\singlespacing        
+        \small
+        \setlength\tabcolsep{2pt}
+			\begin{tabular}{|p{2cm}|p{2cm}|l|l|l|l|l|l|p{2cm}|p{2cm}|} \hline
+  			& & \multicolumn{7}{|c|}{Trader Identification} \\ \hline
+  			TradeStatus & Loss Indicator & Amba & Analyst & Associate & ATS & Director & Mng Director & Vice Principal \\\hline
+  			\multirow{2}{*}{BO-BO Confirmed} & 0 & 24 & 136 & 320 & 0 & 282 & 52 & 49 \\ \cline{2-9}
+    							   & 1 & 2  &  15 & 43 & 0 & 50 & 18 & 16 \\\cline{2-9}
+   			\multirow{2}{*}{BO Confirmed} & 0 & 17  & 299 & 153 & 13 & 257 & 102 & 153 \\ \cline{2-9}
+    							   & 1 &  3 &  71 & 12 & 8 &  62 & 23 & 30 \\ \cline{2-9}
+   			\multirow{2}{*}{Terminated} 	  & 0 &	83 & 9 & 1 & 0 & 0 & 2 & 1 \\ \cline{2-9}
+    							  & 1 & 17 & 1 & 0 & 0 & 0 & 0 & 0 \\ \cline{2-9}
+    		\multirow{2}{*}{Terminated/Void}  & 0 & 2 & 0 & 0 & 0 & 2 & 1 & 1 \\ \cline{2-9}
+							       & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+			\end{tabular}
+   			\caption{A contingency table showing the bidimensional distribution of transactions by trader identification vs realised and/or pending losses, conditional on the trade status}
+        	\label{tab:Crosstab_covariate}
+\end{table}
+\doublespacing
+
+\begin{table}[htbp]
+        \centering
+        \textbf{Modal classes for the categorical variables} 
+\singlespacing        
+        \small
+        \setlength\tabcolsep{2pt}
+			\begin{tabular}{|l|l|p{4cm}|} \hline
+  			Variable & Modal class or category & Name of modal class \\\hline
+  			Desk & Rates & DeskRates \\ \cline{1-3}
+			CapturedBy & TECHSUPPORT & CapturedBy\_TECHSUPPORT \\ \cline{1-3}
+    		TradeStatus & BO confirmed & TradeStatus\_BO confirmed \\ \cline{1-3}
+			TraderId & DIRECTOR & TraderId\_DIRECTOR \\ \cline{1-3}
+			Instrument & Swap & Instrument\_Swap \\ \cline{1-3}
+			Reason & Trade enrichment for system flow  & Reason\_Trade enrichment for system flow \\ \cline{1-3}
+    		EventTypeCategoryLevel & EL7 & EventTypeCategoryLevel\_EL7 \\ \cline{1-3}
+			BusinessLineLevel & BL2 & BusinessLineLevel\_BL2 \\ \cline{1-3}	
+			\end{tabular}
+   			\caption{A contingency table showing the bidimensional distribution of transactions by trader identification vs realised and/or pending losses, conditional on the trade status}
+        	\label{tab:Mosaic_Contingency}
+\end{table}
+\doublespacing
+
+\textbf{\section{The estimation of some poisson regression models}}
+
+Section \ref{sec:Generalised Linear Models} introduced a GLM for the start of the expected number of operational events in the early stages. We aim to estimate the mean OpRisk frequency through a poisson classification model given by equation \ref{eqn:Poisson} using the glm function. The mean daily loss frequency in the risk correction statistics is estimated through the poisson regression model. Let us consider a model where the *LossIndicator* is the target variable: The following fits the model (the log link is canonical for the poisson distribution, and hence the R default) and checks it.\medskip
+
+```{r, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
+# Set parameter values
+crv$seed <- 42 # set random seed to make your partition reproducible
+crv$taining.proportion <- 0.7 # proportion of data used for training
+crv$validation.proportion <- 0.15 # proportion of data used for validation
+
+# Load data
+d <- read.csv("OPriskDataSet_exposure.csv",
+              sep=";",
+              dec=",",
+              na.strings=c(".", "NA", "", "?"),
+              strip.white=TRUE, encoding="UTF-8")
+
+exposure <- d[,ncol(d)] 
+
+d1 <- d %>%
+  group_by(UpdatedDay,
+           UpdatedTime,
+           TradedDay,
+           TradedTime,
+           Desk,
+           CapturedBy,
+           TradeStatus,
+           TraderId,
+           Instrument,
+           Reason,
+           EventTypeCategoryLevel1,
+           BusinessLineLevel1) %>%
+  transmute(LossesIndicator = LossIndicator,
+            Losses = Loss,
+            exposure = exposure)
+```
+
+In calling the GLM we specify the target variable *LossIndicator*; the explanatory variables made up of a mix of numeric, continuous and categorical variables. Where categorical variables are involved, we need to specify the modal class as the reference level, in our case a function `r getmode ` has been created and the dataset is reordered using the ` r relevel` function in r; These specifications were achieved with the following commands:
+
+\singlespacing
+```{r, results="hide", fig.show="hide", fig.keep="none", echo=TRUE}
+# Create function "getmode" which finds the modal class in
+# the categorical variables
+getmode <- function(x){
+  u <- unique(x)
+  as.integer(u[which.max(tabulate(match(x,u)))])
+}
+# Reorder the categorical variables so that the modal class 
+# is specified as the reference level
+for (i in 5:(ncol(d1) - 3)){
+     d1[[i]] <- relevel(d1[[i]], getmode(d1[[i]]))
+}
+
+```
+\doublespacing
+
+Other GLM arguments; the afore-mentioned link function `r poisson(link="log")`; `r data=d1`, a data frame containing the OpRisk dataset and the `r offset=log(exposure)`, that is the variable representing a component known apriori, coefficient $1$, introduced in the linear predictor [@covrig2015using].\medskip
+
+Let us fit a GLM to our data. This will be our global model. We will use *LossesIndicator* as the target variable, while all the other variables will be expalnatory variables:
+
+\singlespacing
+```{r, results="hide", fig.show="hide", fig.keep="none", echo=TRUE}
+freqfit <- glm(LossesIndicator ~ UpdatedDay + UpdatedTime + TradedDay +
+                 TradedTime + Desk + CapturedBy + TradeStatus + TraderId
+               + Instrument + Reason + EventTypeCategoryLevel1 +
+                 BusinessLineLevel1, data=d1, family=poisson(link = 'log'),
+               offset = log(exposure))
+```
+\doublespacing
+
+The output of the estimation is presented below, where variables who were found to be significant predictors are indicated.
+
+\singlespacing
+```{r, results="asis" echo=FALSE}
+summary(freqfit)
+```
+\doublespacing
 
 \singlespacing

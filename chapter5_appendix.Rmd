@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Required: R Packages from CRAN
 
 \small
-```{r, echo=TRUE, eval=FALSE}
+```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 if (!require(tidyverse)){
   install.packages("tidyverse")
   library(tidyverse)
@@ -38,7 +38,7 @@ if (!require(devtools)){
 Required: R Packages from GitHub
 
 \small
-```{r, echo=TRUE, eval=FALSE}
+```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 if (!require(MarginalMediation)){
   devtools::install_github("tysonstanley/MarginalMediation")
   library(MarginalMediation)
@@ -81,7 +81,7 @@ Rscript Analyses_MMMC_scriptCount.R 'c(1:45)'
 Binary Mediator
 
 \small
-```{r, eval=FALSE}
+```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 ## Marginal Mediation: Monte Carlo Simulation Study
 ##   BINARY Mediator
 ## Tyson S. Barrett
@@ -168,7 +168,7 @@ for (j in args){
 Count Mediator
 
 \small
-```{r, eval=FALSE}
+```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
 ## Marginal Mediation: Monte Carlo Simulation Study
 ##   COUNT Mediator
 ## Tyson S. Barrett
