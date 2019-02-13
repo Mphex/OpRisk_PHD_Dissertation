@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6730) (preloaded format=xelatex 2019.1.15)  11 FEB 2019 22:29
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6730) (preloaded format=xelatex 2019.1.15)  13 FEB 2019 14:07
 entering extended mode
 **./OperationalFrameworks.tex
 (OperationalFrameworks.tex
@@ -706,12 +706,24 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@ppsavesec=\count280
 \c@@ppsaveapp=\count281
 )
+("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\rotating.s
+ty"
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count282
+\rotFPtop=\skip112
+\rotFPbot=\skip113
+\rot@float@box=\box45
+\rot@mess@toks=\toks23
+)
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\multirow\multirow.s
 ty"
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
-\multirow@colwidth=\skip112
-\multirow@cntb=\count282
-\multirow@dima=\skip113
+\multirow@colwidth=\skip114
+\multirow@cntb=\count283
+\multirow@dima=\skip115
 \bigstrutjot=\dimen177
 )
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\booktabs\booktabs.s
@@ -727,32 +739,32 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \cmidrulesep=\dimen185
 \cmidrulekern=\dimen186
 \defaultaddspace=\dimen187
-\@cmidla=\count283
-\@cmidlb=\count284
+\@cmidla=\count284
+\@cmidlb=\count285
 \@aboverulesep=\dimen188
 \@belowrulesep=\dimen189
-\@thisruleclass=\count285
-\@lastruleclass=\count286
+\@thisruleclass=\count286
+\@lastruleclass=\count287
 \@thisrulewidth=\dimen190
 )
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\threeparttable\thre
 eparttable.sty"
 Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box45
+\@tempboxb=\box46
 ) ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\array.sty"
 Package: array 2018/04/30 v2.4h Tabular extension package (FMi)
 \col@sep=\dimen191
-\ar@mcellbox=\box46
+\ar@mcellbox=\box47
 \extrarowheight=\dimen192
-\NC@list=\toks23
-\extratabsurround=\skip114
-\backup@length=\skip115
-\ar@cellbox=\box47
+\NC@list=\toks24
+\extratabsurround=\skip116
+\backup@length=\skip117
+\ar@cellbox=\box48
 )
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\quotchap\quotchap.s
 ty"
 Package: quotchap 2012/10/20 v1.1 Decorative Chapter Headings with Quotes
-\@quotebox=\box48
+\@quotebox=\box49
 )
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\blindtext\blindtext
 .sty"
@@ -760,24 +772,24 @@ Package: blindtext 2012/01/06 V2.0 blindtext-Package
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\xspace.sty"
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count287
-\c@Blindtext=\count288
-\c@blind@countparstart=\count289
-\blind@countxx=\count290
-\blindtext@numBlindtext=\count291
-\blind@countyy=\count292
-\c@blindlist=\count293
-\c@blindlistlevel=\count294
-\c@blindlist@level=\count295
-\blind@listitem=\count296
-\c@blind@listcount=\count297
-\c@blind@levelcount=\count298
-\blind@mathformula=\count299
-\blind@Mathformula=\count300
-\c@blind@randomcount=\count301
-\c@blind@randommax=\count302
-\c@blind@pangramcount=\count303
-\c@blind@pangrammax=\count304
+\c@blindtext=\count288
+\c@Blindtext=\count289
+\c@blind@countparstart=\count290
+\blind@countxx=\count291
+\blindtext@numBlindtext=\count292
+\blind@countyy=\count293
+\c@blindlist=\count294
+\c@blindlistlevel=\count295
+\c@blindlist@level=\count296
+\blind@listitem=\count297
+\c@blind@listcount=\count298
+\c@blind@levelcount=\count299
+\blind@mathformula=\count300
+\blind@Mathformula=\count301
+\c@blind@randomcount=\count302
+\c@blind@randommax=\count303
+\c@blind@pangramcount=\count304
+\c@blind@pangrammax=\count305
 )) ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\lmodern.sty"
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -815,7 +827,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 ) ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.s
 ty"
 Package: amsmath 2017/09/02 v2.17a AMS math features
-\@mathmargin=\skip116
+\@mathmargin=\skip118
 For additional information on amsmath, use the `?' option.
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -824,42 +836,42 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 y"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count305
+\inf@bad=\count306
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count306
-\leftroot@=\count307
+\uproot@=\count307
+\leftroot@=\count308
 LaTeX Font Info:    Redeclaring math symbol \varTheta on input line 373.
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count308
-\DOTSCASE@=\count309
+\classnum@=\count309
+\DOTSCASE@=\count310
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
-\Mathstrutbox@=\box49
-\strutbox@=\box50
+\Mathstrutbox@=\box50
+\strutbox@=\box51
 \big@size=\dimen194
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count310
-\c@MaxMatrixCols=\count311
+\macc@depth=\count311
+\c@MaxMatrixCols=\count312
 \dotsspace@=\muskip17
-\c@parentequation=\count312
-\dspbrk@lvl=\count313
-\tag@help=\toks24
-\row@=\count314
-\column@=\count315
-\maxfields@=\count316
-\andhelp@=\toks25
+\c@parentequation=\count313
+\dspbrk@lvl=\count314
+\tag@help=\toks25
+\row@=\count315
+\column@=\count316
+\maxfields@=\count317
+\andhelp@=\toks26
 \eqnshift@=\dimen195
 \alignsep@=\dimen196
 \tagshift@=\dimen197
 \tagwidth@=\dimen198
 \totwidth@=\dimen199
 \lineht@=\dimen256
-\@envbody=\toks26
-\multlinegap=\skip117
-\multlinetaggap=\skip118
-\mathdisplay@stack=\toks27
+\@envbody=\toks27
+\multlinegap=\skip119
+\multlinetaggap=\skip120
+\mathdisplay@stack=\toks28
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 ) ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\upquote\upquote.s
@@ -950,9 +962,9 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.s
 ty"
 Package: geometry 2018/04/16 v5.8 Page Geometry
-\Gm@cnth=\count317
-\Gm@cntv=\count318
-\c@Gm@tempcnt=\count319
+\Gm@cnth=\count318
+\Gm@cntv=\count319
+\c@Gm@tempcnt=\count320
 \Gm@bindingoffset=\dimen257
 \Gm@wd@mp=\dimen258
 \Gm@odd@mp=\dimen259
@@ -961,7 +973,7 @@ Package: geometry 2018/04/16 v5.8 Page Geometry
 \Gm@layoutheight=\dimen262
 \Gm@layouthoffset=\dimen263
 \Gm@layoutvoffset=\dimen264
-\Gm@dimlist=\toks28
+\Gm@dimlist=\toks29
 
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\xelatex\xetexconfig\geome
 try.cfg"))
@@ -978,16 +990,16 @@ Package hyperref Info: Option `breaklinks' set `true' on input line 30.
 ty"
 Package: fancyvrb 2018/11/20
 Style option: `fancyvrb' v3.1a <2018/11/20> (tvz)
-\FV@CodeLineNo=\count320
+\FV@CodeLineNo=\count321
 \FV@InFile=\read3
-\FV@TabBox=\box51
-\c@FancyVerbLine=\count321
-\FV@StepNumber=\count322
+\FV@TabBox=\box52
+\c@FancyVerbLine=\count322
+\FV@StepNumber=\count323
 \FV@OutFile=\write3
 ) ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\framed\framed.sty
 "
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip119
+\OuterFrameSep=\skip121
 \fb@frw=\dimen265
 \fb@frh=\dimen266
 \FrameRule=\dimen267
@@ -1008,15 +1020,7 @@ Package array Warning: Column x is already defined on input line 138.
 Package: cancel 2013/04/12 v2.2 Cancel math terms
 ) (OperationalFrameworks.aux
 
-LaTeX Warning: Label `sec:The theoretical foundation of OpRisk' multiply define
-d.
-
-
-LaTeX Warning: Label `ssec:Applicability of EBOR methodology for capturing forw
-ard-looking aspects of ORM' multiply defined.
-
-
-LaTeX Warning: Label `sec:Introduction' multiply defined.
+LaTeX Warning: Label `Desk_Proportions' multiply defined.
 
 
 LaTeX Warning: Label `eqn3' multiply defined.
@@ -1051,11 +1055,12 @@ File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    ... okay on input line 146.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
+Package caption Info: rotating package is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
 ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 146.
-\AtBeginShipoutBox=\box52
+\AtBeginShipoutBox=\box53
 Package hyperref Info: Link coloring OFF on input line 146.
 
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.st
@@ -1066,7 +1071,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 string.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count323
+\c@section@level=\count324
 )
 LaTeX Info: Redefining \ref on input line 146.
 LaTeX Info: Redefining \pageref on input line 146.
@@ -1187,13 +1192,13 @@ Overfull \hbox (29.83226pt too wide) in paragraph at lines 147--147
 
 ] [2
 
-] [3] [4
+] [3
+
+] [4
 
 ] [5
 
-] [6
-
-] (OperationalFrameworks.toc [7
+] (OperationalFrameworks.toc [6
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 44--44
@@ -1202,30 +1207,36 @@ looking
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--72
+Underfull \hbox (badness 10000) in paragraph at lines 65--65
+ [][] []\TU/lmr/m/n/12 The estimation of some poisson regression generalised li
+near models 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--67
+ [][] []\TU/lmr/m/n/12 The estimation of some generalised additive models for l
+ocation scale and 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--74
  [][] [][]\TU/lmr/m/n/12 THEORETICAL INVESTIGATIONS INTO THE QUANTIFICATION 
  []
 
-[8])
+[7])
 \tf@toc=\write5
 \openout5 = `OperationalFrameworks.toc'.
 
-[9] (OperationalFrameworks.lot
+[8] (OperationalFrameworks.lot
 Underfull \hbox (badness 10000) in paragraph at lines 4--4
- [][] [][]\TU/lmr/m/n/12 The contents of the traded transactions of the associa
-ted risk correc- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
  [][] [][]\TU/lmr/m/n/12 The generalized linear model link functions with their
  associated 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 5--5
- \TU/lmr/m/n/12 units of interpretation. Note: This list is not exhaustive and 
-there 
+ [][] [][]\TU/lmr/m/n/12 The contents of the traded transactions of the associa
+ted risk correc- 
  []
 
 
@@ -1256,7 +1267,7 @@ ses,
 \tf@lot=\write6
 \openout6 = `OperationalFrameworks.lot'.
 
-[10
+[9
 
 ] (OperationalFrameworks.lof
 Underfull \hbox (badness 10000) in paragraph at lines 5--5
@@ -1282,89 +1293,155 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--6
 bution of 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--7
+ [][] [][]\TU/lmr/m/n/12 Density plots showing a comparison of realised vs pend
+ing losses 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--7
+ \TU/lmr/m/n/12 and/near misses over a month for the day in the month the OpRis
+k 
+ []
+
+
+Overfull \hbox (9.66011pt too wide) in paragraph at lines 7--7
+ \TU/lmr/m/n/12 incident was updated to the day in the month trades were traded
+/booked[] [][]  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--9
+ [][] [][]\TU/lmr/m/n/12 Mosaic grid plots for the bidimensional distribution b
+y traded in- 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--9
+ \TU/lmr/m/n/12 strument, the trader originating the operational event, and by 
+the 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--9
+ \TU/lmr/m/n/12 technical support personnel involved in query resolution, again
+st the 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
+ [][] [][]\TU/lmr/m/n/12 Graphically displayed correlations by strength and a p
+lot of OpRisk 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--14
+ [][] [][]\TU/lmr/m/n/12 Finding the optimal number of \TU/lmr/m/it/12 k \TU/lm
+r/m/n/12 groups by the Silhouette Statis- 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--14
+ \TU/lmr/m/n/12 tic SS: Sum is a measure to approximate the optimal number of \
+TU/lmr/m/it/12 k 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+ [][] [][]\TU/lmr/m/n/12 A scatterplot matrix for the \TU/lmr/m/it/12 k\TU/lmr/
+m/n/12 -means clustering of size 4, and the 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+ \TU/lmr/m/n/12 covariates of frequency loss events consisting of 369 loss even
+t fre- 
+ []
+
 )
 \tf@lof=\write7
 \openout7 = `OperationalFrameworks.lof'.
 
-[11
+[10
 
 ]
 Chapter 1.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 326.
+(hyperref)                be the same. Added a new anchor on input line 315.
 
 [1
 
 ]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 364.
+(hyperref)                be the same. Added a new anchor on input line 353.
 
 [2] [3]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 455.
+(hyperref)                be the same. Added a new anchor on input line 444.
 
 [4]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 488.
+(Font)              <10> on input line 477.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 488.
+(Font)              <7> on input line 477.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 488.
+(Font)              <5> on input line 477.
 [5] [6]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 534.
+(hyperref)                be the same. Added a new anchor on input line 523.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 545--545
+Underfull \hbox (badness 10000) in paragraph at lines 534--534
 [][][]\TU/lmr/m/n/10 The aggregate loss distribution is obtained by convoluting
  a loss event frequency distribution
  []
 
 [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 624--624
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
 [][][]\TU/lmr/m/n/10 Meaning as of the publication [@risk2016supporting] the me
 thods brought forth in the consul-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 624--624
+Underfull \hbox (badness 10000) in paragraph at lines 613--613
 \TU/lmr/m/n/10 tative document have not been approved for the public, the ideas
  within an experimental (leased)
  []
 
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 650.
+(hyperref)                be the same. Added a new anchor on input line 639.
 
 [10] [11] [12]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 721.
+(hyperref)                be the same. Added a new anchor on input line 710.
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 775--775
+Underfull \hbox (badness 10000) in paragraph at lines 764--764
 [][][]\TU/lmr/m/n/10 As recent evidence from human brain imaging has shown [@ku
 hnen2005neural] linking neural
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 805--805
+Underfull \hbox (badness 10000) in paragraph at lines 794--794
 [][][]\TU/lmr/m/n/10 Representing ability of FI’s financial market models to ch
 aracterise the repeated decision-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 836--836
+Underfull \hbox (badness 10000) in paragraph at lines 825--825
 [][][]\TU/lmr/m/n/10 OpRisk loss events in FI’s are largely due to human failin
 gs that are exploitable e.g., fraud-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 836--836
+Underfull \hbox (badness 10000) in paragraph at lines 825--825
 \TU/lmr/m/n/10 ulent trading activity, and PT is based on the same behavioural 
 element of how people make
  []
@@ -1372,30 +1449,30 @@ element of how people make
 [15]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 852.
+(hyperref)                be the same. Added a new anchor on input line 841.
 
 
 LaTeX Warning: Reference `sssec:Expected utility theory' on page 16 undefined o
-n input line 856.
+n input line 845.
 
 [16] [17] [18]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 947.
+(hyperref)                be the same. Added a new anchor on input line 936.
 
 [19]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 968.
+(hyperref)                be the same. Added a new anchor on input line 957.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1006--1006
+Underfull \hbox (badness 10000) in paragraph at lines 995--995
 [][][]\TU/lmr/m/n/10 A typical approach taken in the literature is to use an un
 supervised learning algorithm to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1006--1006
+Underfull \hbox (badness 10000) in paragraph at lines 995--995
 \TU/lmr/m/n/10 train a model of the unlabeled data and then use the results to 
 extract interesting features from
  []
@@ -1404,12 +1481,12 @@ extract interesting features from
 Chapter 2.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1084.
+(hyperref)                be the same. Added a new anchor on input line 1073.
 
 [24
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1120--1120
+Underfull \hbox (badness 10000) in paragraph at lines 1109--1109
 [][][]\TU/lmr/m/n/10 In behavioral finance, we investigate whether certain fina
 ncial phenomena are the result of less
  []
@@ -1417,52 +1494,52 @@ ncial phenomena are the result of less
 [25] [26]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1194.
+(hyperref)                be the same. Added a new anchor on input line 1183.
 
 [27]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1226.
+(hyperref)                be the same. Added a new anchor on input line 1215.
 
 [28] [29] [30]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1336.
+(hyperref)                be the same. Added a new anchor on input line 1325.
 
 [31] [32] [33] [34] [35]
 Chapter 3.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1494.
+(hyperref)                be the same. Added a new anchor on input line 1483.
 
 [36
 
-] [37]
+]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 1594.
+(hyperref)                be the same. Added a new anchor on input line 1526.
 
-[38] [39] [40]
+[37] [38] [39]
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 1710; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 1675; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
 (fontspec)                 The current font is "\TU/lmr/m/n/10.95 ".
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
-[41]
+[40]
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 1780; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 1734; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
 (fontspec)                 The current font is "\TU/lmr/m/n/10.95 ".
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
-[42]
+[41] [42]
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 1820; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 1809; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
@@ -1474,17 +1551,17 @@ File: IntraDayUpdatedTime.eps Graphic file (type eps)
 File: TrendTraderId.eps Graphic file (type eps)
 <TrendTraderId.eps>
 
-Overfull \hbox (213.4786pt too wide) in paragraph at lines 1819--1827
+Overfull \hbox (213.4786pt too wide) in paragraph at lines 1808--1816
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1819--1827
+Underfull \hbox (badness 10000) in paragraph at lines 1808--1816
 
  []
 
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 1834; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 1823; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
@@ -1496,18 +1573,18 @@ File: UpdatedDayFreq.eps Graphic file (type eps)
 File: TradedDayFreq.eps Graphic file (type eps)
 <TradedDayFreq.eps>
 
-Overfull \hbox (264.06769pt too wide) in paragraph at lines 1833--1841
+Overfull \hbox (198.07721pt too wide) in paragraph at lines 1822--1830
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1833--1841
+Underfull \hbox (badness 10000) in paragraph at lines 1822--1830
 
  []
 
 [43] [44]
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 1859; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 1848; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
@@ -1521,77 +1598,77 @@ File: Dist_exposure.eps Graphic file (type eps)
 File: Benford.eps Graphic file (type eps)
 <Benford.eps>
 
-Overfull \hbox (29.14542pt too wide) in paragraph at lines 1858--1868
+Overfull \hbox (29.14542pt too wide) in paragraph at lines 1847--1857
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1858--1868
+Underfull \hbox (badness 10000) in paragraph at lines 1847--1857
 
  []
 
 [45]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1916.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1905.
 [46]
 File: Exploratory_UpdateTime_Frequency3plot.eps Graphic file (type eps)
 <Exploratory_UpdateTime_Frequency3plot.eps>
 File: Exploratory_UpdateDay_Frequency3plot.eps Graphic file (type eps)
 <Exploratory_UpdateDay_Frequency3plot.eps>
+File: Density_UpdateDay_TradedDay.eps Graphic file (type eps)
+<Density_UpdateDay_TradedDay.eps>
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 1988; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 1992; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
 (fontspec)                 The current font is "\TU/lmr/m/n/10.95 ".
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
-[47] [48]
 File: Exploratory_Desk_Proportions.eps Graphic file (type eps)
 <Exploratory_Desk_Proportions.eps>
 
-Underfull \hbox (badness 10000) in paragraph at lines 2025--2025
+Underfull \hbox (badness 10000) in paragraph at lines 2033--2033
 [][][]\TU/lmr/m/n/10 i.e. the type of financial instrument, the trader who orig
 inated the incident on the deal, and
  []
 
+[47] [48] [49]
 
-Underfull \hbox (badness 10000) in paragraph at lines 2030--2031
-[]\TU/lmr/m/n/12 Mosaic grid plots for the bidimensional distribution by traded
- instrument, the
+Package fontspec Warning: \addfontfeature(s) ignored on line 2043; it cannot
+(fontspec)                be used with a font that wasn't selected by a
+(fontspec)                fontspec command.
+(fontspec)                 
+(fontspec)                 The current font is "\TU/lmr/m/n/12 ".
+(fontspec)                  The requested feature is "RawFeature=+tnum". 
+
+File: Single_Instr.eps Graphic file (type eps)
+<Single_Instr.eps>
+File: Stacked_TrId_TechSup.eps Graphic file (type eps)
+<Stacked_TrId_TechSup.eps>
+
+Overfull \hbox (17.17122pt too wide) in paragraph at lines 2042--2050
+[][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2030--2031
-\TU/lmr/m/n/12 trader originating the operational event, and by the technical s
-upport personnel
+Underfull \hbox (badness 10000) in paragraph at lines 2042--2050
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2030--2031
-\TU/lmr/m/n/12 involved in query resolution, against the dummy variable showing
- if a realised loss
- []
+LaTeX Warning: Reference `Mosaic_Trader' on page 50 undefined on input line 205
+7.
 
-File: Mosaic_Instrument.eps Graphic file (type eps)
-<Mosaic_Instrument.eps>
 
-Overfull \vbox (99.5943pt too high) detected at line 2038
- []
+LaTeX Warning: Reference `Mosaic_Tech_Support' on page 50 undefined on input li
+ne 2062.
 
-File: Mosaic_Trader.eps Graphic file (type eps)
-<Mosaic_Trader.eps>
-File: Mosaic_Tech_Support.eps Graphic file (type eps)
-<Mosaic_Tech_Support.eps>
-[49] [50]
-Overfull \vbox (0.70657pt too high) detected at line 2101
- []
-
-[51]
+[50]
 File: Mosaic_Contingency.eps Graphic file (type eps)
 <Mosaic_Contingency.eps>
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 2124; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 2120; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
@@ -1599,44 +1676,45 @@ Package fontspec Warning: \addfontfeature(s) ignored on line 2124; it cannot
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 2124.
+(Font)              <10.95> on input line 2120.
 
-Overfull \hbox (1.29373pt too wide) in paragraph at lines 2126--2126
+Overfull \hbox (1.29373pt too wide) in paragraph at lines 2122--2122
 []|\TU/lmr/m/n/10.95 TradeStatus| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2126--2126
+Underfull \hbox (badness 10000) in paragraph at lines 2122--2122
 []|\TU/lmr/m/n/10.95 Loss Indica-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2126--2126
+Underfull \hbox (badness 10000) in paragraph at lines 2122--2122
 []|\TU/lmr/m/n/10.95 Vice Princi-
  []
 
 
-Overfull \hbox (32.85162pt too wide) in paragraph at lines 2127--2127
+Overfull \hbox (32.85162pt too wide) in paragraph at lines 2123--2123
 []|[]| 
  []
 
 
-Overfull \hbox (12.93358pt too wide) in paragraph at lines 2129--2129
+Overfull \hbox (12.93358pt too wide) in paragraph at lines 2125--2125
 []|[]| 
  []
 
 
-Overfull \hbox (25.56987pt too wide) in paragraph at lines 2133--2133
+Overfull \hbox (25.56987pt too wide) in paragraph at lines 2129--2129
 []|[]| 
  []
 
 
-Overfull \hbox (13.44125pt too wide) in paragraph at lines 2124--2136
+Overfull \hbox (13.44125pt too wide) in paragraph at lines 2120--2132
  [][] 
  []
 
+[51] [52]
 
-Package fontspec Warning: \addfontfeature(s) ignored on line 2148; it cannot
+Package fontspec Warning: \addfontfeature(s) ignored on line 2144; it cannot
 (fontspec)                be used with a font that wasn't selected by a
 (fontspec)                fontspec command.
 (fontspec)                 
@@ -1644,327 +1722,515 @@ Package fontspec Warning: \addfontfeature(s) ignored on line 2148; it cannot
 (fontspec)                  The requested feature is "RawFeature=+tnum". 
 
 
-Overfull \hbox (37.26608pt too wide) in paragraph at lines 2151--2151
+Overfull \hbox (37.26608pt too wide) in paragraph at lines 2147--2147
 []|\TU/lmr/m/n/10.95 CapturedBy_TECHSUPPORT| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2152--2152
+Underfull \hbox (badness 10000) in paragraph at lines 2148--2148
 []|\TU/lmr/m/n/10.95 TradeStatus_BO con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2155--2155
+Underfull \hbox (badness 10000) in paragraph at lines 2151--2151
 []|\TU/lmr/m/n/10.95 Reason_Trade en-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2155--2155
+Underfull \hbox (badness 10000) in paragraph at lines 2151--2151
 \TU/lmr/m/n/10.95 richment for system
  []
 
 
-Overfull \hbox (35.26225pt too wide) in paragraph at lines 2156--2156
+Overfull \hbox (35.26225pt too wide) in paragraph at lines 2152--2152
 []|\TU/lmr/m/n/10.95 EventTypeCategoryLevel_EL7| 
  []
 
 
-Overfull \hbox (1.1749pt too wide) in paragraph at lines 2157--2157
+Overfull \hbox (1.1749pt too wide) in paragraph at lines 2153--2153
 []|\TU/lmr/m/n/10.95 BusinessLineLevel_BL2| 
  []
 
-[52] [53] [54]
+
+Underfull \hbox (badness 10000) in paragraph at lines 2161--2161
+|\TU/lmr/bx/n/12 The estimation of some poisson regression generalised linear m
+odels
+ []
+
+File: C:/Users/User/Documents/OpRiskPHDGitHub/OpRisk_PHD_Dissertate/OpRisk_PHD_
+Dissertation/figures/smallorb_90.eps Graphic file (type eps)
+<C:/Users/User/Documents/OpRiskPHDGitHub/OpRisk_PHD_Dissertate/OpRisk_PHD_Disse
+rtation/figures/smallorb_90.eps>
+[53]
+Overfull \hbox (10.42804pt too wide) in paragraph at lines 2207--2212
+\TU/lmr/m/n/12 data=d1, a data frame containing the OpRisk dataset and the r of
+fset=log(exposure)‘, 
+ []
+
+[54]
+Overfull \hbox (97.85988pt too wide) in paragraph at lines 2243--2243
+[]\TU/lmtt/m/n/12 ## glm(formula = LossesIndicator ~ UpdatedTime + Desk, family
+ = poisson(link = "log"),[] 
+ []
+
+[55] [56]
+Overfull \hbox (5.1599pt too wide) in paragraph at lines 2329--2329
+[]    \TU/lmtt/m/n/12 Instrument + Reason + EventTypeCategoryLevel1 + BusinessL
+ineLevel1,[] 
+ []
+
+
+Overfull \hbox (209.09944pt too wide) in paragraph at lines 2337--2337
+[]                                                        \TU/lmtt/m/n/12 Estim
+ate Std. Error z value             Pr(>|z|)[] 
+ []
+
+
+Overfull \hbox (36.01187pt too wide) in paragraph at lines 2338--2338
+[]\TU/lmtt/m/n/12 (Intercept)            -8.953252   0.604562 -14.809 < 0.00000
+00000000002 ***[] 
+ []
+
+
+Overfull \hbox (11.29178pt too wide) in paragraph at lines 2339--2339
+[]\TU/lmtt/m/n/12 UpdatedDay             -0.006976   0.008140  -0.857          
+   0.391428[] 
+ []
+
+
+Overfull \hbox (23.65176pt too wide) in paragraph at lines 2340--2340
+[]\TU/lmtt/m/n/12 UpdatedTime             1.113913   0.564165   1.974          
+   0.048331 *[] 
+ []
+
+
+Overfull \hbox (23.66374pt too wide) in paragraph at lines 2341--2341
+[]\TU/lmtt/m/n/12 TradedDay              -0.012303   0.006368  -1.932          
+   0.053382 .[] 
+ []
+
+
+Overfull \hbox (11.27975pt too wide) in paragraph at lines 2342--2342
+[]\TU/lmtt/m/n/12 TradedTime              0.101378   0.637529   0.159          
+   0.873656[] 
+ []
+
+
+Overfull \hbox (35.97583pt too wide) in paragraph at lines 2343--2343
+[]\TU/lmtt/m/n/12 DeskAfrica              1.899956   0.446050   4.260   0.00002
+04875303586 ***[] 
+ []
+
+[57]
+Overfull \hbox (36.05986pt too wide) in paragraph at lines 2344--2344
+[]\TU/lmtt/m/n/12 DeskBonds/Repos         2.803220   0.334324   8.385 < 0.00000
+00000000002 ***[] 
+ []
+
+
+Overfull \hbox (23.67577pt too wide) in paragraph at lines 2345--2345
+[]\TU/lmtt/m/n/12 DeskCommodities         0.747527   0.364630   2.050          
+   0.040355 *[] 
+ []
+
+
+Overfull \hbox (23.62778pt too wide) in paragraph at lines 2346--2346
+[]\TU/lmtt/m/n/12 DeskDerivatives         0.683199   0.374174   1.826          
+   0.067867 .[] 
+ []
+
+
+Overfull \hbox (35.99985pt too wide) in paragraph at lines 2347--2347
+[]\TU/lmtt/m/n/12 DeskEquity              1.507079   0.321232   4.692   0.00000
+27113532659 ***[] 
+ []
+
+
+Overfull \hbox (23.66385pt too wide) in paragraph at lines 2348--2348
+[]\TU/lmtt/m/n/12 DeskManagement/Other   -2.054697   1.082815  -1.898          
+   0.057755 .[] 
+ []
+
+
+Overfull \hbox (36.02373pt too wide) in paragraph at lines 2349--2349
+[]\TU/lmtt/m/n/12 DeskMM                  1.544054   0.453315   3.406          
+   0.000659 ***[] 
+ []
+
+
+Overfull \hbox (11.29181pt too wide) in paragraph at lines 2350--2350
+[]\TU/lmtt/m/n/12 DeskPrime Services     -0.028783   0.960227  -0.030          
+   0.976087[] 
+ []
+
+
+Overfull \hbox (11.27974pt too wide) in paragraph at lines 2351--2351
+[]\TU/lmtt/m/n/12 DeskSND                 0.766563   0.573844   1.336          
+   0.181602[] 
+ []
+
+
+Overfull \hbox (23.65182pt too wide) in paragraph at lines 2354--2354
+[]\TU/lmtt/m/n/12 BusinessLineLevel1BL1   1.537103   0.636829   2.414          
+   0.015792 *[] 
+ []
+
+
+Overfull \hbox (11.29185pt too wide) in paragraph at lines 2355--2355
+[]\TU/lmtt/m/n/12 BusinessLineLevel1BL3  -0.359123   0.514434  -0.698          
+   0.485119[] 
+ []
+
+
+Overfull \hbox (35.99986pt too wide) in paragraph at lines 2356--2356
+[]\TU/lmtt/m/n/12 BusinessLineLevel1BL4  -1.384293   0.391691  -3.534          
+   0.000409 ***[] 
+ []
+
+
+Overfull \hbox (29.78386pt too wide) in paragraph at lines 2357--2357
+[]\TU/lmtt/m/n/12 BusinessLineLevel1BL5  -1.169766   0.394350  -2.966          
+   0.003014 **[] 
+ []
+
+
+Overfull \hbox (11.30385pt too wide) in paragraph at lines 2358--2358
+[]\TU/lmtt/m/n/12 BusinessLineLevel1BL6   1.250498   1.002141   1.248          
+   0.212095[] 
+ []
+
+
+Overfull \hbox (11.26784pt too wide) in paragraph at lines 2359--2359
+[]\TU/lmtt/m/n/12 BusinessLineLevel1BL7   0.875839   1.746369   0.502          
+   0.616005[] 
+ []
+
+
+Overfull \hbox (29.79584pt too wide) in paragraph at lines 2360--2360
+[]\TU/lmtt/m/n/12 BusinessLineLevel1BL9   4.214689   1.598598   2.636          
+   0.008377 **[] 
+ []
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 2379.
+
+[58]
+File: C:/Users/User/Documents/OpRiskPHDGitHub/OpRisk_PHD_Dissertate/OpRisk_PHD_
+Dissertation/figures/smallorb_90.eps Graphic file (type eps)
+<C:/Users/User/Documents/OpRiskPHDGitHub/OpRisk_PHD_Dissertate/OpRisk_PHD_Disse
+rtation/figures/smallorb_90.eps>
+[59]
+Overfull \hbox (5.0997pt too wide) in paragraph at lines 2462--2462
+[]\TU/lmtt/m/n/12 2942  -9.107     +    +     +     +     + -0.011660   +     +
+ 1.2760000[] 
+ []
+
+[60]
+Underfull \hbox (badness 10000) in paragraph at lines 2507--2507
+|\TU/lmr/bx/n/12 The estimation of some generalised additive models for locatio
+n scale
+ []
+
+
+Overfull \hbox (2.93295pt too wide) in alignment at lines 2518--2522
+ [][][] []
+ []
+
+[61] [62]
 Chapter 4.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 2186.
+(hyperref)                be the same. Added a new anchor on input line 2575.
 
-[55
+[63
 
-] [56]
+] [64] [65]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 2284.
+(hyperref)                be the same. Added a new anchor on input line 2671.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2284.
+(hyperref)                removing `math shift' on input line 2671.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2284.
+(hyperref)                removing `math shift' on input line 2671.
 
-[57] [58]
+[66] [67]
 Chapter 5.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 2334.
+(hyperref)                be the same. Added a new anchor on input line 2721.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2362.
+(hyperref)                removing `math shift' on input line 2749.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2362.
+(hyperref)                removing `math shift' on input line 2749.
 
-[59
+[68
 
-] [60] [61]
-Underfull \hbox (badness 10000) in paragraph at lines 2442--2442
+] [69] [70]
+Underfull \hbox (badness 10000) in paragraph at lines 2829--2829
 [][][]\TU/lmr/m/n/10 A typical approach taken in the literature is to use an un
 supervised learning algorithm to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2442--2442
+Underfull \hbox (badness 10000) in paragraph at lines 2829--2829
 \TU/lmr/m/n/10 train a model of the unlabeled data and then use the results to 
 extract interesting features from
  []
 
-[62]
+[71]
+
+Package fontspec Warning: \addfontfeature(s) ignored on line 2874; it cannot
+(fontspec)                be used with a font that wasn't selected by a
+(fontspec)                fontspec command.
+(fontspec)                 
+(fontspec)                 The current font is "\TU/lmr/m/n/12 ".
+(fontspec)                  The requested feature is "RawFeature=+tnum". 
+
+File: Loss_vs_Exposure(1).eps Graphic file (type eps)
+<Loss_vs_Exposure(1).eps>
+File: CorrPlot.eps Graphic file (type eps)
+<CorrPlot.eps>
+
+LaTeX Warning: Reference `Fig5' on page 72 undefined on input line 2903.
+
+[72]
+File: IterateKmeans.eps Graphic file (type eps)
+<IterateKmeans.eps>
+[73] [74]
+File: CA14MeansPlot.eps Graphic file (type eps)
+<CA14MeansPlot.eps>
+[75] [76]
 Chapter 6.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 2463.
+(hyperref)                be the same. Added a new anchor on input line 2987.
 
 
-Overfull \hbox (54.59993pt too wide) in paragraph at lines 2496--2496
+Overfull \hbox (5.14789pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/12 ## Error: Column indexes must be at most 15 if positive, not 
+16, 17, 18 
+ []
+
+
+Overfull \hbox (375.9117pt too wide) in paragraph at lines 3004--3004
+[]\TU/lmtt/m/n/12 ## Error: Column indexes must be at most 15 if positive, not 
+19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36 
+ []
+
+
+Overfull \hbox (73.13991pt too wide) in paragraph at lines 3008--3008
+[]\TU/lmtt/m/n/12 ## Error in mutate_impl(.data, dots): Evaluation error: objec
+t []cigrec[] not found. 
+ []
+
+
+Overfull \hbox (54.59993pt too wide) in paragraph at lines 3016--3016
 []\TU/lmtt/m/n/12 ## Error in here("Data/NSDUH_2014_Results.rda"): could not fi
 nd function "here" 
  []
 
 
-Overfull \hbox (289.4398pt too wide) in paragraph at lines 2504--2504
+Overfull \hbox (289.4398pt too wide) in paragraph at lines 3024--3024
 []\TU/lmtt/m/n/12 ## Error in svydesign(ids = ~1, strata = ~vestr, weights = ~a
 nalwt_c, data = d1): could not find function "svydesign" 
  []
 
 
-Overfull \hbox (239.9998pt too wide) in paragraph at lines 2508--2508
+Overfull \hbox (239.9998pt too wide) in paragraph at lines 3028--3028
 []\TU/lmtt/m/n/12 ## Error in svyglm(self ~ religious + age2 + irsex + newrace2
  + irfamin3 + : could not find function "svyglm" 
  []
 
 
-Overfull \hbox (239.9998pt too wide) in paragraph at lines 2512--2512
+Overfull \hbox (239.9998pt too wide) in paragraph at lines 3032--3032
 []\TU/lmtt/m/n/12 ## Error in svyglm(peer ~ religious + age2 + irsex + newrace2
  + irfamin3 + : could not find function "svyglm" 
  []
 
 
-Overfull \hbox (233.8198pt too wide) in paragraph at lines 2516--2516
+Overfull \hbox (233.8198pt too wide) in paragraph at lines 3036--3036
 []\TU/lmtt/m/n/12 ## Error in svyglm(dep ~ religious + age2 + irsex + newrace2 
 + irfamin3 + : could not find function "svyglm" 
  []
 
 
-Overfull \hbox (128.75989pt too wide) in paragraph at lines 2524--2524
+Overfull \hbox (128.75989pt too wide) in paragraph at lines 3044--3044
 []\TU/lmtt/m/n/12 ## Error in rownames(est1) = c("Respondent", "Peer", "Depress
 ion"): object []est1[] not found 
  []
 
 
-Overfull \hbox (196.73987pt too wide) in paragraph at lines 2532--2532
+Overfull \hbox (196.73987pt too wide) in paragraph at lines 3052--3052
 []\TU/lmtt/m/n/12 ## Error in svyglm(model, design = design, family = "quasibin
 omial"): could not find function "svyglm" 
  []
 
 
-Overfull \hbox (66.95995pt too wide) in paragraph at lines 2536--2536
+Overfull \hbox (66.95995pt too wide) in paragraph at lines 3056--3056
 []\TU/lmtt/m/n/12 ## Error in vcov.default(object): object does not have varian
 ce-covariance matrix 
  []
 
 
-Overfull \hbox (159.6599pt too wide) in paragraph at lines 2540--2540
+Overfull \hbox (159.6599pt too wide) in paragraph at lines 3060--3060
 []\TU/lmtt/m/n/12 ## Error in rownames(est2) = c("Tobacco", "Rx", "Marijuana", 
 "Illicit"): object []est2[] not found 
  []
 
-[63
+[77
 
-] [64]
+] [78]
 Chapter 7.
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 2570.
-
-[65
-
-] [66
-
-] [67] [68] [69
-
-]
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 2822.
-
-[70
-
-]
-
-LaTeX Warning: Reference `fig:interaction' on page 71 undefined on input line 2
-843.
-
-
-LaTeX Warning: Reference `fig:interaction' on page 71 undefined on input line 2
-843.
-
-[71
-
-] [72
-
-]
-
-LaTeX Warning: Reference `tab_discrep' on page 73 undefined on input line 2899.
-
-
-
-LaTeX Warning: Reference `tab_discrep' on page 73 undefined on input line 2905.
-
-
-
-LaTeX Warning: Reference `tab_discrep' on page 73 undefined on input line 2905.
-
-
-
-LaTeX Warning: Reference `fig:totaltotal' on page 73 undefined on input line 29
-11.
-
-
-LaTeX Warning: Reference `fig:totaltotal' on page 73 undefined on input line 29
-11.
-
-
-LaTeX Warning: Reference `fig_power' on page 73 undefined on input line 2917.
-
-
-LaTeX Warning: Reference `fig_acc' on page 73 undefined on input line 2917.
-
-
-LaTeX Warning: Reference `fig_ci' on page 73 undefined on input line 2917.
-
-
-LaTeX Warning: Reference `fig_power' on page 73 undefined on input line 2918.
-
-
-LaTeX Warning: Reference `fig_acc' on page 73 undefined on input line 2918.
-
-
-LaTeX Warning: Reference `fig_ci' on page 73 undefined on input line 2918.
-
-[73
-
-] [74
-
-]
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 2950.
-
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2959.
-
-Underfull \vbox (badness 10000) detected at line 3098
- []
-
-[75
-
-]
-Underfull \vbox (badness 10000) detected at line 3098
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3098
- []
-
-[76]
-Underfull \vbox (badness 10000) detected at line 3098
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3098
- []
-
-[77] [78]
-Underfull \vbox (badness 10000) detected at line 3231
- []
+(hyperref)                be the same. Added a new anchor on input line 3090.
 
 [79
 
+] [80
+
+] [81] [82] [83] [84
+
 ]
-Underfull \vbox (badness 10000) detected at line 3231
- []
 
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 3354.
 
-Underfull \vbox (badness 10000) detected at line 3231
- []
-
-[80]
-Underfull \vbox (badness 10000) detected at line 3319
- []
-
-[81]
-Underfull \vbox (badness 10000) detected at line 3319
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3319
- []
-
-[82]
-Underfull \vbox (badness 10000) detected at line 3395
- []
-
-[83] [84]
-
-LaTeX Warning: Reference `tab:table1' on page 85 undefined on input line 3404.
-
-
-LaTeX Warning: Reference `tab:table1' on page 85 undefined on input line 3404.
-
-
-Underfull \vbox (badness 10000) detected at line 3475
- []
-
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3370.
 [85
 
 ]
+Underfull \vbox (badness 10000) detected at line 3457
+ []
 
-LaTeX Warning: Reference `tab:perc' on page 86 undefined on input line 3479.
+[86
+
+] [87]
+Overfull \vbox (1.10468pt too high) detected at line 3572
+ []
+
+[88
+
+] [89] [90
+
+] [91
+
+] [92
+
+]
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 3704.
 
 
-LaTeX Warning: Reference `tab:perc' on page 86 undefined on input line 3479.
+Underfull \vbox (badness 6542) detected at line 4260
+ []
+
+[93
+
+]
+Underfull \vbox (badness 10000) detected at line 4260
+ []
 
 
-LaTeX Warning: Reference `tab:oldperc' on page 86 undefined on input line 3515.
+Underfull \vbox (badness 10000) detected at line 4260
+ []
+
+[94]
+Underfull \vbox (badness 10000) detected at line 4260
+ []
 
 
+Underfull \vbox (badness 10000) detected at line 4260
+ []
 
-LaTeX Warning: Reference `tab:oldperc' on page 86 undefined on input line 3515.
+[95]
+Underfull \vbox (badness 10000) detected at line 4260
+ []
 
 
-[86]
+Underfull \vbox (badness 10000) detected at line 4260
+ []
 
-LaTeX Warning: Reference `fig:app' on page 87 undefined on input line 3533.
+[96]
+Underfull \vbox (badness 10000) detected at line 4260
+ []
 
 
-LaTeX Warning: Reference `fig:app' on page 87 undefined on input line 3533.
+Underfull \vbox (badness 10000) detected at line 4260
+ []
 
-[87] [88
+[97]
+Underfull \vbox (badness 10000) detected at line 4260
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4260
+ []
+
+[98]
+Underfull \vbox (badness 10000) detected at line 4260
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4260
+ []
+
+[99]
+Underfull \vbox (badness 10000) detected at line 4260
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4260
+ []
+
+[100]
+Underfull \vbox (badness 10000) detected at line 4260
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4260
+ []
+
+[101]
+Underfull \vbox (badness 10000) detected at line 4260
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4260
+ []
+
+[102]
+Underfull \vbox (badness 10000) detected at line 4260
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4260
+ []
+
+[103] [104] [105
+
 
 ] 
 AED: lastpage setting LastPage
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3578.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3578.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4283.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4283.
 (OperationalFrameworks.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3578.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3578.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4283.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4283.
 
 Package rerunfilecheck Info: File `OperationalFrameworks.out' has not changed.
-(rerunfilecheck)             Checksum: AD056F4705B2A7016A20EE233A170AF0.
+(rerunfilecheck)             Checksum: 18D10141494FD6B7E6DC4F5534B135B6.
 
 LaTeX Warning: There were undefined references.
 
@@ -1973,12 +2239,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 27007 strings out of 427798
- 481974 string characters out of 3148017
- 649723 words of memory out of 3000000
- 30680 multiletter control sequences out of 15000+200000
- 581725 words of font info for 84 fonts, out of 3000000 for 9000
+ 27144 strings out of 427798
+ 484679 string characters out of 3148017
+ 683974 words of memory out of 3000000
+ 30797 multiletter control sequences out of 15000+200000
+ 581757 words of font info for 88 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
- 52i,14n,65p,1212b,611s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 52i,12n,65p,1212b,611s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on OperationalFrameworks.pdf (100 pages).
+Output written on OperationalFrameworks.pdf (116 pages).

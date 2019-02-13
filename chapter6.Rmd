@@ -162,7 +162,7 @@ d1 = d1 %>%
                                  yepmjmo, yepaldly)))
 ```
 
-```{r app_models, eval=FALSE}
+```{r app_models, results="hide", fig.show="hide", fig.keep="none", echo=FALSE, eval=FALSE}
 ## Sampling Design
 library(survey)
 design = svydesign(ids = ~1, 

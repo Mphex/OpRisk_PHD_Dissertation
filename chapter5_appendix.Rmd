@@ -6,16 +6,16 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-\doublespacing
+<!-- \doublespacing -->
 
-# Appendix A: R Code for Chapter 5 {-}
+<!-- # Appendix A: R Code for Chapter 5 {-} -->
 
-\singlespace
+<!-- \singlespace -->
 
-Required: R Packages from CRAN
+<!-- Required: R Packages from CRAN -->
 
-\small
-```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
+<!-- \small -->
+```{r, echo=FALSE, eval=FALSE}
 if (!require(tidyverse)){
   install.packages("tidyverse")
   library(tidyverse)
@@ -33,55 +33,55 @@ if (!require(devtools)){
   library(devtools)
 }
 ```
-\normalsize
+<!-- \normalsize -->
 
-Required: R Packages from GitHub
+<!-- <!-- Required: R Packages from GitHub --> -->
 
-\small
-```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
+<!-- \small -->
+```{r, echo=FALSE, eval=FALSE}
 if (!require(MarginalMediation)){
   devtools::install_github("tysonstanley/MarginalMediation")
   library(MarginalMediation)
 }
 ```
-\normalsize
+<!-- \normalsize -->
 
-\clearpage
+<!-- \clearpage -->
 
-## Examples from Chapter 5 {-}
+<!-- ## Examples from Chapter 5 {-} -->
 
-Figure \ref{fig:interaction} on page \pageref{fig:interaction}
+<!-- Figure \ref{fig:interaction} on page \pageref{fig:interaction} -->
 
-\small
-```{r interaction_example, eval=FALSE}
+<!-- \small -->
+```{r interaction_example, echo=FALSE, eval=FALSE}
 ```
-\normalsize
+<!-- \normalsize -->
 
-\clearpage
+<!-- \clearpage -->
 
 
-## Monte Carlo Simulation {-}
+<!-- ## Monte Carlo Simulation {-} -->
 
-Notably, the code for both the binary mediator condition and the count mediator condition we run via the Terminal as, once the directory was where the R file was located:
+<!-- Notably, the code for both the binary mediator condition and the count mediator condition we run via the Terminal as, once the directory was where the R file was located: -->
 
-\small
-```{bash, eval=FALSE}
+<!-- \small -->
+```{bash, echo=FALSE, eval=FALSE}
 Rscript Analyses_MMMC_scriptBinary.R 'c(1:45)'
 ```
-\normalsize
+<!-- \normalsize -->
 
-\noindent and
+<!-- \noindent and -->
 
-\small
-```{bash, eval=FALSE}
+<!-- \small -->
+```{bash, echo=FALSE, eval=FALSE}
 Rscript Analyses_MMMC_scriptCount.R 'c(1:45)'
 ```
-\normalsize
+<!-- \normalsize -->
 
-Binary Mediator
+<!-- Binary Mediator -->
 
-\small
-```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
+<!-- \small -->
+```{r, echo=FALSE, eval=FALSE}
 ## Marginal Mediation: Monte Carlo Simulation Study
 ##   BINARY Mediator
 ## Tyson S. Barrett
@@ -163,12 +163,12 @@ for (j in args){
       "\n  C path      =", cond_binary[args[[i]],4], "\n")
 }
 ```
-\normalsize
+<!-- \normalsize -->
 
-Count Mediator
+<!-- Count Mediator -->
 
-\small
-```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
+<!-- \small -->
+```{r, echo=FALSE, eval=FALSE}
 ## Marginal Mediation: Monte Carlo Simulation Study
 ##   COUNT Mediator
 ## Tyson S. Barrett
@@ -248,37 +248,345 @@ for (j in args){
       "\n  C path      =", cond_count[args[[i]],4], "\n")
 }
 ```
+<!-- \normalsize -->
+
+<!-- \clearpage -->
+
+<!-- ## Monte Carlo Simulation Data Analyses {-} -->
+
+<!-- Data Preparations for tables and figures around page \pageref{tab_discrep} -->
+
+<!-- \small -->
+```{r sim_data_clean, echo=FALSE, eval=FALSE}
+```
+<!-- \normalsize -->
+
+<!-- Table \ref{tab_discrep} on page \pageref{tab_discrep} -->
+
+<!-- \small -->
+```{r sim_total_tab, echo=FALSE, eval=FALSE}
+```
+<!-- \normalsize -->
+
+<!-- Figure \ref{fig:totaltotal} on page \pageref{fig:totaltotal} -->
+
+<!-- \small -->
+```{r total_fig, echo=FALSE, eval=FALSE}
+```
+<!-- \normalsize -->
+
+<!-- Figures \ref{fig_power}, \ref{fig_acc}, and \ref{fig_ci} on pages \pageref{fig_power}, \pageref{fig_acc}, and \pageref{fig_ci}, respectively. -->
+
+<!-- \small -->
+```{r acc_power_cover, echo=FALSE, eval=FALSE}
+```
+<!-- \normalsize -->
+
+<!-- \clearpage -->
+
+\doublespacing
+
+# Appendix A: R Code for Chapter 3 {-}
+
+\singlespace
+
+Required: R Packages from CRAN
+
+\small
+```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
+if (!require(tidyverse)){
+  install.packages("tidyverse")
+  library(tidyverse)
+}
+if (!require(furniture)){
+  install.packages("furniture")
+  library(furniture)
+}
+if (!require(here)){
+  install.packages("here")
+  library(here)
+}
+if (!require(devtools)){
+  install.packages("devtools")
+  library(devtools)
+}
+if (!require(rattle)){
+  install.packages("rattle")
+  library(rattle)
+}
+if (!require(magrittr)){
+  install.packages("magrittr")
+  library(magrittr)
+}
+if (!require(Hmisc)){
+  install.packages("Hmisc")
+  library(Hmisc)
+}
+if (!require(chron)){
+  install.packages("chron")
+  library(chron)
+}  
+  if (!require(ggplot2)){
+  install.packages("ggplot2")
+  library(ggplot2)
+}
+if (!require(dplyr)){
+  install.packages("dplyr")
+  library(dplyr)
+}
+if (!require(MuMIn)){
+  install.packages("MuMIn")
+  library(MuMIn)
+}
+if (!require(gamlss)){
+  install.packages("gamlss")
+  library(gamlss)
+}
+
+```
+\normalsize
+
+Required: R Packages from GitHub
+
+\small
+```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=TRUE}
+if (!require(MarginalMediation)){
+  devtools::install_github("tysonstanley/MarginalMediation")
+  library(MarginalMediation)
+}
+```
 \normalsize
 
 \clearpage
 
-## Monte Carlo Simulation Data Analyses {-}
+## Exploratory Data Analyses {-}
 
-Data Preparations for tables and figures around page \pageref{tab_discrep}
+Data Preparations for tables and figures around page 
 
 \small
-```{r sim_data_clean, eval=FALSE}
+```{r, eval=FALSE}
+
+file_loc <- "C:/Users/User/Documents/OpRiskPHDGitHub/OpRisk_PHD_Dissertate
+/OpRisk_PHD_Dissertation"
+setwd(file_loc)
+list.files(file_loc)
+
+frequency <- openxlsx::read.xlsx("Raw_Formatted_Data.xlsx", 
+                                 check.names = TRUE, sheet = "Frequency")
+severity <- openxlsx::read.xlsx("Raw_Formatted_Data.xlsx", 
+                                check.names = TRUE, sheet = "Severity")
+projdata <- openxlsx::read.xlsx("OPriskDataSet_exposure.xlsx", 
+                                check.names = TRUE, sheet = "CleanedData")
 ```
 \normalsize
 
-Table \ref{tab_discrep} on page \pageref{tab_discrep}
+<!-- Table \ref{tab_discrep} on page \pageref{tab_discrep} -->
 
 \small
-```{r sim_total_tab, eval=FALSE}
+```{r, eval=FALSE}
+pander::pander(tapply(projdata$Loss, INDEX = projdata$Instrument, function(x)
+  c(N = length(x), Mean = mean(x), SD = sd(x), Min = min(x), Max = max(x))))
+
+tablex <- do.call("rbind", lapply(split(projdata$Loss, projdata$Instrument),
+function(x) c(N = length(x), Mean = mean(x), SD = sd(x), Min = min(x),
+              Max = max(x))))
+tablex <- cbind(Instrument = rownames(tablex), tablex)
+tablex <- as.data.frame(tablex)
+tablex$Mean <- as.numeric(as.character(tablex$Mean))
+
+tablex <- tablex[order(tablex$Mean), ]
+
+stargazer::stargazer(tablex)
+
+openxlsx::write.xlsx(tablex, "tablex.xlsx", rownames = TRUE)
 ```
 \normalsize
 
-Figure \ref{fig:totaltotal} on page \pageref{fig:totaltotal}
+Figure  on page 
 
 \small
-```{r total_fig, eval=FALSE}
+```{r, eval=FALSE}
+# Exploratory data analysis for Update Time
+### summary statistics
+summary(projdata$UpdatedTime)
+### Histograms
+par(mfrow=c(1,3)) 
+### ALL Losses
+hist(projdata$UpdatedTime, col = "blue", main = "All losses", xlab = 
+       "Update Time", ylab = "Frequency")
+### Near Misses/Pending Losses
+hist(projdata$UpdatedTime[projdata$LossIndicator == 0], col = "red", main =
+       "Near Misses", xlab = "Update Time", ylab = "Frequency")
+### Realised losses
+hist(projdata$UpdatedTime[projdata$LossIndicator == 1], col = "green", main
+     = "Realised losses", xlab = "Update Time", ylab = "Frequency")
+par(mfrow=c(1,1))
+### 
+plot(projdata$UpdatedTime, log(projdata$Loss+0.000000001), ylim = c(6, 18),
+     col = "navy", xlab = "Updated Time", ylab = "Log. Loss")
+do.call("rbind", lapply(split(projdata$Loss, projdata$UpdatedTime), 
+function(x) c(N = length(x), Mean = mean(x), SD = sd(x), Min = min(x), Max = max(x))))
 ```
 \normalsize
 
-Figures \ref{fig_power}, \ref{fig_acc}, and \ref{fig_ci} on pages \pageref{fig_power}, \pageref{fig_acc}, and \pageref{fig_ci}, respectively.
+Figures , , and  on pages , and , respectively.
 
 \small
-```{r acc_power_cover, eval=FALSE}
+```{r, eval=FALSE}
+# Instrument
+unique(projdata$Instrument)
+table(projdata$LossIndicator, projdata$Instrument)
+plot(table(projdata$LossIndicator, projdata$Instrument), 
+    main="By Instrument", col=rainbow(20), las=1, cex.axis=1.0)
+
+# Trader
+unique(projdata$TraderId)
+table(projdata$TraderId, projdata$LossIndicator)
+round(addmargins(prop.table(table(projdata$TraderId, projdata$LossIndicator)
+                                                            , 1), 2)*100, 1)
+plot(table(projdata$LossIndicator, projdata$TraderId), main="By Trader",
+                                      col=rainbow(20), las=1, cex.axis=1.0)
+
+# Captured By
+table(projdata$CapturedBy, projdata$LossIndicator)
+round(addmargins(prop.table(table(projdata$CapturedBy, projdata$LossIndicator)
+                                                              , 1), 2)*100, 1)
+plot(table(projdata$LossIndicator, projdata$CapturedBy), main="By Tech Support"
+                                    , col=rainbow(20), las=1, cex.axis=1.0)
+
+do.call("rbind", lapply(split(projdata$Loss, projdata$CapturedBy), function(x)
+  c(N = length(x), Mean = mean(x), SD = sd(x), Min = min(x), Max = max(x))))
+
 ```
 \normalsize
 
+\clearpage
+
+## Examples from Chapter 3 {-}
+
+<!-- Figure \ref{Mosaic_Instr_Trd_Tec} on page  -->
+
+
+## Data Preparation {-}
+
+Data preparation using the OpRisk Loss Collection Data Exercise (LCDE), as described in Chapter 2.
+
+\small
+```{r, eval=FALSE}
+# Set parameter values
+crv$seed <- 42 # set random seed to make your partition reproducible
+crv$taining.proportion <- 0.7 # proportion of data used for training
+crv$validation.proportion <- 0.15 # proportion of data used for validation
+
+# Load data for frequency of LossIndicator analysis
+d <- read.csv("OPriskDataSet_exposure.csv",
+              sep=";",
+              dec=",",
+              na.strings=c(".", "NA", "", "?"),
+              strip.white=TRUE, encoding="UTF-8")
+
+exposure <- d[,ncol(d)] 
+class(exposure)
+length(exposure)
+
+summary(d)
+
+d1 <- d %>%
+  group_by(UpdatedDay,
+           UpdatedTime,
+           TradedDay,
+           TradedTime,
+           Desk,
+           CapturedBy,
+           TradeStatus,
+           TraderId,
+           Instrument,
+           Reason,
+           EventTypeCategoryLevel1,
+           BusinessLineLevel1) %>%
+  transmute(LossesIndicator = LossIndicator,
+            Losses = Loss,
+            exposure = exposure)
+
+# Load data for severity of losses analysis
+
+D <- read.csv("OPriskDataSet_exposure_severity.csv",
+              sep=";",
+              dec=",",
+              na.strings=c(".", "NA", "", "?"),
+              strip.white=TRUE, encoding="UTF-8")
+
+exposure <- D[,ncol(D)] 
+
+D1 <- D %>%
+  group_by(UpdatedDay,
+           UpdatedTime,
+           TradedDay,
+           TradedTime,
+           Desk,
+           CapturedBy,
+           TradeStatus,
+           TraderId,
+           Instrument,
+           Reason,
+           EventTypeCategoryLevel1,
+           BusinessLineLevel1) %>% 
+transmute(LossesIndicator = LossIndicator,
+            Losses = Loss,
+            exposure = exposure)
+
+```
+\normalsize
+
+
+\clearpage
+
+## GLM Models {-}
+
+\small
+```{r, eval=FALSE}
+getmode <- function(x){
+  u <- unique(x)
+  as.integer(u[which.max(tabulate(match(x,u)))])
+}
+
+for (i in 5:(ncol(d1) - 3)){
+     d1[[i]] <- relevel(d1[[i]], getmode(d1[[i]]))
+}
+```
+```{r, eval=FALSE}
+freqfit <- glm(LossesIndicator ~ UpdatedDay + UpdatedTime + TradedDay
+               + TradedTime + Desk + CapturedBy + TradeStatus +
+               TraderId + Instrument + Reason + 
+               EventTypeCategoryLevel1 + BusinessLineLevel1, data=d1,
+               family=poisson(link = 'log'), offset = log(exposure))
+```
+```{r, eval=FALSE}
+options(na.action=na.fail)
+freqfits <- dredge(freqfit)
+adelmodel <- (model.avg(get.models(freqfits, subset=delta<2)))
+```
+\normalsize
+
+\clearpage
+
+## GAMLSS Model {-}
+
+\small
+```{r, eval=FALSE}
+sf <- gamlss(Losses~cs(UpdatedDay + UpdatedTime + TradedDay + TradedTime
+      + Desk + CapturedBy + TradeStatus + TraderId + Instrument + Reason
+      + EventTypeCategoryLevel1 + BusinessLineLevel1), 
+sigma.formula=~cs(UpdatedDay + UpdatedTime + TradedDay + TradedTime + Desk
+      + CapturedBy + TradeStatus + TraderId + Instrument + Reason +
+        EventTypeCategoryLevel1 + BusinessLineLevel1),
+nu.formula=~cs(UpdatedDay + UpdatedTime + TradedDay + TradedTime + Desk + 
+      CapturedBy + TradeStatus + TraderId + Instrument + Reason + 
+      EventTypeCategoryLevel1 + BusinessLineLevel1),
+ tau.formula=~cs(UpdatedDay + UpdatedTime + TradedDay + TradedTime + Desk +
+      CapturedBy + TradeStatus + TraderId + Instrument + Reason +
+      EventTypeCategoryLevel1 + BusinessLineLevel1),
+data=D1, mu.start = NULL,  sigma.start = NULL, nu.start = NULL,
+                                            tau.start = NULL, family=BCPE)
+```
+\normalsize

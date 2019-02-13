@@ -12,7 +12,7 @@ The purpose of this research is to apply a generalised linear model (GLM) suitab
 Our understanding of existing ORMF to date is limited to the assumption that financial institutions (FI's) are risk-neutral. Thirdly, in lieu of the afore-mentioned, this study finally seeks to invalidate the risk-neutral assumption, by means of various unsupervised learning techniques, by proposing that FI's are more risk-averse; this can be measured by analysing subtle patterns between data features and trends in the allocated risk capital estimates. In theory, a risk manager who experiences persistent/excessive losses due to particular risk events, would over-compensate cover for these particular risk types, and this would show in reduced losses in these types over time.
 
 \textbf{\section{Fundamentals of ORMF's}}
-\label{sec:Fundamentals of ORMF's}}
+\label{sec:Fundamentals of ORMF's}
 
 Most banks' estimates for their risk are divided into credit risk (50\%), market risk (15\%) and OpRisk (35\%). @cruz2002modeling postulated that OpRisk, which focuses on the human side of risk management is difficult to manage with the reduced ability to measure it. The process of OpRisk, that is, the how manifests in conscious and/or unconscious states of the risk manager/s [@hemrit2012major], and encompasses approaches and theories that focus on how one will choose when faced with a decision, based on how comfortable they are with the situation and the variables that are present. 
 
@@ -55,7 +55,7 @@ Basel III establishes tougher capital standards through more restrictive capital
 
 The future regulatory environment requires OpRisk professionals, who are not only intelligent, creative and motivated but also have the courage to uphold the OpRisk advisory service standards. Businesses that want to successfuly manage risk, would be well advised to utilize new theoretical and empirical techniques, such that large and small scale experiments play an important role in risk analysis and regulatory research.
 
-\textbf{\section{modern OpRisk measurement frameworks (ORMF's)}}
+\textbf{\section{Modern OpRisk measurement frameworks (ORMF's)}}
 \label{sec:modern OpRisk measurement frameworks (ORMF's)}
 
  Basel II describes three methods of calculating capital charge for OpRisk RC viz., the standardised approach (SA), the basic indicator approach (BIA) and the internal measurement approach (IMA). The basic indicator approach (BIA) sets the OpRisk RC equal to a percentage (15\%) of the annual gross income of the firm as a whole to determine the annual capital charge. The SA is similar to the BIA except the firm is split into eight business lines and assigned a different percentage of a three year average gross income per business line, the summation of which is the capital charge [@hoohlo2015new]. In the IMA, the bank uses it's own internal models to calculate OpRisk loss.\medskip
@@ -201,6 +201,6 @@ This study is made up of seven chapters. The introductory chapter is to the purp
 
 Chapter one begins with an account of significance and a commentary on the nature and scope of the practical problem. It then provides a background of current issues when dealing with OpRisk measurement, the research problem and research questions thereof. Chapter two gives an overview of the literature concerning the LDA, an AMA technique used in the generation of \texttt{OpVaR}. It concludes by proposing the a research methodology in which a combination of ML techniques and statistical theory underlying ORMF's  would benefit measurement of capital requirements for OpVaR.\medskip
 
-Chapter three looks at the methodological and empirical determinants of OpRisk measurement. It explores the different dataset  
+Chapter three looks at the methodological and empirical determinants of OpRisk measurement. It explores the different dataset...   
 
 

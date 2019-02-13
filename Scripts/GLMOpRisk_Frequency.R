@@ -5,9 +5,10 @@ library(magrittr, quietly = TRUE)
 library(Hmisc, quietly = TRUE)
 library(chron, quietly = TRUE)
 library(dplyr, quietly = TRUE)
+library(ggplot2)
 
 # Set parameter values
-crv$seed <- 42 # set random seed
+crv$seed <- 42 # set random seed to make your partition reproducible
 crv$taining.proportion <- 0.7 # proportion of data used for training
 crv$validation.proportion <- 0.15 # proportion of data used for validation
 
@@ -18,35 +19,13 @@ d <- read.csv("OPriskDataSet_exposure.csv",
               na.strings=c(".", "NA", "", "?"),
               strip.white=TRUE, encoding="UTF-8")
 
-install.packages("caret")
-library(caret)
-library(ggplot2)
-#remove.packages("caTools")
-
-set.seed(123)
-split = sample.split(d$Trade, SplitRatio = 2/3) # for training set
-split
-training_set = subset(dataset, split == TRUE)
-test_set = subset(dataset, split == FALSE)
-
-####
-## 75% of the sample size
-smp_size <- floor(0.75 * nrow(d))
-
-## set the seed to make your partition reproducible
-set.seed(123)
-train_ind <- sample(seq_len(nrow(d)), size = smp_size)
-
-train <- d[train_ind, ]
-test <- d[-train_ind, ]
-
-exposure <- train[,ncol(train)] 
+exposure <- d[,ncol(d)] 
 class(exposure)
 length(exposure)
 
-summary(train)
+summary(d)
 
-d1 <- train %>%
+d1 <- d %>%
   group_by(UpdatedDay,
            UpdatedTime,
            TradedDay,
@@ -72,8 +51,7 @@ for (i in 5:(ncol(d1) - 3)){
      d1[[i]] <- relevel(d1[[i]], getmode(d1[[i]]))
 }
 
-### Let us fit a GLM to our data. This will be our global model. We will use "LossesIndicator" as the dependent
-### variable, while the other variables will be predictor variables.
+### Let us fit a GLM to our data. This will be our global model. We will use "LossesIndicator" as the dependent variable, while the other variables will be predictor variables.
 
 freqfit <- glm(LossesIndicator ~ UpdatedDay + UpdatedTime + TradedDay + TradedTime + Desk + CapturedBy + TradeStatus + TraderId + Instrument + Reason + EventTypeCategoryLevel1 + BusinessLineLevel1, data=d1, family=poisson(link = 'log'), offset = log(exposure))
 
@@ -94,9 +72,7 @@ exp(predict(freqfit, d1[1:10, setdiff(names(d1), "LossesIndicator")]))
 
 require(MuMIn)
 
-### Then, we use "dredge" function to generate models using combinations of the terms in the global model. The
-### function will also calculate AICc values and rank models according to it. Note that AICc is AIC corrected for
-### finite sample sizes
+## Then, we use "dredge" function to generate models using combinations of the terms in the global model. The function will also calculate AICc values and rank models according to it. Note that AICc is AIC corrected for finite sample sizes
 
 options(na.action=na.fail)
 freqfits <- dredge(freqfit)
@@ -107,11 +83,9 @@ freqfits[1]
 freqfits[,1]
 class(freqfits)
 
-### Ok, let us use "get.models" function to generate a list in which its objects are the fitted models. We will
-### also use the "model.avg" function to do a model averaging based on AICc. Note that "subset=TRUE" will make the
-### function calculate the average model (or mean model) using all models.
+### Ok, let us use "get.models" function to generate a list in which its objects are the fitted models. We will also use the "model.avg" function to do a model averaging based on AICc. Note that "subset=TRUE" will make the function calculate the average model (or mean model) using all models.
 
-amodel <- model.avg(get.models(freqfits, subset = TRUE))
+## amodel <- model.avg(get.models(freqfits, subset = TRUE))
  
 
 ### However, if you want to get only the models that have delta AICc < 2, use "subset=delta<2"

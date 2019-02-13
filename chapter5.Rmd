@@ -42,4 +42,87 @@ To identify potential flaws in the loss distribution approach (LDA) model of ORM
 
 More precisely, the goal is to use CA to learn deep hierarchies of features\footnote{A typical approach taken in the literature is to use an unsupervised learning algorithm to train a model of the unlabeled data and then use the results to extract interesting features from the data [@coates2012learning]} found during operations, to then determine whether risk adverse techniques over-compensate for persistent loss event types over time. 
 
+\textbf{\section{Description of the dataset}}
+
+The characteristics of the traded transactions or of the associated risk correction event are given by the following variables: Trade, UpdateTime, UpdatedDay, TradedTime, TradedDay, Desk, CapturedBy, TradeStatus, TraderId, Instrument, Reason behind the risk correction event, Nominal, FloatRef floating rate reference for fixed income products, ResetDate and ResetRate, Theta, Loss severity, four EventTypeCategoryLevel viz., EL1 - IF, EL4 - CPBP, EL6 - BDSF, and EL7 - EDPM  \& all seven associated  BusinessLineLevel, and the LossIndicator. The exposure variable shows the length of the time interval from the initial moment when the risk event happened, until the occurrence of a risk correction.\medskip
+
+The data is limited to the training dataset over the interval 01 January - 31 March 2013, in Figure \ref{Fig4}, portrays detail of the trend of OpRisk losses against exposures for each of the 1631 observations and 16 variables. In the first plot, transactions with small exposures are concentrated in the first quadrant where HFLS losses persist. This is in line with the sentiment in risk management circles, that small exposures are not actively managed and hence risk mitigation is not a priority. As a result many of the unforeseeable LFHS losses occur here, as they are not anticipated and therefore slip through OpRisk defences, who more often than not, do not mitigate against these events.\medskip
+
+Loss severities decrease with increasing exposures, as seen by the lowering variabilities (and colour concentration of the exposure) between loses and exposures. This  support the view that more impactful past losses invoke active risk management and mitigation, as risk managers overcompensate for these severities in their management practices i.e., they are more risk averse. In addition there are graphically displayed correlations (which work for numerical explanatory variables only), which are ordered by their strengths. There is a weak positive relationship between exposure and UpdatedDay, TradedTime \& TradedDay; a weak negative relationship with UpdatedTime.  
+
+\textbf{\section{Exploratory data analysis}}
+
+\begin{figure}
+\begin{frame}
+      \centering
+       \begin{tabular}{cc}
+        \textbf{OpRisk loss severities vs exposure} & \textbf{Ordered correlations by strength}\\
+        \includegraphics[width=7cm]{Loss_vs_Exposure(1).eps}
+         &
+         \includegraphics[width=7cm]{CorrPlot.eps}
+         \end{tabular}
+    \end{frame}
+    \caption{Graphically displayed correlations by strength and a plot of OpRisk loss severities vs exposure}
+    \label{Fig4}
+\end{figure}
+
+\subsection{The estimation of \emph{k}-means clustering algorithm}
+
+A cluster analysis will identify groups within a dataset. The target variable is LossIndicator, a binary variable indicating a $1$ if a realised loss occurs and $0$ for those pending or near misses. The \emph{K}-means clustering algorithm will search for K clusters (specified by the user). The resulting \emph{k} clusters are represented by the mean or average values of each of the variables. Let us consider a model where the LossIndicator is the target variable: The user whose task it is to specify \emph{k}, may guess right or in practice they may obtain a priori, the knowledge of how to select the appropriate \emph{k} in advance.\medskip
+
+Rather than the trial and error method which involves guessing \emph{k} values and successively computing minimum separation between centers, there are several data mining techniques found in the literature, that can be used to determine the optimal \emph{k} [@rousseeuw1987silhouettes]. The output plot for the estimation of the optimal \emph{k} is presented in Figure \ref{Fig5} below. We have iterated over cluster sizes from 2 to 10 clusters. The program KMeans resets the random number seed to obtain the same results each time. where the optimal \emph{k} found to be significant close to $\emph{k} = 10$.\medskip
+
+The plot displays the 'sum(withinss)' for each clustering and the change in this value from the previous clustering. The Sum(WithinSS) (blue line) as a performance metric indicates that beyond \emph{k} = 4 clusters the model overfits: Its computes the absolute error which is initially  large, then monotonicaly decreases to the point \emph{k} = 4, it then begins to increase subsequent to the point where the Diffprevious Sum(WithinSS) (red line) intersects viz., at \emph{k} = 4 clusters, which means \emph{k} = 4 is the local optimal number of clusters i.e., beyond which the iterative relative errors converges faster than the absolute errors and successively reduces as \emph{k} increases from 4 to 10.  
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.7]{IterateKmeans.eps}
+\caption{Finding the optimal number of \emph{k} groups by the Silhouette Statistic SS: Sum is a  measure to approximate the optimal number of \emph{k} groups by the Silhouette Statistic SS}
+\label{IterateKmeans}
+\end{figure}
+
+\subsubsection{Rattle program code}
+
+\subsubsection{Results}
+\begin{verbatim}
+Cluster sizes:
+
+[1] "478 404 570 179"
+
+Data means:
+
+      Trade  UpdatedDay UpdatedTime   TradedDay  TradedTime 
+0.762016409 0.448559166 0.486589314 0.487369712 0.601539912 
+       Loss    exposure 
+0.003232348 0.121083376 
+
+Cluster centers:
+
+      Trade UpdatedDay UpdatedTime TradedDay TradedTime        Loss
+1 0.8106844  0.3943515   0.4123358 0.2912134  0.8556825 0.004692829
+2 0.8716248  0.4900990   0.5409218 0.7948845  0.8270263 0.002132631
+3 0.8378683  0.4493567   0.5264944 0.4160234  0.2165842 0.002308103
+4 0.1431301  0.4970205   0.4351758 0.5443203  0.6397973 0.004757466
+    exposure
+1 0.08060460
+2 0.06359981
+3 0.07134609
+4 0.51729829
+
+Within cluster sum of squares:
+
+[1]  84.88017  89.27845 148.89661  59.37208
+
+Time taken: 1.86 secs
+
+Rattle timestamp: 2018-12-13 07:22:48 User
+\end{verbatim}
+
+\begin{sidewaysfigure}
+\centering
+\includegraphics[width=250mm,scale=1.5]{CA14MeansPlot.eps}
+\caption{A scatterplot matrix for the \emph{k}-means clustering of size 4, and the covariates of frequency loss events consisting of 369 loss event frequencies amounting to R 61 534 745 P\&L severity of loss impact.}
+\label{CA14MeansPlot}
+\end{sidewaysfigure}
+
 \singlespacing

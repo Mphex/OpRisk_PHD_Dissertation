@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Required: R Packages from CRAN
 
 \small
-```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
+```{r, echo=TRUE, eval=FALSE}
 if (!require(tidyverse)){
   install.packages("tidyverse")
   library(tidyverse)
@@ -42,7 +42,7 @@ if (!require(survey)){
 Required: R Packages from GitHub
 
 \small
-```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=FALSE}
+```{r, echo=TRUE, eval=FALSE}
 if (!require(MarginalMediation)){
   devtools::install_github("tysonstanley/MarginalMediation")
   library(MarginalMediation)
@@ -52,57 +52,615 @@ if (!require(MarginalMediation)){
 
 \clearpage
 
-## Data Preparation {-}
+## Extrapolation code for simulation in matlab {-}
 
-Data preparation using the 2014 National Survey on Drug Use and Health, as described in Chapter 4.
+Notably, the code for the predict condition was run via the Matlab Terminal:
 
 \small
-```{r app_data, eval=FALSE}
+```{bash, eval=FALSE}
+
+% Updated Time
+% generate the vector DD
+
+DDD = 1:31;
+
+% generate the vector VVV
+
+VVV = 1:12;
+
+% generate the vector UUU
+
+UUU = 2013 : -1 : 2006;
+
+% making the full thrity five days vector
+% Years
+Thirty_five_days = [UUU';UUU';UUU';UUU(1:end-1)'];
+%Months
+Thirty_five_days2 = [VVV';VVV';VVV(1:7)'];
+% Days
+Thirty_five_days3 = DDD';
+
+% The updated time algorithm
+
+% initializing the time matrix
+for i = 1 : length(UUU)
+    
+    UUU_trans{i} = num2cell(zeros(1,12));
+    
+end
+
+for i = 1 : length(UUU)
+    for j = 1 : length(UUU_trans{1,1})
+        
+        UUU_TRANS{1,i}{1,j} = num2cell(zeros(31,4));
+    end
+    
+end
+
+% The number of random numbers
+H = 1000;
+UPD =.789155092592539;
+format long
+% filling in the time matrix
+for i = 1 : length(UUU)
+    for j = 1 : length(UUU_trans{1,1})
+        
+        UUU_TRANS{1,i}{1,j}(:,end) = num2cell((1:31)');
+        UUU_TRANS{1,i}{1,j}(:,end-1) = num2cell(VVV(j));
+        
+        
+        
+    end
+    
+end
+
+UUU = num2cell(UUU);
+%         UUU = sortrows(UUU,2);
+
+
+for i = 1 : length(UUU)
+    for j = 1 : length(UUU_trans{1,1})
+        for k = 1 : length(UUU_TRANS{1,5}{1,1})
+            % PART 1
+            UUU{i,j} =num2cell((((i)^(0)).*((j)^(0)).*rand(1,31)));
+            UUU{i,j} = UUU{i,j}';
+            UUU{i,j}(:,2) = num2cell(Thirty_five_days(:,1));
+            UUU{i,j} = sortrows(UUU{i,j},1);
+            
+            %PART 2
+            UUU2{i,j} =num2cell((((i)^(0)).*((j)^(0)).*rand(1,31)));
+            UUU2{i,j} = UUU2{i,j}';
+            UUU2{i,j}(:,2) = num2cell(Thirty_five_days2(:,1));
+            UUU2{i,j} = sortrows(UUU2{i,j},1);
+            % PART 3
+            UUU3{i,j} =num2cell((((i)^(0)).*((j)^(0)).*rand(1,31)));
+            UUU3{i,j} = UUU3{i,j}';
+            UUU3{i,j}(:,2) = num2cell(Thirty_five_days3(:,1));
+            UUU3{i,j} = sortrows(UUU3{i,j},1);
+            % PART 1
+            UUU_TRANS{1,i}{1,j}(k,end-3) = UUU{i,j}(k,2);
+            
+            % PART 2
+            UUU_TRANS{1,i}{1,j}(k,end-2) = UUU2{i,j}(k,2);
+            %PART3
+            UUU_TRANS{1,i}{1,j}(k,end-1) = UUU3{i,j}(k,2);
+            rH{i,j} = num2cell(((i)^(0).*(j)^(0)).*rand(H,1));
+            yH{i,j} = rH{i,j}(cell2mat( rH{i,j}) <= UPD);
+            gH{i,j} = num2cell(cell2mat( yH{i,j}(1:31)));
+            UUU_TRANS{1,i}{1,j}(k,end) = gH{i,j}(k,1);
+        end
+    end
+    
+end
+
+UPDATED_TIME = UUU_TRANS;
+
+
+%% Traded time
+
+% generate the vector DD
+
+DDDT = 1:31;
+
+% generate the vector VVV
+
+VVVT = 1:12;
+
+% generate the vector UUU
+
+UUUT = 2013 : -1 : 2006;
+
+% making the full thrity five days vector
+% Years
+Thirty_five_daysT = [UUUT';UUUT';UUUT';UUUT(1:end-1)'];
+%Months
+Thirty_five_days2T = [VVVT';VVVT';VVVT(1:7)'];
+% Days
+Thirty_five_days3T = DDDT';
+
+% The updated time algorithm
+
+% initializing the time matrix
+for i = 1 : length(UUUT)
+    
+    UUU_transT{i} = num2cell(zeros(1,12));
+    
+end
+
+for i = 1 : length(UUUT)
+    for j = 1 : length(UUU_transT{1,1})
+        
+        UUU_TRANST{1,i}{1,j} = num2cell(zeros(31,4));
+    end
+    
+end
+
+% The number of random numbers
+HT = 1000;
+UPDT =.789155092592539;
+format long
+% filling in the time matrix
+for i = 1 : length(UUUT)
+    for j = 1 : length(UUU_transT{1,1})
+        
+        UUU_TRANST{1,i}{1,j}(:,end) = num2cell((1:31)');
+        UUU_TRANST{1,i}{1,j}(:,end-1) = num2cell(VVVT(j));
+        
+        
+        
+    end
+    
+end
+
+UUUT = num2cell(UUUT);
+%         UUU = sortrows(UUU,2);
+
+
+for i = 1 : length(UUUT)
+    for j = 1 : length(UUU_transT{1,1})
+        for k = 1 : length(UUU_TRANST{1,5}{1,1})
+            % PART 1
+            UUUT{i,j} =num2cell((((i)^(0)).*((j)^(0)).*rand(1,31)));
+            UUUT{i,j} = UUUT{i,j}';
+            UUUT{i,j}(:,2) = num2cell(Thirty_five_daysT(:,1));
+            UUUT{i,j} = sortrows(UUUT{i,j},1);
+            
+            %PART 2
+            UUU2T{i,j} =num2cell((((i)^(0)).*((j)^(0)).*rand(1,31)));
+            UUU2T{i,j} = UUU2T{i,j}';
+            UUU2T{i,j}(:,2) = num2cell(Thirty_five_days2T(:,1));
+            UUU2T{i,j} = sortrows(UUU2T{i,j},1);
+            % PART 3
+            UUU3T{i,j} =num2cell((((i)^(0)).*((j)^(0)).*rand(1,31)));
+            UUU3T{i,j} = UUU3T{i,j}';
+            UUU3T{i,j}(:,2) = num2cell(Thirty_five_days3T(:,1));
+            UUU3T{i,j} = sortrows(UUU3T{i,j},1);
+            % PART 1
+            UUU_TRANST{1,i}{1,j}(k,end-3) = UUUT{i,j}(k,2);
+            
+            % PART 2
+            UUU_TRANST{1,i}{1,j}(k,end-2) = UUU2T{i,j}(k,2);
+            %PART3
+            UUU_TRANST{1,i}{1,j}(k,end-1) = UUU3T{i,j}(k,2);
+            rHT{i,j} = num2cell(((i)^(0).*(j)^(0)).*rand(HT,1));
+            yHT{i,j} = rHT{i,j}(cell2mat( rHT{i,j}) <= UPDT);
+            gHT{i,j} = num2cell(cell2mat( yHT{i,j}(1:31)));
+            UUU_TRANST{1,i}{1,j}(k,end) = gHT{i,j}(k,1);
+        end
+    end
+    
+end
+
+TRADED_TIME = UUU_TRANST;
+
+%% RULE for correcting the traded time
+SIZZZE = size(UUU_TRANS{1,3}{1,2});
+for i = 1 : 8
+    for j = 1 : length(UUU_transT{1,1})
+        for k = 1 : length(UUU_TRANST{1,5}{1,1})
+            
+            
+            if  TRADED_TIME{1,i}{1,j}{k,1} >= UPDATED_TIME{1,i}{1,j}{k,1}
+                
+                TRADED_TIME{1,i}{1,j}{k,1} = UPDATED_TIME{1,i}{1,j}{k,1};
+            end
+                
+            if TRADED_TIME{1,i}{1,j}{k,1} >= UPDATED_TIME{1,i}{1,j}{k,1}...
+                    && TRADED_TIME{1,i}{1,j}{k,2} >= UPDATED_TIME{1,i}{1,j}{k,2}
+                
+                
+                TRADED_TIME{1,i}{1,j}{k,1} = UPDATED_TIME{1,i}{1,j}{k,1};
+                TRADED_TIME{1,i}{1,j}{k,2} = UPDATED_TIME{1,i}{1,j}{k,2};
+            end
+                
+                
+                
+            if TRADED_TIME{1,i}{1,j}{k,1} >= UPDATED_TIME{1,i}{1,j}{k,1}...
+                    && TRADED_TIME{1,i}{1,j}{k,2} >= UPDATED_TIME{1,i}{1,j}{k,2}...
+                    && TRADED_TIME{1,i}{1,j}{k,3} >= UPDATED_TIME{1,i}{1,j}{k,3}
+                
+                
+                TRADED_TIME{1,i}{1,j}{k,1} = UPDATED_TIME{1,i}{1,j}{k,1};
+                TRADED_TIME{1,i}{1,j}{k,2} = UPDATED_TIME{1,i}{1,j}{k,2};
+                TRADED_TIME{1,i}{1,j}{k,3} = UPDATED_TIME{1,i}{1,j}{k,3};
+            end
+                
+                
+            if TRADED_TIME{1,i}{1,j}{k,1} >= UPDATED_TIME{1,i}{1,j}{k,1}...
+                    && TRADED_TIME{1,i}{1,j}{k,2} >= UPDATED_TIME{1,i}{1,j}{k,2}...
+                    && TRADED_TIME{1,i}{1,j}{k,3} >= UPDATED_TIME{1,i}{1,j}{k,3}...
+                    && TRADED_TIME{1,i}{1,j}{k,4} >= UPDATED_TIME{1,i}{1,j}{k,4}
+                
+                
+                
+                TRADED_TIME{1,i}{1,j}{k,1} = UPDATED_TIME{1,i}{1,j}{k,1};
+                TRADED_TIME{1,i}{1,j}{k,2} = UPDATED_TIME{1,i}{1,j}{k,2};
+                TRADED_TIME{1,i}{1,j}{k,3} = UPDATED_TIME{1,i}{1,j}{k,3};
+                TRADED_TIME{1,i}{1,j}{k,4} = UPDATED_TIME{1,i}{1,j}{k,4};
+                
+            end
+        end
+    end
+    
+end
+
+%% The traded time table
+% Fill the updated time
+for i = 1 : 8
+    
+   TABLE_TRADED_TIME{1,i} = vertcat(TRADED_TIME{1,i}{1,1},...
+       TRADED_TIME{1,i}{1,2}, TRADED_TIME{1,i}{1,3},...
+       TRADED_TIME{1,i}{1,4}, TRADED_TIME{1,i}{1,5},...
+       TRADED_TIME{1,i}{1,6}, TRADED_TIME{1,i}{1,7},...
+       TRADED_TIME{1,i}{1,8}, TRADED_TIME{1,i}{1,9},...
+       TRADED_TIME{1,i}{1,10}, TRADED_TIME{1,i}{1,11},...
+       TRADED_TIME{1,i}{1,12});
+    
+end
+
+% The final concatenation
+FINAL_TABLE_TRADED_TIME = vertcat(TABLE_TRADED_TIME{1,1},...
+    TABLE_TRADED_TIME{1,2},TABLE_TRADED_TIME{1,3},...
+    TABLE_TRADED_TIME{1,4},TABLE_TRADED_TIME{1,5},...
+    TABLE_TRADED_TIME{1,6},TABLE_TRADED_TIME{1,7},...
+    TABLE_TRADED_TIME{1,8});
+
+
+%% The updated time table
+% Fill the updated time
+for i = 1 : 8
+    
+   TABLE_UPDATED_TIME{1,i} = vertcat(UPDATED_TIME{1,i}{1,1},...
+       UPDATED_TIME{1,i}{1,2}, UPDATED_TIME{1,i}{1,3},...
+       UPDATED_TIME{1,i}{1,4}, UPDATED_TIME{1,i}{1,5},...
+       UPDATED_TIME{1,i}{1,6}, UPDATED_TIME{1,i}{1,7},...
+       UPDATED_TIME{1,i}{1,8}, UPDATED_TIME{1,i}{1,9},...
+       UPDATED_TIME{1,i}{1,10}, UPDATED_TIME{1,i}{1,11},...
+       UPDATED_TIME{1,i}{1,12});
+    
+end
+
+% The final concatenation
+FINAL_TABLE_UPDATED_TIME = vertcat(TABLE_UPDATED_TIME{1,1},...
+    TABLE_UPDATED_TIME{1,2},TABLE_UPDATED_TIME{1,3},...
+    TABLE_UPDATED_TIME{1,4},TABLE_UPDATED_TIME{1,5},...
+    TABLE_UPDATED_TIME{1,6},TABLE_UPDATED_TIME{1,7},...
+    TABLE_UPDATED_TIME{1,8});
+
+% Find the unique traded times, Sort the traded times and assign
+% unique trade number to each in ascending order
+UNIQ = sortrows(unique(cell2mat(FINAL_TABLE_TRADED_TIME),'rows'),[1 2 3 4]);
+UNIQO = sortrows(unique(cell2mat(FINAL_TABLE_TRADED_TIME),'rows'),[1 2 3 4]);
+
+% generate a random number
+raNDgen1 = (324434 : 26835144)';
+raNDgen2 = rand(length(raNDgen1),1);
+
+% merge the two vectors
+raNDgen = [raNDgen1, raNDgen2];
+% sort according to the second column
+Sort_raNDgen = sortrows(raNDgen,2);
+
+% Cut at 2976 and sort according to the first column
+Sort_raNDgen1 = Sort_raNDgen(1: length(FINAL_TABLE_TRADED_TIME), :);
+Sort_raNDgen2 = sortrows(Sort_raNDgen1,1);
+
+% assign the computed trade numbers to the corresponding trade times
+UNIQO(:,5) = Sort_raNDgen2(:,1);
+% size of UNIQO
+SASS = size(UNIQO);
+% finding the position of the sorted traded times in the original times
+for i = 1 : length(FINAL_TABLE_TRADED_TIME)
+POS{i,1} = num2cell(find(ismember(cell2mat(FINAL_TABLE_TRADED_TIME(:,1:end)),UNIQO(i,1:4),'rows')~=0));
+end
+
+
+%% THE_FINAL_TRADED_TIME
+THE_FINAL_TRADED_TIME = zeros(length(FINAL_TABLE_TRADED_TIME), SASS(2));
+
+for i = 1 : length(FINAL_TABLE_TRADED_TIME)
+    
+THE_FINAL_TRADED_TIME(cell2mat(POS{i,1}),:) = UNIQO(i,:);   
+       
+end
+
+ Headers = OPriskDataSetexposure(1,:);
+
+MATRIX = zeros(length(FINAL_TABLE_TRADED_TIME),length(Headers));
+
+%% The traded time
+
+% converting time into usal time formats
+% there are 24 hours in the a day , to fins the hour
+rt = 24.*THE_FINAL_TRADED_TIME(:,end-1);
+hh = round(rt);
+
+% the minutes
+rr = 60.*abs(rt - hh);
+
+mm = round(rr);
+
+% the seconds
+rg = 60.*abs(rr - mm);
+
+ss = round(rg);
+
+% Updated time as a vectors
+Vec_tedTime = [THE_FINAL_TRADED_TIME(:,1:end-2), hh, mm, ss];
+
+% converting the date back to string
+formatOut = 'yyyy-mm-dd HH:MM:SS PM';
+Vec_tradedTimeSTRING = datestr(Vec_tedTime(:, 1:end),formatOut);
+
+%% The updated time
+% converting time into usal time formats
+% there are 24 hours in the a day , to fins the hour
+rt = 24.*cell2mat(FINAL_TABLE_UPDATED_TIME(:,end));
+hh = round(rt);
+
+% the minutes
+rr = 60.*abs(rt - hh);
+
+mm = round(rr);
+
+% the seconds
+rg = 60.*abs(rr - mm);
+
+ss = round(rg);
+
+% Updated time as a vectors
+Vec_updatedTime = [cell2mat(FINAL_TABLE_UPDATED_TIME(:,1:end-1)), hh, mm, ss];
+
+% converting the date back to string
+formatOut = 'yyyy-mm-dd HH:MM:SS PM';
+Vec_updatedTimeSTRING = datestr(Vec_updatedTime(:, 1:end),formatOut);
+
+%% generate the compatible columns
+% capturedBy
+UNI_STRINGS = unique(OPriskDataSetexposure(2:end,9));
+% TraderID
+UNI_STRINGS1 = unique(OPriskDataSetexposure(2:end,11));
+
+for j = 1 : length(UNI_STRINGS)
+    
+    CapturedBy{j} = OPriskDataSetexposure(strcmp(OPriskDataSetexposure(:,9),...
+        UNI_STRINGS(j))==1,9);
+    % percentage proportion
+    LEngC(j) = length(CapturedBy{j})./length(OPriskDataSetexposure);
+    format long
+   N_STR(j) = ceil(LEngC(j).* length(THE_FINAL_TRADED_TIME));
+   
+   N_STRRR{j} = num2cell(zeros(N_STR(j),1));
+   
+end
+
+
+for j = 1 : length(UNI_STRINGS)
+   N_STRRR{j}(:,1) = (UNI_STRINGS(j,1));
+end
+%
+CAPTUREDBY_TOTAL = vertcat(N_STRRR{1,1},N_STRRR{1,2},...
+    N_STRRR{1,3},N_STRRR{1,4},N_STRRR{1,5});
+
+CAPTUREDBY_TOTAL = CAPTUREDBY_TOTAL(1:length(THE_FINAL_TRADED_TIME));
+CAPTUREDBY_TOTAL = [CAPTUREDBY_TOTAL, num2cell(rand(length(CAPTUREDBY_TOTAL),1))];
+CAPTUREDBY_TOTAL = sortrows(CAPTUREDBY_TOTAL,2);
+%%
+
+
+%% generate the compatible columns
+% TraderID
+Tra_UNI_STRINGS = unique(OPriskDataSetexposure(2:end,11));
+% TraderID
+Tra_UNI_STRINGS1 = unique(OPriskDataSetexposure(2:end,11));
+
+for j = 1 : length(Tra_UNI_STRINGS)
+    
+    TraderID{j} = OPriskDataSetexposure(strcmp(OPriskDataSetexposure(:,11),...
+        Tra_UNI_STRINGS(j))==1,11);
+    % percentage proportion
+    LEngC(j) = length(TraderID{j})./length(OPriskDataSetexposure);
+    format long
+   TRAN_STR(j) = ceil(LEngC(j).* length(THE_FINAL_TRADED_TIME));
+   
+   TRAN_STRRR{j} = num2cell(zeros(TRAN_STR(j),1));
+   
+end
+
+
+for j = 1 : length(Tra_UNI_STRINGS)
+   TRAN_STRRR{j}(:,1) = (Tra_UNI_STRINGS(j,1));
+end
+
+TRADERID_TOTAL = vertcat(TRAN_STRRR{1,1},TRAN_STRRR{1,2},...
+    TRAN_STRRR{1,3},TRAN_STRRR{1,4},TRAN_STRRR{1,5},...
+    TRAN_STRRR{1,6},TRAN_STRRR{1,7});
+
+ TRADERID_TOTAL = TRADERID_TOTAL(1:length(THE_FINAL_TRADED_TIME));
+TRADERID_TOTAL = [TRADERID_TOTAL, num2cell(rand(length(TRADERID_TOTAL),1))];
+TRADERID_TOTAL = sortrows(TRADERID_TOTAL,2);
+%% Business lines
+
+BL1 = [cellstr('BL1') cellstr('BL1') ;...
+    cellstr('Credit Derivatives') cellstr('Investment Banking')]';
+
+BL2 = [cellstr('BL2') cellstr('BL2') cellstr('BL2') cellstr('BL2')...
+    cellstr('BL2') cellstr('BL2') cellstr('BL2') cellstr('BL2')...
+    cellstr('BL2') cellstr('BL2') cellstr('BL2') cellstr('BL2')...
+    cellstr('BL2');...
+    cellstr('Rates') cellstr('MM') cellstr('Equity')...
+    cellstr('Commodities') cellstr('Africa')...
+    cellstr('Options') cellstr('Bonds/Repos')...
+    cellstr('Forex') cellstr('Prime Services')...
+    cellstr('Credit Derivatives') cellstr('Management')...
+    cellstr('Group Treasury') cellstr('SND')]';
+
+BL3 = [cellstr('BL3') cellstr('BL3') cellstr('BL3') ;...
+    cellstr('Africa') cellstr('MM') cellstr('SND')]';
+
+BL4 = [cellstr('BL4') cellstr('BL4') cellstr('BL4')...
+     cellstr('BL4') cellstr('BL4') cellstr('BL4');...
+    cellstr('ACBB') cellstr('Credit Derivatives') cellstr('Funding')...
+     cellstr('MM') cellstr('Portfolio Management') cellstr('SND')]';
+ 
+ BL5 = [cellstr('BL5') cellstr('BL5') ;...
+    cellstr('Credit Derivatives') cellstr('MM')]';
+
+BL6 = [cellstr('BL6') cellstr('BL6') ;...
+    cellstr('Management') cellstr('Prime Services')]';
+
+BL7 = [cellstr('BL7') cellstr('BL7') ;...
+    cellstr('Portfolio Management') cellstr('SND')]';
+
+BL9 = [cellstr('BL9') cellstr('Portfolio Management')];
+
+%% generate the compatible columns
+% Business line
+BUB_UNI_STRINGS = unique(OPriskDataSetexposure(2:end,22));
+%
+for j = 1 : length(BUB_UNI_STRINGS)
+    
+    Bus{j} = OPriskDataSetexposure(strcmp(OPriskDataSetexposure(:,22),...
+        BUB_UNI_STRINGS(j))==1,22);
+    % percentage proportion
+    LEngB(j) = length(Bus{j})./length(OPriskDataSetexposure);
+    format long
+    Bu_STR(j) = ceil(LEngB(j).* length(THE_FINAL_TRADED_TIME));
+    
+    BUs_STRRR{j} = num2cell(zeros(Bu_STR(j),1));
+    
+end
+
+
+for j = 1 : length(BUB_UNI_STRINGS)
+    BUs_STRRR{j}(:,1) = (BUB_UNI_STRINGS(j,1));
+end
+%
+BUS_TOTAL = vertcat(BUs_STRRR{1,1},BUs_STRRR{1,2},...
+    BUs_STRRR{1,3},BUs_STRRR{1,4},BUs_STRRR{1,5},...
+    BUs_STRRR{1,6}, BUs_STRRR{1,7}, BUs_STRRR{1,8});
+
+BUS_TOTAL = BUS_TOTAL(1:length(THE_FINAL_TRADED_TIME));
+BUS_TOTAL = [BUS_TOTAL, num2cell(rand(length(BUS_TOTAL),1))];
+BUS_TOTAL = sortrows(BUS_TOTAL,2);
+
+%% BUSINESS LINES
+
+BUSINESS_LINESL = [BL1;BL2;BL3;BL4;BL5;BL6;BL7;BL9];
+
+for j = 1 : length(THE_FINAL_TRADED_TIME)
+    
+    BUSINESS_LINES{j} = num2cell((j.^0).*zeros(length(BUSINESS_LINESL),3));
+    BUSINESS_LINES{j}(:,3) = num2cell((j.^0).*rand(length(BUSINESS_LINESL),1));
+    BUSINESS_LINES{j}(:,1:2) = BUSINESS_LINESL(:,1:2);
+    
+    POSITION{j} = find(strcmp(BUSINESS_LINES{j}(:,1),...
+        BUS_TOTAL(j,1))==1, 1, 'last' );
+    % the desk
+    DESK(j,1) = BUSINESS_LINESL(POSITION{j},2);
+end
+%%
+% fill in the matrix
+MATRIX(:,1) = (THE_FINAL_TRADED_TIME(:,end));
+MATRIX(:,7) = (THE_FINAL_TRADED_TIME(:,end-1));
+MATRIX(:,6) = (THE_FINAL_TRADED_TIME(:,end-2));
+MATRIX(:,4) = cell2mat(FINAL_TABLE_UPDATED_TIME(:,end));
+MATRIX(:,3) = cell2mat(FINAL_TABLE_UPDATED_TIME(:,end-1));
+
+
+MATRIX = num2cell(MATRIX);
+
+MATRIX(:,8) = DESK(:,1);
+MATRIX(:,22) = BUS_TOTAL(:,1);
+MATRIX(:,9) = CAPTUREDBY_TOTAL(:,1);
+MATRIX(:,11) = TRADERID_TOTAL(:,1);
+% fill in the updated time and the traded time
+MATRIX(:,2) = cellstr(Vec_updatedTimeSTRING);
+MATRIX(:,5) = cellstr(Vec_tradedTimeSTRING);
+
+
+% % Exporting the results to Excel
+% filename = 'Hoohlo.xlsx';
+% writetable(cell2table(MATRIX ,...
+%     'VariableNames',Headers),...
+%     filename,'Sheet',1,'Range','A1')
+
 ```
 \normalsize
 
 \clearpage
 
-## Models {-}
+<!-- ## Data Preparation {-} -->
 
-\small
-```{r app_models, eval=FALSE}
-```
-```{r app_data2, eval=FALSE}
-```
-```{r app_odds, eval=FALSE}
+<!-- Data preparation using the 2014 National Survey on Drug Use and Health, as described in Chapter 4. -->
+
+<!-- \small -->
+```{r app_data, echo=FALSE, eval=FALSE}
 ```
 \normalsize
 
-\clearpage
+<!-- \clearpage -->
 
-## Tables and Figures {-}
+<!-- ## Models {-} -->
 
-Table \ref{tab:table1} on page \pageref{tab:table1}
-
-\small
-```{r app_table1, eval=FALSE}
+<!-- \small -->
+```{r app_models, echo=FALSE, eval=FALSE}
 ```
-\normalsize
-
-Table \ref{tab:perc} on page \pageref{tab:perc}
-
-\small
-```{r app_tab_perc, eval=FALSE}
+```{r app_data2, echo=FALSE, eval=FALSE}
 ```
-\normalsize
-
-Table \ref{tab:oldperc} on page \pageref{tab:oldperc}
-
-\small
-```{r old_perc, eval=FALSE}
+```{r app_odds, echo=FALSE, eval=FALSE}
 ```
-\normalsize
+<!-- \normalsize -->
 
-Figure \ref{fig:app} on page \pageref{fig:app}
+<!-- \clearpage -->
 
-\small
-```{r app_fig, eval=FALSE}
+<!-- ## Tables and Figures {-} -->
+
+<!-- Table \ref{tab:table1} on page \pageref{tab:table1} -->
+
+<!-- \small -->
+```{r app_table1, echo=FALSE, eval=FALSE}
+```
+<!-- \normalsize -->
+
+<!-- Table \ref{tab:perc} on page \pageref{tab:perc} -->
+
+<!-- \small -->
+```{r app_tab_perc, echo=FALSE, eval=FALSE}
+```
+<!-- \normalsize -->
+
+<!-- Table \ref{tab:oldperc} on page \pageref{tab:oldperc} -->
+
+<!-- \small -->
+```{r old_perc, echo=FALSE, eval=FALSE}
+```
+<!-- \normalsize -->
+
+<!-- Figure \ref{fig:app} on page \pageref{fig:app} -->
+
+<!-- \small -->
+```{r app_fig, echo=FALSE, eval=FALSE}
 ```
 
-\normalsize
+<!-- \normalsize -->

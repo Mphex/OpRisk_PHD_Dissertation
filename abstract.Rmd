@@ -16,7 +16,8 @@ University of the Witwatersrand, 2019
 
 \singlespacing
 \noindent Major Professor: Eric Schaling, Ph.D.
-\noindent Co-supervisor: Thanti Mthanti, Ph.D.
+
+\noindent Supervisor: Thanti Mthanti, Ph.D.
 
 \noindent Department: Law, Commerce \& Management
 
@@ -24,14 +25,14 @@ University of the Witwatersrand, 2019
 
 \doublespacing
 
-The purpose of this research is to provide clarity; based on theory and empirical evidence, on what the specific problems in the *operational risk* (OpRisk) literature are, given how its importance has increased significantly over the last decades. There have been a series of destructive events that have threatened the stability of the financial system due to (OpRisk). In most, if not all of these cases, human error is at the center of the chain of events that lead or may lead to (OpRisk) losses.  There are many attitudes that can potentially infect organisational processes, the  most persistent of these attitudes stem from human failings that are exploitable @barberis2003survey, thus forming a basis for the theoretical foundation of \texttt{OpRisk}.
+There have been a series of destructive events that have threatened the stability of the financial system due to (OpRisk). In most, if not all of these cases, human error is at the center of the chain of events that lead or may lead to (OpRisk) losses.  There are many attitudes that can potentially infect organisational processes, the  most persistent of these attitudes stem from human failings that are exploitable @barberis2003survey, thus forming a basis for the theoretical foundation of \texttt{OpRisk}.
 
 @shefrin2016behavioral notes that people would rather incur greater risks to hold on to things they already have, than the risks they would taken to get into that position in the first place, thereby risking a banks' survival, rather than expose their trading losses by consciously deceiving senior management to hide unethical operational practices. In this paper the application of machine learning techniques on the observed data demonstrates how these issues can be resolved given their flexibility to different types of empirical data.
 
 <!-- This code does not include the preliminary pages so I hard coded it -->
 <!-- \hspace{10.5 cm} (\pageref{LastPage} pages) -->
 
-\hspace{11 cm} (128 pages)
+\hspace{11 cm} (116 pages)
 
 
 \singlespacing

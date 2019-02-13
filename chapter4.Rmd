@@ -1,6 +1,7 @@
 ---
 output: pdf_document
 ---
+\doublespacing
 
 \textbf{\section{Introduction}}
 \label{sec:Introduction}
@@ -9,11 +10,12 @@ This section of the paper concentrates on combining various supervised learning 
 
 Motivated by the abundance of data and better data quality, these new data-intensive techniques offer an important tool for ORM and at the same time supporting the call from industry for a new class of EBOR models that capture forward-looking aspects of ORM [@embrechts2018modeling]. Three different machine learning techniques viz., decision trees, random forest, and neural networks, will be employed using R. A comprehensive list of user defined variables associated with root causes that contribute to the accumulation of OpRisk events (frequency) has been provided, moreover, a lot can be gained from this dataset as it also bears the impacts of these covariates on the severity of OpRisk. 
 
-\subsection{Modeling Oprisk: The loss distribution approach (LDA)}
+\textbf{\section{Modeling Oprisk: The loss distribution approach (LDA)}}
+\label{sec:Modeling Oprisk: The loss distribution approach (LDA)}
 
 Twenty-one key risk indicators (kri's) with eight feature groups including person identification, trade origination, root causes and market value sensitivities are in the chosen covariates. For each risk event there is information about: trading risk exposure, trading characteristics, causal factor characteristics and the losses created by these factors. The development, training and validation of the machine learning (ML) models lends itself to this new type of data and requires a higher degree of involvement across operations. Moreover, at this level of granularity the different types of data is particularly suited to exposure-based treatment, and other forward-looking aspects within the OpRisk framework, for improved forecasts of OpRisk losses.\medskip
 
-The aggregated operational losses can be seen as a sum $S$ of a random number $N$ individual operational losses \begin{math} (X_1, \ldots, X_N )\end{math}. The total required capital is the sum of VaR of each BL/ET combination calibrated through the underlying mathematical model whose analytic expression is given by: 
+The aggregated operational losses can be seen as a sum $S$ of a random number $N$ individual operational losses $$(X_1, \ldots, X_N )$$. The total required capital is the sum of VaR of each BL/ET combination calibrated through the underlying mathematical model whose analytic expression is given by: 
 
 \singlespacing
 \begin{equation}\label{eqn4}

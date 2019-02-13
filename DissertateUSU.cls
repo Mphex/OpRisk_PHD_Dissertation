@@ -153,6 +153,7 @@
 
 % Tables
 
+\usepackage{rotating}
 \usepackage{multirow}
 \usepackage{booktabs}
 \usepackage{threeparttable}
