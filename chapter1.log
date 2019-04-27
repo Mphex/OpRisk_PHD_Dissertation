@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730) (preloaded format=pdflatex 2018.7.9)  13 MAR 2019 19:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730) (preloaded format=pdflatex 2018.7.9)  2 FEB 2019 08:52
 entering extended mode
-**./chapter2.tex
-(chapter2.tex
+**./chapter1.tex
+(chapter1.tex
 LaTeX2e <2018-04-01> patch level 5
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
@@ -537,8 +537,9 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip48
 \thanksmargin=\skip49
 \droptitle=\skip50
-) (chapter2.aux)
-\openout1 = `chapter2.aux'.
+)
+No file chapter1.aux.
+\openout1 = `chapter1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
 LaTeX Font Info:    ... okay on input line 84.
@@ -632,9 +633,8 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 84.
 LaTeX Info: Redefining \pageref on input line 84.
 LaTeX Info: Redefining \nameref on input line 84.
-(chapter2.out) (chapter2.out)
 \@outlinefile=\write3
-\openout3 = `chapter2.out'.
+\openout3 = `chapter1.out'.
 
 
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mki
@@ -666,77 +666,16 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 122.
-
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
-File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 122.
-
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
-File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 122
-.
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
-File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 122
-.
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
-File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 122.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 122.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 122.
-LaTeX Font Info:    Try loading font information for U+msa on input line 122.
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-msa.cf
-g"
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 122.
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-msb.cf
-g"
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 122.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 122.
-[1
-
-{C:/Users/User/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-
-LaTeX Font Warning: Command \Large invalid in math mode on input line 262.
-
-
-LaTeX Warning: Reference `BL/ET Matrix' on page 3 undefined on input line 267.
-
-
-! LaTeX Error: Environment tikzpicture undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.271 \begin{tikzpicture}
-                         [every node/.style={minimum size=0.5cm},on grid] 
+! Undefined control sequence.
+l.86 \doublespacing
+                    
 Here is how much of TeX's memory you used:
- 12324 strings out of 492973
- 182048 string characters out of 3127136
- 287687 words of memory out of 3000000
- 15949 multiletter control sequences out of 15000+200000
- 53437 words of font info for 90 fonts, out of 3000000 for 9000
+ 12042 strings out of 492973
+ 176563 string characters out of 3127136
+ 281608 words of memory out of 3000000
+ 15820 multiletter control sequences out of 15000+200000
+ 7559 words of font info for 18 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,11n,38p,973b,338s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,1n,38p,973b,109s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 !  ==> Fatal error occurred, no output PDF file produced!

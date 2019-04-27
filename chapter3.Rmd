@@ -13,35 +13,38 @@ The fundamental premise in the nature behind ORMFs, is to provide an exposure-ba
 
 @einemann2018operational, in a theoretical paper, construct a mathematical framework for an EBOR model to quantify OpRisk for a portfolio of pending litigations. Their work unearths an invaluable contribution to the literature, discussing a strategy on how to integrate EBOR and LDA models by building hybrid frameworks which facilitate the migration of OpRisk types from a *classical* to an exposure-based treatment through a quantitative framework, capturing forward looking aspects of BEICF's [@einemann2018operational], a key source of the OpRisk data.
 
-The measure of exposure we need to use depends specifically on projecting the number of Oprisk event types (frequency of losses) and is different to the measure if the target variable were the severity of the losses. We need historical exposure for experience rating because we need to be able to compare the loss experience of different years on a like-for-like basis and to adjust it to current exposure levels [@parodi2014pricing].\medskip 
+The measure of exposure we need to use depends specifically on projecting the number of OpRisk event types (frequency of losses) as the target variable in the model and is different to the measure if the target variable were the severity of the losses. As per definition  \ref{ssec:Definition of exposure}, the lag represents exposure; we need historical exposure for experience rating because we need to be able to compare the loss experience of different years on a like-for-like basis and to adjust it to current exposure levels [@parodi2014pricing].\medskip 
 
-With reference to section \ref{sec:EBOR methodology for capturing forward-looking aspects of ORM}, the fundamental premise behind the LDA is that each firm's OpRisk losses are a reflection of it's underlying Oprisk exposure. In particular, the assumption behind the use of the poisson model to estimate the frequency of losses, is that both the the intensity (or rate) of occurrence and the opportunity (or exposure) for counting are constant for all available observations.\medskip
+With reference to the current section, Section \ref{sec:EBOR methodology for capturing forward-looking aspects of ORM}, the fundamental premise behind the LDA is that each firm's OpRisk losses are a reflection of it's underlying Oprisk exposure. In particular, the assumption behind the use of the Poisson distribution in the model to estimate the frequency of losses, is that both the the intensity (or rate) of occurrence and the opportunity (or exposure) for counting are constant for all available observations.\medskip
 
 \subsection{Limitations of the EBOR model}
 
-In their model [@einemann2018operational], definition \ref{ssec:Definition of exposure} is particularly well-suited to the specific risk type dealt with in their paper i.e., the portfolio of litigation events, due to better usage of existing information and more plausible model behavior over the litigation life cycle, but is bound to under-perform for many other OpRisk event types, since these EBOR models are typically designed to quantify specific aspects of OpRisk - litigation risk have rather concentrated risk profiles. Furthermore, EBOR models are important due to wide applicability beyond capital calculation and its potential to evolve into an important tool for auditing process and early detection of potential losses.
+In their model [@einemann2018operational], the definition of exposure, Definition \ref{ssec:Definition of exposure}, is particularly well-suited to the specific risk type dealt with in their paper i.e., the portfolio of litigation events, due to better usage of existing information and more plausible model behavior over the litigation life cycle. However, it is bound to under-perform for many other OpRisk event types since these EBOR models are typically designed to quantify specific aspects of OpRisk i.e.,  litigation risk have rather concentrated risk profiles. Furthermore, EBOR models are important due to wide applicability beyond capital calculation and its potential to evolve into an important tool for auditing process and early detection of potential losses.
 
 \textbf{\section{Generalised Linear Models (GLM's)}}
 \label{sec:Generalised Linear Models}
 
-Operational riskiness in FIs grows as trading transactions grow in complexity, i.e. the more complex and numerous activity builds the higher the rate of which new cases occur at. Therefore, the rate of the hazard increases exponentialy over time. The scientifically interesting question is whether the data provides any evidence that the increase in the underlying hazard generation is slowing.\medskip
+Operational riskiness in FIs grows as trading transactions grow in complexity, i.e. the more complex and numerous trading activity builds the higher the rate at which new cases of OpRisk events occur. Therefore, it is likely that the rate of operational hazard may be increasing exponentially over time. The scientifically interesting question is whether the data provides any evidence that the increase in the underlying operational hazard generation is slowing.\medskip
 
-Hence if $\mu$ is the (rate) number of expected new events on day $\tau_i$, then
+The aforementioned postulate provides a plausible model to start investigating this question. The model assumes that if $\mu_i$ is the (rate) number of expected new OpRisk events per time interval $[\tau, \tau+1]$ since the beginning of the data, then $\mu_i$ increases according to:
+
 \singlespacing
 \begin{eqnarray}
-\mu = \gamma \mbox{exp}({\delta\tau_i}) \nonumber
-\end{eqnarray}
-\doublespacing
-can be used as a model, where $\gamma$ and $\delta$ are unknown parameters. Taking a log link turns the model into Generalised Linear Model (GLM) form so that:
-\singlespacing
-\begin{eqnarray}
-\mbox{log}(\mu) = \mbox{log}(\gamma) + \delta\tau_i = \beta_0 + \tau_i\beta_1
+\mu_i = \gamma \mbox{exp}({\delta\tau_i}) \nonumber
 \end{eqnarray}
 \doublespacing
 
-Where the LHS is the rate of hazard over time $\tau$ and $\tau+1$, and the RHS is a linear in the parameters $\beta_0 = \mbox{log}(\gamma)$ and $\beta_1 = \delta$.\medskip
+where $\gamma$ and $\delta$ are unknown parameters. Taking a log link turns the model into Generalised Linear Model (GLM) form so that:
 
-Since the poisson means are low; LossIndicator values are $1$ for realised losses and $0$ for pending losses, or near misses. Amending the model so other situations other than unrestricted spread of  "rogue" events are represented, adapted to the poisson case yields:
+\singlespacing
+\begin{eqnarray}\label{eqn:simplepoisson}
+\mbox{log}(\mu_i) = \mbox{log}(\gamma) + \delta\tau_i = \beta_0 + \tau_i\beta_1
+\end{eqnarray}
+\doublespacing
+
+Where the LHS is the observed number of new cases over time $\tau$ and $\tau+1$, and the RHS is a linear in the parameters $\beta_0 =$ \mbox{log}($\gamma$) and $\beta_1 = \delta$.\medskip
+
+We define a binary variable LossIndicator, which takes on the value $1$ for realised losses, and the value $0$ for pending losses, and/or near misses. The choice of the poisson distribution shows the number of relevant Oprisk event's incidence in a specified time interval $\tau$ and $\tau+1$. A quadratic term ($\beta_2t_i^2$) could be added to the model so that its residual values increase monotonically with time as with the fitted (modelled) values, which usefully approximates other situations which may influence the counts adapted to the poisson case. Amending the RHS of Equation \ref{eqn:simplepoisson} with the quadratic term so other situations other than the unrestricted spread of OpRisk hazards are represented yields: 
 
 \singlespacing
 \begin{eqnarray}\label{eqn:adaptedpoisson}
@@ -51,21 +54,23 @@ Since the poisson means are low; LossIndicator values are $1$ for realised losse
 
 \subsection{GLM for count data}
 
-The LHS of a GLM formula is the model's random component which shows the number of events per trading transaction over FI's portfolio; of which it is an observation given by the independent random variable $Y$, not i.i.d [@wood2006generalized and @covrig2015using]. $Y$ takes a (exponential) family argument, depending on parameters $\lambda$ who represents the average frequency of operational events. It is worth distinguishing between the response data $y$ which is an observation of $Y$.\medskip
+The LHS of a GLM formula is the model's random component i.e., observations of the number of OpRisk transactions over the trading transaction period in an FI's portfolio; given by the independent random variables $y_1, y_2,\ldots, y_n$, not i.i.d [@wood2017generalized, @covrig2015using]. $Y$ takes a (exponential) family argument, depending on parameters $ln\lambda$, where $\lambda$ which represents the average frequency of the OpRisk transactions. It is worth distinguishing between the response data $y_i$ which is an observation of $Y$.\medskip
 
 \textbf{\section{A poisson regression operational hazard model}}
 \label{sec:A poisson regression operational hazard model}
 
-The target variable (LossIndicator) is a count, therefore the poisson distribution is a reasonable distribution to use for modeling. It's probability mass function (pdf) is:
+The target variable (LossIndicator) which shows the number of relevant Oprisk event's incidence in a specified time interval $\tau$ and $\tau+1$, justifying the choice of poisson distribution as a reasonable model for  is count data. It's probability mass function (pdf) is:
+
 \singlespacing
 \begin{eqnarray}\label{eqn:Poisson}
 Y &\sim& \mbox{poisson}(\lambda), \quad f(y;\lambda) = \frac{\lambda^y}{y!}\dot\exp{-y}\\
  &\mbox{where}& \quad y \in  \mathbb{N}, \mbox{and} \quad \lambda > 0 \nonumber
 \end{eqnarray}
 \doublespacing
-the expectation and variance $E[Y] = \mbox{VaR}[Y] = \lambda$\footnotemark{If you were to guess an independent $Y_i$ from a random sample, the best guess is given by this expression} are equal to parameter $\lambda$.\medskip
 
-The RHS is the model's systematic component, and specifies the linear predictor. It builds on equation \ref{eqn:adaptedpoisson} with $p+1$ parameters $\beta = (\beta_0\ldots,\beta_p)^t$ with $p$ explanatory variables:
+the expectation and variance $E[Y] = \mbox{VaR}[Y] = \lambda$\footnote{If you were to guess an independent $Y_i$ from a random sample, the best guess is given by this expression}, are both equal to parameter $\lambda$ simultaneously.
+The RHS of Equation \ref{eqn:Poisson} is the model's systematic component, and it specifies the linear predictor. It builds on equation \ref{eqn:adaptedpoisson} with $p+1$ parameters, $\beta = (\beta_0\ldots,\beta_p)^t$, and $p$ explanatory variables:
+
 \singlespacing
 \begin{eqnarray}
 \nu = \beta_0 + \sum_{j=1}^{p}\beta_jx_{ij}, \qquad \mbox{where} \quad i = 1,\ldots,n
@@ -137,16 +142,17 @@ Identity & Original Continuous Unit \\
 \end{tabular}
 \end{table}
 
-The poisson distribution is restrictive due to the assumption made that the mean and variance of the number of events are equal. However, models for count data where means are low so that the number of zeros and ones in the data is exessive are well adapted to the poisson case [@wood2006generalized]. They characterise situations in OpRisk other than models when the unchecked spreading of negligent behaviour may result in an operational hazard. The negative binomial and/or quasipoisson regression models ascribe to data that exhibits *overdispersion*, wherein the variance is much larger than the mean for basic count data, therefore they have been eliminated in this paper. 
+The poisson distribution is restrictive when applied to approximate counts, due to the assumption made about it that the mean and variance of the number of events are equal. However, in models for count data where means are low so that the number of zeros and ones in the data is exessive are well adapted to the poisson case [@wood2017generalized]. These cases are characteristic of scenarios in OpRisk other than those modeling situations when the unchecked spreading of negligent behaviour may result in an operational hazard. For example, the negative binomial and/or quasipoisson regression models ascribe to data that exhibits *overdispersion*, wherein the variance is much larger than the mean for basic count data, therefore they have been eliminated in this paper. 
 
 \textbf{\section{Research Objective 1}}
 \label{sec:Research Objective 1}
 
-To introduce a generalised additive model for location, scale and shape (GAMLSS) framework for OpRisk management, that captures exposures to forward-looking aspects of the OpRisk loss prediction problem, due to deep hierarchies in the features of covariates in the investment banking (IB) business environment, and internal control risk factors (BEICF) thereof.
+To introduce the generalised additive model for location, scale and shape (GAMLSS) framework for OpRisk management, that captures exposures to forward-looking aspects in the OpRisk loss prediction problem, due to deep hierarchies in the features of covariates in the investment banking (IB) business environment, and internal control risk factors (BEICF) thereof.
 
 \textbf{\section{Exploratory data analysis}}
+\label{sec:Exploratory data analysis}
 
-The main source of the analysis dataset is made up of internal losses for the period between 1 January 2013 and 31st March 2013 at a FI. The method of data generation and collection is at the level of the individual trade deal, wherein deal information is drawn directly from the trade generation and and settlement system (TGSS) and edit detail from attribution reports generated in middle office profit \& loss (MOPL). The raw source consists of two separate datasets on a trade-by-trade basis of daily frequencies (number of events) and associated loss severities.\medskip
+The main source of the analysis dataset is primary data, a collection of internal OpRisk losses for the period between 1 January 2013 and 31st March 2013 at an investment bank in SA. The method of data generation and collection is at the level of the individual trade deal, wherein deal information is drawn directly from the trade generation and and settlement system (TGSS) and edit detail from attribution reports generated in middle office profit \& loss (MOPL). The raw source consists of two separate datasets on a trade-by-trade basis of daily frequencies (number of events) and associated loss severities.\medskip
 
 ```{r, echo=FALSE, results='hide'}
 file_loc <- "C:/Users/User/Documents/OpRiskPHDGitHub/OpRisk_PHD_Dissertate/OpRisk_PHD_Dissertation"
@@ -186,7 +192,7 @@ projdata[] <- lapply(projdata, function(x) if (is.character(x)) toupper(trimws(x
 
 ```
 
-The raw frequency data consists of 58,953 observations of 15 variables, within the dataset there are 50,437 unique trades. The raw severity data consists of 6,766 observations of 20 variables, within the severity dataset there are 2,537 unique trades. The intersection between the frequency and severity datasets consists of 2,330 individual transactions which represent realised losses, pending and/or near misses. This dataset is comprised of 3-month risk correction detail, in the interval between 01 January 2013 and 31 March 2013. \medskip
+The raw frequency data consists of 58,953 observations of 15 variables, within the dataset there are 50,437 unique trades. The raw severity data consists of 6,766 observations of 20 variables; within the severity dataset there are 2,537 unique trades. The intersection between the frequency and severity datasets consists of 2,330 individual transactions which represent realised losses, pending and/or near misses. This dataset is comprised of 3-month risk correction detail, in the interval between 01 January 2013 and 31 March 2013. \medskip
 
 ```{r, echo=FALSE, results='hide'}
 # Load packages
@@ -296,11 +302,11 @@ Covariate     & Levels   & Type \\
 \end{tabular}\label{tab_contents}
 \end{table}
 
-Two new variables are derived from the data; a target variable (LossIndicator) is a binary variable whereupon, a $1$ signifies a realised loss, and $0$ for those pending losses, or near misses. The *exposure* variable is computed by deducting the time between the trade amendment (UpdateTime) and the time when the trade was booked. It is measure that is rougly proportional to the risk of the transaction or a group of transactions. The idea is that if the exposure (e.g. the duration of a trade, the number of allocation(trade splits), etc.) doubles whilst everything else (e.g. the rate, nominal of the splits, and others) remains the same, then the risk also doubles.
+Two new variables are derived from the data; a target variable (LossIndicator) is a binary variable whereupon, a $1$ signifies a realised loss, and $0$ for those pending losses, or near misses. The *exposure* variable is computed by deducting the time between the trade amendment (UpdateTime) and the time when the trade was booked (TradeTime). It is a measure that is meant to be rougly proportional to the risk of the transaction or a group of transactions. The idea is that if the exposure (e.g. the duration of a trade, the number of allocation(trade splits), etc.) doubles whilst everything else (e.g. the rate, nominal of the splits, and others) remains the same, then the risk also doubles.
 
 In R, the GLM function works with two types of covariates/explanatory variables: numeric (continuous) and categorical (factor) variables as depicted in table \ref{tab_contents}. Multi-level categorical variables are recoded by building dummy variables corresponding to each level. This is achieved through an implemented algorithm in R, through a transformation as recommended for the estimation of the GLM, particularly in the estimation of the poisson regression model for count data.
 
-The model revolves around the fact that for each categorical variable (covariate), previously transformed into a dummy variable, one must specify a reference category from which the corresponding observations under the same covariate are estimated and assigned a weight against in the model [@covrig2015using]. By default in the GLM, the first level of the categorical variable is taken as the reference level. As best practice,  @de2008generalized, @frees2010household, @denuit2007actuarial, @cameron2013regression recommend that for each categorical variable one should specify the modal class as the reference level; as this variable corresponds to the level with the highes order of predictability, excluding the dummy variable corrresponding to (weight coefficient = $1$) the biggest absolute frequency.
+The model revolves around the fact that for each categorical variable (covariate), previously transformed into a dummy variable, one must specify a reference category from which the corresponding observations under the same covariate are estimated and assigned a weight against in the model [@covrig2015using]. By default in the GLM, the first level of the categorical variable is taken as the reference level. As best practice,  @de2008generalized, @frees2010household, @denuit2007actuarial, @cameron2013regression and others recommend that for each categorical variable one should specify the modal class as the reference level; as this variable corresponds to the level with the highes order of predictability, excluding the dummy variable corrresponding to (weight coefficient = $0$) the biggest absolute frequency.
 
 \textbf{\section{Description of the dataset}}
 \label{sec:Description of the dataset}
@@ -414,9 +420,9 @@ Grid plots \ref{Exploration_analysis_exposure} portray the logistic function, to
 
 \subsection{Characteristics of the covariates}
 
-The characteristics of the operational risk portfolio are given by the following covariates: *UpdatedDay*, *UpdatedTime* - the day of the month and time of day the OpRisk incident occurs respectively; *TradedDay*, *TradedTime* - the day in the month and time of day the deal was originated respectively; The *LossIndicator*, is a binary variable (two variables): $0$, which indicates pending or near misses, and $1$, if the incident results in a realised loss, meaning that there is significant p\&L impact due to the OpRisk incident.\medskip
+The characteristics of the operational risk portfolio are given by the following covariates: *UpdatedDay*, *UpdatedTime* - the day of the month and time of day the OpRisk incident occurs respectively; *TradedDay*, *TradedTime* - the day in the month and time of day the deal was originated respectively; The *LossIndicator* as indicated before is a binary variable consisting of two values: A $0$, which indicates pending or near misses, and $1$, if the incident results in a realised loss, meaning that there is significant p\&L impact due to the OpRisk incident.\medskip
 
-*Desk*, the location in the portfolio tree the incident originated, a factor variable with 10 categories; *CapturedBy*, the designated analyst who actions the incident, a factor variable with 5 categories; *TraderId*, the trader who originates the deal, a factor variable with 7 categories; *TradeStatus*, the live status of the deal, a factor variable with 4 categories; *Instrument*, the type of deal, a factor variable with 23 categories; *Reason*, a description of the cause of the OpRisk incident, a factor variable with 19 levels; *EventTypeCategoryLevel*, 7 OpRisk event types as per @risk2001supporting, a factor variable with 5 categories; *BusinessLineLevel*, 8 OpRisk business lines as per @risk2001supporting, a factor variable with 8 categories.\medskip
+the *Desk* is the location in the portfolio tree the incident originated, it is a factor variable conisting of 10 categories; *CapturedBy*, the designated analyst who actions the incident, a factor variable consisting of 5 categories; *TraderId*, the trader who originates the deal, a factor variable with 7 categories; *TradeStatus*, the live status of the deal, a factor variable with 4 categories; *Instrument*, the type of deal, a factor variable with 23 categories; *Reason*, a description of the cause of the OpRisk incident, a factor variable with 19 levels; *EventTypeCategoryLevel*, 7 OpRisk event types as per @risk2001supporting, a factor variable with 5 categories; *BusinessLineLevel*, 8 OpRisk business lines as per @risk2001supporting, a factor variable with 8 categories.\medskip
 
 The factor variables were transformed into dummy variables using the following commands:
 \singlespacing
@@ -436,7 +442,7 @@ crs$dataset[["TNM_BusinessLineLevel1"]] <- as.numeric(crs$dataset
 ```
 \doublespacing
 
-The continuous numerical variable *Loss*, shows the financial impact (severity) of the OpRisk incident in Rands, for the most part, (96.1\%) incidents result in pending losses and near misses, most realised losses (2.3\%) lie within [R$200,00$, R$300,000$] range, in the portfolio there are also 5 p\&L impacts higher than R$2.5$ million.\medskip
+The continuous numerical variable *Loss*, shows the financial impact (severity) of the OpRisk incident in Rands. For the most part (i.e. 96.1\% of the time) OpRisk incidents result in pending losses and/or near misses, most realised losses (2.3\%) lie within the [\textbf{R$200,00$}, \textbf{R$300,000$}] range. In the current portfolio there are also five p\&L impacts higher than \textbf{R$2.5$ million}.\medskip
 
 \subsection{Characteristics of daily operational activity}
 
@@ -624,11 +630,11 @@ plot(table(projdata$LossIndicator, projdata$CapturedBy), main="By Tech Support",
     \label{Mosaic_Instr_Trd_Tec}
 \end{figure}
 
-One can notice that the width of the bars corresponding to the different categories, i.e. Instrument, TraderId, CapturedBy, is given by their proportion in the sample.  In particular, for the category 'at least one realised loss', Figure \ref{Mosaic_Trader} portrays a increase "riskiness" trending up from Associate to AMBA, Analyst, Vice Principal, Managing Director, Director, up to the risky ATS category, which are automated trading system generated trades.\medskip
+One can notice that the width of the bars corresponding to the different categories, i.e. Instrument, TraderId, CapturedBy, is given by their proportion in the sample.  In particular, for the category 'at least one realised loss', in the top right mosaic of Figure \ref{Mosaic_Instr_Trd_Tec} portrays a increase in "riskiness" trending up from Associate to AMBA, Analyst, Vice Principal, Managing Director, Director, up to the risky ATS category, which are automated trading system generated trades.\medskip
 
-Figure \ref{Mosaic_Tech_Support} for the category 'at least one realised loss', portrays a decreasing trend, slowing in riskiness from Unauthorised users downward to Tech Support, Mid Office, Prod controller down to the least risky Prod Accountant. This intepretation makes sense given unauthorised users are more likely to make impactful operational errors, technical support personnel would also be accountable for large impacts albiet for contrasting reasons, they are mandated to perform these deal adjustments which have unavoidable impacts associated with them, whereas the former group are unauthorised to perform adjustments therefore may lack the skill, or may have more devious intentions in their actions.\medskip   
+Figure \ref{Mosaic_Instr_Trd_Tec} bottom right mosaic plot for technical support personnel for the category 'at least one realised loss', portrays a downward trend, slowing in riskiness from Unauthorised User downward to Tech Support, Mid Office, Prod Controller down to the least risky Prod Accountant. This intepretation makes sense given unauthorised users are more likely to make impactful operational errors, technical support personnel would also be accountable for large impacts albiet for contrasting reasons, they are mandated to perform these deal adjustments which have unavoidable impacts associated with them, whereas the former group are unauthorised to perform adjustments therefore may lack the skill, or be criminally minded insiders acting on their own or in unison to enable their underhanded practices and intentions without raising any suspicion.\medskip   
 
-In another mosaic plot, (\ref{Mosaic_Contingency}), the bidimensional distribution of transactions by trader and realised vs pending losses, conditional on the trade stautus in presented and analysed. Here, and in the contingency table, Table \ref{tab:Mosaic_Contingency}, we can clearly see the trends: in BO-BO confired status - an increasing realised losses from left (AMBA) to right, and the opposite for transaction performed in BO Confirmed status. Particularly, the biggest number of realised losses in both BO and BO-BO Confirmed statuses are for automated trading systems (ATS).\medskip
+In another mosaic plot, Figure \ref{Mosaic_Contingency}, the bidimensional distribution of transactions by trader and realised vs pending losses, conditional on the trade status is presented and analysed. Here, and in the contingency table, Table \ref{tab:Mosaic_Contingency}, we can clearly see the following trends: In BO-BO confirmed status - an increase in realised losses from the leftmost TraderID (i.e. AMBA) to right, and the opposite for transactions performed in BO Confirmed status (both with two exceptions). In particular, the biggest number of realised losses in both BO and BO-BO Confirmed statuses occur due to automated trading systems (ATS) who also give rise to the exceptions mentioned.\medskip
 
 Table \ref{tab:Mosaic_Contingency} and Figure \ref{Mosaic_Contingency} are obtained with the following commands:
 
@@ -738,7 +744,7 @@ d1 <- d %>%
 ```
 \doublespacing
 
-In calling the GLM we specify the target variable *LossIndicator*; the explanatory variables are composed of of numeric, continuous and categorical variables. Where the variable in the argument of a GLM is categorical , one chose to specify the modal class as the reference level. A user defined function "getmode" has been created and the dataset is reordered using the "relevel" function in ![](C:\Users\User\Documents\OpRiskPHDGitHub\OpRisk_PHD_Dissertate\OpRisk_PHD_Dissertation\figures\smallorb_90.eps){width=5%}. These specifications were achieved in the following code chunk:
+In calling the GLM we specify the target variable *LossIndicator*; the explanatory variables are composed of of numeric, continuous and categorical variables. Where the variable in the argument of a GLM is categorical , one chose to specify the modal class as the reference level. A user defined function "getmode" has been created; it selects the modal observation in each factor, and the dataset is reordered using the *relevel* function in  ![](C:\Users\User\Documents\OpRiskPHDGitHub\OpRisk_PHD_Dissertate\OpRisk_PHD_Dissertation\figures\smallorb_90.eps){width=5%}. These specifications were achieved in the following code chunk:
 
 \singlespacing
 ```{r, results="hide", fig.show="hide", fig.keep="none", echo=TRUE}
@@ -757,9 +763,9 @@ for (i in 5:(ncol(d1) - 3)){
 ```
 \doublespacing
 
-Other GLM arguments; the afore-mentioned link function poisson(link="log"); data=d1, a data frame containing the OpRisk dataset and the r offset=log(exposure)`, that is the variable representing a component known apriori, coefficient $1$, introduced in the linear predictor [@covrig2015using].\medskip
+Other GLM arguments are: The afore-mentioned link function poisson(link="log"); a data frame containing the OpRisk dataset, data=d1; and the r offset=log(exposure), i.e. the variable representing a component known apriori, coefficient= $1$, introduced in the linear predictor [@covrig2015using].\medskip
 
-Firstly, consider a GLM where we introduce two explanatory variables, one numerical variable, *UpdatedTime*, and another categorical variable *Desk*. This will be our global model. We will use *LossesIndicator* as the target variable, while these two unique variables will be explanatory variables:
+Firstly, consider a GLM in which is introduced two explanatory variables, one numerical variable, *UpdatedTime*, and another categorical variable *Desk*. This will be our global model. We will use *LossesIndicator* as the target variable, while these two unique variables will be explanatory variables:
 
 \singlespacing
 ```{r, results="hide", fig.show="hide", fig.keep="none", echo=TRUE}
@@ -768,7 +774,7 @@ freqfit1 <- glm(LossesIndicator ~ UpdatedTime + Desk, data=d1,
 ```
 \doublespacing
 
-The output of the estimation is presented below, where variables who were found to be significant predictors are indicated. The coefficients of the categorical variable *Desk* are reordered and weighted against the modal class *DeskRates*, interestingly the modal class does not show up in the results section (as the coefficient of the modal class = $1$), given that the remaining classes are weighted against it.
+The output result of the estimation is presented below, where variables who were found to be significant predictors are indicated. The coefficients of the categorical variable *Desk* are reordered and weighted against the modal class: *DeskRates*. Interestingly the modal class does not show up in the results section (as the coefficient of the modal class = $0$), given that the remaining classes are weighted against it.
 
 \singlespacing
 ```{r, tidy=TRUE, echo=FALSE}
@@ -777,15 +783,15 @@ summary(freqfit1)
 \doublespacing
 Using this bivariate model, the estimated quarterly OpRisk (LossIndicators) frequency of realised losses for each  *Desk* category (excluding the insignificant ones) are:
 \begin{list}{*}{}
-\item $0,002099618  = e^{-9.2147}\cdot e^{1.7972}\cdot e^{1.2515}$, for the combination of the \textbf{UpdateTime} and \textbf{DeskAfrica} category, which implies that frequency of realised losses for this combination of preditor variables is $3.4955824(=\cdot\exp{1.2515})$ fold (times) higher than the realised loss frequency of OpRisk causes in the reference desk category, viz. the \textbf{Rates} desk. 
-\item $0,003546834 = e^{-9.2147}\cdot e^{1.7972}\cdot e^{1.7758}$, for the combination of the \textbf{UpdateTime} and \textbf{DeskBonds/Repos} category, which implies that frequency of realised losses for this combination of preditor variables is $5,90500325(=\cdot\exp{0.8274})$ fold higher than causes in the reference desk category.
-\item $0,001373903 = e^{-9.2147}\cdot e^{1.7972}\cdot e^{0.8274}$, for the combination, which implies that frequency of realised losses for this combination of preditor variables is $2,287363856(=\cdot\exp{0.8274})$ fold higher than the causes in the reference desk category.
-\item $0,002360693= e^{-9.2147}\cdot e^{1.7972}\cdot e^{1.3687}$, for the combination, which implies that frequency of realised losses for this combination of preditor variables is $3,930238063(=\cdot\exp{1.3687})$ fold higher than the causes in the reference desk category.
+\item $0,002099618  = e^{-9.2147}\cdot e^{1.7972}\cdot e^{1.2515}$, for the combination of the \textbf{UpdateTime} and \textbf{DeskAfrica} category, which implies that frequency of realised losses for this combination of preditor variables is $3.4955824(=\cdot e^{1.2515})$ fold (times) higher than the realised loss frequency of OpRisk causes in the reference desk category, viz. the \textbf{Rates} desk. 
+\item $0,003546834 = e^{-9.2147}\cdot e^{1.7972}\cdot e^{1.7758}$, for the combination of the \textbf{UpdateTime} and \textbf{DeskBonds/Repos} category, which implies that frequency of realised losses for this combination of preditor variables is $5,90500325(=\cdot e^{1.7758})$ fold higher than causes in the reference desk category.
+\item $0,001373903 = e^{-9.2147}\cdot e^{1.7972}\cdot e^{0.8274}$, for the combination, which implies that frequency of realised losses for this combination of preditor variables is $2,287363856(=\cdot e^{0.8274})$ fold higher than the causes in the reference desk category.
+\item $0,002360693= e^{-9.2147}\cdot e^{1.7972}\cdot e^{1.3687}$, for the combination, which implies that frequency of realised losses for this combination of preditor variables is $3,930238063(=\cdot e^{1.3687})$ fold higher than the causes in the reference desk category.
 \item $0,001373903 = e^{-9.2147}\cdot e^{1.7972}\cdot e^{0.8274}$, for the combination with \textbf{DeskMM},an increase of $39\%)$ w.r.t the baseline (the \textbf{Rates} desk)
-\item $0,005012603= e^{-9.2147}\cdot e^{1.7972}\cdot e^{2.1217}$, for the combination, which implies that frequency of realised losses for this combination of preditor variables is $8,345312467(=\cdot\exp{2.1217})$ fold higher than the causes in the reference desk category.
+\item $0,005012603= e^{-9.2147}\cdot e^{1.7972}\cdot e^{2.1217}$, for the combination, which implies that frequency of realised losses for this combination of preditor variables is $8,345312467(=\cdot e^{2.1217})$ fold higher than the causes in the reference desk category.
 \end{list}
 
-The predicted mean frequency of realised losses for OpRisk incident $i$, for the model freqfit1, is given by:
+The predicted mean frequency of realised losses for OpRisk incident $i$, for the model \textbf{freqfit1}, is given by:
 
 \singlespacing
 \begin{eqnarray}
@@ -795,7 +801,7 @@ The predicted mean frequency of realised losses for OpRisk incident $i$, for the
 \end{eqnarray}
 \doublespacing
 
-Ww now fit a more comprehensive model where we introduce more variables, in which show realised losses for quarterly OpRisk incidents for an all inclusive case. We will use "LossesIndicator" as the dependent variable, while the other variables will be predictor variables.
+We now fit a more comprehensive model where we introduce more variables, in which show realised losses for quarterly OpRisk incidents for an all inclusive case. We will use "LossesIndicator" as the dependent variable, while the other variables will be predictor variables.
 
 \singlespacing
 ```{r, results="hide", fig.show="hide", fig.keep="none", echo=TRUE}
@@ -867,7 +873,7 @@ summary(freqfit)
 
 \subsubsection{Model selection and multimodel inference}
 
-The selection of the best model from the list of possible combinations of predictor variables, traditionally follows of a process of propagating backward, comparing goodnes of fit tests at each stage. For example, if we compare the values of the Aikaike information criteria for the bivariate model freqfit1 and the multivariate model freqfit, by AICs; we see that for the first model the value 3225.7 and 2719.2 for the second, which suggests that the model in which we additionaly considered an all inclusive list of predictor variables is prefereble to the first. \medskip
+The selection of the best-fit model from the list of possible combinations of predictor variables traditionally follows of a process removing/adding each variable progressively after each estimation, and propagating backward/forward, comparing goodnes of fit tests at each stage. For example, if we compare the values of the Aikaike information criteria (AIC) for the bivariate model \textbf{freqfit1} and the multivariate model \textbf{freqfit}, by AICs; we see that for the first model the AIC value is 3225.7 and 2719.2 for the second model, which suggests that the second model, \textbf{freqfit}, the model in which we considered an all inclusive list of 15 predictor variables is a better fit since the AIC reduces in magnitude the first, hence \textbf{freqfit} is prefereble to the first. \medskip
 
 In a similar way, we can estimate the models comparing each one which enables one to choose the most appropriate or "best" fit one, by first checking if the model is significant, i.e. if the Residual deviance and the corresponding number of degrees of freedom doesn't have a value significantly bigger than 1: In the latter model $\frac{1821.2}{2252} = 0.808703374$, and then retaining the one with the smaller AIC value.\medskip 
 
@@ -916,6 +922,35 @@ Now we have AICc values for our models and we have the average (mean) model.\med
 
 Multimodel inference leads to more robust inferences, especially in the point of view that the selection of the model used to estimate the mean frequency must, at the same time, serve the ultimate root cause analysis objective of OpRisk control, that decide calculating capital requirement, in OpVaR measures, taking into account as many characteristics of the trading OpRisk dataset as possible, as well considering how the variables interact with each other. 
 
+\textbf{\subsection{Modelling population size of the OpRisk events}}
+
+We have gained initial insights through data exploration in Section \ref{sec:Exploratory data analysis} and then built models. The next critical step is to evaluate our model. For this we need to use a testing dataset whose function is to provide error estimates of the final result. The testing dataset is not used in building or even fine tuning the models that we build, for the sake of model building define a training dataset and a validation dataset to test different parameter setings or different choices of variables in the data mining part of the project.\medskip
+
+We have a population of $K = 2330$ OpRisk events over the first quarter Q12013, and of these events we have a number $N = 371$ of realised losses. $N$ is a discrete random variable modelled as a Poisson variable with rate $\lambda$. Each loss $X_i$ is another random variable with an underlying sverity distribution. How does the size $K$ of the population enter the risk model?. It doesn't appear explicitly in the model [@parodi2014pricing], however, it is taken into account during the creation of the model. Intuitively, the poisson rate $\lambda$ is likely to be proportional to the current OpRisk sample size, or more specifically, it is the rate of some expected operational event over per specified time interval. Predicting test set results and evaluating the parameter $\lambda$
+
+\singlespacing
+```{r, eval=FALSE, results="hide", fig.show="hide", fig.keep="none", echo=TRUE}
+av.pred <- predict(adelmodel, test_set)
+
+MASS::fitdistr(exp(av.pred), "Poisson")
+
+```
+\doublespacing
+
+yields a daily rate of $\lambda = 0.001840831$ or 0.1840831\% per day.\medskip 
+ 
+By a simple growth formula, five years of data  (20 quarters) i.e., 3 months * 20 = 5 years:  
+
+\singlespacing
+\begin{eqnarray}
+5yr_Population &=& Initial_Population * (1 + \lambda)^n \nonumber \\
+5yr_Population &=& 2330*(1+0.18009498)^20 \nonumber \\
+5yr_Population &=& 63929
+\end{eqnarray}
+\doublespacing
+ 
+corresponds to a 5yr population of $63929$ observations. What remains is to use the extrapolation script to generate the simulated dataset.
+
 \textbf{\section{The estimation of some  generalised additive models for location scale and shape (GAMLSS) for severity of loss}}
 \label{sec:The estimation of some  generalised additive models for location scale and shape (GAMLSS) for severity of loss}
 
@@ -924,9 +959,10 @@ We introduce a Box-Cox Power Exponential distribution (BCPE), which is a four pa
 The pdf of the BCPE distribution is defined as:
 \singlespacing
 \begin{eqnarray}
-f(y|\mu,\sigma,\nu,\tau)&=&(y^{(\nu-1)/\mu^nu)}\cdot{frac{\tau}{\sigma}}\cdot \frac{e^(-0.5\cdot|\frac{z}{c}|^\tau)}{(c\cdot 2^(1+\frac{1}{tau})}\cdot \Gamma(\frac{1}{\tau}))\mbox{where}\\
- c=[2^(\frac{-2}{\tau})\cdot \frac{\Gamma(\frac{1}{\tau})}{\Gamma(\frac{3}{\tau})}]^(0.5)&,& \quad \mbox{where if} \qquad \nu!=0 \quad \mbox{then} \qquad z=\frac{(\frac{y}{\mu})^\nu-1}{\nu\cdot \sigma}\mbox{else}\\
- z=\frac{log\frac{y}{\mu}}{\sigma}&,& \quad \mbox{for} \quad y>0, \mu>0, \sigma>0, \nu=(\mbox{-Inf,+Inf})\quad \mbox{and}\quad \tau>0.
+f(y|\mu,\sigma,\nu,\tau)&=&(y^{(\nu-1)/\mu^nu)}\cdot{\frac{\tau}{\sigma}}\cdot \frac{e^(-0.5\cdot|\frac{z}{c}|^\tau)}{(c\cdot 2^(1+\frac{1}{tau})}\cdot \Gamma(\frac{1}{\tau}))\nonumber\\
+\mbox{where} \quad c&=&[2^(\frac{-2}{\tau})\cdot\frac{\Gamma(\frac{1}{\tau})}{\Gamma(\frac{3}{\tau})}]^{0.5},\quad \mbox{where if}\quad \nu!=0, \quad \mbox{then} \nonumber\\
+Z&=&\frac{(\frac{y}{\mu})^\nu-1}{\nu\cdot \sigma},\quad \mbox{else} \quad z=\frac{log\frac{y}{\mu}}{\sigma},\nonumber\\
+\mbox{for} \quad y>0 &,& \mu>0, \sigma>0, \nu=(\mbox{-Inf,+Inf})\quad \mbox{and}\quad \tau>0.
 \end{eqnarray}
 \doublespacing
 

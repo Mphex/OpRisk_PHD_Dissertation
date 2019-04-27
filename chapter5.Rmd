@@ -76,7 +76,7 @@ The plot displays the 'sum(withinss)' for each clustering and the change in this
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.7]{IterateKmeans.eps}
+\includegraphics[width=15cm, height=7.5cm]{IterateKmeans.eps}
 \caption{Finding the optimal number of \emph{k} groups by the Silhouette Statistic SS: Sum is a  measure to approximate the optimal number of \emph{k} groups by the Silhouette Statistic SS}
 \label{IterateKmeans}
 \end{figure}
@@ -120,7 +120,7 @@ Rattle timestamp: 2018-12-13 07:22:48 User
 
 \begin{sidewaysfigure}
 \centering
-\includegraphics[width=250mm,scale=1.5]{CA14MeansPlot.eps}
+\includegraphics[width=22.5cm, height=15cm]{CA14MeansPlot.eps}
 \caption{A scatterplot matrix for the \emph{k}-means clustering of size 4, and the covariates of frequency loss events consisting of 369 loss event frequencies amounting to R 61 534 745 P\&L severity of loss impact.}
 \label{CA14MeansPlot}
 \end{sidewaysfigure}

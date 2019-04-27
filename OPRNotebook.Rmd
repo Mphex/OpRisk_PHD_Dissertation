@@ -1,9 +1,11 @@
 
 ---
-title: 'Marginal Mediation Analysis: A New Framework for Interpretable Mediated Effects'
-author: "Tyson S. Barrett"
+title: "Towards a Framework for Operational Risk in the Banking Sector"
+author: "Mphekeleli Hoohlo"
 csl: ref_format.csl
 output:
+  html_document:
+    df_print: paged
   html_notebook: default
   pdf_document:
     includes:
@@ -25,17 +27,24 @@ nocite: |
   @Hastie2009
 documentclass: DissertateUSU
 params:
-  chair: Ginger Lockhart, Ph.D.
-  committee1: Jamison Fargo, Ph.D.
-  committee2: Rick Cruz, Ph.D.
-  committee3: Michael Levin, Ph.D.
-  committee4: Adele Cutler, Ph.D.
+  chair: Eric Schaling, Ph.D.
+  committee1: Thanti Mthanti, Ph.D.
+  committee2: Odongo Kodongo, Ph.D.
+  committee3: Thabang Mokoaleli-Mokoteli, Ph.D.
+  committee4: Christopher Malikane, Ph.D.
   degree: Doctor of Philosophy
-  field: Quantitative Psychology
-  gradschool: Mark McLellan, Ph.D.
-  year: '2018'
+  field: Risk Theory (Finance)
+  gradschool: Paul Alagidede, Ph.D.
+  year: '2019'
 bibliography: Diss.bib
 ---
+
+```{r setup}
+
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+
+```
+
 
 
 ```{r global_options, include=FALSE}
@@ -131,11 +140,11 @@ dissertateUSU::preamble_for_title()
 
 <!-- Chapter 2 -->
 \newpage
-\fancyhead[L]{Average Marginal Effects}
+\fancyhead[L]{Literature Review}
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 
-\chapter{AVERAGE MARGINAL EFFECTS}
+\chapter{LITERATURE REVIEW}
 ```{r child = 'chapter2.Rmd'}
 ```
 
@@ -143,11 +152,11 @@ dissertateUSU::preamble_for_title()
 
 <!-- Chapter 3 -->
 \newpage
-\fancyhead[L]{Marginal Mediation Analysis}
+\fancyhead[L]{Exposure-based Operational Risk Analysis}
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 
-\chapter{MARGINAL MEDIATION ANALYSIS}
+\chapter{EBOR OPRISK ANALYSIS}
 ```{r child = 'chapter3.Rmd'}
 ```
 

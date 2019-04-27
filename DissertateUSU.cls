@@ -28,6 +28,14 @@
 \newcommand{\triplespaced}{\setstretch {2.6}}
 %}}}
 
+\newtheorem{definition}{Definition}[subsection]
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[subsection]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+
+\newtheorem{proposition}[theorem]{Proposition}
+
 % Text layout.
 \usepackage{ragged2e}
 \RaggedRight
@@ -152,7 +160,10 @@
 
 
 % Tables
-
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+\usepackage{pgfplots}
 \usepackage{rotating}
 \usepackage{multirow}
 \usepackage{booktabs}
